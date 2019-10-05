@@ -1,0 +1,66 @@
+{
+  "name": "@debtcollective/tools",
+  "version": "0.8.5",
+  "description": "Disputes app tools",
+  "author": "Orlando Del Aguila <orlando@hashlabs.com>",
+  "homepage": "https://github.com/debtcollective/disputes#readme",
+  "license": "BSD-3-Clause",
+  "main": "src/index.js",
+  "directories": {
+    "src": "src",
+    "test": "__tests__"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "files": [
+    "src"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debtcollective/disputes.git"
+  },
+  "scripts": {
+    "pre-commit": "lint-staged",
+    "test": "jest",
+    "test:ci": "yarn test:coverage",
+    "test:coverage": "jest --coverage --verbose --color --passWithNoTests",
+    "test:watch": "jest --watch"
+  },
+  "bugs": {
+    "url": "https://github.com/debtcollective/disputes/issues"
+  },
+  "dependencies": {
+    "lodash": "4.17.15"
+  },
+  "devDependencies": {
+    "@babel/core": "7.6.0",
+    "@babel/plugin-transform-runtime": "7.6.0",
+    "@testing-library/react": "9.2.0",
+    "babel-eslint": "10.0.3",
+    "babel-jest": "24.9.0",
+    "babel-plugin-styled-components": "1.10.6",
+    "core-js": "3.2.1",
+    "eslint": "6.5.1",
+    "eslint-plugin-flowtype": "4.3.0",
+    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-jest": "22.17.0",
+    "eslint-plugin-promise": "4.2.1",
+    "eslint-plugin-react": "7.14.3",
+    "flow-bin": "0.108.0",
+    "jest": "24.9.0",
+    "jest-dom": "3.5.0",
+    "lint-staged": "9.4.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier-eslint --write",
+      "flow focus-check",
+      "git add"
+    ],
+    "*.{json,md}": [
+      "prettier-eslint --write",
+      "git add"
+    ]
+  }
+}

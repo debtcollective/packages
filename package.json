@@ -1,0 +1,26 @@
+{
+  "name": "@debtcollective/packages",
+  "private": true,
+  "repository": "https://github.com/debtcollective/packages.git",
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "pre-commit": "lerna run pre-commit --concurrency 1 --since HEAD",
+    "pretty-quick": "pretty-quick",
+    "setup:ci": "lerna run setup:ci",
+    "test": "lerna run test:coverage",
+    "test:ci": "lerna run test:ci"
+  },
+  "devDependencies": {
+    "husky": "3.0.7",
+    "lerna": "3.16.4",
+    "prettier-eslint-cli": "5.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn pre-commit",
+      "post-commit": "git update-index --again"
+    }
+  }
+}

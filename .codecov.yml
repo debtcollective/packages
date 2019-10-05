@@ -1,0 +1,15 @@
+coverage:
+  status:
+    patch:
+      default:
+        target: 80%
+    project:
+      default: off
+      tools:
+        target: 80%
+        flags: tools
+
+flags:
+  tools:
+    paths:
+      - packages/tools/
