@@ -1288,6 +1288,13 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
+"@stencil/core@^1.8.8":
+  version "1.8.10"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.8.10.tgz#4ef6c9675d42dfa40a498521cdefd79147071c5f"
+  integrity sha512-4PRvsEWZtIREx0Nx4BZ3GRxe3ad8QyQ4zNd8Enp6a4P54wHkN3CPT2Hyk3YjbycwDaCXfoIOd6N96pe1EBB4qQ==
+  dependencies:
+    typescript "3.8.2"
+
 "@testing-library/dom@^6.3.0":
   version "6.4.1"
   resolved "https://registry.yarnpkg.com/@testing-library/dom/-/dom-6.4.1.tgz#4efd38d896b9b2255025acf9567e2360e1f4814f"
@@ -7714,6 +7721,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typescript@3.8.2:
+  version "3.8.2"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
+  integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
 
 typescript@^3.2.1:
   version "3.5.2"
