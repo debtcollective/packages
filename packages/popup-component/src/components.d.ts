@@ -10,7 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface MyComponent {
+  interface TdcPopup {
     /**
     * The first name
     */
@@ -29,18 +29,18 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {}
-  var HTMLMyComponentElement: {
-    prototype: HTMLMyComponentElement;
-    new (): HTMLMyComponentElement;
+  interface HTMLTdcPopupElement extends Components.TdcPopup, HTMLStencilElement {}
+  var HTMLTdcPopupElement: {
+    prototype: HTMLTdcPopupElement;
+    new (): HTMLTdcPopupElement;
   };
   interface HTMLElementTagNameMap {
-    'my-component': HTMLMyComponentElement;
+    'tdc-popup': HTMLTdcPopupElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface MyComponent {
+  interface TdcPopup {
     /**
     * The first name
     */
@@ -56,7 +56,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'my-component': MyComponent;
+    'tdc-popup': TdcPopup;
   }
 }
 
@@ -66,7 +66,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'my-component': LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+      'tdc-popup': LocalJSX.TdcPopup & JSXBase.HTMLAttributes<HTMLTdcPopupElement>;
     }
   }
 }
