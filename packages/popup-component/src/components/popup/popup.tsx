@@ -1,32 +1,57 @@
-import { Component, Prop, h } from "@stencil/core";
-import { format } from "../../utils/utils";
+import { Component, Prop, State, h } from "@stencil/core";
 
 @Component({
   tag: "tdc-popup",
-  styleUrl: "popup.css",
+  styleUrl: "popup.scss",
   shadow: true
 })
 export class MyComponent {
   /**
-   * The first name
+   * Title
    */
-  @Prop() first: string;
+  @Prop() title: string;
 
   /**
-   * The middle name
+   * Date
    */
-  @Prop() middle: string;
+  @Prop() date: string;
 
   /**
-   * The last name
+   * If false the component will be hidden
    */
-  @Prop() last: string;
+  @State() open: boolean = true;
 
-  private getText(): string {
-    return format(this.first, this.middle, this.last);
+  private close(): void {
+    this.open = false;
   }
 
   render() {
-    return <div>Hello, World! I'm {this.getText()}</div>;
+    if (!this.open) {
+      return null;
+    }
+
+    return (
+      <div class="notification alert" role="alert">
+        <div class="notification-col">
+          <div class="notification__title">{this.title}</div>
+          <div class="notification__date">Updated {this.date}</div>
+        </div>
+        <div class="notification-col">
+          <div class="notification__content">
+            {/* This is used by Stencil to pass HTML to components, just like react's children */}
+            <slot />
+          </div>
+        </div>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="alert"
+          aria-label="Close"
+          onClick={() => this.close()}
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+    );
   }
 }
