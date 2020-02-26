@@ -13,6 +13,12 @@ $xs: 576px;
 $spacer: 1rem;
 $font-size-base: 24px;
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
 .close {
   color: #000;
   cursor: pointer;
@@ -55,7 +61,8 @@ $font-size-base: 24px;
   @media (max-width: $xs) {
     flex-direction: column;
     height: auto;
-    width: calc(100% - #{$grid-gutter-width});
+    width: 100%;
+    padding: 40px;
   }
 
   .close {
