@@ -34,7 +34,9 @@ export class MyComponent {
       <div class="notification alert" role="alert">
         <div class="notification-col">
           <div class="notification__title">{this.title}</div>
-          <div class="notification__date">Updated {this.date}</div>
+          {this.date ? (
+            <div class="notification__date">Updated {this.date}</div>
+          ) : null}
         </div>
         <div class="notification-col">
           <div class="notification__content">

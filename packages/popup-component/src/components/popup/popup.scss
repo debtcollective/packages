@@ -1,23 +1,4 @@
-$blue: #d8f6ff;
-$red: #ff4630;
-$purple: #dac4f5;
-$green: #d6ffb8;
-$yellow: #ffed9c;
-$gray: #2b2b2b;
-$beige: #faf9f5;
-$white: #ffffff;
-$black: #000000;
-$grid-gutter-width: 40px;
-$zindex-fixed: 1030;
-$xs: 576px;
-$spacer: 1rem;
-$font-size-base: 24px;
-
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
+@import "shared.scss";
 
 .close {
   color: #000;
@@ -41,6 +22,8 @@ $font-size-base: 24px;
 }
 
 .notification {
+  color: $gray;
+  font-family: "Libre Franklin", sans-serif;
   align-items: center;
   background: $white;
   border-radius: 0.25rem;
@@ -54,15 +37,15 @@ $font-size-base: 24px;
   padding: 1.5rem;
   position: fixed;
   right: $grid-gutter-width / 2;
-  width: 28.75rem;
+  width: 32rem;
   max-width: 100%;
   z-index: $zindex-fixed;
+  flex-direction: column;
+  height: auto;
+  padding: 40px;
 
   @media (max-width: $xs) {
-    flex-direction: column;
-    height: auto;
     width: 100%;
-    padding: 40px;
   }
 
   .close {
@@ -91,16 +74,13 @@ $font-size-base: 24px;
   }
 
   &__content {
+    margin-top: 0.5rem;
     font-size: $font-size-base * 0.55;
     text-align: left;
-    margin-left: $spacer * 1.5;
-
-    @media (max-width: $xs) {
-      margin-left: 0;
-    }
   }
 
   &__title {
+    font-family: "More Gothic Bold", Impact, sans-serif !important;
     font-size: $font-size-base * 1.5;
     line-height: 0.85;
 
