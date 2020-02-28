@@ -1,0 +1,97 @@
+@import "shared.scss";
+
+.close {
+  color: #000;
+  cursor: pointer;
+  float: right;
+  font-size: 2.25rem;
+  font-weight: 600;
+  line-height: 1;
+  opacity: 0.5;
+  text-shadow: 0 1px 0 #fff;
+
+  &:hover {
+    color: #000;
+    text-decoration: none;
+  }
+
+  &:not(:disabled):not(.disabled):hover,
+  &:not(:disabled):not(.disabled):focus {
+    opacity: 0.75;
+  }
+}
+
+.notification {
+  color: $gray;
+  font-family: "Libre Franklin", sans-serif;
+  align-items: center;
+  background: $white;
+  border-radius: 0.25rem;
+  border: 0.125rem solid $black;
+  bottom: $grid-gutter-width / 2;
+  box-shadow: 0 0.875rem 1.75rem rgba(0, 0, 0, 0.25),
+    0 0.625rem 0.625rem rgba(0, 0, 0, 0.22);
+  display: flex;
+  flex-direction: row;
+  height: 11rem;
+  padding: 1.5rem;
+  position: fixed;
+  right: $grid-gutter-width / 2;
+  width: 32rem;
+  max-width: calc(100% - #{$grid-gutter-width});
+  z-index: $zindex-fixed;
+  flex-direction: column;
+  height: auto;
+  padding: 40px;
+  cursor: pointer;
+
+  @media (max-width: $xs) {
+    width: 100%;
+  }
+
+  .close {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+  }
+
+  &-col {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+    text-align: center;
+
+    @media (max-width: $xs) {
+      margin-top: $spacer;
+    }
+  }
+
+  &__content {
+    margin-top: 0.5rem;
+    font-size: $font-size-base * 0.55;
+    text-align: left;
+  }
+
+  &__title {
+    font-family: "More Gothic Bold", Impact, sans-serif !important;
+    font-size: $font-size-base * 1.5;
+    line-height: 0.85;
+
+    @media (max-width: $xs) {
+      margin-bottom: $spacer * 0.5;
+    }
+  }
+
+  &__date {
+    color: #808080;
+    font-size: $font-size-base * 0.375;
+  }
+}
