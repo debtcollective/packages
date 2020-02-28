@@ -38,7 +38,7 @@
   position: fixed;
   right: $grid-gutter-width / 2;
   width: 32rem;
-  max-width: 100%;
+  max-width: calc(100% - #{$grid-gutter-width});
   z-index: $zindex-fixed;
   flex-direction: column;
   height: auto;
