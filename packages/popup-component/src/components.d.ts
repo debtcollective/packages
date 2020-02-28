@@ -16,9 +16,13 @@ export namespace Components {
     */
     'date': string;
     /**
-    * Title
+    * Hero
     */
-    'title': string;
+    'hero': string;
+    /**
+    * URL
+    */
+    'url': string;
   }
 }
 
@@ -42,9 +46,13 @@ declare namespace LocalJSX {
     */
     'date'?: string;
     /**
-    * Title
+    * Hero
     */
-    'title'?: string;
+    'hero'?: string;
+    /**
+    * URL
+    */
+    'url'?: string;
   }
 
   interface IntrinsicElements {

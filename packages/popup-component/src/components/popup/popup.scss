@@ -43,6 +43,7 @@
   flex-direction: column;
   height: auto;
   padding: 40px;
+  cursor: pointer;
 
   @media (max-width: $xs) {
     width: 100%;

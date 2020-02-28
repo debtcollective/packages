@@ -7,9 +7,14 @@ import { Component, Prop, State, h } from "@stencil/core";
 })
 export class MyComponent {
   /**
-   * Title
+   * Hero
    */
-  @Prop() title: string;
+  @Prop() hero: string;
+
+  /**
+   * URL
+   */
+  @Prop() url: string = "https://strike.debtcollective.org";
 
   /**
    * Date
@@ -21,7 +26,8 @@ export class MyComponent {
    */
   @State() open: boolean = true;
 
-  private close(): void {
+  private close(e: UIEvent): void {
+    e.stopPropagation();
     this.open = false;
   }
 
@@ -31,9 +37,9 @@ export class MyComponent {
     }
 
     return (
-      <div class="notification alert" role="alert">
+      <div class="notification" onClick={() => window.open(this.url)}>
         <div class="notification-col">
-          <div class="notification__title">{this.title}</div>
+          <div class="notification__title">{this.hero}</div>
           {this.date ? (
             <div class="notification__date">Updated {this.date}</div>
           ) : null}
@@ -47,9 +53,8 @@ export class MyComponent {
         <button
           type="button"
           class="close"
-          data-dismiss="alert"
           aria-label="Close"
-          onClick={() => this.close()}
+          onClick={e => this.close(e)}
         >
           <span aria-hidden="true">&times;</span>
         </button>
