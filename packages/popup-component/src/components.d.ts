@@ -10,7 +10,7 @@ import { HTMLStencilElement, JSXBase } from '@stencil/core/internal';
 
 
 export namespace Components {
-  interface TdcPopup {
+  interface DcPopup {
     /**
     * Date
     */
@@ -29,18 +29,18 @@ export namespace Components {
 declare global {
 
 
-  interface HTMLTdcPopupElement extends Components.TdcPopup, HTMLStencilElement {}
-  var HTMLTdcPopupElement: {
-    prototype: HTMLTdcPopupElement;
-    new (): HTMLTdcPopupElement;
+  interface HTMLDcPopupElement extends Components.DcPopup, HTMLStencilElement {}
+  var HTMLDcPopupElement: {
+    prototype: HTMLDcPopupElement;
+    new (): HTMLDcPopupElement;
   };
   interface HTMLElementTagNameMap {
-    'tdc-popup': HTMLTdcPopupElement;
+    'dc-popup': HTMLDcPopupElement;
   }
 }
 
 declare namespace LocalJSX {
-  interface TdcPopup {
+  interface DcPopup {
     /**
     * Date
     */
@@ -56,7 +56,7 @@ declare namespace LocalJSX {
   }
 
   interface IntrinsicElements {
-    'tdc-popup': TdcPopup;
+    'dc-popup': DcPopup;
   }
 }
 
@@ -66,7 +66,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
   export namespace JSX {
     interface IntrinsicElements {
-      'tdc-popup': LocalJSX.TdcPopup & JSXBase.HTMLAttributes<HTMLTdcPopupElement>;
+      'dc-popup': LocalJSX.DcPopup & JSXBase.HTMLAttributes<HTMLDcPopupElement>;
     }
   }
 }

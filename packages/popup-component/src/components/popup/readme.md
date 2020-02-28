@@ -7,11 +7,11 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+| Property | Attribute | Description | Type     | Default                               |
+| -------- | --------- | ----------- | -------- | ------------------------------------- |
+| `date`   | `date`    | Date        | `string` | `undefined`                           |
+| `hero`   | `hero`    | Hero        | `string` | `undefined`                           |
+| `url`    | `url`     | URL         | `string` | `"https://strike.debtcollective.org"` |
 
 
 ----------------------------------------------

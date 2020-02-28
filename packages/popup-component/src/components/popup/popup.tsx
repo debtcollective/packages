@@ -1,11 +1,11 @@
 import { Component, Prop, State, h } from "@stencil/core";
 
 @Component({
-  tag: "tdc-popup",
+  tag: "dc-popup",
   styleUrl: "popup.scss",
   shadow: true
 })
-export class MyComponent {
+export class DcPopup {
   /**
    * Hero
    */
