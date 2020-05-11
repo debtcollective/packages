@@ -18,10 +18,9 @@
     "build": "stencil build --docs",
     "generate": "stencil generate",
     "start": "stencil build --dev --watch --serve",
-    "test:ci": "yarn test:coverage",
-    "test:coverage": "yarn jest --coverage --passWithNoTests",
-    "test:watch": "stencil test --spec --e2e --watchAll",
-    "test": "stencil test --spec --e2e"
+    "test": "stencil test --spec --e2e",
+    "test:ci": "yarn test --coverage",
+    "test:watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
     "@stencil/core": "1.12.7",
