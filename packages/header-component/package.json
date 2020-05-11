@@ -1,0 +1,31 @@
+{
+  "name": "@debtcollective/dc-header-component",
+  "version": "0.0.1",
+  "description": "Stencil header component for debtcollective web apps",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/types/index.d.ts",
+  "collection": "dist/collection/collection-manifest.json",
+  "collection:main": "dist/collection/index.js",
+  "unpkg": "dist/header-component/header-component.js",
+  "files": [
+    "dist/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "stencil build --docs",
+    "start": "stencil build --dev --watch --serve",
+    "test": "stencil test --spec --e2e",
+    "test.watch": "stencil test --spec --e2e --watchAll",
+    "generate": "stencil generate"
+  },
+  "devDependencies": {
+    "@stencil/core": "1.12.7",
+    "@types/jest": "^25.2.1",
+    "@types/node": "^13.13.5",
+    "rollup-plugin-dotenv": "^0.2.0"
+  },
+  "license": "MIT"
+}
