@@ -3,7 +3,7 @@ jobs:
   test:
     working_directory: ~/packages
     docker:
-      - image: circleci/node:12.16.1
+      - image: circleci/node:12.16.1-browsers
 
     steps:
       - checkout
@@ -21,7 +21,7 @@ jobs:
           command: yarn setup:ci
       - run:
           name: test
-          command: yarn test:ci
+          command: yarn run test:ci
       - run:
           name: codecov
           command: npx codecov
@@ -33,13 +33,13 @@ jobs:
   publish:
     working_directory: ~/packages
     docker:
-      - image: circleci/node:12.16.1
+      - image: circleci/node:12.16.1-browsers
     steps:
       - attach_workspace:
           at: ~/packages
       - add_ssh_keys:
           fingerprints:
-            - "90:19:0a:60:b7:db:f6:43:89:09:32:c2:95:c6:67:7f"
+            - '90:19:0a:60:b7:db:f6:43:89:09:32:c2:95:c6:67:7f'
       - run:
           name: configure git
           command: |
@@ -55,7 +55,7 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: publish packages
-          command: "yarn lerna publish --yes"
+          command: 'yarn lerna publish --yes'
 
 workflows:
   version: 2
