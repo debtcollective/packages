@@ -6,7 +6,7 @@
   "module": "dist/index.mjs",
   "es2015": "dist/esm/index.mjs",
   "es2017": "dist/esm/index.mjs",
-  "types": "dist/types/index.d.ts",
+  "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
   "unpkg": "dist/header-component/header-component.js",
@@ -30,7 +30,7 @@
     "puppeteer": "2.1.1",
     "rollup-plugin-dotenv": "^0.2.0"
   },
-  "@comments" : {
+  "@comments": {
     "scripts": {
       "test:ci": "TODO: set it to 'yarn test --coverage' enable this when we fix the issue with dotenv"
     }
