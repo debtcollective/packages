@@ -11,9 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * change types definition path ([5b928eb](https://github.com/debtcollective/packages/commit/5b928eb))
 
 
+### Features
 
-
-
-## [0.8.8](https://github.com/debtcollective/packages/compare/v0.8.7...v0.8.8) (2020-02-28)
-
-**Note:** Version bump only for package @debtcollective/dc-popup-component
+* **header:** add new stencil component ([75b41df](https://github.com/debtcollective/packages/commit/75b41df))
