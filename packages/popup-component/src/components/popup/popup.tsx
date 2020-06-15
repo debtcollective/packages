@@ -38,26 +38,26 @@ export class DcPopup {
 
     return (
       <div class="notification" onClick={() => window.open(this.url)}>
-        <div class="notification-col">
-          <div class="notification__title">{this.hero}</div>
-          {this.date ? (
-            <div class="notification__date">Updated {this.date}</div>
-          ) : null}
-        </div>
-        <div class="notification-col">
-          <div class="notification__content">
-            {/* This is used by Stencil to pass HTML to components, just like react's children */}
-            <slot />
+        <div class="flex-row">
+          <div class="notification-col">
+            <div class="notification__title">{this.hero}</div>
+            {this.date ? (
+              <div class="notification__date">Updated {this.date}</div>
+            ) : null}
+            <div class="notification__content">
+              {/* This is used by Stencil to pass HTML to components, just like react's children */}
+              <slot />
+            </div>
           </div>
+          <button
+            type="button"
+            class="close"
+            aria-label="Close"
+            onClick={e => this.close(e)}
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-        <button
-          type="button"
-          class="close"
-          aria-label="Close"
-          onClick={e => this.close(e)}
-        >
-          <span aria-hidden="true">&times;</span>
-        </button>
       </div>
     );
   }
