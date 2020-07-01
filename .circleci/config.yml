@@ -3,7 +3,7 @@ jobs:
   test:
     working_directory: ~/packages
     docker:
-      - image: circleci/node:12.16.1-browsers
+      - image: circleci/node:12.18.2-browsers
 
     steps:
       - checkout
@@ -33,7 +33,7 @@ jobs:
   publish:
     working_directory: ~/packages
     docker:
-      - image: circleci/node:12.16.1-browsers
+      - image: circleci/node:12.18.2-browsers
     steps:
       - attach_workspace:
           at: ~/packages
