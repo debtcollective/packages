@@ -30,7 +30,7 @@ export class DcPopup {
   componentWillLoad() {
     const heroMessageCookie = Cookies.get('hero-message');
     const isSameMessage = heroMessageCookie === this.hero;
-    
+
     if (heroMessageCookie && isSameMessage) {
       this.open = false;
     }
@@ -39,6 +39,10 @@ export class DcPopup {
   private close(e: UIEvent): void {
     e.stopPropagation();
     this.open = false;
+  }
+
+  private closeAndStoreCookie(e: UIEvent): void {
+    this.close(e);
     Cookies.set("hero-message", this.hero);
   }
 
@@ -72,8 +76,8 @@ export class DcPopup {
         <button
           type="button"
           class="notification__action"
-          aria-label="got it"
-          onClick={e => this.close(e)}
+          aria-label="close popup"
+          onClick={e => this.closeAndStoreCookie(e)}
           >
             Ok, got it!
         </button>
