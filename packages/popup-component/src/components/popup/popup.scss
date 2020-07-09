@@ -94,6 +94,29 @@
     color: #808080;
     font-size: $font-size-base * 0.375;
   }
+
+  &__action {
+    height: 3rem;
+    width: 11.25rem;
+    font-size: 1.25rem;
+    padding: .5rem 1rem;
+    border-radius: .3rem;
+    border: none;
+    margin-top: 2rem;
+    padding: .5rem 1rem;
+    font-weight: bold;
+    color: $white;
+    background:$light-green;
+    border: 1px solid $light-green;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #1e9a82;
+      transition: background-color 0.2s;
+      border-color: #1c8f79;
+    }
+  }
 }
 
 .flex-row {

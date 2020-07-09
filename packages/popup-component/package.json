@@ -22,6 +22,9 @@
     "test:ci": "yarn run test --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
+  "dependencies": {
+    "js-cookie": "^2.2.1"
+  },
   "devDependencies": {
     "@stencil/core": "^1.8.8",
     "@stencil/sass": "1.1.1",
