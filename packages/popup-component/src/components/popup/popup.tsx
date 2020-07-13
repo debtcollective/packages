@@ -1,4 +1,5 @@
 import { Component, Prop, State, h } from "@stencil/core";
+import Cookies from 'js-cookie';
 
 @Component({
   tag: "dc-popup",
@@ -26,9 +27,23 @@ export class DcPopup {
    */
   @State() open: boolean = true;
 
+  componentWillLoad() {
+    const heroMessageCookie = Cookies.get('hero-message');
+    const isSameMessage = heroMessageCookie === this.hero;
+
+    if (heroMessageCookie && isSameMessage) {
+      this.open = false;
+    }
+  }
+
   private close(e: UIEvent): void {
     e.stopPropagation();
     this.open = false;
+  }
+
+  private closeAndStoreCookie(e: UIEvent): void {
+    this.close(e);
+    Cookies.set("hero-message", this.hero);
   }
 
   render() {
@@ -58,6 +73,14 @@ export class DcPopup {
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
+        <button
+          type="button"
+          class="notification__action"
+          aria-label="close popup"
+          onClick={e => this.closeAndStoreCookie(e)}
+          >
+            Ok, got it!
+        </button>
       </div>
     );
   }
