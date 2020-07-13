@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.10.0](https://github.com/debtcollective/packages/compare/v0.9.1...v0.10.0) (2020-07-13)
+
+
+### Features
+
+* **pop-up:** improve styles, add scss variables and handle proportions in rems ([90663c0](https://github.com/debtcollective/packages/commit/90663c0))
+* **popup:** do not display pop up component unless hero message changes ([7f14a50](https://github.com/debtcollective/packages/commit/7f14a50))
+
+
+
+
+
 ## [0.9.1](https://github.com/debtcollective/packages/compare/v0.9.0...v0.9.1) (2020-06-15)
 
 

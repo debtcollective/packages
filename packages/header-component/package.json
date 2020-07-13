@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/dc-header-component",
-  "version": "0.9.0",
+  "version": "0.10.0",
   "description": "Stencil header component for debtcollective web apps",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
