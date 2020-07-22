@@ -10,15 +10,15 @@
     "src": "src",
     "test": "__tests__"
   },
-  "publishConfig": {
-    "access": "public"
-  },
   "files": [
     "src"
   ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/debtcollective/disputes.git"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "pre-commit": "lint-staged",
