@@ -19,7 +19,6 @@
     "generate": "stencil generate",
     "start": "stencil build --dev --watch --serve",
     "test": "stencil test --spec --e2e",
-    "test:ci": "yarn run test --coverage",
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
