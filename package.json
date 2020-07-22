@@ -6,6 +6,7 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "lerna run build",
     "pre-commit": "lerna run pre-commit --concurrency 1 --since HEAD",
     "pretty-quick": "pretty-quick",
     "setup:ci": "lerna run setup:ci",
