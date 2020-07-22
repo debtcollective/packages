@@ -22,7 +22,7 @@
   },
   "scripts": {
     "pre-commit": "lint-staged",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:ci": "jest --coverage --verbose --color --passWithNoTests",
     "test:watch": "jest --watch"
   },

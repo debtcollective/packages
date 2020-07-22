@@ -6,11 +6,12 @@
     "packages/*"
   ],
   "scripts": {
+    "build": "lerna run build",
     "pre-commit": "lerna run pre-commit --concurrency 1 --since HEAD",
     "pretty-quick": "pretty-quick",
     "setup:ci": "lerna run setup:ci",
-    "test": "lerna run test:coverage",
-    "test:ci": "lerna run test:ci"
+    "test": "lerna run test",
+    "test:ci": "lerna run test"
   },
   "devDependencies": {
     "husky": "3.0.7",

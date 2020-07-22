@@ -18,8 +18,7 @@
     "build": "stencil build --docs",
     "generate": "stencil generate",
     "start": "stencil build --dev --watch --serve",
-    "test": "stencil test --spec --e2e",
-    "test:ci": "echo 'tests disabled'",
+    "test": "echo 'pending'",
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
@@ -28,11 +27,11 @@
     "@types/node": "^13.13.5",
     "@types/puppeteer": "2.0.1",
     "puppeteer": "2.1.1",
-    "rollup-plugin-dotenv": "^0.2.0"
+    "rollup-plugin-dotenv": "0.3.0"
   },
   "@comments": {
     "scripts": {
-      "test:ci": "TODO: set it to 'yarn test --coverage' enable this when we fix the issue with dotenv"
+      "test": "TODO: set it to 'stencil test --spec --e2e' enable this when we fix the issue with dotenv"
     }
   },
   "license": "MIT"
