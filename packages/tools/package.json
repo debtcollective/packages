@@ -45,7 +45,7 @@
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jest": "23.7.0",
     "eslint-plugin-promise": "4.2.1",
-    "eslint-plugin-react": "7.14.3",
+    "eslint-plugin-react": "7.20.3",
     "flow-bin": "0.118.0",
     "jest": "24.9.0",
     "jest-dom": "4.0.0",
