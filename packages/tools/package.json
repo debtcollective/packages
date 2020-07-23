@@ -41,7 +41,7 @@
     "babel-plugin-styled-components": "1.10.7",
     "core-js": "3.6.4",
     "eslint": "6.5.1",
-    "eslint-plugin-flowtype": "4.6.0",
+    "eslint-plugin-flowtype": "4.7.0",
     "eslint-plugin-import": "2.18.2",
     "eslint-plugin-jest": "23.18.0",
     "eslint-plugin-promise": "4.2.1",
