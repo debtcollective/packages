@@ -1322,19 +1322,12 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
-"@stencil/core@1.12.7":
-  version "1.12.7"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.12.7.tgz#ce2da841c824b22caa085a325724db67cc49a0cb"
-  integrity sha512-Ob+xncjuHebjSHqOGh9acXx0Jw2rSTzGP1XiYNKYQnoFtcvKpGqLhr2ibWqS1Z40aEwgI/OvYYldfWsp/C+0mw==
+"@stencil/core@1.16.5":
+  version "1.16.5"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.16.5.tgz#c7c6f50abce3cf68f23d8984e97ba77fa6bd9aff"
+  integrity sha512-70srOdtpEg0sIS2V4x/BJfQpNDJnuMnJXoY3KkKywLE3DdLnM5zQogsfX+NyKzQACx9qLh18sVSBNIartAvjgA==
   dependencies:
-    typescript "3.8.3"
-
-"@stencil/core@1.8.10":
-  version "1.8.10"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.8.10.tgz#4ef6c9675d42dfa40a498521cdefd79147071c5f"
-  integrity sha512-4PRvsEWZtIREx0Nx4BZ3GRxe3ad8QyQ4zNd8Enp6a4P54wHkN3CPT2Hyk3YjbycwDaCXfoIOd6N96pe1EBB4qQ==
-  dependencies:
-    typescript "3.8.2"
+    typescript "3.9.7"
 
 "@stencil/sass@1.1.1":
   version "1.1.1"
@@ -8031,15 +8024,10 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@3.8.2:
-  version "3.8.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.2.tgz#91d6868aaead7da74f493c553aeff76c0c0b1d5a"
-  integrity sha512-EgOVgL/4xfVrCMbhYKUQTdF37SQn4Iw73H5BgCrF1Abdun7Kwy/QZsE/ssAy0y4LxBbvua3PIbFsbRczWWnDdQ==
-
-typescript@3.8.3:
-  version "3.8.3"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.8.3.tgz#409eb8544ea0335711205869ec458ab109ee1061"
-  integrity sha512-MYlEfn5VrLNsgudQTVJeNaQFUAI7DkhnOjdpAp4T+ku1TfQClewlbSuTVHiA+8skNBgaf02TL/kLOvig4y3G8w==
+typescript@3.9.7:
+  version "3.9.7"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.9.7.tgz#98d600a5ebdc38f40cb277522f12dc800e9e25fa"
+  integrity sha512-BLbiRkiBzAwsjut4x/dsibSTB6yWpwT5qWmC2OfuCg3GgVQCSgMs4vEctYPhsaGtd0AeuuHMkjZ2h2WG8MSzRw==
 
 typescript@^3.2.1:
   version "3.5.2"
