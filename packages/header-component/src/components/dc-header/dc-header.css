@@ -1,5 +1,7 @@
 :host {
   --brand-color: #ff4630;
+  --button-color: #2dcbad;
+  --button-hover-color: #52d9bf;
   --text-color: #2b2b2b;
   --font-size: 1rem;
   --column-gap: 15px;
@@ -97,12 +99,12 @@
 }
 
 :host .btn-session {
-  background: #2dcbad;
+  background: var(--button-color);
   color: #fff;
 }
 
 :host .btn-session:hover {
-  background: #52d9bf;
+  background: var(--button-hover-color);
 }
 
 :host .btn-session + .btn-session {
