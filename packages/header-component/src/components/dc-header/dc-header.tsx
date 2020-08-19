@@ -37,6 +37,7 @@ export class Header {
    * Logo image
    */
   private _logo = "logo.png";
+  private _logoSmall = "logo-small.png";
 
   /**
    * Host the value of "links" parsed to an actual Array
@@ -63,16 +64,24 @@ export class Header {
 
     return (
       <header class="header">
-        <a class="logo-link" href="/">
+        <a class="logo-link d-md-flex" href="/">
           <img
             class="logo"
             src={getAssetPath(`./assets/${this._logo}`)}
             alt="The Debtcollective"
           />
         </a>
+        <button class="btn-transparent logo-link d-md-none">
+          <img
+            class="logo"
+            src={getAssetPath(`./assets/${this._logoSmall}`)}
+            alt="The Debtcollective"
+          />
+          <span class="material-icons ml-1">keyboard_arrow_right</span>
+        </button>
         <nav class="nav">
           {this._links.map(({ text, href }) => (
-            <div class="nav-item">
+            <div class="nav-item d-md-flex">
               <a class="nav-link" href={href}>
                 {text}
               </a>
