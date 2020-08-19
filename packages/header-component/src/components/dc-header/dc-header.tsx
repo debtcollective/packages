@@ -4,7 +4,7 @@ import {
   preffixCommunityURL,
   getAvatarURL,
   signupURL,
-  loginURL,
+  loginURL
 } from "../../utils/community";
 
 type User = {
@@ -18,7 +18,7 @@ type User = {
   assetsDirs: ["assets"],
   tag: "dc-header",
   styleUrl: "dc-header.css",
-  shadow: true,
+  shadow: true
 })
 export class Header {
   /**
@@ -78,34 +78,34 @@ export class Header {
               </a>
             </div>
           ))}
-          <div class="session-items">
-            {user ? (
-              <a
-                id="current-user"
-                href={preffixCommunityURL(`u/${user.username}`)}
-                target="_blank"
-              >
-                <img
-                  alt="Profile picture"
-                  width="32"
-                  height="32"
-                  src={getAvatarURL(user)}
-                  title={user.username}
-                  class="avatar"
-                />
-              </a>
-            ) : (
-              <div class="session-links">
-                <a href={signupURL} class="btn btn-session">
-                  Sign up
-                </a>
-                <a href={loginURL} class="btn btn-session">
-                  Login
-                </a>
-              </div>
-            )}
-          </div>
         </nav>
+        <div class="session-items">
+          {user ? (
+            <a
+              id="current-user"
+              href={preffixCommunityURL(`u/${user.username}`)}
+              target="_blank"
+            >
+              <img
+                alt="Profile picture"
+                width="32"
+                height="32"
+                src={getAvatarURL(user)}
+                title={user.username}
+                class="avatar"
+              />
+            </a>
+          ) : (
+            <div class="session-links">
+              <a href={signupURL} class="btn btn-session">
+                Sign up
+              </a>
+              <a href={loginURL} class="btn btn-session">
+                Login
+              </a>
+            </div>
+          )}
+        </div>
       </header>
     );
   }

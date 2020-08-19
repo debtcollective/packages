@@ -1,6 +1,7 @@
 :host {
   --brand-color: #ff4630;
   --text-color: #2b2b2b;
+  --font-size: 1rem;
   --column-gap: 15px;
   --main-bg-color: #fbfbfb;
   --z-index: 1000;
@@ -22,7 +23,7 @@
   display: flex;
   font-family: var(--main-font);
   height: 5rem;
-  justify-content: space-between;
+  justify-content: flex-start;
   left: 0;
   padding: 0 var(--column-gap);
   position: fixed;
@@ -33,7 +34,12 @@
 
 /* Logo */
 :host .logo {
+  /* 2.667em is the size of logo within the community */
   height: 2.667em;
+  margin-right: 1rem;
+  position: relative;
+  /* Fix correction of logo image to exactly center with nav text */
+  top: 2px;
   width: auto;
 }
 
@@ -41,6 +47,7 @@
 :host .nav {
   align-items: center;
   display: flex;
+  flex: 1;
 }
 
 :host .nav-item {
