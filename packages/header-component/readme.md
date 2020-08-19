@@ -14,10 +14,14 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ## Getting Started
 
+For header to have the dynamic variables you need to `cp .env.sample .env` then simple run.
+
 ```bash
 npm install
 npm start
 ```
+
+> In order to have a sense over the community session, you need to have the application running and make sure COMMUNITY_URL variable match the application *(is set to localhost port 3000 by default)*. Ultimately, you will need to allow CORS on the community app in that sense: Admin > Settings > CORS > add `http://lvh.me:3333`
 
 To build the component for production, run:
 
