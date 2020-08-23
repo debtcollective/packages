@@ -18,8 +18,6 @@ export class Menu {
    */
   @Prop() open: boolean;
 
-  @Prop() links: Array<{ text: string; href: string }>;
-
   @Event() toggleMenu: EventEmitter<void>;
 
   /**
@@ -53,13 +51,7 @@ export class Menu {
             </button>
           </div>
           <nav class="menu-nav">
-            {this.links.map(({ text, href }) => (
-              <div class="nav-item">
-                <a class="nav-link" href={href}>
-                  {text}
-                </a>
-              </div>
-            ))}
+            <slot />
           </nav>
         </div>
       </div>

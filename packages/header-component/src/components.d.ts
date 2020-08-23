@@ -17,7 +17,6 @@ export namespace Components {
         "links": string;
     }
     interface DcMenu {
-        "links": Array<{ text: string; href: string }>;
         /**
           * Wether or not the mobile menu is displayed
          */
@@ -54,7 +53,6 @@ declare namespace LocalJSX {
         "links"?: string;
     }
     interface DcMenu {
-        "links"?: Array<{ text: string; href: string }>;
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
         /**
           * Wether or not the mobile menu is displayed

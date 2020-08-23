@@ -45,6 +45,33 @@ Instead, use a prefix that fits your company or any name for a group of related 
 
 ## Using this component
 
+You can render the default styles with links you pass as props like:
+
+```html
+<dc-header links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'></dc-header>
+```
+
+Alternatively, you can choose to inject your own structure by doing something like:
+
+```html
+<dc-header>
+  <div slot="header">
+    <div class="nav-item d-md-flex">
+      <a class="nav-link" href='http://debtcollective.org/'>
+        About us
+      </a>
+    </div>
+  </div>
+  <div slot="menu">
+    <div class="nav-item">
+      <a class="nav-link" href='http://debtcollective.org/'>
+        About us (Just menu)
+      </a>
+    </div>
+  </div>
+</dc-header>
+```
+
 ### Script tag
 
 - [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)

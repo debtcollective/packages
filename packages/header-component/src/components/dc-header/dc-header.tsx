@@ -65,6 +65,11 @@ export class Header {
 
   @Watch("links")
   linksDidChangeHandler(newValue) {
+    if (!newValue) {
+      this._links = [];
+      return;
+    }
+
     this._links = JSON.parse(newValue);
   }
 
@@ -112,13 +117,15 @@ export class Header {
             <span class="material-icons ml-1">keyboard_arrow_right</span>
           </button>
           <nav class="nav">
-            {this._links.map(({ text, href }) => (
-              <div class="nav-item d-md-flex">
-                <a class="nav-link" href={href}>
-                  {text}
-                </a>
-              </div>
-            ))}
+            <slot name="header">
+              {this._links.map(({ text, href }) => (
+                <div class="nav-item d-md-flex">
+                  <a class="nav-link" href={href}>
+                    {text}
+                  </a>
+                </div>
+              ))}
+            </slot>
           </nav>
           <div class="session-items">
             {user ? (
@@ -148,7 +155,17 @@ export class Header {
             )}
           </div>
         </header>
-        <dc-menu open={this.isMenuOpen} links={this._links} />
+        <dc-menu open={this.isMenuOpen}>
+          <slot name="menu">
+            {this._links.map(({ text, href }) => (
+              <div class="nav-item">
+                <a class="nav-link" href={href}>
+                  {text}
+                </a>
+              </div>
+            ))}
+          </slot>
+        </dc-menu>
       </Host>
     );
   }
