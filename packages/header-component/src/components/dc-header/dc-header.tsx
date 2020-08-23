@@ -21,6 +21,8 @@ type User = {
   admin: boolean;
   avatar_template: string;
   username: string;
+  unread_notifications: number;
+  unread_high_priority_notifications: number;
 };
 
 @Component({
@@ -130,14 +132,30 @@ export class Header {
           <div class="session-items">
             {user ? (
               [
-                <a href={preffixCommunityURL(`u/${user.username}/messages`)}>
-                  <div id="inbox" class="icons material-icons">
-                    email
+                <a
+                  class="notification-link"
+                  href={preffixCommunityURL(`u/${user.username}/messages`)}
+                >
+                  <div class="notification-icon icons">
+                    <div id="inbox" class="material-icons">
+                      email
+                    </div>
+                    <span class="badge-notification unread-private-messages">
+                      {user.unread_high_priority_notifications}
+                    </span>
                   </div>
                 </a>,
-                <a href={preffixCommunityURL(`u/${user.username}/notifications`)}>
-                  <div id="notifications" class="icons material-icons">
-                    notifications
+                <a
+                  class="notification-link"
+                  href={preffixCommunityURL(`u/${user.username}/notifications`)}
+                >
+                  <div class="notification-icon icons">
+                    <div id="notifications" class="material-icons">
+                      notifications
+                    </div>
+                    <span class="badge-notification unread-notifications">
+                      {user.unread_notifications}
+                    </span>
                   </div>
                 </a>,
                 <a
