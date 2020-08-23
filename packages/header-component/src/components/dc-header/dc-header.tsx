@@ -1,5 +1,15 @@
-import { Component, Prop, State, h, Watch, getAssetPath } from "@stencil/core";
+import {
+  Component,
+  Prop,
+  State,
+  h,
+  Watch,
+  getAssetPath,
+  Host,
+  Listen
+} from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
+import "./dc-menu";
 import {
   preffixCommunityURL,
   getAvatarURL,
@@ -34,6 +44,11 @@ export class Header {
   @State() user?: User;
 
   /**
+   * Wether or not the menu is displayed
+   */
+  @State() isMenuOpen: boolean;
+
+  /**
    * Logo image
    */
   private _logo = "logo.png";
@@ -47,6 +62,15 @@ export class Header {
   @Watch("links")
   linksDidChangeHandler(newValue) {
     this._links = JSON.parse(newValue);
+  }
+
+  @Listen('toggleMenu')
+  toggleMenuHandler() {
+    this.toggleMenu()
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen
   }
 
   async syncCurrentUser() {
@@ -63,59 +87,65 @@ export class Header {
     const user = this.user;
 
     return (
-      <header class="header">
-        <a class="logo-link d-md-flex" href="/">
-          <img
-            class="logo"
-            src={getAssetPath(`./assets/${this._logo}`)}
-            alt="The Debtcollective"
-          />
-        </a>
-        <button class="btn-transparent logo-link d-md-none">
-          <img
-            class="logo"
-            src={getAssetPath(`./assets/${this._logoSmall}`)}
-            alt="The Debtcollective"
-          />
-          <span class="material-icons ml-1">keyboard_arrow_right</span>
-        </button>
-        <nav class="nav">
-          {this._links.map(({ text, href }) => (
-            <div class="nav-item d-md-flex">
-              <a class="nav-link" href={href}>
-                {text}
+      <Host>
+        <header class="header">
+          <a class="logo-link d-md-flex" href="/">
+            <img
+              class="logo"
+              src={getAssetPath(`./assets/${this._logo}`)}
+              alt="The Debtcollective"
+            />
+          </a>
+          <button
+            class="btn-transparent logo-link d-md-none"
+            onClick={this.toggleMenuHandler.bind(this)}
+          >
+            <img
+              class="logo"
+              src={getAssetPath(`./assets/${this._logoSmall}`)}
+              alt="The Debtcollective"
+            />
+            <span class="material-icons ml-1">keyboard_arrow_right</span>
+          </button>
+          <nav class="nav">
+            {this._links.map(({ text, href }) => (
+              <div class="nav-item d-md-flex">
+                <a class="nav-link" href={href}>
+                  {text}
+                </a>
+              </div>
+            ))}
+          </nav>
+          <div class="session-items">
+            {user ? (
+              <a
+                id="current-user"
+                href={preffixCommunityURL(`u/${user.username}`)}
+                target="_blank"
+              >
+                <img
+                  alt="Profile picture"
+                  width="32"
+                  height="32"
+                  src={getAvatarURL(user)}
+                  title={user.username}
+                  class="avatar"
+                />
               </a>
-            </div>
-          ))}
-        </nav>
-        <div class="session-items">
-          {user ? (
-            <a
-              id="current-user"
-              href={preffixCommunityURL(`u/${user.username}`)}
-              target="_blank"
-            >
-              <img
-                alt="Profile picture"
-                width="32"
-                height="32"
-                src={getAvatarURL(user)}
-                title={user.username}
-                class="avatar"
-              />
-            </a>
-          ) : (
-            <div class="session-links">
-              <a href={signupURL} class="btn btn-session">
-                Sign up
-              </a>
-              <a href={loginURL} class="btn btn-session">
-                Login
-              </a>
-            </div>
-          )}
-        </div>
-      </header>
+            ) : (
+              <div class="session-links">
+                <a href={signupURL} class="btn btn-session">
+                  Sign up
+                </a>
+                <a href={loginURL} class="btn btn-session">
+                  Login
+                </a>
+              </div>
+            )}
+          </div>
+        </header>
+        <dc-menu open={this.isMenuOpen} links={this._links} />
+      </Host>
     );
   }
 }

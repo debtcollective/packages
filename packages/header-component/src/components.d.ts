@@ -12,6 +12,13 @@ export namespace Components {
          */
         "links": string;
     }
+    interface DcMenu {
+        "links": Array<{ text: string; href: string }>;
+        /**
+          * Wether or not the mobile menu is displayed
+         */
+        "open": boolean;
+    }
 }
 declare global {
     interface HTMLDcHeaderElement extends Components.DcHeader, HTMLStencilElement {
@@ -20,8 +27,15 @@ declare global {
         prototype: HTMLDcHeaderElement;
         new (): HTMLDcHeaderElement;
     };
+    interface HTMLDcMenuElement extends Components.DcMenu, HTMLStencilElement {
+    }
+    var HTMLDcMenuElement: {
+        prototype: HTMLDcMenuElement;
+        new (): HTMLDcMenuElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-header": HTMLDcHeaderElement;
+        "dc-menu": HTMLDcMenuElement;
     }
 }
 declare namespace LocalJSX {
@@ -31,8 +45,17 @@ declare namespace LocalJSX {
          */
         "links"?: string;
     }
+    interface DcMenu {
+        "links"?: Array<{ text: string; href: string }>;
+        "onToggleMenu"?: (event: CustomEvent<void>) => void;
+        /**
+          * Wether or not the mobile menu is displayed
+         */
+        "open"?: boolean;
+    }
     interface IntrinsicElements {
         "dc-header": DcHeader;
+        "dc-menu": DcMenu;
     }
 }
 export { LocalJSX as JSX };
@@ -40,6 +63,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
+            "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
         }
     }
 }

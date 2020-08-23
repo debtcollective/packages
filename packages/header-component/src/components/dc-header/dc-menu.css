@@ -1,0 +1,46 @@
+:host .menu-container.open .menu {
+  transform: translate3d(0, 0, 0);
+}
+
+:host .menu-container.hidden .menu {
+  transform: translate3d(-100%, 0, 0);
+}
+
+:host .menu {
+  -webkit-backface-visibility: hidden;
+  align-items: flex-start;
+  backface-visibility: hidden;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  font-family: var(--main-font);
+  height: 100vh;
+  justify-content: flex-start;
+  left: 0;
+  padding: 0 var(--column-gap);
+  transition: transform ease 0.216s;
+  position: absolute;
+  top: 0;
+  width: 75%;
+  z-index: var(--z-index);
+}
+
+:host .menu-cloak {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  z-index: var(--z-index);
+}
+
+:host .menu-container.open .menu-cloak {
+  display: block;
+}
+
+:host .menu-container.hidden .menu-cloak {
+  display: none;
+}
