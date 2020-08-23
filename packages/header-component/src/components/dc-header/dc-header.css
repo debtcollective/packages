@@ -1,7 +1,7 @@
 :host {
   --brand-color: #ff4630;
-  --button-color: #2dcbad;
-  --button-hover-color: #52d9bf;
+  --button-color: #ff4630;
+  --button-hover-color: #ee2812;
   --text-color: #2b2b2b;
   --font-size: 1rem;
   --column-gap: 15px;
@@ -115,22 +115,32 @@
 :host .btn {
   align-items: center;
   border-radius: 0.25rem;
+  cursor: pointer;
   display: flex;
   justify-content: space-between;
-  padding: 0.375rem 0.625rem;
+  padding: 0.5rem 1rem;
   transition: background 0.216s ease, color 0.216s ease;
 }
 
-:host .btn-session {
+:host .btn-outline {
+  background: transparent;
+  border: 0.0625rem solid var(--text-color);
+  color: var(--text-color);
+}
+
+:host .btn-primary,
+:host .btn-outline:hover {
   background: var(--button-color);
+  border: 0.0625rem solid var(--button-color);
   color: #fff;
 }
 
-:host .btn-session:hover {
+:host .btn-primary:hover {
+  border: 0.0625rem solid var(--button-hover-color);
   background: var(--button-hover-color);
 }
 
-:host .btn-session + .btn-session {
+:host .header .btn + .btn {
   margin-left: 0.4375rem;
 }
 

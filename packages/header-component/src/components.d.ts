@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DcHeader {
         /**
+          * Link to follow in order to prompt user to donate
+         */
+        "donateURL": string;
+        /**
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links": string;
@@ -40,6 +44,10 @@ declare global {
 }
 declare namespace LocalJSX {
     interface DcHeader {
+        /**
+          * Link to follow in order to prompt user to donate
+         */
+        "donateURL"?: string;
         /**
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */

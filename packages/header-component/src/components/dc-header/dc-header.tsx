@@ -13,7 +13,6 @@ import "./dc-menu";
 import {
   preffixCommunityURL,
   getAvatarURL,
-  signupURL,
   loginURL
 } from "../../utils/community";
 
@@ -36,6 +35,11 @@ export class Header {
    * this string needs to be JSON (able to JSON.parse)
    */
   @Prop() links: string;
+
+  /**
+   * Link to follow in order to prompt user to donate
+   */
+  @Prop() donateURL: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -134,11 +138,11 @@ export class Header {
               </a>
             ) : (
               <div class="session-links">
-                <a href={signupURL} class="btn btn-session">
-                  Sign up
+                <a href={loginURL} class="btn btn-outline">
+                  <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
-                <a href={loginURL} class="btn btn-session">
-                  Login
+                <a href={this.donateURL} class="btn btn-primary">
+                  Donate
                 </a>
               </div>
             )}
