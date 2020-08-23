@@ -95,9 +95,6 @@
   padding: 0.2143em;
   padding-right: 0;
   cursor: pointer;
-  border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
   outline: none;
 }
 
@@ -113,10 +110,6 @@
   padding: 0.2143em;
   text-decoration: none;
   cursor: pointer;
-  /* Try to replicate community CSS */
-  border-top: 1px solid transparent;
-  border-left: 1px solid transparent;
-  border-right: 1px solid transparent;
 }
 
 :host .avatar,
