@@ -103,7 +103,25 @@
 
 /* Header session items */
 :host .session-items {
+  display: flex;
+  align-items: center;
   margin-left: 1rem;
+}
+
+:host .session-items .icons {
+  font-size: 1.25rem;
+  padding: 0.2143em;
+  text-decoration: none;
+  cursor: pointer;
+  /* Try to replicate community CSS */
+  border-top: 1px solid transparent;
+  border-left: 1px solid transparent;
+  border-right: 1px solid transparent;
+}
+
+:host .avatar,
+:host .session-items .icons {
+  margin-left: .5rem;
 }
 
 :host .session-links {
@@ -154,9 +172,8 @@
 
 /* Margin utils */
 .ml-1 {
-  margin-left: .25rem;
+  margin-left: 0.25rem;
 }
-
 
 /* Media queries utils */
 :host .d-md-flex {
@@ -182,10 +199,10 @@
 /* Make sure material-icons class have its effect */
 :host .material-icons {
   color: var(--text-color);
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
-  font-size: 24px;  /* Preferred icon size */
+  font-size: 24px; /* Preferred icon size */
   display: inline-block;
   line-height: 1;
   text-transform: none;
@@ -203,5 +220,5 @@
   -moz-osx-font-smoothing: grayscale;
 
   /* Support for IE. */
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga";
 }

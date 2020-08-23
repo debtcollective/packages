@@ -129,20 +129,32 @@ export class Header {
           </nav>
           <div class="session-items">
             {user ? (
-              <a
-                id="current-user"
-                href={preffixCommunityURL(`u/${user.username}`)}
-                target="_blank"
-              >
-                <img
-                  alt="Profile picture"
-                  width="32"
-                  height="32"
-                  src={getAvatarURL(user)}
-                  title={user.username}
-                  class="avatar"
-                />
-              </a>
+              [
+                <a href={preffixCommunityURL(`u/${user.username}/messages`)}>
+                  <div id="inbox" class="icons material-icons">
+                    email
+                  </div>
+                </a>,
+                <a href={preffixCommunityURL(`u/${user.username}/notifications`)}>
+                  <div id="notifications" class="icons material-icons">
+                    notifications
+                  </div>
+                </a>,
+                <a
+                  id="current-user"
+                  href={preffixCommunityURL(`u/${user.username}`)}
+                  target="_blank"
+                >
+                  <img
+                    alt="Profile picture"
+                    width="32"
+                    height="32"
+                    src={getAvatarURL(user)}
+                    title={user.username}
+                    class="avatar"
+                  />
+                </a>
+              ]
             ) : (
               <div class="session-links">
                 <a href={loginURL} class="btn btn-outline">
