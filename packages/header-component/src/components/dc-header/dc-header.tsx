@@ -10,11 +10,8 @@ import {
 } from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
-import {
-  preffixCommunityURL,
-  getAvatarURL,
-  loginURL
-} from "../../utils/community";
+import "./dc-user-items";
+import { loginURL } from "../../utils/community";
 
 type User = {
   id: number;
@@ -131,48 +128,7 @@ export class Header {
           </nav>
           <div class="session-items">
             {user ? (
-              [
-                <a
-                  class="notification-link"
-                  href={preffixCommunityURL(`u/${user.username}/messages`)}
-                >
-                  <div class="notification-icon icons">
-                    <div id="inbox" class="material-icons">
-                      email
-                    </div>
-                    <span class="badge-notification unread-private-messages">
-                      {user.unread_high_priority_notifications}
-                    </span>
-                  </div>
-                </a>,
-                <a
-                  class="notification-link"
-                  href={preffixCommunityURL(`u/${user.username}/notifications`)}
-                >
-                  <div class="notification-icon icons">
-                    <div id="notifications" class="material-icons">
-                      notifications
-                    </div>
-                    <span class="badge-notification unread-notifications">
-                      {user.unread_notifications}
-                    </span>
-                  </div>
-                </a>,
-                <a
-                  id="current-user"
-                  href={preffixCommunityURL(`u/${user.username}`)}
-                  target="_blank"
-                >
-                  <img
-                    alt="Profile picture"
-                    width="32"
-                    height="32"
-                    src={getAvatarURL(user)}
-                    title={user.username}
-                    class="avatar"
-                  />
-                </a>
-              ]
+              <dc-user-items user={user} />
             ) : (
               <div class="session-links">
                 <a href={loginURL} class="btn btn-outline">

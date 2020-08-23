@@ -22,6 +22,19 @@ export namespace Components {
          */
         "open": boolean;
     }
+    interface DcUserItems {
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user": {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
+    }
 }
 declare global {
     interface HTMLDcHeaderElement extends Components.DcHeader, HTMLStencilElement {
@@ -36,9 +49,16 @@ declare global {
         prototype: HTMLDcMenuElement;
         new (): HTMLDcMenuElement;
     };
+    interface HTMLDcUserItemsElement extends Components.DcUserItems, HTMLStencilElement {
+    }
+    var HTMLDcUserItemsElement: {
+        prototype: HTMLDcUserItemsElement;
+        new (): HTMLDcUserItemsElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
+        "dc-user-items": HTMLDcUserItemsElement;
     }
 }
 declare namespace LocalJSX {
@@ -59,9 +79,23 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    interface DcUserItems {
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user"?: {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
+    }
     interface IntrinsicElements {
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
+        "dc-user-items": DcUserItems;
     }
 }
 export { LocalJSX as JSX };
@@ -70,6 +104,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
+            "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
         }
     }
 }
