@@ -14,14 +14,15 @@
   box-shadow: 0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   display: flex;
+  flex-direction: column;
   font-family: var(--main-font);
   height: 100vh;
   justify-content: flex-start;
   left: 0;
-  padding: 0 var(--column-gap);
-  transition: transform ease 0.216s;
+  padding: 0;
   position: absolute;
   top: 0;
+  transition: transform ease 0.216s;
   width: 75%;
   z-index: var(--z-index);
 }
@@ -43,4 +44,32 @@
 
 :host .menu-container.hidden .menu-cloak {
   display: none;
+}
+
+:host .menu-close {
+  align-items: center;
+  background: rgba(57,57,57,0.07);
+  border-radius: 50%;
+  display: flex;
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+:host .menu-logo {
+  width: 50%;
+}
+
+:host .nav-header {
+  align-items: center;
+  border-bottom: 0.0625rem solid #e8e8e8;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  padding: 1.5rem var(--column-gap);
+  width: 100%;
+}
+
+:host .menu-nav .nav-item {
+  margin-bottom: 1rem;
 }

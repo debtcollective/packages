@@ -64,13 +64,13 @@ export class Header {
     this._links = JSON.parse(newValue);
   }
 
-  @Listen('toggleMenu')
+  @Listen("toggleMenu")
   toggleMenuHandler() {
-    this.toggleMenu()
+    this.toggleMenu();
   }
 
   toggleMenu() {
-    this.isMenuOpen = !this.isMenuOpen
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   async syncCurrentUser() {
