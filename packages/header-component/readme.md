@@ -14,10 +14,14 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ## Getting Started
 
+For header to have the dynamic variables you need to `cp .env.sample .env` then simple run.
+
 ```bash
 npm install
 npm start
 ```
+
+> In order to have a sense over the community session, you need to have the application running and make sure COMMUNITY_URL variable match the application *(is set to localhost port 3000 by default)*. Ultimately, you will need to allow CORS on the community app in that sense: Admin > Settings > CORS > add `http://lvh.me:3333`
 
 To build the component for production, run:
 
@@ -40,6 +44,33 @@ When creating new component tags, we recommend _not_ using `stencil` in the comp
 Instead, use a prefix that fits your company or any name for a group of related components. For example, all of the Ionic generated web components use the prefix `ion`.
 
 ## Using this component
+
+You can render the default styles with links you pass as props like:
+
+```html
+<dc-header links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'></dc-header>
+```
+
+Alternatively, you can choose to inject your own structure by doing something like:
+
+```html
+<dc-header>
+  <div slot="header">
+    <div class="nav-item d-md-flex">
+      <a class="nav-link" href='http://debtcollective.org/'>
+        About us
+      </a>
+    </div>
+  </div>
+  <div slot="menu">
+    <div class="nav-item">
+      <a class="nav-link" href='http://debtcollective.org/'>
+        About us (Just menu)
+      </a>
+    </div>
+  </div>
+</dc-header>
+```
 
 ### Script tag
 

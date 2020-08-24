@@ -8,9 +8,32 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DcHeader {
         /**
+          * Link to follow in order to prompt user to donate
+         */
+        "donateURL": string;
+        /**
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links": string;
+    }
+    interface DcMenu {
+        /**
+          * Wether or not the mobile menu is displayed
+         */
+        "open": boolean;
+    }
+    interface DcUserItems {
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user": {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
     }
 }
 declare global {
@@ -20,19 +43,59 @@ declare global {
         prototype: HTMLDcHeaderElement;
         new (): HTMLDcHeaderElement;
     };
+    interface HTMLDcMenuElement extends Components.DcMenu, HTMLStencilElement {
+    }
+    var HTMLDcMenuElement: {
+        prototype: HTMLDcMenuElement;
+        new (): HTMLDcMenuElement;
+    };
+    interface HTMLDcUserItemsElement extends Components.DcUserItems, HTMLStencilElement {
+    }
+    var HTMLDcUserItemsElement: {
+        prototype: HTMLDcUserItemsElement;
+        new (): HTMLDcUserItemsElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-header": HTMLDcHeaderElement;
+        "dc-menu": HTMLDcMenuElement;
+        "dc-user-items": HTMLDcUserItemsElement;
     }
 }
 declare namespace LocalJSX {
     interface DcHeader {
         /**
+          * Link to follow in order to prompt user to donate
+         */
+        "donateURL"?: string;
+        /**
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links"?: string;
     }
+    interface DcMenu {
+        "onToggleMenu"?: (event: CustomEvent<void>) => void;
+        /**
+          * Wether or not the mobile menu is displayed
+         */
+        "open"?: boolean;
+    }
+    interface DcUserItems {
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user"?: {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
+    }
     interface IntrinsicElements {
         "dc-header": DcHeader;
+        "dc-menu": DcMenu;
+        "dc-user-items": DcUserItems;
     }
 }
 export { LocalJSX as JSX };
@@ -40,6 +103,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
+            "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
+            "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
         }
     }
 }

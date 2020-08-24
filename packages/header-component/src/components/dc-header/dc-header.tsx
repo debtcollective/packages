@@ -1,24 +1,32 @@
-import { Component, Prop, State, h, Watch, getAssetPath } from "@stencil/core";
-import { syncCurrentUser } from "../../services/session";
 import {
-  preffixCommunityURL,
-  getAvatarURL,
-  signupURL,
-  loginURL,
-} from "../../utils/community";
+  Component,
+  Prop,
+  State,
+  h,
+  Watch,
+  getAssetPath,
+  Host,
+  Listen
+} from "@stencil/core";
+import { syncCurrentUser } from "../../services/session";
+import "./dc-menu";
+import "./dc-user-items";
+import { loginURL } from "../../utils/community";
 
 type User = {
   id: number;
   admin: boolean;
   avatar_template: string;
   username: string;
+  unread_notifications: number;
+  unread_high_priority_notifications: number;
 };
 
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
   styleUrl: "dc-header.css",
-  shadow: true,
+  shadow: true
 })
 export class Header {
   /**
@@ -28,15 +36,26 @@ export class Header {
   @Prop() links: string;
 
   /**
+   * Link to follow in order to prompt user to donate
+   */
+  @Prop() donateURL: string;
+
+  /**
    * An object with the user data. Follows Discourse structure as
    * https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
    */
   @State() user?: User;
 
   /**
+   * Wether or not the menu is displayed
+   */
+  @State() isMenuOpen: boolean;
+
+  /**
    * Logo image
    */
   private _logo = "logo.png";
+  private _logoSmall = "logo-small.png";
 
   /**
    * Host the value of "links" parsed to an actual Array
@@ -45,7 +64,21 @@ export class Header {
 
   @Watch("links")
   linksDidChangeHandler(newValue) {
+    if (!newValue) {
+      this._links = [];
+      return;
+    }
+
     this._links = JSON.parse(newValue);
+  }
+
+  @Listen("toggleMenu")
+  toggleMenuHandler() {
+    this.toggleMenu();
+  }
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
   async syncCurrentUser() {
@@ -62,51 +95,64 @@ export class Header {
     const user = this.user;
 
     return (
-      <header class="header">
-        <a class="logo-link" href="/">
-          <img
-            class="logo"
-            src={getAssetPath(`./assets/${this._logo}`)}
-            alt="The Debtcollective"
-          />
-        </a>
-        <nav class="nav">
-          {this._links.map(({ text, href }) => (
-            <div class="nav-item">
-              <a class="nav-link" href={href}>
-                {text}
-              </a>
-            </div>
-          ))}
+      <Host>
+        <header class="header">
+          <a class="logo-link d-md-flex" href="/">
+            <img
+              class="logo"
+              src={getAssetPath(`./assets/${this._logo}`)}
+              alt="The Debtcollective"
+            />
+          </a>
+          <button
+            class="btn-transparent logo-link d-md-none"
+            onClick={this.toggleMenuHandler.bind(this)}
+          >
+            <img
+              class="logo"
+              src={getAssetPath(`./assets/${this._logoSmall}`)}
+              alt="The Debtcollective"
+            />
+            <span class="material-icons ml-1">keyboard_arrow_right</span>
+          </button>
+          <nav class="nav">
+            <slot name="header">
+              {this._links.map(({ text, href }) => (
+                <div class="nav-item d-md-flex">
+                  <a class="nav-link" href={href}>
+                    {text}
+                  </a>
+                </div>
+              ))}
+            </slot>
+          </nav>
           <div class="session-items">
             {user ? (
-              <a
-                id="current-user"
-                href={preffixCommunityURL(`u/${user.username}`)}
-                target="_blank"
-              >
-                <img
-                  alt="Profile picture"
-                  width="32"
-                  height="32"
-                  src={getAvatarURL(user)}
-                  title={user.username}
-                  class="avatar"
-                />
-              </a>
+              <dc-user-items user={user} />
             ) : (
               <div class="session-links">
-                <a href={signupURL} class="btn btn-session">
-                  Sign up
+                <a href={loginURL} class="btn btn-outline">
+                  <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
-                <a href={loginURL} class="btn btn-session">
-                  Login
+                <a href={this.donateURL} class="btn btn-primary">
+                  Donate
                 </a>
               </div>
             )}
           </div>
-        </nav>
-      </header>
+        </header>
+        <dc-menu open={this.isMenuOpen}>
+          <slot name="menu">
+            {this._links.map(({ text, href }) => (
+              <div class="nav-item">
+                <a class="nav-link" href={href}>
+                  {text}
+                </a>
+              </div>
+            ))}
+          </slot>
+        </dc-menu>
+      </Host>
     );
   }
 }

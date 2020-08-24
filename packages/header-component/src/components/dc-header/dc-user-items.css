@@ -1,0 +1,35 @@
+:host .session-user-items {
+  display: flex;
+  align-items: center;
+}
+
+:host .notification-link {
+  margin-left: .5rem;
+}
+
+/* Notifications */
+:host .notification-icon {
+  position: relative;
+}
+
+:host .badge-notification {
+  /* Mirror community badge  */
+  background: #bdbdbd;
+  border-radius: 10px;
+  color: #fff;
+  display: inline-block;
+  font-size: .7579em;
+  font-weight: normal;
+  left: -2px;
+  line-height: 1;
+  padding: 0.21em 0.42em;
+  position: absolute;
+  text-align: center;
+  top: -4px;
+  white-space: nowrap;
+  z-index: 1;
+}
+
+:host .unread-notifications {
+  background-color: #6cf;
+}
