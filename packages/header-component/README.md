@@ -14,25 +14,23 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ## Getting Started
 
-For header to have the dynamic variables you need to `cp .env.sample .env` then simple run.
-
 ```bash
-npm install
-npm start
+yarn install
+yarn start
 ```
 
-> In order to have a sense over the community session, you need to have the application running and make sure COMMUNITY_URL variable match the application *(is set to localhost port 3000 by default)*. Ultimately, you will need to allow CORS on the community app in that sense: Admin > Settings > CORS > add `http://lvh.me:3333`
+> In order to have a sense over the community session, you need to have the application running and make sure `community` prop variable match the application, like `http://lvh.me:3000`. Ultimately, you will need to allow CORS on the community app in that sense: Admin > Settings > CORS > add `http://lvh.me:3333` which suppose to be your `host` prop. Check example below.
 
 To build the component for production, run:
 
 ```bash
-npm run build
+yarn build
 ```
 
 To run the unit tests for the components, run:
 
 ```bash
-npm test
+yarn test
 ```
 
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
@@ -48,13 +46,13 @@ Instead, use a prefix that fits your company or any name for a group of related 
 You can render the default styles with links you pass as props like:
 
 ```html
-<dc-header links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'></dc-header>
+<dc-header host="http://lvh.me:3333" community="http://lvh.me:3000" links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'></dc-header>
 ```
 
 Alternatively, you can choose to inject your own structure by doing something like:
 
 ```html
-<dc-header>
+<dc-header host="http://lvh.me:3333" community="http://lvh.me:3000">
   <div slot="header">
     <div class="nav-item d-md-flex">
       <a class="nav-link" href='http://debtcollective.org/'>
@@ -71,6 +69,8 @@ Alternatively, you can choose to inject your own structure by doing something li
   </div>
 </dc-header>
 ```
+
+> NOTE: be aware of not adding the latest "/" on the url props such as host and community
 
 ### Script tag
 

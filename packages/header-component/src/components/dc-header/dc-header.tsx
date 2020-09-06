@@ -38,7 +38,19 @@ export class Header {
   /**
    * Link to follow in order to prompt user to donate
    */
-  @Prop() donateURL: string;
+  @Prop() donateURL: string = "https://membership.debtcollective.org";
+
+  /**
+   * URL to the community
+   * without the latest "/"
+   */
+  @Prop() community: string = "https://community.debtcollective.org";
+
+  /**
+   * URL to the component host
+   * without the latest "/"
+   */
+  @Prop() host: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -82,7 +94,7 @@ export class Header {
   }
 
   async syncCurrentUser() {
-    const user = await syncCurrentUser(process.env.COMMUNITY_URL);
+    const user = await syncCurrentUser(this.community);
     this.user = user;
   }
 
@@ -128,10 +140,10 @@ export class Header {
           </nav>
           <div class="session-items">
             {user ? (
-              <dc-user-items user={user} />
+              <dc-user-items user={user} community={this.community} />
             ) : (
               <div class="session-links">
-                <a href={loginURL} class="btn btn-outline">
+                <a href={loginURL({ host: this.host })} class="btn btn-outline">
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
                 <a href={this.donateURL} class="btn btn-primary">

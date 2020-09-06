@@ -8,6 +8,10 @@ import { preffixCommunityURL, getAvatarURL } from "../../utils/community";
 })
 export class Menu {
   /**
+   * URL to the community
+   */
+  @Prop() community: string;
+  /**
    * An object with the user data. Follows Discourse structure as
    * https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
    */
@@ -30,7 +34,10 @@ export class Menu {
       <Host class="session-user-items">
         <a
           class="notification-link"
-          href={preffixCommunityURL(`u/${this.user.username}/messages`)}
+          href={preffixCommunityURL(
+            this.community,
+            `u/${this.user.username}/messages`
+          )}
         >
           <div class="notification-icon icons">
             <div id="inbox" class="material-icons">
@@ -45,7 +52,10 @@ export class Menu {
         </a>
         <a
           class="notification-link"
-          href={preffixCommunityURL(`u/${this.user.username}/notifications`)}
+          href={preffixCommunityURL(
+            this.community,
+            `u/${this.user.username}/notifications`
+          )}
         >
           <div class="notification-icon icons">
             <div id="notifications" class="material-icons">
@@ -60,14 +70,14 @@ export class Menu {
         </a>
         <a
           id="current-user"
-          href={preffixCommunityURL(`u/${this.user.username}`)}
+          href={preffixCommunityURL(this.community, `u/${this.user.username}`)}
           target="_blank"
         >
           <img
             alt="Profile picture"
             width="32"
             height="32"
-            src={getAvatarURL(this.user)}
+            src={getAvatarURL(this.user, this.community)}
             title={this.user.username}
             class="avatar"
           />

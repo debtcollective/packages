@@ -1,21 +1,33 @@
 <!DOCTYPE html>
 <html dir="ltr" lang="en" style="height: 100%;">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
-  <title>Stencil Component Starter</title>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Stencil Component Starter</title>
 
-  <script type="module" src="/build/header.esm.js"></script>
-  <script nomodule src="/build/header.js"></script>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap" rel="stylesheet">
+    <script type="module" src="/build/header.esm.js"></script>
+    <script nomodule src="/build/header.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body
+    style="background: linear-gradient(180deg, #dbf8ff 0%, #fcfbf7 88.74%); height: 100%;"
+  >
+    <dc-header
+      host="http://lvh.me:3333"
+      community="http://lvh.me:3000"
+      links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'
+    ></dc-header>
 
-</head>
-<body style="background: linear-gradient(180deg, #dbf8ff 0%, #fcfbf7 88.74%); height: 100%;">
-
-  <dc-header links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'></dc-header>
-  
-  <!-- You can choose to render custom navigation, check the README.md file and restart the stencil server after change index.html -->
-
-</body>
+    <!-- You can choose to render custom navigation, check the README.md file and restart the stencil server after change index.html -->
+  </body>
 </html>
