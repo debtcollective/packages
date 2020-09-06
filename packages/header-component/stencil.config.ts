@@ -2,7 +2,7 @@ import { Config } from '@stencil/core';
 import dotEnvPlugin from 'rollup-plugin-dotenv';
 
 export const config: Config = {
-  namespace: 'web-header',
+  namespace: 'header',
   taskQueue: 'async',
   outputTargets: [
     {
