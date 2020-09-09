@@ -3,6 +3,12 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/debtcollective/disputes/compare/v0.10.2...v0.12.0) (2020-09-09)
+
+### Bug Fixes
+
+- **deps:** update dependency lodash to v4.17.19 [security](<[1b0076c](https://github.com/debtcollective/disputes/commit/1b0076c)>)
+
 # [0.11.0](https://github.com/debtcollective/disputes/compare/v0.10.2...v0.11.0) (2020-09-09)
 
 ### Bug Fixes

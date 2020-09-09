@@ -3,6 +3,24 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.12.0](https://github.com/debtcollective/packages/compare/v0.10.2...v0.12.0) (2020-09-09)
+
+
+### Features
+
+* **header:** add a toggleable side menu ([42366ea](https://github.com/debtcollective/packages/commit/42366ea))
+* **header:** add messages/notifications icons ([15ee94f](https://github.com/debtcollective/packages/commit/15ee94f))
+* **header:** add notifications link alongside counters ([b7a80f6](https://github.com/debtcollective/packages/commit/b7a80f6))
+* **header:** add root link and close btn within menu ([f9f9fee](https://github.com/debtcollective/packages/commit/f9f9fee))
+* **header:** allow to transition from header desktop to mobile ([7f938ef](https://github.com/debtcollective/packages/commit/7f938ef))
+* **header:** update btns to match red brand colour ([abebcad](https://github.com/debtcollective/packages/commit/abebcad))
+* **header:** update layout to have navigation on the left ([c9517cc](https://github.com/debtcollective/packages/commit/c9517cc))
+* **header:** use <slot /> API to improve flexibility ([e215c6d](https://github.com/debtcollective/packages/commit/e215c6d))
+
+
+
+
+
 # [0.11.0](https://github.com/debtcollective/packages/compare/v0.10.2...v0.11.0) (2020-09-09)
 
 
