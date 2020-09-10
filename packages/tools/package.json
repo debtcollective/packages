@@ -42,7 +42,7 @@
     "core-js": "3.6.5",
     "eslint": "6.5.1",
     "eslint-plugin-flowtype": "4.7.0",
-    "eslint-plugin-import": "2.18.2",
+    "eslint-plugin-import": "2.22.0",
     "eslint-plugin-jest": "23.18.0",
     "eslint-plugin-promise": "4.2.1",
     "eslint-plugin-react": "7.20.3",
