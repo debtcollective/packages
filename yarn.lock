@@ -1433,10 +1433,10 @@
   resolved "https://registry.yarnpkg.com/@sheerun/mutationobserver-shim/-/mutationobserver-shim-0.3.2.tgz#8013f2af54a2b7d735f71560ff360d3a8176a87b"
   integrity sha512-vTCdPp/T/Q3oSqwHmZ5Kpa9oI7iLtGl3RQaA/NyLHikvcrPxACkkKVr/XzkSPJWXHRhKGzVvb0urJsbMlRxi1Q==
 
-"@stencil/core@1.16.5":
-  version "1.16.5"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.16.5.tgz#c7c6f50abce3cf68f23d8984e97ba77fa6bd9aff"
-  integrity sha512-70srOdtpEg0sIS2V4x/BJfQpNDJnuMnJXoY3KkKywLE3DdLnM5zQogsfX+NyKzQACx9qLh18sVSBNIartAvjgA==
+"@stencil/core@1.17.3":
+  version "1.17.3"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.17.3.tgz#db19f4c707b749beef5cf113916c5252ad5c99de"
+  integrity sha512-q5joOYUPHTNa/5hEThMT/QEJ/suN8bpcYbV/LrSNsgsgHN+RJ05jCpU8VAShdUPT6WzoyF2iGgYc/EI2xeqFzw==
   dependencies:
     typescript "3.9.7"
 
