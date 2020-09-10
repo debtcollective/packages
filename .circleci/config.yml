@@ -12,10 +12,6 @@ jobs:
       - run:
           name: install dependencies
           command: yarn install
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}
-          paths:
-            - ./node_modules
       - run:
           name: Setup test environment
           command: yarn setup:ci
@@ -25,18 +21,20 @@ jobs:
       - run:
           name: codecov
           command: npx codecov
-      # persist workspace for the next command
-      - persist_to_workspace:
-          root: .
-          paths: .
-
+      - save_cache:
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
   publish:
     working_directory: ~/packages
     docker:
       - image: circleci/node:12.18.3-browsers
     steps:
-      - attach_workspace:
-          at: ~/packages
+      - restore_cache:
+        key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+        name: install dependencies
+        command: yarn install
       - add_ssh_keys:
           fingerprints:
             - '90:19:0a:60:b7:db:f6:43:89:09:32:c2:95:c6:67:7f'
@@ -54,7 +52,7 @@ jobs:
           name: configure npm credentials
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
-          name: publish packages
+          name: build packages
           command: 'yarn build'
       - run:
           name: publish packages
