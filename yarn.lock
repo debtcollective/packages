@@ -1586,10 +1586,10 @@
   resolved "https://registry.yarnpkg.com/@types/prop-types/-/prop-types-15.7.1.tgz#f1a11e7babb0c3cad68100be381d1e064c68f1f6"
   integrity sha512-CFzn9idOEpHrgdw8JsoTkaDDyRWk1jrzIV8djzcgpq0y9tG4B4lFT+Nxh52DVpDXV+n4+NPNv7M1Dj5uMp6XFg==
 
-"@types/puppeteer@1.20.5":
-  version "1.20.5"
-  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-1.20.5.tgz#1f2350dfc78b1830060cb9b3e4d9d57c4c126710"
-  integrity sha512-5INeY7d3RNvTEaPsFmx1DDjvu9P8iI0GVSFDop4p4F15I1oQGxclw4IPPhINRhl3jTq9OMoHl3sXe+fGYVyJIw==
+"@types/puppeteer@1.20.7":
+  version "1.20.7"
+  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-1.20.7.tgz#31fb4274f0c6ec2e90ed8473616243f15a808017"
+  integrity sha512-LCfP/Zf/y4I/hG8ARR8htPYa1wpLpUkysJo9TffmQssVz8c1b9uDNU4benDHSldiz7HVAMek1DCWz7KbqEUg3w==
   dependencies:
     "@types/node" "*"
 
