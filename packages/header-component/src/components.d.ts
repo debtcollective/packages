@@ -8,9 +8,17 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DcHeader {
         /**
+          * URL to the community without the latest "/"
+         */
+        "community": string;
+        /**
           * Link to follow in order to prompt user to donate
          */
         "donateURL": string;
+        /**
+          * URL to the component host without the latest "/"
+         */
+        "host": string;
         /**
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
@@ -23,6 +31,10 @@ export namespace Components {
         "open": boolean;
     }
     interface DcUserItems {
+        /**
+          * URL to the community
+         */
+        "community": string;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
@@ -64,9 +76,17 @@ declare global {
 declare namespace LocalJSX {
     interface DcHeader {
         /**
+          * URL to the community without the latest "/"
+         */
+        "community"?: string;
+        /**
           * Link to follow in order to prompt user to donate
          */
         "donateURL"?: string;
+        /**
+          * URL to the component host without the latest "/"
+         */
+        "host"?: string;
         /**
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
@@ -80,6 +100,10 @@ declare namespace LocalJSX {
         "open"?: boolean;
     }
     interface DcUserItems {
+        /**
+          * URL to the community
+         */
+        "community"?: string;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
