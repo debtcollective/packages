@@ -143,7 +143,7 @@ export class Header {
               <dc-user-items user={user} community={this.community} />
             ) : (
               <div class="session-links">
-                <a href={loginURL({ host: this.host })} class="btn btn-outline">
+                <a href={loginURL({ community: this.community, host: this.host })} class="btn btn-outline">
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
                 <a href={this.donateURL} class="btn btn-primary">
