@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.0.0](https://github.com/debtcollective/packages/compare/v0.12.2...v1.0.0) (2020-09-11)
+
+
+### Build System
+
+* **header-component:** drop usage of env variables to use props instead ([341c6e7](https://github.com/debtcollective/packages/commit/341c6e7))
+
+
+### BREAKING CHANGES
+
+* **header-component:** not longer using env variables now users need to pass a prop of host and community
+with the URL values for each of them. This makes easier the release process of this component
+
+
+
+
+
 ## [0.12.2](https://github.com/debtcollective/packages/compare/v0.12.1...v0.12.2) (2020-09-10)
 
 **Note:** Version bump only for package @debtcollective/packages
