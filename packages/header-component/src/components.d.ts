@@ -6,6 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DcDropdown {
+        /**
+          * Items to be displayed in the dropdown
+         */
+        "items": Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the dropdown nav item
+         */
+        "label": string;
+    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -49,6 +59,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDcDropdownElement extends Components.DcDropdown, HTMLStencilElement {
+    }
+    var HTMLDcDropdownElement: {
+        prototype: HTMLDcDropdownElement;
+        new (): HTMLDcDropdownElement;
+    };
     interface HTMLDcHeaderElement extends Components.DcHeader, HTMLStencilElement {
     }
     var HTMLDcHeaderElement: {
@@ -68,12 +84,23 @@ declare global {
         new (): HTMLDcUserItemsElement;
     };
     interface HTMLElementTagNameMap {
+        "dc-dropdown": HTMLDcDropdownElement;
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
         "dc-user-items": HTMLDcUserItemsElement;
     }
 }
 declare namespace LocalJSX {
+    interface DcDropdown {
+        /**
+          * Items to be displayed in the dropdown
+         */
+        "items"?: Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the dropdown nav item
+         */
+        "label"?: string;
+    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -117,6 +144,7 @@ declare namespace LocalJSX {
   };
     }
     interface IntrinsicElements {
+        "dc-dropdown": DcDropdown;
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
         "dc-user-items": DcUserItems;
@@ -126,6 +154,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dc-dropdown": LocalJSX.DcDropdown & JSXBase.HTMLAttributes<HTMLDcDropdownElement>;
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
             "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
