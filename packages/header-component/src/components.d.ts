@@ -6,6 +6,16 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DcCollapser {
+        /**
+          * Items to be displayed in the collapser
+         */
+        "items": Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the collapser nav item
+         */
+        "label": string;
+    }
     interface DcDropdown {
         /**
           * Items to be displayed in the dropdown
@@ -59,6 +69,12 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDcCollapserElement extends Components.DcCollapser, HTMLStencilElement {
+    }
+    var HTMLDcCollapserElement: {
+        prototype: HTMLDcCollapserElement;
+        new (): HTMLDcCollapserElement;
+    };
     interface HTMLDcDropdownElement extends Components.DcDropdown, HTMLStencilElement {
     }
     var HTMLDcDropdownElement: {
@@ -84,6 +100,7 @@ declare global {
         new (): HTMLDcUserItemsElement;
     };
     interface HTMLElementTagNameMap {
+        "dc-collapser": HTMLDcCollapserElement;
         "dc-dropdown": HTMLDcDropdownElement;
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
@@ -91,6 +108,16 @@ declare global {
     }
 }
 declare namespace LocalJSX {
+    interface DcCollapser {
+        /**
+          * Items to be displayed in the collapser
+         */
+        "items"?: Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the collapser nav item
+         */
+        "label"?: string;
+    }
     interface DcDropdown {
         /**
           * Items to be displayed in the dropdown
@@ -144,6 +171,7 @@ declare namespace LocalJSX {
   };
     }
     interface IntrinsicElements {
+        "dc-collapser": DcCollapser;
         "dc-dropdown": DcDropdown;
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
@@ -154,6 +182,7 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dc-collapser": LocalJSX.DcCollapser & JSXBase.HTMLAttributes<HTMLDcCollapserElement>;
             "dc-dropdown": LocalJSX.DcDropdown & JSXBase.HTMLAttributes<HTMLDcDropdownElement>;
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;

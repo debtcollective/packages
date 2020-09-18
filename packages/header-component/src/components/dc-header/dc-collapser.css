@@ -1,0 +1,47 @@
+:host .collapser-container {
+  position: relative;
+  display: block;
+}
+
+:host .collapser-items {
+  left: -80%;
+  top: 2rem;
+  border-radius: 0 0.5rem 0.5rem;
+  background-color: var(--main-bg-color);
+  padding: 0;
+  cursor: pointer;
+}
+
+:host .collapser-items.open {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+  visibility: visible;
+  list-style: none;
+}
+
+:host .collapser-items.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+:host .collapser-items .collapser-item:hover .collapser-item-text  {
+  color: var(--brand-color);
+}
+
+:host .collapser-items .collapser-item .collapser-item-text {
+  color: var(--disabled-text-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+:host .collapser-items .collapser-item .collapser-item-description {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--text-color);
+}
+
+@media (min-width: 768px) {
+  :host .collapser-container {
+    display: none;
+  }
+}
