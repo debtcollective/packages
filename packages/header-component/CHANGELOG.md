@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github.com/debtcollective/packages/compare/v1.0.1...v1.1.0) (2020-09-18)
+
+
+### Features
+
+* **dc-header:** add logo and logoSmall props for custom images in web component ([7bac0cf](https://github.com/debtcollective/packages/commit/7bac0cf))
+* **header-component:** create collapser for mobile menu ([7ecef13](https://github.com/debtcollective/packages/commit/7ecef13))
+* **header-component:** create dropdown ([533c70f](https://github.com/debtcollective/packages/commit/533c70f))
+
+
+
+
+
 ## [1.0.1](https://github.com/debtcollective/packages/compare/v1.0.0...v1.0.1) (2020-09-11)
 
 
