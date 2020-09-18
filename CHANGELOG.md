@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/debtcollective/packages/compare/v1.1.2...v1.1.3) (2020-09-18)
+
+
+### Bug Fixes
+
+* **header-component:** use lower case for donate url prop ([4bb2e06](https://github.com/debtcollective/packages/commit/4bb2e06))
+
+
+
+
+
 ## [1.1.2](https://github.com/debtcollective/packages/compare/v1.1.1...v1.1.2) (2020-09-18)
 
 **Note:** Version bump only for package @debtcollective/packages
