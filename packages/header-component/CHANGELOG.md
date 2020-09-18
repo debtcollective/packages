@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.1](https://github.com/debtcollective/packages/compare/v1.1.0...v1.1.1) (2020-09-18)
+
+
+### Bug Fixes
+
+* **header-component:** remove test dropdown from header ([f9e0705](https://github.com/debtcollective/packages/commit/f9e0705))
+
+
+
+
+
 # [1.1.0](https://github.com/debtcollective/packages/compare/v1.0.1...v1.1.0) (2020-09-18)
 
 
