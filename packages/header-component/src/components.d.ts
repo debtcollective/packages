@@ -50,9 +50,13 @@ export namespace Components {
         /**
           * Logo small src to use a custom image for the header in mobile
          */
-        "logoSmall": string;
+        "logosmall": string;
     }
     interface DcMenu {
+        /**
+          * Logo src to use a custom image for the header
+         */
+        "logo": string;
         /**
           * Wether or not the mobile menu is displayed
          */
@@ -160,9 +164,13 @@ declare namespace LocalJSX {
         /**
           * Logo small src to use a custom image for the header in mobile
          */
-        "logoSmall"?: string;
+        "logosmall"?: string;
     }
     interface DcMenu {
+        /**
+          * Logo src to use a custom image for the header
+         */
+        "logo"?: string;
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
         /**
           * Wether or not the mobile menu is displayed

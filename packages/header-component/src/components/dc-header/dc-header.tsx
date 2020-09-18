@@ -60,7 +60,7 @@ export class Header {
   /**
    * Logo small src to use a custom image for the header in mobile
    */
-  @Prop() logoSmall: string;
+  @Prop() logosmall: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -132,7 +132,7 @@ export class Header {
           >
             <img
               class="logo"
-              src={this.logoSmall || getAssetPath(`./assets/${this._logoSmall}`)}
+              src={this.logosmall || getAssetPath(`./assets/${this._logoSmall}`)}
               alt="The Debtcollective"
             />
             <span class="material-icons ml-1">keyboard_arrow_right</span>
