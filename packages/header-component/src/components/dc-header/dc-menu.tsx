@@ -18,6 +18,11 @@ export class Menu {
    */
   @Prop() open: boolean;
 
+  /**
+   * Logo src to use a custom image for the header
+   */
+  @Prop() logo: string;
+
   @Event() toggleMenu: EventEmitter<void>;
 
   /**
@@ -38,7 +43,7 @@ export class Menu {
             <a href="/" class="btn-transparent">
               <img
                 class="menu-logo"
-                src={getAssetPath(`./assets/${this._logo}`)}
+                src={this.logo || getAssetPath(`./assets/${this._logo}`)}
                 alt="The Debtcollective"
               />
             </a>
