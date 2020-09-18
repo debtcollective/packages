@@ -38,7 +38,7 @@ export class Header {
   /**
    * Link to follow in order to prompt user to donate
    */
-  @Prop() donateURL: string = "https://membership.debtcollective.org";
+  @Prop() donateurl: string = "https://membership.debtcollective.org";
 
   /**
    * URL to the community
@@ -156,14 +156,14 @@ export class Header {
                 <a href={loginURL({ community: this.community, host: this.host })} class="btn btn-outline">
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
-                <a href={this.donateURL} class="btn btn-primary">
+                <a href={this.donateurl} class="btn btn-primary">
                   Donate
                 </a>
               </div>
             )}
           </div>
         </header>
-        <dc-menu open={this.isMenuOpen}>
+        <dc-menu open={this.isMenuOpen} logo={this.logo}>
           <slot name="menu">
             {this._links.map(({ text, href }) => (
               <div class="nav-item">
