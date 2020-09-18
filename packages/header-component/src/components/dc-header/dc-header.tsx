@@ -11,7 +11,6 @@ import {
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
 import "./dc-user-items";
-import "./dc-dropdown";
 import { loginURL } from "../../utils/community";
 
 type User = {
@@ -147,15 +146,6 @@ export class Header {
                   </a>
                 </div>
               ))}
-              <dc-dropdown label="Hey there" items={[{
-                text: 'Hey',
-                href: '/',
-                description: 'This is a description'
-              }, {
-                text: 'Hey',
-                href: '/',
-                description: 'This is a description'
-              }]} />
             </slot>
           </nav>
           <div class="session-items">
