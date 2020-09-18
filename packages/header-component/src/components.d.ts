@@ -34,7 +34,7 @@ export namespace Components {
         /**
           * Link to follow in order to prompt user to donate
          */
-        "donateURL": string;
+        "donateurl": string;
         /**
           * URL to the component host without the latest "/"
          */
@@ -148,7 +148,7 @@ declare namespace LocalJSX {
         /**
           * Link to follow in order to prompt user to donate
          */
-        "donateURL"?: string;
+        "donateurl"?: string;
         /**
           * URL to the component host without the latest "/"
          */
