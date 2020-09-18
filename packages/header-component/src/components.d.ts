@@ -6,6 +6,26 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface DcCollapser {
+        /**
+          * Items to be displayed in the collapser
+         */
+        "items": Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the collapser nav item
+         */
+        "label": string;
+    }
+    interface DcDropdown {
+        /**
+          * Items to be displayed in the dropdown
+         */
+        "items": Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the dropdown nav item
+         */
+        "label": string;
+    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -23,6 +43,14 @@ export namespace Components {
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links": string;
+        /**
+          * Logo src to use a custom image for the header
+         */
+        "logo": string;
+        /**
+          * Logo small src to use a custom image for the header in mobile
+         */
+        "logoSmall": string;
     }
     interface DcMenu {
         /**
@@ -49,6 +77,18 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLDcCollapserElement extends Components.DcCollapser, HTMLStencilElement {
+    }
+    var HTMLDcCollapserElement: {
+        prototype: HTMLDcCollapserElement;
+        new (): HTMLDcCollapserElement;
+    };
+    interface HTMLDcDropdownElement extends Components.DcDropdown, HTMLStencilElement {
+    }
+    var HTMLDcDropdownElement: {
+        prototype: HTMLDcDropdownElement;
+        new (): HTMLDcDropdownElement;
+    };
     interface HTMLDcHeaderElement extends Components.DcHeader, HTMLStencilElement {
     }
     var HTMLDcHeaderElement: {
@@ -68,12 +108,34 @@ declare global {
         new (): HTMLDcUserItemsElement;
     };
     interface HTMLElementTagNameMap {
+        "dc-collapser": HTMLDcCollapserElement;
+        "dc-dropdown": HTMLDcDropdownElement;
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
         "dc-user-items": HTMLDcUserItemsElement;
     }
 }
 declare namespace LocalJSX {
+    interface DcCollapser {
+        /**
+          * Items to be displayed in the collapser
+         */
+        "items"?: Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the collapser nav item
+         */
+        "label"?: string;
+    }
+    interface DcDropdown {
+        /**
+          * Items to be displayed in the dropdown
+         */
+        "items"?: Array<{ text: string; href: string, description: string }>;
+        /**
+          * label for the dropdown nav item
+         */
+        "label"?: string;
+    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -91,6 +153,14 @@ declare namespace LocalJSX {
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links"?: string;
+        /**
+          * Logo src to use a custom image for the header
+         */
+        "logo"?: string;
+        /**
+          * Logo small src to use a custom image for the header in mobile
+         */
+        "logoSmall"?: string;
     }
     interface DcMenu {
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
@@ -117,6 +187,8 @@ declare namespace LocalJSX {
   };
     }
     interface IntrinsicElements {
+        "dc-collapser": DcCollapser;
+        "dc-dropdown": DcDropdown;
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
         "dc-user-items": DcUserItems;
@@ -126,6 +198,8 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "dc-collapser": LocalJSX.DcCollapser & JSXBase.HTMLAttributes<HTMLDcCollapserElement>;
+            "dc-dropdown": LocalJSX.DcDropdown & JSXBase.HTMLAttributes<HTMLDcDropdownElement>;
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
             "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;

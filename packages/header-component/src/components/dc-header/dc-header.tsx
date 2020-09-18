@@ -11,6 +11,7 @@ import {
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
 import "./dc-user-items";
+import "./dc-dropdown";
 import { loginURL } from "../../utils/community";
 
 type User = {
@@ -51,6 +52,16 @@ export class Header {
    * without the latest "/"
    */
   @Prop() host: string;
+
+  /**
+   * Logo src to use a custom image for the header
+   */
+  @Prop() logo: string;
+
+  /**
+   * Logo small src to use a custom image for the header in mobile
+   */
+  @Prop() logoSmall: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -112,7 +123,7 @@ export class Header {
           <a class="logo-link d-md-flex" href="/">
             <img
               class="logo"
-              src={getAssetPath(`./assets/${this._logo}`)}
+              src={this.logo || getAssetPath(`./assets/${this._logo}`)}
               alt="The Debtcollective"
             />
           </a>
@@ -122,7 +133,7 @@ export class Header {
           >
             <img
               class="logo"
-              src={getAssetPath(`./assets/${this._logoSmall}`)}
+              src={this.logoSmall || getAssetPath(`./assets/${this._logoSmall}`)}
               alt="The Debtcollective"
             />
             <span class="material-icons ml-1">keyboard_arrow_right</span>
@@ -136,6 +147,15 @@ export class Header {
                   </a>
                 </div>
               ))}
+              <dc-dropdown label="Hey there" items={[{
+                text: 'Hey',
+                href: '/',
+                description: 'This is a description'
+              }, {
+                text: 'Hey',
+                href: '/',
+                description: 'This is a description'
+              }]} />
             </slot>
           </nav>
           <div class="session-items">
