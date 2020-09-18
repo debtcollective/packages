@@ -1,8 +1,3 @@
-:host .collapser-container {
-  position: relative;
-  display: block;
-}
-
 :host .collapser-items {
   left: -80%;
   top: 2rem;
@@ -13,15 +8,11 @@
 }
 
 :host .collapser-items.open {
-  opacity: 1;
-  transition: opacity 0.1s ease-in;
-  visibility: visible;
-  list-style: none;
+  display: block;
 }
 
 :host .collapser-items.hidden {
-  visibility: hidden;
-  opacity: 0;
+  display: none;
 }
 
 :host .collapser-items .collapser-item:hover .collapser-item-text  {
@@ -38,10 +29,4 @@
   font-size: 0.75rem;
   line-height: 1rem;
   color: var(--text-color);
-}
-
-@media (min-width: 768px) {
-  :host .collapser-container {
-    display: none;
-  }
 }

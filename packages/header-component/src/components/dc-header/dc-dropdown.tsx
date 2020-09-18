@@ -27,7 +27,6 @@ export class Dropdown {
   /**
    * Event to detect outside clicks from the dropdown
    */
-
   @Listen('click', { target: 'document' })
   handleClickOutside(event) {
     const target = event.composedPath()[0];
@@ -64,22 +63,20 @@ export class Dropdown {
             {this.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
           </span>
         </button>
-        <ul
+        <div
           class={`dropdown-items ${this.open ? "open " : "hidden"}`}
           onMouseLeave={this.closeDropdown.bind(this)}
           ref={(el) => this.dropdownItems = el}
         >
           {
             this.items.map(item => (
-              <li class="dropdown-item" onClick={() => {
-                window.open(item.href, "_self");
-              }}>
-                <a href={item.href} class="dropdown-item-text">{item.text}</a>
+              <a href={item.href} class="dropdown-item">
+                {item.text}
                 <p class="dropdown-item-description">{item.description}</p>
-              </li>
+              </a>
             ))
           }
-        </ul>
+        </div>
       </div>
     );
   }

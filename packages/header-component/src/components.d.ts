@@ -43,6 +43,14 @@ export namespace Components {
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links": string;
+        /**
+          * Logo src to use a custom image for the header
+         */
+        "logo": string;
+        /**
+          * Logo small src to use a custom image for the header in mobile
+         */
+        "logoSmall": string;
     }
     interface DcMenu {
         /**
@@ -145,6 +153,14 @@ declare namespace LocalJSX {
           * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
          */
         "links"?: string;
+        /**
+          * Logo src to use a custom image for the header
+         */
+        "logo"?: string;
+        /**
+          * Logo small src to use a custom image for the header in mobile
+         */
+        "logoSmall"?: string;
     }
     interface DcMenu {
         "onToggleMenu"?: (event: CustomEvent<void>) => void;

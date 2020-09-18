@@ -29,7 +29,7 @@ export class Collapser {
 
   render() {
     return (
-      <div class="collapser-container nav-item">
+      <div class="nav-item">
         <button
           class="nav-link btn btn-transparent"
           onClick={this.toggleCollapser.bind(this)}
