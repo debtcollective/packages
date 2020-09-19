@@ -79,6 +79,23 @@ export namespace Components {
     unread_high_priority_notifications: number;
   };
     }
+    interface DcUserPopup {
+        /**
+          * URL to the community
+         */
+        "community": string;
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user": {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
+    }
 }
 declare global {
     interface HTMLDcCollapserElement extends Components.DcCollapser, HTMLStencilElement {
@@ -111,12 +128,19 @@ declare global {
         prototype: HTMLDcUserItemsElement;
         new (): HTMLDcUserItemsElement;
     };
+    interface HTMLDcUserPopupElement extends Components.DcUserPopup, HTMLStencilElement {
+    }
+    var HTMLDcUserPopupElement: {
+        prototype: HTMLDcUserPopupElement;
+        new (): HTMLDcUserPopupElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-collapser": HTMLDcCollapserElement;
         "dc-dropdown": HTMLDcDropdownElement;
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
         "dc-user-items": HTMLDcUserItemsElement;
+        "dc-user-popup": HTMLDcUserPopupElement;
     }
 }
 declare namespace LocalJSX {
@@ -194,12 +218,30 @@ declare namespace LocalJSX {
     unread_high_priority_notifications: number;
   };
     }
+    interface DcUserPopup {
+        /**
+          * URL to the community
+         */
+        "community"?: string;
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user"?: {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
+    }
     interface IntrinsicElements {
         "dc-collapser": DcCollapser;
         "dc-dropdown": DcDropdown;
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
         "dc-user-items": DcUserItems;
+        "dc-user-popup": DcUserPopup;
     }
 }
 export { LocalJSX as JSX };
@@ -211,6 +253,7 @@ declare module "@stencil/core" {
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
             "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
+            "dc-user-popup": LocalJSX.DcUserPopup & JSXBase.HTMLAttributes<HTMLDcUserPopupElement>;
         }
     }
 }

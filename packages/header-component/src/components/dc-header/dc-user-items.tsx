@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
-import { preffixCommunityURL, getAvatarURL } from "../../utils/community";
-
+import { preffixCommunityURL } from "../../utils/community";
+import "./dc-user-popup";
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-user-items",
@@ -68,20 +68,7 @@ export class Menu {
             )}
           </div>
         </a>
-        <a
-          id="current-user"
-          href={preffixCommunityURL(this.community, `u/${this.user.username}`)}
-          target="_blank"
-        >
-          <img
-            alt="Profile picture"
-            width="32"
-            height="32"
-            src={getAvatarURL(this.user, this.community)}
-            title={this.user.username}
-            class="avatar"
-          />
-        </a>
+        <dc-user-popup user={this.user} community={this.community} />
       </Host>
     );
   }

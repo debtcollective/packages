@@ -38,6 +38,14 @@ export class Dropdown {
     this.closeDropdown();
   }
 
+  /**
+   * Event to detect escape key press
+   */
+  @Listen('keydown', { target: 'document' })
+  handleEscapeKey(event) {
+    if (event.keyCode === 27) this.closeDropdown();
+  }
+
   dropdownTrigger!: Node;
 
   dropdownItems!: Node;

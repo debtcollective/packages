@@ -1,0 +1,58 @@
+:host .user-popup-container {
+  position: relative;
+}
+
+:host .user-popup-items {
+  position: absolute;
+  top: 2.5rem;
+  right: 0;
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+  background-color: var(--main-bg-color);
+  padding: 0;
+  cursor: pointer;
+  width: 16rem;
+  box-shadow: 0 0 0.5rem rgba(37, 40, 43, 0.12);
+}
+
+:host .user-popup-items.open {
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+  visibility: visible;
+  list-style: none;
+}
+
+:host .user-popup-items.hidden {
+  visibility: hidden;
+  opacity: 0;
+}
+
+:host .user-popup-items .user-popup-item {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  padding: 0.5rem 1rem;
+  min-height: 2rem;
+  color: var(--disabled-text-color);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+:host .user-popup-items .user-popup-item:first-child {
+  justify-content: space-between;
+}
+
+:host .user-popup-items .user-popup-item:last-child {
+  width: 100%;
+}
+
+:host .user-popup-items .user-popup-item:hover, :host .user-popup-items .user-popup-item:focus {
+  background-color: rgba(255, 70, 48, 0.1);
+  transition: background-color 0.1s ease-in;
+  color: var(--brand-color);
+}
+
+:host .user-popup-items .user-popup-item .user-popup-item-description {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: var(--text-color);
+}
