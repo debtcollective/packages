@@ -14,7 +14,7 @@ const getCSRFToken = async (discourseEndpoint) => {
 
   const json = await response.json();
 
-  return json;
+  return json.csrf;
 };
 
 const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
@@ -50,3 +50,21 @@ export const syncCurrentUser = async (discourseEndpoint) => {
 
   return currentUser;
 };
+
+export const logout = async(discourseEndpoint, username) => {
+  const url = `${discourseEndpoint}/session/${username}`;
+  const csrfToken = await getCSRFToken(discourseEndpoint);
+
+  try {
+    await fetch(url, {
+      method: "DELETE",
+      credentials: "include",
+      headers: {
+        Accept: "application/json",
+        "X-CSRF-Token": csrfToken,
+      },
+    });
+  } catch (error) {
+    console.error(error);
+  }
+}
