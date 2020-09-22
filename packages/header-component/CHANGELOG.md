@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/debtcollective/packages/compare/v1.1.3...v1.2.0) (2020-09-22)
+
+
+### Features
+
+* **header-links:** add member hub link if user is authenticated ([b520e1e](https://github.com/debtcollective/packages/commit/b520e1e))
+* **user-avatar:** create popup for the user avatar ([295ad7a](https://github.com/debtcollective/packages/commit/295ad7a))
+
+
+
+
+
 ## [1.1.3](https://github.com/debtcollective/packages/compare/v1.1.2...v1.1.3) (2020-09-18)
 
 
