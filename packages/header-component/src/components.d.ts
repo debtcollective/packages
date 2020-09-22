@@ -51,6 +51,10 @@ export namespace Components {
           * Logo small src to use a custom image for the header in mobile
          */
         "logosmall": string;
+        /**
+          * URL to the member hub page
+         */
+        "memberhuburl"?: string;
     }
     interface DcMenu {
         /**
@@ -189,6 +193,10 @@ declare namespace LocalJSX {
           * Logo small src to use a custom image for the header in mobile
          */
         "logosmall"?: string;
+        /**
+          * URL to the member hub page
+         */
+        "memberhuburl"?: string;
     }
     interface DcMenu {
         /**

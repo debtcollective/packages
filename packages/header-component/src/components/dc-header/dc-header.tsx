@@ -45,6 +45,11 @@ export class Header {
    * without the latest "/"
    */
   @Prop() community: string = "https://community.debtcollective.org";
+  
+  /**
+   * URL to the member hub page
+   */
+  @Prop() memberhuburl?: string = "https://debtcollective.org/hub";
 
   /**
    * URL to the component host
@@ -94,6 +99,16 @@ export class Header {
     this._links = JSON.parse(newValue);
   }
 
+  @Watch("user")
+  userDidChage(newUser) {
+    if (newUser) {
+      this._links.unshift({
+        text: 'Member hub',
+        href: this.memberhuburl
+      })
+    }
+  }
+
   @Listen("toggleMenu")
   toggleMenuHandler() {
     this.toggleMenu();
@@ -105,6 +120,7 @@ export class Header {
 
   async syncCurrentUser() {
     const user = await syncCurrentUser(this.community);
+
     this.user = user;
   }
 
