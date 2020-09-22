@@ -99,16 +99,6 @@ export class Header {
     this._links = JSON.parse(newValue);
   }
 
-  @Watch("user")
-  userDidChage(newUser) {
-    if (newUser) {
-      this._links.unshift({
-        text: 'Member hub',
-        href: this.memberhuburl
-      })
-    }
-  }
-
   @Listen("toggleMenu")
   toggleMenuHandler() {
     this.toggleMenu();
@@ -131,6 +121,13 @@ export class Header {
 
   render() {
     const user = this.user;
+    const authLinks = [
+      {
+        text: 'Member hub',
+        href: this.memberhuburl
+      }
+    ];
+    const linksToRender = this.user?.id ? [...authLinks, ...this._links] : this._links;
 
     return (
       <Host>
@@ -155,7 +152,7 @@ export class Header {
           </button>
           <nav class="nav">
             <slot name="header">
-              {this._links.map(({ text, href }) => (
+              {linksToRender.map(({ text, href }) => (
                 <div class="nav-item d-md-flex">
                   <a class="nav-link" href={href}>
                     {text}
@@ -181,7 +178,7 @@ export class Header {
         </header>
         <dc-menu open={this.isMenuOpen} logo={this.logo}>
           <slot name="menu">
-            {this._links.map(({ text, href }) => (
+            {linksToRender.map(({ text, href }) => (
               <div class="nav-item">
                 <a class="nav-link" href={href}>
                   {text}
