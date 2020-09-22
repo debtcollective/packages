@@ -15,13 +15,13 @@
 
 ### Used by
 
- - [dc-header](.)
+ - [dc-user-items](.)
 
 ### Graph
 ```mermaid
 graph TD;
-  dc-header --> dc-user-items
-  style dc-user-items fill:#f9f,stroke:#333,stroke-width:4px
+  dc-user-items --> dc-user-popup
+  style dc-user-popup fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
