@@ -45,6 +45,11 @@ export class Header {
    * without the latest "/"
    */
   @Prop() community: string = "https://community.debtcollective.org";
+  
+  /**
+   * URL to the member hub page
+   */
+  @Prop() memberhuburl?: string = "https://debtcollective.org/hub";
 
   /**
    * URL to the component host
@@ -105,6 +110,7 @@ export class Header {
 
   async syncCurrentUser() {
     const user = await syncCurrentUser(this.community);
+
     this.user = user;
   }
 
@@ -115,6 +121,13 @@ export class Header {
 
   render() {
     const user = this.user;
+    const authLinks = [
+      {
+        text: 'Member hub',
+        href: this.memberhuburl
+      }
+    ];
+    const linksToRender = this.user?.id ? [...authLinks, ...this._links] : this._links;
 
     return (
       <Host>
@@ -139,7 +152,7 @@ export class Header {
           </button>
           <nav class="nav">
             <slot name="header">
-              {this._links.map(({ text, href }) => (
+              {linksToRender.map(({ text, href }) => (
                 <div class="nav-item d-md-flex">
                   <a class="nav-link" href={href}>
                     {text}
@@ -165,7 +178,7 @@ export class Header {
         </header>
         <dc-menu open={this.isMenuOpen} logo={this.logo}>
           <slot name="menu">
-            {this._links.map(({ text, href }) => (
+            {linksToRender.map(({ text, href }) => (
               <div class="nav-item">
                 <a class="nav-link" href={href}>
                   {text}
