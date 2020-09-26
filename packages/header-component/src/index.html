@@ -23,11 +23,22 @@
     style="background: linear-gradient(180deg, #dbf8ff 0%, #fcfbf7 88.74%); height: 100%;"
   >
     <dc-header
+      id="dc-header"
       host="http://lvh.me:3333"
       community="http://lvh.me:3000"
       links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'
     ></dc-header>
 
+    <p style="margin-top: 20rem;">
+      <i>Check console to see output of props functions</i>
+    </p>
+
     <!-- You can choose to render custom navigation, check the README.md file and restart the stencil server after change index.html -->
+    <script>
+      const header = document.querySelector('#dc-header')
+      header.addEventListener('userSynced', (event) => {
+        console.log('userSynced', event.detail);
+      })
+    </script>
   </body>
 </html>

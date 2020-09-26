@@ -6,7 +6,9 @@ import {
   Watch,
   getAssetPath,
   Host,
-  Listen
+  Listen,
+  Event,
+  EventEmitter
 } from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
@@ -79,6 +81,17 @@ export class Header {
   @State() isMenuOpen: boolean;
 
   /**
+   * Emit event to exposed fetched user on host application
+   * TODO: Cannot find name User on EventEmitter<User>
+   */
+  @Event({
+    eventName: 'userSynced',
+    composed: true,
+    cancelable: true,
+    bubbles: true,
+  }) userSynced: EventEmitter;
+
+  /**
    * Logo image
    */
   private _logo = "logo.png";
@@ -112,6 +125,7 @@ export class Header {
     const user = await syncCurrentUser(this.community);
 
     this.user = user;
+    this.userSynced.emit(user)
   }
 
   componentWillLoad() {
@@ -120,14 +134,7 @@ export class Header {
   }
 
   render() {
-    const user = this.user;
-    const authLinks = [
-      {
-        text: 'Member hub',
-        href: this.memberhuburl
-      }
-    ];
-    const linksToRender = this.user?.id ? [...authLinks, ...this._links] : this._links;
+    const linksToRender = this._links
 
     return (
       <Host>
@@ -162,8 +169,8 @@ export class Header {
             </slot>
           </nav>
           <div class="session-items">
-            {user ? (
-              <dc-user-items user={user} community={this.community} />
+            {this.user ? (
+              <dc-user-items user={this.user} community={this.community} />
             ) : (
               <div class="session-links">
                 <a href={loginURL({ community: this.community, host: this.host })} class="btn btn-outline">

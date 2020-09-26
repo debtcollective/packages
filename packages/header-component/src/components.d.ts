@@ -197,6 +197,10 @@ declare namespace LocalJSX {
           * URL to the member hub page
          */
         "memberhuburl"?: string;
+        /**
+          * Emit event to exposed fetched user on host application TODO: Cannot find name User on EventEmitter<User>
+         */
+        "onUserSynced"?: (event: CustomEvent<any>) => void;
     }
     interface DcMenu {
         /**
