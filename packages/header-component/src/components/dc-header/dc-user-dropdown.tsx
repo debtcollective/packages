@@ -10,8 +10,8 @@ import { logout } from '../../services/session';
 
 @Component({
   assetsDirs: ["assets"],
-  tag: "dc-user-popup",
-  styleUrl: "dc-user-popup.css"
+  tag: "dc-user-dropdown",
+  styleUrl: "dc-user-dropdown.css"
 })
 export class UserPopup {
   @State() open: boolean = false;
@@ -101,7 +101,7 @@ export class UserPopup {
     ];
 
     return (
-      <div class={`user-popup-container`}>
+      <div class={`user-dropdown-container`}>
         <button
           class="btn btn-transparent"
           onClick={this.togglePopup.bind(this)}
@@ -120,13 +120,13 @@ export class UserPopup {
           </span>
         </button>
         <div
-          class={`user-popup-items ${this.open ? "open " : "hidden"}`}
+          class={`user-dropdown-items ${this.open ? "open " : "hidden"}`}
           onMouseLeave={this.closePopup.bind(this)}
           ref={(el) => this.popupItems = el}
         >
           <a
             href={preffixCommunityURL(this.community, `u/${this.user.username}`)}
-            class="user-popup-item"
+            class="user-dropdown-item"
             target="_blank"
           >
             {this.user.username}
@@ -134,14 +134,14 @@ export class UserPopup {
           </a>
           {
             items.map(item => (
-              <a href={item.href} class="user-popup-item" target="_blank">
+              <a href={item.href} class="user-dropdown-item" target="_blank">
                 <span class="material-icons">{item.icon}</span>
                 {item.text}
               </a>
             ))
           }
           <button
-            class="btn btn-transparent user-popup-item"
+            class="btn btn-transparent user-dropdown-item"
             onClick={this.handleLogout.bind(this)}
           >
             <span class="material-icons">exit_to_app</span>
