@@ -15,13 +15,18 @@
 
 ### Used by
 
- - [dc-user-items](.)
+ - [dc-header](.)
+
+### Depends on
+
+- [dc-user-dropdown](.)
 
 ### Graph
 ```mermaid
 graph TD;
   dc-user-items --> dc-user-dropdown
-  style dc-user-dropdown fill:#f9f,stroke:#333,stroke-width:4px
+  dc-header --> dc-user-items
+  style dc-user-items fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------
