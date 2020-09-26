@@ -20,8 +20,8 @@
 ### Graph
 ```mermaid
 graph TD;
-  dc-user-items --> dc-user-popup
-  style dc-user-popup fill:#f9f,stroke:#333,stroke-width:4px
+  dc-user-items --> dc-user-dropdown
+  style dc-user-dropdown fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
 ----------------------------------------------

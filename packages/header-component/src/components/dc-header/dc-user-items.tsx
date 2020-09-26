@@ -1,6 +1,6 @@
 import { Component, h, Host, Prop } from "@stencil/core";
 import { preffixCommunityURL } from "../../utils/community";
-import "./dc-user-popup";
+import "./dc-user-dropdown";
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-user-items",
@@ -68,7 +68,7 @@ export class Menu {
             )}
           </div>
         </a>
-        <dc-user-popup user={this.user} community={this.community} />
+        <dc-user-dropdown user={this.user} community={this.community} />
       </Host>
     );
   }

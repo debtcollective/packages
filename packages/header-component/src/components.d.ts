@@ -66,7 +66,7 @@ export namespace Components {
          */
         "open": boolean;
     }
-    interface DcUserItems {
+    interface DcUserDropdown {
         /**
           * URL to the community
          */
@@ -83,7 +83,7 @@ export namespace Components {
     unread_high_priority_notifications: number;
   };
     }
-    interface DcUserPopup {
+    interface DcUserItems {
         /**
           * URL to the community
          */
@@ -126,25 +126,25 @@ declare global {
         prototype: HTMLDcMenuElement;
         new (): HTMLDcMenuElement;
     };
+    interface HTMLDcUserDropdownElement extends Components.DcUserDropdown, HTMLStencilElement {
+    }
+    var HTMLDcUserDropdownElement: {
+        prototype: HTMLDcUserDropdownElement;
+        new (): HTMLDcUserDropdownElement;
+    };
     interface HTMLDcUserItemsElement extends Components.DcUserItems, HTMLStencilElement {
     }
     var HTMLDcUserItemsElement: {
         prototype: HTMLDcUserItemsElement;
         new (): HTMLDcUserItemsElement;
     };
-    interface HTMLDcUserPopupElement extends Components.DcUserPopup, HTMLStencilElement {
-    }
-    var HTMLDcUserPopupElement: {
-        prototype: HTMLDcUserPopupElement;
-        new (): HTMLDcUserPopupElement;
-    };
     interface HTMLElementTagNameMap {
         "dc-collapser": HTMLDcCollapserElement;
         "dc-dropdown": HTMLDcDropdownElement;
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
+        "dc-user-dropdown": HTMLDcUserDropdownElement;
         "dc-user-items": HTMLDcUserItemsElement;
-        "dc-user-popup": HTMLDcUserPopupElement;
     }
 }
 declare namespace LocalJSX {
@@ -209,7 +209,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
-    interface DcUserItems {
+    interface DcUserDropdown {
         /**
           * URL to the community
          */
@@ -226,7 +226,7 @@ declare namespace LocalJSX {
     unread_high_priority_notifications: number;
   };
     }
-    interface DcUserPopup {
+    interface DcUserItems {
         /**
           * URL to the community
          */
@@ -248,8 +248,8 @@ declare namespace LocalJSX {
         "dc-dropdown": DcDropdown;
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
+        "dc-user-dropdown": DcUserDropdown;
         "dc-user-items": DcUserItems;
-        "dc-user-popup": DcUserPopup;
     }
 }
 export { LocalJSX as JSX };
@@ -260,8 +260,8 @@ declare module "@stencil/core" {
             "dc-dropdown": LocalJSX.DcDropdown & JSXBase.HTMLAttributes<HTMLDcDropdownElement>;
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
+            "dc-user-dropdown": LocalJSX.DcUserDropdown & JSXBase.HTMLAttributes<HTMLDcUserDropdownElement>;
             "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
-            "dc-user-popup": LocalJSX.DcUserPopup & JSXBase.HTMLAttributes<HTMLDcUserPopupElement>;
         }
     }
 }
