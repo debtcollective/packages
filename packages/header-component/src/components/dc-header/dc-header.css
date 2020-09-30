@@ -2,6 +2,7 @@
   --brand-color: #ff4630;
   --button-color: #ff4630;
   --button-hover-color: #ee2812;
+  --outline-button-hover-color: #FFFBEA;
   --text-color: #2b2b2b;
   --disabled-text-color: #52575C;
   --font-size: 1rem;
@@ -139,8 +140,11 @@
   color: var(--text-color);
 }
 
-:host .btn-primary,
 :host .btn-outline:hover {
+  background: var(--outline-button-hover-color);
+}
+
+:host .btn-primary {
   background: var(--button-color);
   border: 0.0625rem solid var(--button-color);
   color: #fff;
