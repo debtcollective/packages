@@ -20,7 +20,7 @@
   justify-content: flex-start;
   left: 0;
   padding: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   transition: transform ease 0.216s;
   width: 75%;
