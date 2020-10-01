@@ -3,7 +3,7 @@ jobs:
   test:
     working_directory: ~/packages
     docker:
-      - image: circleci/node:12.18.3-browsers
+      - image: circleci/node:12.18.4-browsers
     steps:
       - checkout
       - restore_cache:
@@ -27,7 +27,7 @@ jobs:
   publish:
     working_directory: ~/packages
     docker:
-      - image: circleci/node:12.18.3-browsers
+      - image: circleci/node:12.18.4-browsers
     steps:
       - checkout
       - restore_cache:
