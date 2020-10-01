@@ -4,6 +4,7 @@ import {
   State,
   Prop,
 } from "@stencil/core";
+import omit from 'lodash.omit';
 
 @Component({
   assetsDirs: ["assets"],
@@ -19,7 +20,7 @@ export class Collapser {
   /**
    * Items to be displayed in the collapser
    */
-  @Prop() items: Array<{ text: string; href: string, description: string }>;
+  @Prop() items: Array<{ text: string; href: string, target?: string }>;
   
   @State() open: boolean;
 
@@ -41,12 +42,11 @@ export class Collapser {
         </button>
         <ul class={`collapser-items ${this.open ? "open " : "hidden"}`}>
           {
-            this.items.map(item => (
-              <li class="collapser-item" onClick={() => {
-                window.open(item.href, "_self");
-              }}>
-                <a href={item.href} class="collapser-item-text">{item.text}</a>
-                <p class="collapser-item-description">{item.description}</p>
+            this?.items?.map(item => (
+              <li class="collapser-item">
+                <a class="collapser-item-text" {...omit(item, ['text'])}>
+                  {item.text}
+                </a>
               </li>
             ))
           }

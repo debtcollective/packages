@@ -10,7 +10,7 @@ export namespace Components {
         /**
           * Items to be displayed in the collapser
          */
-        "items": Array<{ text: string; href: string, description: string }>;
+        "items": Array<{ text: string; href: string, target?: string }>;
         /**
           * label for the collapser nav item
          */
@@ -20,7 +20,7 @@ export namespace Components {
         /**
           * Items to be displayed in the dropdown
          */
-        "items": Array<{ text: string; href: string, description: string }>;
+        "items": Array<{ text: string; href: string, target?: string }>;
         /**
           * label for the dropdown nav item
          */
@@ -152,7 +152,7 @@ declare namespace LocalJSX {
         /**
           * Items to be displayed in the collapser
          */
-        "items"?: Array<{ text: string; href: string, description: string }>;
+        "items"?: Array<{ text: string; href: string, target?: string }>;
         /**
           * label for the collapser nav item
          */
@@ -162,7 +162,7 @@ declare namespace LocalJSX {
         /**
           * Items to be displayed in the dropdown
          */
-        "items"?: Array<{ text: string; href: string, description: string }>;
+        "items"?: Array<{ text: string; href: string, target?: string }>;
         /**
           * label for the dropdown nav item
          */
