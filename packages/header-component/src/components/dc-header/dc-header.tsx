@@ -10,9 +10,12 @@ import {
   Event,
   EventEmitter
 } from "@stencil/core";
+import omit from 'lodash.omit';
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
 import "./dc-user-items";
+import "./dc-dropdown";
+import "./dc-collapser";
 import { loginURL } from "../../utils/community";
 
 type User = {
@@ -23,6 +26,24 @@ type User = {
   unread_notifications: number;
   unread_high_priority_notifications: number;
 };
+
+const TAKE_ACTION_LINKS = [
+  {
+    text: 'Events',
+    href: 'https://community.debtcollective.org/calendar',
+    target: '_blank'
+  },
+  {
+    text: 'Student Debt Strike',
+    href: 'https://strike.debtcollective.org',
+    target: '_blank'
+  },
+  {
+    text: 'Dispute Your Debt',
+    href: 'https://tools.debtcollective.org/',
+    target: '_blank'
+  },
+]
 
 @Component({
   assetsDirs: ["assets"],
@@ -100,7 +121,7 @@ export class Header {
   /**
    * Host the value of "links" parsed to an actual Array
    */
-  private _links: Array<{ text: string; href: string }>;
+  private _links: Array<{ text: string; href: string, target?: string }>;
 
   @Watch("links")
   linksDidChangeHandler(newValue) {
@@ -159,13 +180,14 @@ export class Header {
           </button>
           <nav class="nav">
             <slot name="header">
-              {linksToRender.map(({ text, href }) => (
+              {linksToRender.map(link => (
                 <div class="nav-item d-md-flex">
-                  <a class="nav-link" href={href}>
-                    {text}
+                  <a class="nav-link" {...omit(link, ['text'])}>
+                    {link.text}
                   </a>
                 </div>
               ))}
+              <dc-dropdown label="Take Action!" items={TAKE_ACTION_LINKS} />
             </slot>
           </nav>
           <div class="session-items">
@@ -185,13 +207,14 @@ export class Header {
         </header>
         <dc-menu open={this.isMenuOpen} logo={this.logo}>
           <slot name="menu">
-            {linksToRender.map(({ text, href }) => (
+            {linksToRender.map(link => (
               <div class="nav-item">
-                <a class="nav-link" href={href}>
-                  {text}
+                <a class="nav-link" {...omit(link, ['text'])}>
+                  {link.text}
                 </a>
               </div>
             ))}
+            <dc-collapser label="Take Action!" items={TAKE_ACTION_LINKS} />
           </slot>
         </dc-menu>
       </Host>

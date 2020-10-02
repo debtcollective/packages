@@ -5,6 +5,7 @@ import {
   Prop,
   Listen
 } from "@stencil/core";
+import omit from 'lodash.omit';
 
 @Component({
   assetsDirs: ["assets"],
@@ -20,7 +21,7 @@ export class Dropdown {
   /**
    * Items to be displayed in the dropdown
    */
-  @Prop() items: Array<{ text: string; href: string, description: string }>;
+  @Prop() items: Array<{ text: string; href: string, target?: string }>;
   
   @State() open: boolean;
 
@@ -77,10 +78,9 @@ export class Dropdown {
           ref={(el) => this.dropdownItems = el}
         >
           {
-            this.items.map(item => (
-              <a href={item.href} class="dropdown-item">
+            this?.items?.map(item => (
+              <a class="dropdown-item" {...omit(item, ['text'])}>
                 {item.text}
-                <p class="dropdown-item-description">{item.description}</p>
               </a>
             ))
           }

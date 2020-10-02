@@ -15,6 +15,10 @@
   display: none;
 }
 
+:host .collapser-item {
+  margin-bottom: 0.75rem;
+}
+
 :host .collapser-items .collapser-item:hover .collapser-item-text  {
   color: var(--brand-color);
 }
@@ -23,10 +27,4 @@
   color: var(--disabled-text-color);
   font-size: 0.875rem;
   font-weight: 600;
-}
-
-:host .collapser-items .collapser-item .collapser-item-description {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  color: var(--text-color);
 }
