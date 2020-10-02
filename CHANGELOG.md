@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.4.0](https://github.com/debtcollective/packages/compare/v1.3.2...v1.4.0) (2020-10-02)
+
+
+### Features
+
+* **header-component:** add take action links ([5a401cc](https://github.com/debtcollective/packages/commit/5a401cc))
+
+
+
+
+
 ## [1.3.2](https://github.com/debtcollective/packages/compare/v1.3.1...v1.3.2) (2020-10-01)
 
 
