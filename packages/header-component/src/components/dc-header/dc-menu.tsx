@@ -40,7 +40,7 @@ export class Menu {
         <div class="menu-cloak" onClick={this.toggleMenuHandler.bind(this)} />
         <div class="menu">
           <div class="nav-header">
-            <a href="/" class="btn-transparent">
+            <a href="/">
               <img
                 class="menu-logo"
                 src={this.logo || getAssetPath(`./assets/${this._logo}`)}
