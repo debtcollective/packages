@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/tools",
-  "version": "1.0.0",
+  "version": "1.4.2",
   "description": "Disputes app tools",
   "author": "Orlando Del Aguila <orlando@hashlabs.com>",
   "homepage": "https://github.com/debtcollective/disputes#readme",
