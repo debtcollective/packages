@@ -1734,10 +1734,10 @@
   dependencies:
     "@types/node" "*"
 
-"@types/puppeteer@2.1.3":
-  version "2.1.3"
-  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-2.1.3.tgz#6f9963ad4f70b717f2cd399cb738149db6f70b21"
-  integrity sha512-ZYRfnd4oj2fxdGA+uNn1cBQYfBJK4xQLIKmG7ONoCoyOhksk68e5mzFI/zgvFHSxX0Qf6MITb+IZlHFGS6ipLw==
+"@types/puppeteer@2.1.5":
+  version "2.1.5"
+  resolved "https://registry.yarnpkg.com/@types/puppeteer/-/puppeteer-2.1.5.tgz#9137aa87dca21450820bfd6fa4fe747bc8176381"
+  integrity sha512-ZZKAcX5XVEtSK+CLxz6FhofPt8y1D3yDtjGZHDFBZ4bGe8v2aaS6qBDHY4crruvpb4jsO7HKrPEx39IIqsZAUg==
   dependencies:
     "@types/node" "*"
 
