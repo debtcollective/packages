@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/debtcollective/packages/compare/v1.4.3...v1.4.4) (2020-10-07)
+
+
+### Bug Fixes
+
+* **header-component:** display dc-menu in resolutions lower than 1024px ([e26d12e](https://github.com/debtcollective/packages/commit/e26d12e))
+
+
+
+
+
 ## [1.4.3](https://github.com/debtcollective/packages/compare/v1.4.2...v1.4.3) (2020-10-03)
 
 **Note:** Version bump only for package @debtcollective/packages
