@@ -42,7 +42,7 @@
   color: var(--brand-color);
 }
 
-@media (min-width: 768px) {
+@media (min-width: 1024px) {
   :host .dropdown-container {
     display: block;
   }

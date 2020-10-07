@@ -15,7 +15,6 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  font-family: var(--main-font);
   height: 100vh;
   justify-content: flex-start;
   left: 0;
