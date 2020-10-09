@@ -26,25 +26,6 @@ type User = {
   unread_notifications: number;
   unread_high_priority_notifications: number;
 };
-
-const TAKE_ACTION_LINKS = [
-  {
-    text: 'Events',
-    href: 'https://community.debtcollective.org/calendar',
-    target: '_blank'
-  },
-  {
-    text: 'Student Debt Strike',
-    href: 'https://strike.debtcollective.org',
-    target: '_blank'
-  },
-  {
-    text: 'Dispute Your Debt',
-    href: 'https://tools.debtcollective.org/',
-    target: '_blank'
-  },
-]
-
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
@@ -187,7 +168,6 @@ export class Header {
                   </a>
                 </div>
               ))}
-              <dc-dropdown label="Take Action!" items={TAKE_ACTION_LINKS} />
             </slot>
           </nav>
           <div class="session-items">
@@ -214,7 +194,6 @@ export class Header {
                 </a>
               </div>
             ))}
-            <dc-collapser label="Take Action!" items={TAKE_ACTION_LINKS} />
           </slot>
         </dc-menu>
       </Host>

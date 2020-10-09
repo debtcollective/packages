@@ -1,18 +1,18 @@
-import {
+import { 
   Component,
   h,
   State,
   Prop,
-  Listen
-} from "@stencil/core";
+  Listen 
+} from '@stencil/core';
 import omit from 'lodash.omit';
 
 @Component({
-  assetsDirs: ["assets"],
-  tag: "dc-dropdown",
-  styleUrl: "dc-dropdown.css"
+  shadow: true,
+  styleUrl: 'dc-dropdown.css',
+  tag: 'dc-dropdown',
 })
-export class Dropdown {
+export class DcDropdown {
   /**
    * label for the dropdown nav item
    */
@@ -21,7 +21,7 @@ export class Dropdown {
   /**
    * Items to be displayed in the dropdown
    */
-  @Prop() items: Array<{ text: string; href: string, target?: string }>;
+  @Prop() items: string;
   
   @State() open: boolean;
 
@@ -58,10 +58,12 @@ export class Dropdown {
   closeDropdown() {
     this.open = false;
   }
-
   render() {
+    //TODO: @Watch approach seems to not work correctly
+    const _items = JSON.parse(this.items)
+    
     return (
-      <div class={`dropdown-container nav-item`}>
+      <div class="dropdown-container nav-item">
         <button
           class="nav-link btn btn-transparent"
           onClick={this.toggleDropdown.bind(this)}
@@ -78,7 +80,7 @@ export class Dropdown {
           ref={(el) => this.dropdownItems = el}
         >
           {
-            this?.items?.map(item => (
+            _items?.map(item => (
               <a class="dropdown-item" {...omit(item, ['text'])}>
                 {item.text}
               </a>

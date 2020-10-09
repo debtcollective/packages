@@ -16,16 +16,6 @@ export namespace Components {
          */
         "label": string;
     }
-    interface DcDropdown {
-        /**
-          * Items to be displayed in the dropdown
-         */
-        "items": Array<{ text: string; href: string, target?: string }>;
-        /**
-          * label for the dropdown nav item
-         */
-        "label": string;
-    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -100,6 +90,8 @@ export namespace Components {
     unread_high_priority_notifications: number;
   };
     }
+    interface DropdownComponent {
+    }
 }
 declare global {
     interface HTMLDcCollapserElement extends Components.DcCollapser, HTMLStencilElement {
@@ -107,12 +99,6 @@ declare global {
     var HTMLDcCollapserElement: {
         prototype: HTMLDcCollapserElement;
         new (): HTMLDcCollapserElement;
-    };
-    interface HTMLDcDropdownElement extends Components.DcDropdown, HTMLStencilElement {
-    }
-    var HTMLDcDropdownElement: {
-        prototype: HTMLDcDropdownElement;
-        new (): HTMLDcDropdownElement;
     };
     interface HTMLDcHeaderElement extends Components.DcHeader, HTMLStencilElement {
     }
@@ -138,13 +124,19 @@ declare global {
         prototype: HTMLDcUserItemsElement;
         new (): HTMLDcUserItemsElement;
     };
+    interface HTMLDropdownComponentElement extends Components.DropdownComponent, HTMLStencilElement {
+    }
+    var HTMLDropdownComponentElement: {
+        prototype: HTMLDropdownComponentElement;
+        new (): HTMLDropdownComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-collapser": HTMLDcCollapserElement;
-        "dc-dropdown": HTMLDcDropdownElement;
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
         "dc-user-dropdown": HTMLDcUserDropdownElement;
         "dc-user-items": HTMLDcUserItemsElement;
+        "dropdown-component": HTMLDropdownComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -155,16 +147,6 @@ declare namespace LocalJSX {
         "items"?: Array<{ text: string; href: string, target?: string }>;
         /**
           * label for the collapser nav item
-         */
-        "label"?: string;
-    }
-    interface DcDropdown {
-        /**
-          * Items to be displayed in the dropdown
-         */
-        "items"?: Array<{ text: string; href: string, target?: string }>;
-        /**
-          * label for the dropdown nav item
          */
         "label"?: string;
     }
@@ -247,13 +229,15 @@ declare namespace LocalJSX {
     unread_high_priority_notifications: number;
   };
     }
+    interface DropdownComponent {
+    }
     interface IntrinsicElements {
         "dc-collapser": DcCollapser;
-        "dc-dropdown": DcDropdown;
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
         "dc-user-dropdown": DcUserDropdown;
         "dc-user-items": DcUserItems;
+        "dropdown-component": DropdownComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -261,11 +245,11 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dc-collapser": LocalJSX.DcCollapser & JSXBase.HTMLAttributes<HTMLDcCollapserElement>;
-            "dc-dropdown": LocalJSX.DcDropdown & JSXBase.HTMLAttributes<HTMLDcDropdownElement>;
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
             "dc-user-dropdown": LocalJSX.DcUserDropdown & JSXBase.HTMLAttributes<HTMLDcUserDropdownElement>;
             "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
+            "dropdown-component": LocalJSX.DropdownComponent & JSXBase.HTMLAttributes<HTMLDropdownComponentElement>;
         }
     }
 }

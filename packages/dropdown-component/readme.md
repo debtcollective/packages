@@ -10,7 +10,7 @@ Stencil is also great for building entire apps. For that, use the [stencil-app-s
 
 Stencil is a compiler for building fast web apps using Web Components.
 
-Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool. Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
+Stencil combines the best concepts of the most popular frontend frameworks into a compile-time rather than run-time tool.  Stencil takes TypeScript, JSX, a tiny virtual DOM layer, efficient one-way data binding, an asynchronous rendering pipeline (similar to React Fiber), and lazy-loading out of the box, and generates 100% standards-based Web Components that run in any browser supporting the Custom Elements v1 spec.
 
 Stencil components are just Web Components, so they work in any major framework or with no framework at all.
 
@@ -27,20 +27,20 @@ git remote rm origin
 and run:
 
 ```bash
-yarn install
-yarn start
+npm install
+npm start
 ```
 
 To build the component for production, run:
 
 ```bash
-yarn run build
+npm run build
 ```
 
 To run the unit tests for the components, run:
 
 ```bash
-yarn test
+npm test
 ```
 
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
@@ -53,10 +53,13 @@ Instead, use a prefix that fits your company or any name for a group of related 
 
 ## Using this component
 
+There are three strategies we recommend for using web components built with Stencil.
+
+The first step for all three of these strategies is to [publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages).
+
 ### Script tag
 
-- [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- Put a script tag similar to this `<script src='https://unpkg.com/dc-dropdown@0.0.1/dist/dropdown.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://unpkg.com/@debtcollective/dc-dropdown@latest/dist/popup-component/popup-component.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules

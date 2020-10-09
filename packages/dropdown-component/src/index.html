@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <script type="module" src="/build/dropdown-component.esm.js"></script>
+    <script nomodule src="/build/dropdown-component.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <dc-dropdown
+      label="Take Action!"
+      items='[{"text":"Events","href":"https://community.debtcollective.org/calendar","target":"_blank"},{"text":"Student Debt Strike","href":"https://strike.debtcollective.org","target":"_blank"},{"text":"Dispute Your Debt","href":"https://tools.debtcollective.org/","target":"_blank"}]'
+    ></dc-dropdown>
+  </body>
+</html>
