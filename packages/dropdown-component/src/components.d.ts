@@ -8,17 +8,13 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface MyComponent {
         /**
-          * The first name
+          * Items to be displayed in the dropdown
          */
-        "first": string;
+        "items": string;
         /**
-          * The last name
+          * label for the dropdown nav item
          */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
+        "label": string;
     }
 }
 declare global {
@@ -35,17 +31,13 @@ declare global {
 declare namespace LocalJSX {
     interface MyComponent {
         /**
-          * The first name
+          * Items to be displayed in the dropdown
          */
-        "first"?: string;
+        "items"?: string;
         /**
-          * The last name
+          * label for the dropdown nav item
          */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
+        "label"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;

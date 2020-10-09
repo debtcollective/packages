@@ -1,3 +1,134 @@
 :host {
-  display: block;
+  --brand-color: #ff4630;
+  --button-color: #ff4630;
+  --button-hover-color: #ee2812;
+  --outline-button-hover-color: #FFFBEA;
+  --text-color: #2b2b2b;
+  --disabled-text-color: #52575C;
+  --font-size: 1rem;
+  --column-gap: 15px;
+  --main-bg-color: #fbfbfb;
+  --z-index: 1000;
+  --main-font: "Libre Franklin", sans-serif;
+
+  display: inline-block;
+  font-family: var(--main-font);
+}
+
+:host .nav-item {
+  padding: 0 0.625rem;
+}
+
+:host .nav-link {
+  color: var(--text-color);
+  font-size: var(--font-size);
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: color 0.216s ease;
+}
+
+:host .nav-link:visited {
+  color: var(--text-color);
+}
+
+:host .nav-link:hover {
+  color: var(--brand-color);
+}
+
+:host .btn {
+  align-items: center;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 1rem;
+  transition: background 0.216s ease, color 0.216s ease;
+}
+
+:host .btn-transparent {
+  background: none;
+  border: none;
+  display: flex;
+  font-size: var(--font-size);
+  padding: 0;
+}
+
+:host .dropdown-container {
+  position: relative;
+}
+
+:host .dropdown-items {
+  background-color: var(--main-bg-color);
+  border-radius: 0.5rem 0 0.5rem 0.5rem;
+  box-shadow: 0 0 0.5rem rgba(37, 40, 43, 0.12);
+  cursor: pointer;
+  left: 0;
+  padding: 0;
+  position: absolute;
+  top: 2.5rem;
+  width: 16rem;
+}
+
+:host .dropdown-items.open {
+  list-style: none;
+  opacity: 1;
+  transition: opacity 0.1s ease-in;
+  visibility: visible;
+}
+
+:host .dropdown-items.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+:host .dropdown-items .dropdown-item {
+  align-items: center;
+  color: var(--disabled-text-color);
+  display: flex;
+  font-size: 0.875rem;
+  font-weight: 600;
+  justify-content: start;
+  min-height: 2rem;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+}
+
+:host .dropdown-items .dropdown-item:hover, :host .dropdown-items .dropdown-item:focus {
+  background-color: rgba(255, 70, 48, 0.1);
+  color: var(--brand-color);
+  transition: background-color 0.1s ease-in;
+}
+
+:host .dropdown-items .dropdown-item .dropdown-item-description {
+  color: var(--text-color);
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+/* Make sure material-icons class have its effect */
+:host .material-icons {
+  color: var(--text-color);
+  direction: ltr;
+  display: inline-block;
+  font-family: "Material Icons";
+  font-size: 24px; /* Preferred icon size */
+  font-style: normal;
+  font-weight: normal;
+  letter-spacing: normal;
+  line-height: 1;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
 }

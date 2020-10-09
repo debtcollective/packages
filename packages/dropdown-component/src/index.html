@@ -7,8 +7,19 @@
 
     <script type="module" src="/build/dropdown-component.esm.js"></script>
     <script nomodule src="/build/dropdown-component.js"></script>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <my-component first="Stencil" last="'Don't call me a framework' JS"></my-component>
+    <my-component
+      label="Take Action!"
+      items='[{"text":"Events","href":"https://community.debtcollective.org/calendar","target":"_blank"},{"text":"Student Debt Strike","href":"https://strike.debtcollective.org","target":"_blank"},{"text":"Dispute Your Debt","href":"https://tools.debtcollective.org/","target":"_blank"}]'
+    ></my-component>
   </body>
 </html>
