@@ -100,6 +100,8 @@ export namespace Components {
     unread_high_priority_notifications: number;
   };
     }
+    interface DropdownComponent {
+    }
 }
 declare global {
     interface HTMLDcCollapserElement extends Components.DcCollapser, HTMLStencilElement {
@@ -138,6 +140,12 @@ declare global {
         prototype: HTMLDcUserItemsElement;
         new (): HTMLDcUserItemsElement;
     };
+    interface HTMLDropdownComponentElement extends Components.DropdownComponent, HTMLStencilElement {
+    }
+    var HTMLDropdownComponentElement: {
+        prototype: HTMLDropdownComponentElement;
+        new (): HTMLDropdownComponentElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-collapser": HTMLDcCollapserElement;
         "dc-dropdown": HTMLDcDropdownElement;
@@ -145,6 +153,7 @@ declare global {
         "dc-menu": HTMLDcMenuElement;
         "dc-user-dropdown": HTMLDcUserDropdownElement;
         "dc-user-items": HTMLDcUserItemsElement;
+        "dropdown-component": HTMLDropdownComponentElement;
     }
 }
 declare namespace LocalJSX {
@@ -247,6 +256,8 @@ declare namespace LocalJSX {
     unread_high_priority_notifications: number;
   };
     }
+    interface DropdownComponent {
+    }
     interface IntrinsicElements {
         "dc-collapser": DcCollapser;
         "dc-dropdown": DcDropdown;
@@ -254,6 +265,7 @@ declare namespace LocalJSX {
         "dc-menu": DcMenu;
         "dc-user-dropdown": DcUserDropdown;
         "dc-user-items": DcUserItems;
+        "dropdown-component": DropdownComponent;
     }
 }
 export { LocalJSX as JSX };
@@ -266,6 +278,7 @@ declare module "@stencil/core" {
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
             "dc-user-dropdown": LocalJSX.DcUserDropdown & JSXBase.HTMLAttributes<HTMLDcUserDropdownElement>;
             "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
+            "dropdown-component": LocalJSX.DropdownComponent & JSXBase.HTMLAttributes<HTMLDropdownComponentElement>;
         }
     }
 }
