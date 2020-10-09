@@ -66,7 +66,6 @@ export class DcDropdown {
       <div class="dropdown-container nav-item">
         <button
           class="nav-link btn btn-transparent"
-          onFocus={this.toggleDropdown.bind(this)}
           onClick={this.toggleDropdown.bind(this)}
           ref={(el) => this.dropdownTrigger = el}
         >
