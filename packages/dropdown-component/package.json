@@ -25,5 +25,8 @@
     "@stencil/core": "^2.0.1",
     "lodash.omit": "^4.5.0"
   },
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "prettier": "^2.1.2"
+  }
 }
