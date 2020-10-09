@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+| Property | Attribute | Description                           | Type     | Default     |
+| -------- | --------- | ------------------------------------- | -------- | ----------- |
+| `items`  | `items`   | Items to be displayed in the dropdown | `string` | `undefined` |
+| `label`  | `label`   | label for the dropdown nav item       | `string` | `undefined` |
 
 
 ----------------------------------------------
