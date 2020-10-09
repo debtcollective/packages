@@ -26,3 +26,7 @@ lerna bootstrap
 ```
 
 Go to the README.md of each package for usage information.
+
+## Stencil
+
+To add a new component run `npm init stencil` and select component option
