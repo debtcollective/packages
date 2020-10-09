@@ -9,10 +9,10 @@ import omit from 'lodash.omit';
 
 @Component({
   shadow: true,
-  styleUrl: 'my-component.css',
-  tag: 'my-component',
+  styleUrl: 'dc-dropdown.css',
+  tag: 'dc-dropdown',
 })
-export class MyComponent {
+export class DcDropdown {
   /**
    * label for the dropdown nav item
    */

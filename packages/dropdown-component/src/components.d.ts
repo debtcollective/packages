@@ -6,7 +6,7 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
+    interface DcDropdown {
         /**
           * Items to be displayed in the dropdown
          */
@@ -18,18 +18,18 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
+    interface HTMLDcDropdownElement extends Components.DcDropdown, HTMLStencilElement {
     }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
+    var HTMLDcDropdownElement: {
+        prototype: HTMLDcDropdownElement;
+        new (): HTMLDcDropdownElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
+        "dc-dropdown": HTMLDcDropdownElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
+    interface DcDropdown {
         /**
           * Items to be displayed in the dropdown
          */
@@ -40,14 +40,14 @@ declare namespace LocalJSX {
         "label"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
+        "dc-dropdown": DcDropdown;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "dc-dropdown": LocalJSX.DcDropdown & JSXBase.HTMLAttributes<HTMLDcDropdownElement>;
         }
     }
 }
