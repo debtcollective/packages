@@ -24,6 +24,10 @@
     "test": "echo 'pending'",
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
+  "dependencies": {
+    "@debtcollective/dc-dropdown-component": "^0.0.1",
+    "lodash.omit": "^4.5.0"
+  },
   "devDependencies": {
     "@stencil/core": "1.17.3",
     "@types/jest": "25.2.3",
@@ -36,8 +40,5 @@
       "test": "TODO: set it to 'stencil test --spec --e2e' enable this when we fix the issue with dotenv"
     }
   },
-  "license": "MIT",
-  "dependencies": {
-    "lodash.omit": "^4.5.0"
-  }
+  "license": "MIT"
 }

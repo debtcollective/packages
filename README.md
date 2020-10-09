@@ -21,7 +21,7 @@ packages/
 To get started run:
 
 ```bash
-yarn global add lerna
+yarn install
 lerna bootstrap
 ```
 

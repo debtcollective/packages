@@ -14,9 +14,11 @@ import omit from 'lodash.omit';
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
 import "./dc-user-items";
-import "./dc-dropdown";
 import "./dc-collapser";
 import { loginURL } from "../../utils/community";
+
+// init dc-dropdown
+import "@debtcollective/dc-dropdown-component";
 
 type User = {
   id: number;
@@ -26,6 +28,26 @@ type User = {
   unread_notifications: number;
   unread_high_priority_notifications: number;
 };
+
+// dc-dropdown.items accepts strings
+const TAKE_ACTION_LINKS = JSON.stringify([
+  {
+    text: 'Events',
+    href: 'https://community.debtcollective.org/calendar',
+    target: '_blank'
+  },
+  {
+    text: 'Student Debt Strike',
+    href: 'https://strike.debtcollective.org',
+    target: '_blank'
+  },
+  {
+    text: 'Dispute Your Debt',
+    href: 'https://tools.debtcollective.org/',
+    target: '_blank'
+  },
+])
+
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
@@ -49,7 +71,7 @@ export class Header {
    * without the latest "/"
    */
   @Prop() community: string = "https://community.debtcollective.org";
-  
+
   /**
    * URL to the member hub page
    */
@@ -168,6 +190,7 @@ export class Header {
                   </a>
                 </div>
               ))}
+              <dc-dropdown label="Take Action!" items={TAKE_ACTION_LINKS} />
             </slot>
           </nav>
           <div class="session-items">

@@ -1,9 +1,9 @@
-import { 
+import {
   Component,
   h,
   State,
   Prop,
-  Listen 
+  Listen
 } from '@stencil/core';
 import omit from 'lodash.omit';
 
@@ -22,7 +22,7 @@ export class DcDropdown {
    * Items to be displayed in the dropdown
    */
   @Prop() items: string;
-  
+
   @State() open: boolean;
 
   /**
@@ -61,7 +61,7 @@ export class DcDropdown {
   render() {
     //TODO: @Watch approach seems to not work correctly
     const _items = JSON.parse(this.items)
-    
+
     return (
       <div class="dropdown-container nav-item">
         <button
@@ -69,7 +69,7 @@ export class DcDropdown {
           onClick={this.toggleDropdown.bind(this)}
           ref={(el) => this.dropdownTrigger = el}
         >
-          {this.label || ''} 
+          {this.label || ''}
           <span class="material-icons">
             {this.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
           </span>
