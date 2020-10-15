@@ -21,8 +21,7 @@ packages/
 To get started run:
 
 ```bash
-yarn install
-lerna bootstrap
+yarn setup
 ```
 
 Go to the README.md of each package for usage information.
