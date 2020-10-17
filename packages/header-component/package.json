@@ -9,7 +9,7 @@
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/header-component/header-component.js",
+  "unpkg": "dist/header/header.js",
   "files": [
     "dist/",
     "loader/"
@@ -25,7 +25,7 @@
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
-    "@debtcollective/dc-dropdown-component": "^1.5.0",
+    "@debtcollective/dc-dropdown-component": "^1.6.0",
     "lodash.omit": "^4.5.0"
   },
   "devDependencies": {

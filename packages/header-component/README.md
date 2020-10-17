@@ -14,6 +14,14 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ## Getting Started
 
+Currently, due to an issue with lerna and the local dependencies, in order to run this component locally you will need to do the following:
+
+```bash
+yarn remove @debtcollective/dc-dropdown-component
+yarn add @debtcollective/dc-dropdown-component
+```
+
+
 ```bash
 yarn install
 yarn start
@@ -75,7 +83,7 @@ Alternatively, you can choose to inject your own structure by doing something li
 ### Script tag
 
 - [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- Put a script tag similar to this `<script src='https://unpkg.com/dc-dropdown@0.0.1/dist/dropdown.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='https://unpkg.com/@debtcollective/dc-header-component@latest/dist/header/header.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
