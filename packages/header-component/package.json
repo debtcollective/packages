@@ -10,7 +10,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/header-component/header-component.js",
+  "unpkg": "dist/header/header.js",
   "files": [
     "dist/",
     "loader/"
