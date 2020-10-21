@@ -190,7 +190,7 @@ export class Header {
                   </a>
                 </div>
               ))}
-              <dc-dropdown label="Take Action!" items={TAKE_ACTION_LINKS} />
+              <dc-dropdown class="d-md-flex" label="Take Action!" items={TAKE_ACTION_LINKS} />
             </slot>
           </nav>
           <div class="session-items">
@@ -217,6 +217,7 @@ export class Header {
                 </a>
               </div>
             ))}
+            <dc-collapser label="Take Action!" items={JSON.parse(TAKE_ACTION_LINKS)} />
           </slot>
         </dc-menu>
       </Host>
