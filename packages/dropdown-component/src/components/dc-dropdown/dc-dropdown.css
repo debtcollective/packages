@@ -12,6 +12,9 @@
   --main-font: "Libre Franklin", sans-serif;
 
   display: inline-block;
+}
+
+:host * {
   font-family: var(--main-font);
 }
 
