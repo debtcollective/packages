@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.0.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.0.1...@debtcollective/dc-header-component@2.0.2) (2020-10-21)
+
+
+### Bug Fixes
+
+* **header-component:** hide dc-dropdown in mobile and display dc-collapser in small screens ([0693dc7](https://github.com/debtcollective/packages/commit/0693dc7))
+
+
+
+
+
 ## [2.0.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.0.0...@debtcollective/dc-header-component@2.0.1) (2020-10-21)
 
 **Note:** Version bump only for package @debtcollective/dc-header-component

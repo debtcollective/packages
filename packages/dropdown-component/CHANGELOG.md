@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.1...@debtcollective/dc-dropdown-component@1.6.2) (2020-10-21)
+
+
+### Bug Fixes
+
+* **dropdown-component:** set correct font family to dropdown label ([a8157b2](https://github.com/debtcollective/packages/commit/a8157b2))
+
+
+
+
+
 ## [1.6.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.0...@debtcollective/dc-dropdown-component@1.6.1) (2020-10-21)
 
 **Note:** Version bump only for package @debtcollective/dc-dropdown-component
