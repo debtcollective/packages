@@ -1,4 +1,4 @@
-:host {
+dc-header {
   --brand-color: #ff4630;
   --button-color: #ff4630;
   --button-hover-color: #ee2812;
@@ -12,16 +12,16 @@
   --main-font: "Libre Franklin", sans-serif;
 }
 
-:host * {
+dc-header * {
   font-family: var(--main-font);
 }
 
-:host a {
+dc-header a {
   text-decoration: none;
 }
 
 /* Container */
-:host .header {
+dc-header .header {
   -webkit-backface-visibility: hidden;
   align-items: center;
   backface-visibility: hidden;
@@ -40,31 +40,31 @@
 }
 
 /* Logo */
-:host .logo {
+dc-header .logo {
   /* 2.667em is the size of logo within the community */
   height: 2.667rem;
   position: relative;
   width: auto;
 }
 
-:host .logo-link {
+dc-header .logo-link {
   display: flex;
   align-items: center;
   margin-right: 1rem;
 }
 
 /* Navigation */
-:host .nav {
+dc-header .nav {
   align-items: center;
   display: flex;
   flex: 1;
 }
 
-:host .nav-item {
+dc-header .nav-item {
   padding: 0 0.625rem;
 }
 
-:host .nav-link {
+dc-header .nav-link {
   color: var(--text-color);
   font-size: var(--font-size);
   font-weight: 600;
@@ -73,23 +73,23 @@
   transition: color 0.216s ease;
 }
 
-:host .nav-link:visited {
+dc-header .nav-link:visited {
   color: var(--text-color);
 }
 
-:host .nav-link:hover {
+dc-header .nav-link:hover {
   color: var(--brand-color);
 }
 
 /* Avatar */
-:host .avatar {
+dc-header .avatar {
   border-radius: 50%;
   /* Match exactly community dimensions */
   width: 2.1333rem;
   height: 2.1333rem;
 }
 
-:host #current-user {
+dc-header #current-user {
   position: relative;
   display: flex;
   align-items: center;
@@ -104,30 +104,30 @@
 }
 
 /* Header session items */
-:host .session-items {
+dc-header .session-items {
   display: flex;
   align-items: center;
   margin-left: 1rem;
 }
 
-:host .session-items .material-icons {
+dc-header .session-items .material-icons {
   font-size: 1.25rem;
   padding: 0.2143rem;
   text-decoration: none;
   cursor: pointer;
 }
 
-:host .avatar {
+dc-header .avatar {
   margin-left: .5rem;
 }
 
-:host .session-links {
+dc-header .session-links {
   display: flex;
   align-items: center;
 }
 
 /* Buttons */
-:host .btn {
+dc-header .btn {
   align-items: center;
   border-radius: 0.25rem;
   cursor: pointer;
@@ -137,32 +137,32 @@
   transition: background 0.216s ease, color 0.216s ease;
 }
 
-:host .btn-outline {
+dc-header .btn-outline {
   background: transparent;
   border: 0.0625rem solid var(--text-color);
   color: var(--text-color);
 }
 
-:host .btn-outline:hover {
+dc-header .btn-outline:hover {
   background: var(--outline-button-hover-color);
 }
 
-:host .btn-primary {
+dc-header .btn-primary {
   background: var(--button-color);
   border: 0.0625rem solid var(--button-color);
   color: #fff;
 }
 
-:host .btn-primary:hover {
+dc-header .btn-primary:hover {
   border: 0.0625rem solid var(--button-hover-color);
   background: var(--button-hover-color);
 }
 
-:host .header .btn + .btn {
+dc-header .header .btn + .btn {
   margin-left: 0.4375rem;
 }
 
-:host .btn-transparent {
+dc-header .btn-transparent {
   background: none;
   border: none;
   display: flex;
@@ -176,28 +176,28 @@
 }
 
 /* Media queries utils */
-:host .d-md-flex {
+dc-header .d-md-flex {
   display: none;
 }
 
 @media (min-width: 1024px) {
-  :host .d-md-flex {
+  dc-header .d-md-flex {
     display: flex;
   }
 }
 
-:host .d-md-none {
+dc-header .d-md-none {
   display: flex;
 }
 
 @media (min-width: 1024px) {
-  :host .d-md-none {
+  dc-header .d-md-none {
     display: none;
   }
 }
 
 /* Make sure material-icons class have its effect */
-:host .material-icons {
+dc-header .material-icons {
   color: var(--text-color);
   font-family: "Material Icons";
   font-weight: normal;

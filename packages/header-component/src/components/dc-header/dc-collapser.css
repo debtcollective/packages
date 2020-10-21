@@ -1,29 +1,32 @@
-:host .collapser-items {
+dc-collapser .collapser-items {
   left: -80%;
   top: 2rem;
   border-radius: 0 0.5rem 0.5rem;
   background-color: var(--main-bg-color);
+  margin-top: .5rem;
+  margin-left: 1rem;
+  list-style: none;
   padding: 0;
   cursor: pointer;
 }
 
-:host .collapser-items.open {
+dc-collapser .collapser-items.open {
   display: block;
 }
 
-:host .collapser-items.hidden {
+dc-collapser .collapser-items.hidden {
   display: none;
 }
 
-:host .collapser-item {
+dc-collapser .collapser-item {
   margin-bottom: 0.75rem;
 }
 
-:host .collapser-items .collapser-item:hover .collapser-item-text  {
+dc-collapser .collapser-items .collapser-item:hover .collapser-item-text  {
   color: var(--brand-color);
 }
 
-:host .collapser-items .collapser-item .collapser-item-text {
+dc-collapser .collapser-items .collapser-item .collapser-item-text {
   color: var(--disabled-text-color);
   font-size: 0.875rem;
   font-weight: 600;
