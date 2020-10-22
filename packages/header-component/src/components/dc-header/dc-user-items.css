@@ -1,18 +1,18 @@
-:host .session-user-items {
+dc-user-items .session-user-items {
   display: flex;
   align-items: center;
 }
 
-:host .notification-link {
+dc-user-items .notification-link {
   margin-left: .5rem;
 }
 
 /* Notifications */
-:host .notification-icon {
+dc-user-items .notification-icon {
   position: relative;
 }
 
-:host .badge-notification {
+dc-user-items .badge-notification {
   /* Mirror community badge  */
   background: #bdbdbd;
   border-radius: 10px;
@@ -30,6 +30,6 @@
   z-index: 1;
 }
 
-:host .unread-notifications {
+dc-user-items .unread-notifications {
   background-color: #6cf;
 }

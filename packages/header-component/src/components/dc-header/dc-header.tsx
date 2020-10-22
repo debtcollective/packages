@@ -8,9 +8,9 @@ import {
   Host,
   Listen,
   Event,
-  EventEmitter
+  EventEmitter,
 } from "@stencil/core";
-import omit from 'lodash.omit';
+import omit from "lodash.omit";
 import { syncCurrentUser } from "../../services/session";
 import "./dc-menu";
 import "./dc-user-items";
@@ -32,27 +32,26 @@ type User = {
 // dc-dropdown.items accepts strings
 const TAKE_ACTION_LINKS = JSON.stringify([
   {
-    text: 'Events',
-    href: 'https://community.debtcollective.org/calendar',
-    target: '_blank'
+    text: "Events",
+    href: "https://community.debtcollective.org/calendar",
+    target: "_blank",
   },
   {
-    text: 'Student Debt Strike',
-    href: 'https://strike.debtcollective.org',
-    target: '_blank'
+    text: "Student Debt Strike",
+    href: "https://strike.debtcollective.org",
+    target: "_blank",
   },
   {
-    text: 'Dispute Your Debt',
-    href: 'https://tools.debtcollective.org/',
-    target: '_blank'
+    text: "Dispute Your Debt",
+    href: "https://tools.debtcollective.org/",
+    target: "_blank",
   },
-])
+]);
 
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
   styleUrl: "dc-header.css",
-  shadow: true
 })
 export class Header {
   /**
@@ -109,11 +108,12 @@ export class Header {
    * TODO: Cannot find name User on EventEmitter<User>
    */
   @Event({
-    eventName: 'userSynced',
+    eventName: "userSynced",
     composed: true,
     cancelable: true,
     bubbles: true,
-  }) userSynced: EventEmitter;
+  })
+  userSynced: EventEmitter;
 
   /**
    * Logo image
@@ -124,7 +124,7 @@ export class Header {
   /**
    * Host the value of "links" parsed to an actual Array
    */
-  private _links: Array<{ text: string; href: string, target?: string }>;
+  private _links: Array<{ text: string; href: string; target?: string }>;
 
   @Watch("links")
   linksDidChangeHandler(newValue) {
@@ -149,7 +149,7 @@ export class Header {
     const user = await syncCurrentUser(this.community);
 
     this.user = user;
-    this.userSynced.emit(user)
+    this.userSynced.emit(user);
   }
 
   componentWillLoad() {
@@ -158,7 +158,7 @@ export class Header {
   }
 
   render() {
-    const linksToRender = this._links
+    const linksToRender = this._links;
 
     return (
       <Host>
@@ -176,29 +176,43 @@ export class Header {
           >
             <img
               class="logo"
-              src={this.logosmall || getAssetPath(`./assets/${this._logoSmall}`)}
+              src={
+                this.logosmall || getAssetPath(`./assets/${this._logoSmall}`)
+              }
               alt="The Debtcollective"
             />
             <span class="material-icons ml-1">keyboard_arrow_right</span>
           </button>
           <nav class="nav">
             <slot name="header">
-              {linksToRender.map(link => (
-                <div class="nav-item d-md-flex">
-                  <a class="nav-link" {...omit(link, ['text'])}>
-                    {link.text}
-                  </a>
-                </div>
-              ))}
-              <dc-dropdown class="d-md-flex" label="Take Action!" items={TAKE_ACTION_LINKS} />
+              <div class="nav">
+                {linksToRender.map((link) => (
+                  <div class="nav-item d-md-flex">
+                    <a class="nav-link" {...omit(link, ["text"])}>
+                      {link.text}
+                    </a>
+                  </div>
+                ))}
+              </div>
             </slot>
+            <dc-dropdown
+              class="d-md-flex"
+              label="Take Action!"
+              items={TAKE_ACTION_LINKS}
+            />
           </nav>
           <div class="session-items">
             {this.user ? (
               <dc-user-items user={this.user} community={this.community} />
             ) : (
               <div class="session-links">
-                <a href={loginURL({ community: this.community, host: this.host })} class="btn btn-outline">
+                <a
+                  href={loginURL({
+                    community: this.community,
+                    host: this.host,
+                  })}
+                  class="btn btn-outline"
+                >
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
                 <a href={this.donateurl} class="btn btn-primary">
@@ -210,15 +224,15 @@ export class Header {
         </header>
         <dc-menu open={this.isMenuOpen} logo={this.logo}>
           <slot name="menu">
-            {linksToRender.map(link => (
+            {linksToRender.map((link) => (
               <div class="nav-item">
-                <a class="nav-link" {...omit(link, ['text'])}>
+                <a class="nav-link" {...omit(link, ["text"])}>
                   {link.text}
                 </a>
               </div>
             ))}
-            <dc-collapser label="Take Action!" items={JSON.parse(TAKE_ACTION_LINKS)} />
           </slot>
+          <dc-collapser label="Take Action!" items={TAKE_ACTION_LINKS} />
         </dc-menu>
       </Host>
     );

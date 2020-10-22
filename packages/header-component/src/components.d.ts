@@ -10,7 +10,7 @@ export namespace Components {
         /**
           * Items to be displayed in the collapser
          */
-        "items": Array<{ text: string; href: string, target?: string }>;
+        "items": string;
         /**
           * label for the collapser nav item
          */
@@ -135,7 +135,7 @@ declare namespace LocalJSX {
         /**
           * Items to be displayed in the collapser
          */
-        "items"?: Array<{ text: string; href: string, target?: string }>;
+        "items"?: string;
         /**
           * label for the collapser nav item
          */

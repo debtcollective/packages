@@ -1,8 +1,8 @@
-:host .user-dropdown-container {
+dc-user-dropdown .user-dropdown-container {
   position: relative;
 }
 
-:host .user-dropdown-items {
+dc-user-dropdown .user-dropdown-items {
   position: absolute;
   top: 2.5rem;
   right: 0;
@@ -14,19 +14,19 @@
   box-shadow: 0 0 0.5rem rgba(37, 40, 43, 0.12);
 }
 
-:host .user-dropdown-items.open {
+dc-user-dropdown .user-dropdown-items.open {
   opacity: 1;
   transition: opacity 0.1s ease-in;
   visibility: visible;
   list-style: none;
 }
 
-:host .user-dropdown-items.hidden {
+dc-user-dropdown .user-dropdown-items.hidden {
   visibility: hidden;
   opacity: 0;
 }
 
-:host .user-dropdown-items .user-dropdown-item {
+dc-user-dropdown .user-dropdown-items .user-dropdown-item {
   display: flex;
   align-items: center;
   justify-content: start;
@@ -37,21 +37,21 @@
   font-weight: 600;
 }
 
-:host .user-dropdown-items .user-dropdown-item:first-child {
+dc-user-dropdown .user-dropdown-items .user-dropdown-item:first-child {
   justify-content: space-between;
 }
 
-:host .user-dropdown-items .user-dropdown-item:last-child {
+dc-user-dropdown .user-dropdown-items .user-dropdown-item:last-child {
   width: 100%;
 }
 
-:host .user-dropdown-items .user-dropdown-item:hover, :host .user-dropdown-items .user-dropdown-item:focus {
+dc-user-dropdown .user-dropdown-items .user-dropdown-item:hover, dc-user-dropdown .user-dropdown-items .user-dropdown-item:focus {
   background-color: rgba(255, 70, 48, 0.1);
   transition: background-color 0.1s ease-in;
   color: var(--brand-color);
 }
 
-:host .user-dropdown-items .user-dropdown-item .user-dropdown-item-description {
+dc-user-dropdown .user-dropdown-items .user-dropdown-item .user-dropdown-item-description {
   font-size: 0.75rem;
   line-height: 1rem;
   color: var(--text-color);

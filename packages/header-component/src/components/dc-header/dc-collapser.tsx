@@ -20,7 +20,7 @@ export class Collapser {
   /**
    * Items to be displayed in the collapser
    */
-  @Prop() items: Array<{ text: string; href: string, target?: string }>;
+  @Prop() items: string;
   
   @State() open: boolean;
 
@@ -29,6 +29,9 @@ export class Collapser {
   }
 
   render() {
+    //TODO: @Watch approach seems to not work correctly
+    const _items = JSON.parse(this.items)
+
     return (
       <div class="nav-item">
         <button
@@ -42,7 +45,7 @@ export class Collapser {
         </button>
         <ul class={`collapser-items ${this.open ? "open " : "hidden"}`}>
           {
-            this?.items?.map(item => (
+            _items?.map(item => (
               <li class="collapser-item">
                 <a class="collapser-item-text" {...omit(item, ['text'])}>
                   {item.text}
