@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.2...@debtcollective/dc-dropdown-component@1.6.3) (2020-10-22)
+
+
+### Bug Fixes
+
+* **packages:** upgrade stencil version ([5af9d50](https://github.com/debtcollective/packages/commit/5af9d50))
+
+
+
+
+
 ## [1.6.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.1...@debtcollective/dc-dropdown-component@1.6.2) (2020-10-21)
 
 
