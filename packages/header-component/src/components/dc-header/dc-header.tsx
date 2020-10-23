@@ -29,7 +29,7 @@ type User = {
   unread_high_priority_notifications: number;
 };
 
-export const HOME_PAGE_LINK = "https://debtcollective.org/";
+const HOME_PAGE_LINK = "https://debtcollective.org/";
 
 // dc-dropdown.items accepts strings
 const TAKE_ACTION_LINKS = JSON.stringify([
