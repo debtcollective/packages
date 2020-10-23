@@ -29,6 +29,8 @@ type User = {
   unread_high_priority_notifications: number;
 };
 
+export const HOME_PAGE_LINK = "https://debtcollective.org/";
+
 // dc-dropdown.items accepts strings
 const TAKE_ACTION_LINKS = JSON.stringify([
   {
@@ -163,7 +165,7 @@ export class Header {
     return (
       <Host>
         <header class="header">
-          <a class="logo-link d-md-flex" href="/">
+          <a class="logo-link d-md-flex" href={HOME_PAGE_LINK}>
             <img
               class="logo"
               src={this.logo || getAssetPath(`./assets/${this._logo}`)}

@@ -6,6 +6,7 @@ import {
   Prop,
   getAssetPath
 } from "@stencil/core";
+import { HOME_PAGE_LINK } from "./dc-header";
 
 @Component({
   assetsDirs: ["assets"],
@@ -40,7 +41,7 @@ export class Menu {
         <div class="menu-cloak" onClick={this.toggleMenuHandler.bind(this)} />
         <div class="menu">
           <div class="nav-header">
-            <a href="/">
+            <a href={HOME_PAGE_LINK}>
               <img
                 class="menu-logo"
                 src={this.logo || getAssetPath(`./assets/${this._logo}`)}
