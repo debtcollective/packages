@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.1.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.0.4...@debtcollective/dc-header-component@2.1.0) (2020-10-23)
+
+
+### Bug Fixes
+
+* **header-component:** avoid exporting variables from the dc-header file ([2a6eb17](https://github.com/debtcollective/packages/commit/2a6eb17))
+
+
+### Features
+
+* **header-component:** make header logo route to the home page ([da95566](https://github.com/debtcollective/packages/commit/da95566))
+
+
+
+
+
 ## [2.0.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.0.3...@debtcollective/dc-header-component@2.0.4) (2020-10-22)
 
 
