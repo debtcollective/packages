@@ -6,7 +6,8 @@ import {
   Prop,
   getAssetPath
 } from "@stencil/core";
-import { HOME_PAGE_LINK } from "./dc-header";
+
+const HOME_PAGE_LINK = "https://debtcollective.org/";
 
 @Component({
   assetsDirs: ["assets"],
