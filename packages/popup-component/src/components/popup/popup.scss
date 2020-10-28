@@ -105,15 +105,13 @@
     padding: .5rem 1rem;
     font-weight: bold;
     color: $white;
-    background: $green-100;
-    border: 0.1rem solid $green-100;
+    background: $green-200;
     cursor: pointer;
     transition: background-color 0.2s;
 
     &:hover {
-      background-color: $green-200;
+      background-color: $green-100;
       transition: background-color 0.2s;
-      border-color: $green-300;
     }
   }
 }
