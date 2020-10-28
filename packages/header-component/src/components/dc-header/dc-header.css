@@ -193,6 +193,7 @@ dc-header .d-md-none {
 @media (min-width: 1024px) {
   dc-header .d-md-none {
     display: none;
+    visibility: hidden;
   }
 }
 
