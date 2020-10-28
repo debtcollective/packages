@@ -31,7 +31,7 @@ export class Menu {
     } = this.user;
 
     return (
-      <Host class="session-user-items">
+      <Host>
         <a
           class="notification-link"
           href={preffixCommunityURL(
