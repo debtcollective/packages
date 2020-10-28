@@ -3,6 +3,73 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.1.0 (2020-10-28)
+
+
+### Features
+
+* **popup-component:** use the same button colors as the community ([435d909](https://github.com/debtcollective/packages/commit/435d909))
+
+
+
+# 1.0.0 (2020-09-11)
+
+
+
+## 0.12.2 (2020-09-10)
+
+
+
+## 0.12.1 (2020-09-09)
+
+
+
+# 0.12.0 (2020-09-09)
+
+
+
+## 0.10.2 (2020-07-22)
+
+
+
+## 0.10.1 (2020-07-22)
+
+
+
+# 0.10.0 (2020-07-13)
+
+
+### Features
+
+* **pop-up:** improve styles, add scss variables and handle proportions in rems ([90663c0](https://github.com/debtcollective/packages/commit/90663c0))
+* **popup:** do not display pop up component unless hero message changes ([7f14a50](https://github.com/debtcollective/packages/commit/7f14a50))
+
+
+
+## 0.9.1 (2020-06-15)
+
+
+### Bug Fixes
+
+* **popup:** address flexbox issue on iOS 10 ([f75dbec](https://github.com/debtcollective/packages/commit/f75dbec))
+
+
+
+# 0.9.0 (2020-05-20)
+
+
+### Bug Fixes
+
+* change types definition path ([5b928eb](https://github.com/debtcollective/packages/commit/5b928eb))
+
+
+
+## 0.8.8 (2020-02-28)
+
+
+
+
+
 # [1.0.0](https://github.com/debtcollective/packages/compare/v0.12.2...v1.0.0) (2020-09-11)
 
 **Note:** Version bump only for package @debtcollective/dc-popup-component
