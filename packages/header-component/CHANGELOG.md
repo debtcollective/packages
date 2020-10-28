@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.0...@debtcollective/dc-header-component@2.1.1) (2020-10-28)
+
+
+### Bug Fixes
+
+* **header-component:** align user items correctly ([ce008ae](https://github.com/debtcollective/packages/commit/ce008ae))
+
+
+
+
+
 # [2.1.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.0.4...@debtcollective/dc-header-component@2.1.0) (2020-10-23)
 
 
