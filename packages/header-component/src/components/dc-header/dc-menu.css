@@ -1,9 +1,11 @@
 dc-menu .menu-container.open .menu {
   transform: translate3d(0, 0, 0);
+  visibility: visible;
 }
 
 dc-menu .menu-container.hidden .menu {
   transform: translate3d(-100%, 0, 0);
+  visibility: hidden;
 }
 
 dc-menu .menu {
