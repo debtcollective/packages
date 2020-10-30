@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.1...@debtcollective/dc-header-component@2.1.2) (2020-10-30)
+
+
+### Bug Fixes
+
+* **header-component:** avoid going to mobile elements with the tab on desktop screens ([00ded4d](https://github.com/debtcollective/packages/commit/00ded4d))
+
+
+
+
+
 ## [2.1.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.0...@debtcollective/dc-header-component@2.1.1) (2020-10-28)
 
 
