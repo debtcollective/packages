@@ -1527,10 +1527,10 @@
   dependencies:
     "@sinonjs/commons" "^1.7.0"
 
-"@stencil/core@1.17.3":
-  version "1.17.3"
-  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.17.3.tgz#db19f4c707b749beef5cf113916c5252ad5c99de"
-  integrity sha512-q5joOYUPHTNa/5hEThMT/QEJ/suN8bpcYbV/LrSNsgsgHN+RJ05jCpU8VAShdUPT6WzoyF2iGgYc/EI2xeqFzw==
+"@stencil/core@1.17.4":
+  version "1.17.4"
+  resolved "https://registry.yarnpkg.com/@stencil/core/-/core-1.17.4.tgz#f7beb16ecb3344c80e053fece013ae499adc7c54"
+  integrity sha512-dmuNYM6fnHPvE2ptHoUBQtjcpXqrHnkDtdyUD6/JrZWcJt6jBtrykewObOxzpDCMLs+NT7668ussRagdVL03gQ==
   dependencies:
     typescript "3.9.7"
 
