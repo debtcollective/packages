@@ -3,6 +3,61 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.4.3 (2020-11-05)
+
+
+
+## 1.4.2 (2020-10-03)
+
+
+
+# 1.0.0 (2020-09-11)
+
+
+
+## 0.12.2 (2020-09-10)
+
+
+
+## 0.12.1 (2020-09-09)
+
+
+
+# 0.12.0 (2020-09-09)
+
+
+
+## 0.10.2 (2020-07-22)
+
+
+
+## 0.10.1 (2020-07-22)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash to v4.17.19 [security] ([1b0076c](https://github.com/debtcollective/disputes/commit/1b0076c))
+
+
+
+# 0.10.0 (2020-07-13)
+
+
+
+# 0.9.0 (2020-05-20)
+
+
+
+## 0.8.7 (2020-02-24)
+
+
+
+## 0.8.6 (2019-10-05)
+
+
+
+
+
 ## [1.4.2](https://github.com/debtcollective/disputes/compare/v1.4.1...v1.4.2) (2020-10-03)
 
 **Note:** Version bump only for package @debtcollective/tools
