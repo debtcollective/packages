@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.1.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.3...@debtcollective/dc-header-component@2.1.4) (2020-11-11)
+
+**Note:** Version bump only for package @debtcollective/dc-header-component
+
+
+
+
+
 ## [2.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.2...@debtcollective/dc-header-component@2.1.3) (2020-11-05)
 
 **Note:** Version bump only for package @debtcollective/dc-header-component
