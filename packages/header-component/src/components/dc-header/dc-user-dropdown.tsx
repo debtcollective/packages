@@ -113,7 +113,7 @@ export class UserPopup {
             height="32"
             src={getAvatarURL(this.user, this.community)}
             title={this.user.username}
-            class="avatar"
+            class={`avatar ${this.open ? 'avatar-open' : ''}`}
           />
           <span class="material-icons">
             {this.open ? 'keyboard_arrow_up' : 'keyboard_arrow_down'}
