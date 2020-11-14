@@ -9,7 +9,7 @@
   "types": "dist/types/components.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/popup-component/popup-component.js",
+  "unpkg": "@latest/dist/popup-component/popup-component.esm.js",
   "files": [
     "dist/",
     "loader/"
