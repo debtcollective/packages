@@ -10,7 +10,7 @@
   "types": "dist/types/index.d.ts",
   "collection": "dist/collection/collection-manifest.json",
   "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/dropdown-component/dropdown-component.esm.js",
+  "unpkg": "@latest/dist/dropdown-component/dropdown-component.esm.js",
   "files": [
     "dist/",
     "loader/"
