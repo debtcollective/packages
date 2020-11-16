@@ -83,7 +83,7 @@ Alternatively, you can choose to inject your own structure by doing something li
 ### Script tag
 
 - [Publish to NPM](https://docs.npmjs.com/getting-started/publishing-npm-packages)
-- Put a script tag similar to this `<script src='https://unpkg.com/@debtcollective/dc-header-component@latest/dist/header/header.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script type="module" src="https://unpkg.com/@debtcollective/dc-header-component@latest/dist/header/header.esm.js"></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### Node Modules
