@@ -217,11 +217,15 @@ export class Header {
                 >
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
-                <a href={this.donateurl} class="btn btn-primary">
-                  Donate
-                </a>
               </div>
             )}
+            <slot name="donate">
+              {this.donateurl && (
+                <a href={this.donateurl} class="btn-donate">
+                  Donate
+                </a>
+              )}
+            </slot>
           </div>
         </header>
         <dc-menu open={this.isMenuOpen} logo={this.logo}>

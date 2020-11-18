@@ -21,7 +21,6 @@ yarn remove @debtcollective/dc-dropdown-component
 yarn add @debtcollective/dc-dropdown-component
 ```
 
-
 ```bash
 yarn install
 yarn start
@@ -79,6 +78,16 @@ Alternatively, you can choose to inject your own structure by doing something li
 ```
 
 > NOTE: be aware of not adding the latest "/" on the url props such as host and community
+
+if you need to use router link within the donate button you should set `donateurl` to falsy value so the custom donate button will render alone
+
+```jsx
+<dc-header donateurl="">
+  <div slot="donate">
+    <Link class="btn-donate">Donate</Link>
+  </div>
+</dc-header>
+```
 
 ### Script tag
 
