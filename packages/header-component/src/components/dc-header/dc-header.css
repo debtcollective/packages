@@ -133,11 +133,13 @@ dc-header .session-links {
 }
 
 /* Buttons */
-dc-header .btn {
+dc-header .btn,
+dc-header .btn-donate {
   align-items: center;
   border-radius: 0.25rem;
   cursor: pointer;
   display: flex;
+  font-size: 1rem;
   justify-content: space-between;
   padding: 0.5rem 1rem;
   transition: background 0.216s ease, color 0.216s ease;
@@ -153,19 +155,22 @@ dc-header .btn-outline:hover {
   background: var(--outline-button-hover-color);
 }
 
-dc-header .btn-primary {
+dc-header .btn-primary,
+dc-header .btn-donate {
   background: var(--button-color);
   border: 0.0625rem solid var(--button-color);
   color: #fff;
 }
 
-dc-header .btn-primary:hover {
+dc-header .btn-primary:hover,
+dc-header .btn-donate:hover {
   border: 0.0625rem solid var(--button-hover-color);
   background: var(--button-hover-color);
 }
 
-dc-header .header .btn + .btn {
-  margin-left: 0.4375rem;
+dc-header .header .btn + .btn,
+dc-header .btn-donate {
+  margin-left: 0.5rem;
 }
 
 dc-header .btn-transparent {
