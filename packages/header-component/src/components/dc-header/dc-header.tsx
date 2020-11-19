@@ -226,7 +226,7 @@ export class Header {
                 >
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
-                <slot name="donate">
+                <slot name="donate-header">
                   {this.donateurl && (
                     <a href={this.donateurl} class="btn-donate">
                       Donate
@@ -249,7 +249,7 @@ export class Header {
           </slot>
           <dc-collapser label="Take Action!" items={TAKE_ACTION_LINKS} />
           <div class="menu-footer">
-            <slot name="donate">
+            <slot name="donate-menu">
               {this.donateurl && (
                 <a href={this.donateurl} class="btn-donate">
                   Donate
