@@ -10,11 +10,11 @@ dc-collapser .collapser-items {
   cursor: pointer;
 }
 
-dc-collapser .collapser-items.open {
+dc-collapser.open .collapser-items {
   display: block;
 }
 
-dc-collapser .collapser-items.hidden {
+dc-collapser.collapsed .collapser-items {
   display: none;
 }
 
@@ -22,7 +22,7 @@ dc-collapser .collapser-item {
   margin-bottom: 0.75rem;
 }
 
-dc-collapser .collapser-items .collapser-item:hover .collapser-item-text  {
+dc-collapser .collapser-items .collapser-item:hover .collapser-item-text {
   color: var(--brand-color);
 }
 
