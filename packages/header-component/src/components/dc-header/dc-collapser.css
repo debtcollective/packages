@@ -22,7 +22,8 @@ dc-collapser .collapser-item {
   margin-bottom: 0.75rem;
 }
 
-dc-collapser .collapser-items .collapser-item:hover .collapser-item-text {
+dc-collapser .collapser-items .collapser-item:hover .collapser-item-text,
+dc-collapser .nav-link:hover .material-icons {
   color: var(--brand-color);
 }
 
