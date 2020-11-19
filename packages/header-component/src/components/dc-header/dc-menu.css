@@ -57,7 +57,7 @@ dc-menu .menu-close {
 }
 
 dc-menu .menu-logo {
-  width: 50%;
+  width: 75%;
 }
 
 dc-menu .nav-header {
@@ -73,4 +73,16 @@ dc-menu .nav-header {
 
 dc-menu .menu-nav .nav-item {
   margin-bottom: 1rem;
+  padding: 0 var(--column-gap);
+}
+
+dc-menu .menu-nav {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+dc-menu .menu-footer {
+  margin-top: 1rem;
+  padding: 0 var(--column-gap) 1rem;
 }
