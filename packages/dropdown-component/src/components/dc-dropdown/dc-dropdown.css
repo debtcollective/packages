@@ -35,7 +35,8 @@
   color: var(--text-color);
 }
 
-:host .nav-link:hover {
+:host .nav-link:hover,
+:host .nav-link:hover .material-icons {
   color: var(--brand-color);
 }
 
