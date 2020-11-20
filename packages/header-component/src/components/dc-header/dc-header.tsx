@@ -205,7 +205,16 @@ export class Header {
           </nav>
           <div class="session-items">
             {this.user ? (
-              <dc-user-items user={this.user} community={this.community} />
+              <div class="with-user">
+                <slot name="donate">
+                  {this.donateurl && (
+                    <a href={this.donateurl} class="btn-donate">
+                      Donate
+                    </a>
+                  )}
+                </slot>
+                <dc-user-items user={this.user} community={this.community} />
+              </div>
             ) : (
               <div class="session-links">
                 <a
@@ -217,9 +226,13 @@ export class Header {
                 >
                   <span class="d-md-flex">Member</span>&nbsp;Login
                 </a>
-                <a href={this.donateurl} class="btn btn-primary">
-                  Donate
-                </a>
+                <slot name="donate-header">
+                  {this.donateurl && (
+                    <a href={this.donateurl} class="btn-donate">
+                      Donate
+                    </a>
+                  )}
+                </slot>
               </div>
             )}
           </div>
@@ -235,6 +248,15 @@ export class Header {
             ))}
           </slot>
           <dc-collapser label="Take Action!" items={TAKE_ACTION_LINKS} />
+          <div class="menu-footer">
+            <slot name="donate-menu">
+              {this.donateurl && (
+                <a href={this.donateurl} class="btn-donate">
+                  Donate
+                </a>
+              )}
+            </slot>
+          </div>
         </dc-menu>
       </Host>
     );

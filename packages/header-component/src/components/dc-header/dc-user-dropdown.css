@@ -66,3 +66,8 @@ dc-user-dropdown .user-dropdown-items .user-dropdown-item .user-dropdown-item-de
   font-size: 0.75rem;
   line-height: 1rem;
 }
+
+dc-user-dropdown .user-dropdown-items .material-icons {
+  padding-left: 0;
+  margin-right: 0.5rem;
+}

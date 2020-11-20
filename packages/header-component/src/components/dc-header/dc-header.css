@@ -116,6 +116,14 @@ dc-header .session-items {
   margin-left: 1rem;
 }
 
+dc-header .session-items .with-user {
+  display: flex;
+}
+
+dc-header .session-items .with-user .btn-donate {
+  margin-right: 2rem;
+}
+
 dc-header .session-items .material-icons {
   font-size: 1.25rem;
   padding: 0.2143rem;
@@ -132,15 +140,32 @@ dc-header .session-links {
   align-items: center;
 }
 
+dc-header .session-items .btn-donate {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  dc-header .session-items .btn-donate {
+    display: block;
+  }
+}
+
 /* Buttons */
-dc-header .btn {
+dc-header .btn,
+dc-header .btn-donate {
   align-items: center;
   border-radius: 0.25rem;
   cursor: pointer;
   display: flex;
+  font-size: 1rem;
   justify-content: space-between;
   padding: 0.5rem 1rem;
   transition: background 0.216s ease, color 0.216s ease;
+}
+
+dc-header .btn-donate {
+  display: block;
+  text-align: center;
 }
 
 dc-header .btn-outline {
@@ -153,19 +178,22 @@ dc-header .btn-outline:hover {
   background: var(--outline-button-hover-color);
 }
 
-dc-header .btn-primary {
+dc-header .btn-primary,
+dc-header .btn-donate {
   background: var(--button-color);
   border: 0.0625rem solid var(--button-color);
   color: #fff;
 }
 
-dc-header .btn-primary:hover {
+dc-header .btn-primary:hover,
+dc-header .btn-donate:hover {
   border: 0.0625rem solid var(--button-hover-color);
   background: var(--button-hover-color);
 }
 
-dc-header .header .btn + .btn {
-  margin-left: 0.4375rem;
+dc-header .header .btn + .btn,
+dc-header .session-items .btn-donate {
+  margin-left: 0.5rem;
 }
 
 dc-header .btn-transparent {
