@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.2.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.5...@debtcollective/dc-header-component@2.2.0) (2020-11-20)
+
+
+### Bug Fixes
+
+* **header:** align icons on user-items menu ([e8dc9a2](https://github.com/debtcollective/packages/commit/e8dc9a2))
+* **header:** make sure collapser icon change color on hover ([0729c66](https://github.com/debtcollective/packages/commit/0729c66))
+
+
+### Features
+
+* **collapser:** make open class to live on parent node ([3ddae28](https://github.com/debtcollective/packages/commit/3ddae28))
+* **header:** adjust donate button placement ([abfaba7](https://github.com/debtcollective/packages/commit/abfaba7))
+* **header:** allow to inject custom donate button ([caf1020](https://github.com/debtcollective/packages/commit/caf1020))
+* **header:** create two separate slots for donate on header and menu ([8a7f75d](https://github.com/debtcollective/packages/commit/8a7f75d))
+
+
+
+
+
 ## [2.1.5](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.4...@debtcollective/dc-header-component@2.1.5) (2020-11-16)
 
 **Note:** Version bump only for package @debtcollective/dc-header-component
