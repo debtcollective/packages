@@ -8,6 +8,10 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DcFooter {
     }
+    interface DcLogo {
+    }
+    interface DcSocialMedia {
+    }
 }
 declare global {
     interface HTMLDcFooterElement extends Components.DcFooter, HTMLStencilElement {
@@ -16,15 +20,35 @@ declare global {
         prototype: HTMLDcFooterElement;
         new (): HTMLDcFooterElement;
     };
+    interface HTMLDcLogoElement extends Components.DcLogo, HTMLStencilElement {
+    }
+    var HTMLDcLogoElement: {
+        prototype: HTMLDcLogoElement;
+        new (): HTMLDcLogoElement;
+    };
+    interface HTMLDcSocialMediaElement extends Components.DcSocialMedia, HTMLStencilElement {
+    }
+    var HTMLDcSocialMediaElement: {
+        prototype: HTMLDcSocialMediaElement;
+        new (): HTMLDcSocialMediaElement;
+    };
     interface HTMLElementTagNameMap {
         "dc-footer": HTMLDcFooterElement;
+        "dc-logo": HTMLDcLogoElement;
+        "dc-social-media": HTMLDcSocialMediaElement;
     }
 }
 declare namespace LocalJSX {
     interface DcFooter {
     }
+    interface DcLogo {
+    }
+    interface DcSocialMedia {
+    }
     interface IntrinsicElements {
         "dc-footer": DcFooter;
+        "dc-logo": DcLogo;
+        "dc-social-media": DcSocialMedia;
     }
 }
 export { LocalJSX as JSX };
@@ -32,6 +56,8 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dc-footer": LocalJSX.DcFooter & JSXBase.HTMLAttributes<HTMLDcFooterElement>;
+            "dc-logo": LocalJSX.DcLogo & JSXBase.HTMLAttributes<HTMLDcLogoElement>;
+            "dc-social-media": LocalJSX.DcSocialMedia & JSXBase.HTMLAttributes<HTMLDcSocialMediaElement>;
         }
     }
 }
