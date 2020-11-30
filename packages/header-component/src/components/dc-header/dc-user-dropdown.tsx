@@ -79,13 +79,8 @@ export class UserPopup {
   render() {
     const items:Array<{ text: string; href: string, icon: string }> = [
       {
-        text: 'Member hub',
+        text: 'Summary - Memberhub',
         href: 'https://debtcollective.org/hub',
-        icon: 'forum'
-      },
-      {
-        text: 'Summary',
-        href: preffixCommunityURL(this.community, `u/${this.user.username}/summary`),
         icon: 'account_circle'
       },
       {
