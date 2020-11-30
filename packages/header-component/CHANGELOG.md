@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.3.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.2.0...@debtcollective/dc-header-component@2.3.0) (2020-11-30)
+
+
+### Bug Fixes
+
+* **header:** use summary to display memberhub instead ([9f8640b](https://github.com/debtcollective/packages/commit/9f8640b))
+
+
+### Features
+
+* **header-component:** include the member hub link in the user dropdown ([de7d53f](https://github.com/debtcollective/packages/commit/de7d53f))
+
+
+
+
+
 # [2.2.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.1.5...@debtcollective/dc-header-component@2.2.0) (2020-11-20)
 
 
