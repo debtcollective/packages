@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.3.0...@debtcollective/dc-header-component@2.3.1) (2020-11-30)
+
+
+### Bug Fixes
+
+* **header:** unify the donate-header slot ([f270615](https://github.com/debtcollective/packages/commit/f270615))
+
+
+
+
+
 # [2.3.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.2.0...@debtcollective/dc-header-component@2.3.0) (2020-11-30)
 
 
