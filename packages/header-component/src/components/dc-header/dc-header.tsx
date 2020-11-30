@@ -201,7 +201,7 @@ export class Header {
           <div class="session-items">
             {this.user ? (
               <div class="with-user">
-                <slot name="donate">
+                <slot name="donate-header">
                   {this.donateurl && (
                     <a href={this.donateurl} class="btn-donate">
                       Donate
