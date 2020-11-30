@@ -74,11 +74,6 @@ export class Header {
   @Prop() community: string = "https://community.debtcollective.org";
 
   /**
-   * URL to the member hub page
-   */
-  @Prop() memberhuburl?: string = "https://debtcollective.org/hub";
-
-  /**
    * URL to the component host
    * without the latest "/"
    */

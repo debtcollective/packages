@@ -79,8 +79,8 @@ export class UserPopup {
   render() {
     const items:Array<{ text: string; href: string, icon: string }> = [
       {
-        text: 'Summary',
-        href: preffixCommunityURL(this.community, `u/${this.user.username}/summary`),
+        text: 'Member hub',
+        href: 'https://debtcollective.org/hub',
         icon: 'account_circle'
       },
       {
@@ -130,7 +130,7 @@ export class UserPopup {
             target="_blank"
           >
             {this.user.username}
-            <small>View Your Profile</small>
+            <small>Community Profile</small>
           </a>
           {
             items.map(item => (
