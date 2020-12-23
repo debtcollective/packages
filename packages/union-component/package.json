@@ -2,7 +2,6 @@
   "name": "@debtcollective/union-component",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "publishConfig": {
     "access": "public"
   },
@@ -11,8 +10,16 @@
     "type-check": "tsc --project tsconfig.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build": "microbundle --jsx React.createElement",
+    "dev": "microbundle watch"
   },
+  "source": "src/index.ts",
+  "main": "dist/index.js",
+  "exports": "dist/index.modern.js",
+  "module": "dist/index.module.js",
+  "unpkg": "dist/index.umd.js",
+  "types": "dist/index.d.ts",
   "dependencies": {
     "@stripe/react-stripe-js": "^1.1.2",
     "@stripe/stripe-js": "^1.9.0",
@@ -72,6 +79,7 @@
     "jest": "^26.4.2",
     "jest-fetch-mock": "^3.0.3",
     "lint-staged": "^10.2.11",
+    "microbundle": "0.13.0",
     "prettier": "2.0.5",
     "react-is": "^16.13.1",
     "react-test-renderer": "^16.13.1",
