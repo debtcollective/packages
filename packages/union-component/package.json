@@ -112,6 +112,19 @@
       ]
     }
   },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "bash -c tsc --noEmit"
+    ],
+    "*.{md}": [
+      "prettier --write"
+    ],
+    "*.scss": [
+      "stylefmt",
+      "stylelint --syntax scss"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/debtcollective/packages.git"
