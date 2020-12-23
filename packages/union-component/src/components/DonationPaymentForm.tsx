@@ -8,7 +8,8 @@ import React, { useState } from 'react';
 import * as DonationWizard from './DonationWizard';
 import StripeCardInput, { DonationPaymentProvider } from './StripeCardInput';
 import { STRIPE_API_KEY } from '../utils/stripe';
-import { DonationDropdown, DonationPhoneInput } from '.';
+import DonationDropdown from './DonationDropdown';
+import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
 import { DEFAULT_ERROR } from '../constants/errors';
 

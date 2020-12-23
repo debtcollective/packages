@@ -1,5 +1,5 @@
 import React, { SelectHTMLAttributes } from 'react';
-import { DonationDropdown } from '.';
+import DonationDropdown from './DonationDropdown';
 
 type Props = SelectHTMLAttributes<HTMLSelectElement>;
 
