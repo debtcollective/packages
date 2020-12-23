@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
     "test": "jest",
     "type-check": "tsc --project tsconfig.json",
@@ -83,7 +86,7 @@
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "yarn type-check && lint-staged",
+      "pre-commit": "lint-staged",
       "pre-push": "yarn test"
     }
   },
