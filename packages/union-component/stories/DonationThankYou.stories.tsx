@@ -2,7 +2,6 @@ import React from 'react';
 import { Story, Meta } from '@storybook/react/types-6-0';
 import { DonationThankYou } from '../components';
 import { Props as DonationThankYouProps } from '../components/DonationThankYou';
-import { Link } from 'gatsby';
 
 export default {
   title: 'Example/DonationWidget'
@@ -22,9 +21,9 @@ ThankYou.args = {
     <>
       <p className="text-center mt-4 mb-0 text-sm px-6">
         Your $215.00 donation has been successfully processed. Go to{' '}
-        <Link className="text-primary underline" to="/hub">
+        <a className="text-primary underline" href="https://debtcollective.org/hub">
           your member hub
-        </Link>{' '}
+        </a>{' '}
         to continue the process
       </p>
     </>

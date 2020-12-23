@@ -11,7 +11,6 @@ import {
   DonationWizard
 } from './components';
 import { DonationPaymentProvider } from './components/StripeCardInput';
-import { Link } from 'gatsby';
 
 const getStripeTokenOptions = ({
   personalInformation,
@@ -121,9 +120,9 @@ const MembershipWidget: React.FC<Props> = ({ id, className }) => {
         <DonationThankYou>
           <p className="px-6 mt-4 mb-0 text-sm text-center">
             {machineContext.api.donation?.message}. Go to{' '}
-            <Link className="underline text-primary" to="/hub">
+            <a className="underline text-primary" href="https://debtcollective.org/hub">
               your member hub
-            </Link>{' '}
+            </a>{' '}
             to continue the process
           </p>
         </DonationThankYou>
