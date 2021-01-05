@@ -13,8 +13,7 @@
     "pretty-quick": "pretty-quick",
     "setup": "yarn install && yarn lerna run build && yarn lerna bootstrap",
     "setup:ci": "lerna run setup:ci",
-    "test": "lerna run test",
-    "test:ci": "lerna run test"
+    "test": "lerna run test"
   },
   "devDependencies": {
     "husky": "4.3.0",
