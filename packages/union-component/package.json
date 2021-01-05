@@ -11,7 +11,7 @@
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "lint": "eslint",
-    "build": "rm -R ./build && microbundle --jsx React.createElement",
+    "build": "rm -rf ./build && microbundle --jsx React.createElement",
     "dev": "microbundle watch",
     "start": "python -m SimpleHTTPServer 8000"
   },
