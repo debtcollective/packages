@@ -6,7 +6,7 @@
     "access": "public"
   },
   "scripts": {
-    "test": "jest",
+    "test": "jest --coverage --verbose --color",
     "type-check": "tsc --project tsconfig.json",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
