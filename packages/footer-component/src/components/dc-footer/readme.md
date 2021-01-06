@@ -5,14 +5,18 @@
 <!-- Auto Generated Below -->
 
 
-## Properties
+## Dependencies
 
-| Property | Attribute | Description     | Type     | Default     |
-| -------- | --------- | --------------- | -------- | ----------- |
-| `first`  | `first`   | The first name  | `string` | `undefined` |
-| `last`   | `last`    | The last name   | `string` | `undefined` |
-| `middle` | `middle`  | The middle name | `string` | `undefined` |
+### Used by
 
+ - [dc-footer](.)
+
+### Graph
+```mermaid
+graph TD;
+  dc-footer --> dc-social-media
+  style dc-social-media fill:#f9f,stroke:#333,stroke-width:4px
+```
 
 ----------------------------------------------
 
