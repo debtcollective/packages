@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
+    <title>Union Widget</title>
+
+    <!-- TODO: serve react locally instead -->
+    <script crossorigin src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <script type="module" src="/build/index.module.js"></script>
+    <script nomodule src="/build/index.js"></script>
+  </head>
+  <body>
+    <div id="root">
+    </div>
+    <script>
+      window.onload = function () {
+        debugger;
+        ReactDOM.render(React.createElement(DonationWidget), document.querySelector("#root"))
+      }
+    </script>
+  </body>
+</html>

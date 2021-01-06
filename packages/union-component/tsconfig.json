@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "removeComments": true,
+    "module": "commonjs",
+    "skipLibCheck": true,
+    // @TODO: Replace target for Node12 https://github.com/microsoft/TypeScript/wiki/Node-Target-Mapping
+    "target": "esnext",
+    "jsx": "react",
+    "lib": ["dom", "esnext"],
+    "strict": true,
+    "noEmit": true,
+    "isolatedModules": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": false,
+    "baseUrl": "./",
+    "paths": {
+      "@components/*": ["src/components/*"],
+      "@utils/*": ["src/utils/*"],
+      "@sections/*": ["src/sections/*"],
+      "@constants/*": ["src/constants/*"],
+      "@services/*": ["src/services/*"],
+      "@hooks/*": ["src/hooks/*"],
+      "@formatters/*": ["src/formatters/*"],
+    }
+  },
+  "include": ["src/**/*.js", "src/**/*.jsx","src/**/*.ts","src/**/*.tsx"],
+  "exclude": ["node_modules", "public", ".cache", "src/stories/**/*"]
+}

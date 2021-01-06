@@ -16,7 +16,7 @@ jobs:
           command: yarn setup:ci
       - run:
           name: test
-          command: yarn run test:ci
+          command: yarn run test
       - run:
           name: codecov
           command: npx codecov
@@ -37,7 +37,7 @@ jobs:
           command: yarn install
       - add_ssh_keys:
           fingerprints:
-            - '90:19:0a:60:b7:db:f6:43:89:09:32:c2:95:c6:67:7f'
+            - "90:19:0a:60:b7:db:f6:43:89:09:32:c2:95:c6:67:7f"
       - run:
           name: configure git
           command: |
@@ -53,10 +53,10 @@ jobs:
           command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > .npmrc
       - run:
           name: build packages
-          command: 'yarn build'
+          command: "yarn build"
       - run:
           name: publish packages
-          command: 'yarn lerna publish --yes'
+          command: "yarn lerna publish --yes"
 
 workflows:
   version: 2
