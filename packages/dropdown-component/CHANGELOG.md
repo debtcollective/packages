@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.7](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.6...@debtcollective/dc-dropdown-component@1.6.7) (2021-01-06)
+
+
+### Bug Fixes
+
+* typescript build failing due node_modules ([172499a](https://github.com/debtcollective/packages/commit/172499a))
+
+
+
+
+
 ## [1.6.6](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.5...@debtcollective/dc-dropdown-component@1.6.6) (2020-11-20)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-popup-component@1.1.2...@debtcollective/dc-popup-component@1.1.3) (2021-01-06)
+
+
+### Bug Fixes
+
+* typescript build failing due node_modules ([172499a](https://github.com/debtcollective/packages/commit/172499a))
+
+
+
+
+
 ## [1.1.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-popup-component@1.1.1...@debtcollective/dc-popup-component@1.1.2) (2020-11-16)
 
 **Note:** Version bump only for package @debtcollective/dc-popup-component

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [2.3.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.3.1...@debtcollective/dc-header-component@2.3.2) (2021-01-06)
+
+
+### Bug Fixes
+
+* typescript build failing due node_modules ([172499a](https://github.com/debtcollective/packages/commit/172499a))
+
+
+
+
+
 ## [2.3.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.3.0...@debtcollective/dc-header-component@2.3.1) (2020-11-30)
 
 
