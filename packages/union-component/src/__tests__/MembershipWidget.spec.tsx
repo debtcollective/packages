@@ -40,14 +40,14 @@ afterEach(() => {
 
 test('allows to skip the payment form and complete flow using zero donation selection', async () => {
   const donationAmount = 0;
-  const regexAmount = new RegExp(`Paying ${donationAmount}`, 'i');
+  const widgetTitle = `Paying $${donationAmount}`;
   render(<MembershipWidget />);
 
   const zeroOptionBtn = screen.getByRole('button', { name: /zero/i });
   userEvent.click(zeroOptionBtn);
 
   // Give address information
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
 
   userEvent.type(
     screen.getByRole('textbox', { name: /street/i }),
@@ -68,7 +68,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give personal information
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     personalInformation.firstName
@@ -117,7 +117,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
 
 test('allows to complete flow using an amount donation selection', async () => {
   const donationAmount = 5;
-  const regexAmount = new RegExp(`Paying ${donationAmount}`, 'i');
+  const widgetTitle = `Paying $${donationAmount}`;
   render(<MembershipWidget />);
 
   // Select an amount
@@ -127,7 +127,7 @@ test('allows to complete flow using an amount donation selection', async () => {
   userEvent.click(screen.getByRole('button', { name: /pay/i }));
 
   // Give address information
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
 
   userEvent.type(
     screen.getByRole('textbox', { name: /street/i }),
@@ -148,7 +148,7 @@ test('allows to complete flow using an amount donation selection', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give personal information
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     personalInformation.firstName
@@ -201,7 +201,7 @@ test('allows to complete flow using an amount donation selection', async () => {
 
 test('avoid calling membersip api if the stripe token is missing', async () => {
   const donationAmount = 5;
-  const regexAmount = new RegExp(`Paying ${donationAmount}`, 'i');
+  const widgetTitle = `Paying $${donationAmount}`;
   const useStripeMock = Stripe.useStripe as jest.Mock;
   useStripeMock.mockReturnValue({
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
@@ -216,7 +216,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   userEvent.click(screen.getByRole('button', { name: /pay/i }));
 
   // Give address information
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
 
   userEvent.type(
     screen.getByRole('textbox', { name: /street/i }),
@@ -237,7 +237,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give personal information
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     personalInformation.firstName
