@@ -41,7 +41,7 @@ afterEach(() => {
 });
 
 test('send a donation request with all provided information', async () => {
-  const regexAmount = new RegExp(`Paying ${donationAmount}`, 'i');
+  const widgetTitle = `Paying $${donationAmount}`;
 
   render(<DonationWidget />);
 
@@ -54,7 +54,7 @@ test('send a donation request with all provided information', async () => {
   userEvent.click(screen.getByRole('button', { name: /donate/i }));
 
   // Give the billing address
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
 
   userEvent.type(
     screen.getByRole('textbox', { name: /street/i }),
@@ -75,7 +75,7 @@ test('send a donation request with all provided information', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     cardInformation.firstName
@@ -127,7 +127,7 @@ test('send a donation request with all provided information', async () => {
 });
 
 test('avoid calling membersip api if the stripe token is missing', async () => {
-  const regexAmount = new RegExp(`Paying ${donationAmount}`, 'i');
+  const widgetTitle = `Paying $${donationAmount}`;
   const useStripeMock = Stripe.useStripe as jest.Mock;
   useStripeMock.mockReturnValue({
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
@@ -144,7 +144,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   userEvent.click(screen.getByRole('button', { name: /donate/i }));
 
   // Give the billing address
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
 
   userEvent.type(
     screen.getByRole('textbox', { name: /street/i }),
@@ -165,7 +165,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
-  expect(screen.getByText(regexAmount)).toBeInTheDocument();
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     cardInformation.firstName
