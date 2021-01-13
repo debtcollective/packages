@@ -1,7 +1,7 @@
 import { DEFAULT_ERROR } from '../constants/errors';
 import { MembershipMachineContext } from '../machines/membershipMachine';
 
-const DONATION_API_URL = (window as any).DC_DONATE_API_URL;
+const DONATION_API_URL = (window as any).DC_MEMBERSHIP_API_URL;
 const RECAPTCHA_V3_SITE_KEY = (window as any).DC_RECAPTCHA_V3_SITE_KEY;
 
 interface DonationResponse {
