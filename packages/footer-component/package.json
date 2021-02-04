@@ -2,6 +2,9 @@
   "name": "@debtcollective/dc-footer-component",
   "version": "0.1.0",
   "description": "Debt Collective Footer Component",
+  "publishConfig": {
+    "access": "public"
+  },
   "main": "dist/index.cjs.js",
   "module": "dist/custom-elements/index.js",
   "es2015": "dist/esm/index.mjs",
