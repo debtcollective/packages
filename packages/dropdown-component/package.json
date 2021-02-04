@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/dc-dropdown-component",
-  "version": "1.6.6",
+  "version": "1.6.7",
   "description": "Stencil dropdown component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -28,7 +28,7 @@
   "dependencies": {
     "lodash.omit": "^4.5.0"
   },
-  "license": "MIT",
+  "license": "BSD-3-Clause",
   "devDependencies": {
     "@stencil/core": "2.1.0",
     "prettier": "2.1.2"
