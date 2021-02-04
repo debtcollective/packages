@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.6.8](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.7...@debtcollective/dc-dropdown-component@1.6.8) (2021-02-04)
+
+
+### Bug Fixes
+
+* **footer:** fix package name and license ([43dad61](https://github.com/debtcollective/packages/commit/43dad61))
+
+
+
+
+
 ## [1.6.7](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.6...@debtcollective/dc-dropdown-component@1.6.7) (2021-01-06)
 
 

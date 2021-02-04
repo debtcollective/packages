@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.5](https://github.com/debtcollective/disputes/compare/@debtcollective/tools@1.4.4...@debtcollective/tools@1.4.5) (2021-02-04)
+
+
+### Bug Fixes
+
+* **footer:** fix package name and license ([43dad61](https://github.com/debtcollective/disputes/commit/43dad61))
+
+
+
+
+
 ## [1.4.4](https://github.com/debtcollective/disputes/compare/@debtcollective/tools@1.4.3...@debtcollective/tools@1.4.4) (2021-01-06)
 
 **Note:** Version bump only for package @debtcollective/tools
