@@ -4,7 +4,7 @@
   "description": "Disputes app tools",
   "author": "Orlando Del Aguila <orlando@hashlabs.com>",
   "homepage": "https://github.com/debtcollective/disputes#readme",
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
   "main": "src/index.js",
   "directories": {
     "src": "src",
