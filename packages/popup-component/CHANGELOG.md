@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-popup-component@1.1.3...@debtcollective/dc-popup-component@1.1.4) (2021-02-04)
+
+
+### Bug Fixes
+
+* **footer:** fix package name and license ([43dad61](https://github.com/debtcollective/packages/commit/43dad61))
+
+
+
+
+
 ## [1.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-popup-component@1.1.2...@debtcollective/dc-popup-component@1.1.3) (2021-01-06)
 
 
