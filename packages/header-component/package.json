@@ -41,5 +41,5 @@
       "test": "TODO: set it to 'stencil test --spec --e2e' enable this when we fix the issue with dotenv"
     }
   },
-  "license": "MIT"
+  "license": "BSD-3-Clause"
 }
