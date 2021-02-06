@@ -15,10 +15,6 @@ export class DcFooter {
       title: 'organize',
       links: [
         {
-          label: 'Debt Collective Chapters',
-          href: 'http://chapters.debtcollective.org/',
-        },
-        {
           label: 'Debt Collective Volunteer',
           href: 'https://volunteer.debtcollective.org/',
         },

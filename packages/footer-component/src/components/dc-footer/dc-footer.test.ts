@@ -23,11 +23,6 @@ describe('dc-footer', () => {
                 </p>
                 <ul>
                   <li class="footer__links__item">
-                    <a href="http://chapters.debtcollective.org/" rel="noreferrer" target="_blank">
-                      Debt Collective Chapters
-                    </a>
-                  </li>
-                  <li class="footer__links__item">
                     <a href="https://volunteer.debtcollective.org/" rel="noreferrer" target="_blank">
                       Debt Collective Volunteer
                     </a>
