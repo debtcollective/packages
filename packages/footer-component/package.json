@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/dc-footer-component",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "Debt Collective Footer Component",
   "publishConfig": {
     "access": "public"
