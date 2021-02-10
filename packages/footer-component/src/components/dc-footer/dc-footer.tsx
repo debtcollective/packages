@@ -67,7 +67,7 @@ export class DcFooter {
         },
         {
           label: 'Donate',
-          href: '/donate',
+          href: 'https://debtcollective.org/donate/',
         },
       ],
     },
