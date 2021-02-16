@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.1.3...@debtcollective/union-component@1.2.0) (2021-02-16)
+
+
+### Features
+
+* **union-component:** use success message from server ([6cd124b](https://github.com/debtcollective/packages/commit/6cd124b))
+
+
+
+
+
 ## [1.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.1.2...@debtcollective/union-component@1.1.3) (2021-02-04)
 
 **Note:** Version bump only for package @debtcollective/union-component
