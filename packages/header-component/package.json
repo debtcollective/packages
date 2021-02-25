@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/dc-header-component",
-  "version": "2.3.3",
+  "version": "2.3.4",
   "description": "Stencil header component for debtcollective web apps",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",
@@ -26,7 +26,7 @@
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
   "dependencies": {
-    "@debtcollective/dc-dropdown-component": "^1.6.8",
+    "@debtcollective/dc-dropdown-component": "^1.6.9",
     "lodash.omit": "^4.5.0"
   },
   "devDependencies": {

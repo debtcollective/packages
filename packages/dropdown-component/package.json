@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/dc-dropdown-component",
-  "version": "1.6.8",
+  "version": "1.6.9",
   "description": "Stencil dropdown component",
   "main": "dist/index.cjs.js",
   "module": "dist/index.js",

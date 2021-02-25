@@ -15,8 +15,8 @@ export class DcFooter {
       title: 'organize',
       links: [
         {
-          label: 'Debt Collective Chapters',
-          href: 'http://chapters.debtcollective.org/',
+          label: 'Debt Collective Volunteer',
+          href: 'https://volunteer.debtcollective.org/',
         },
         {
           label: 'Community Forum',
@@ -27,6 +27,10 @@ export class DcFooter {
     {
       title: 'take action',
       links: [
+        {
+          label: 'Biden Jubilee 100',
+          href: 'https://biden100.debtcollective.org/',
+        },
         {
           label: 'Events',
           href: 'https://community.debtcollective.org/calendar',

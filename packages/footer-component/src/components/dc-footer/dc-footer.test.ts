@@ -23,8 +23,8 @@ describe('dc-footer', () => {
                 </p>
                 <ul>
                   <li class="footer__links__item">
-                    <a href="http://chapters.debtcollective.org/" rel="noreferrer" target="_blank">
-                      Debt Collective Chapters
+                    <a href="https://volunteer.debtcollective.org/" rel="noreferrer" target="_blank">
+                      Debt Collective Volunteer
                     </a>
                   </li>
                   <li class="footer__links__item">
@@ -39,6 +39,11 @@ describe('dc-footer', () => {
                   take action
                 </p>
                 <ul>
+                  <li class="footer__links__item">
+                    <a href="https://biden100.debtcollective.org/" rel="noreferrer" target="_blank">
+                      Biden Jubilee 100
+                    </a>
+                  </li>
                   <li class="footer__links__item">
                     <a href="https://community.debtcollective.org/calendar" rel="noreferrer" target="_blank">
                       Events
