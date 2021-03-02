@@ -16,7 +16,7 @@
     "test": "lerna run test"
   },
   "devDependencies": {
-    "husky": "4.3.0",
+    "husky": "4.3.8",
     "lerna": "3.22.1",
     "prettier-eslint-cli": "5.0.0"
   },
