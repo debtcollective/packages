@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.8](https://github.com/debtcollective/disputes/compare/@debtcollective/tools@1.4.7...@debtcollective/tools@1.4.8) (2021-03-02)
+
+
+### Bug Fixes
+
+* **deps:** update dependency lodash to v4.17.21 ([aae271e](https://github.com/debtcollective/disputes/commit/aae271e))
+
+
+
+
+
 ## [1.4.7](https://github.com/debtcollective/disputes/compare/@debtcollective/tools@1.4.6...@debtcollective/tools@1.4.7) (2021-02-25)
 
 **Note:** Version bump only for package @debtcollective/tools

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.3.0](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.2.1...@debtcollective/union-component@1.3.0) (2021-03-02)
+
+
+### Features
+
+* **membership:** allow to toggle chapters selection ([54ef394](https://github.com/debtcollective/packages/commit/54ef394))
+
+
+
+
+
 ## [1.2.1](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.2.0...@debtcollective/union-component@1.2.1) (2021-02-25)
 
 **Note:** Version bump only for package @debtcollective/union-component
