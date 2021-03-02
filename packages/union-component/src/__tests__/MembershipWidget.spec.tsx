@@ -41,7 +41,7 @@ afterEach(() => {
 test('allows to skip the payment form and complete flow using zero donation selection', async () => {
   const donationAmount = 0;
   const widgetTitle = `Paying $${donationAmount}`;
-  render(<MembershipWidget />);
+  render(<MembershipWidget hasChapterSelection />);
 
   const zeroOptionBtn = screen.getByRole('button', { name: /zero/i });
   userEvent.click(zeroOptionBtn);
@@ -118,7 +118,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
 test('allows to complete flow using an amount donation selection', async () => {
   const donationAmount = 5;
   const widgetTitle = `Paying $${donationAmount}`;
-  render(<MembershipWidget />);
+  render(<MembershipWidget hasChapterSelection />);
 
   // Select an amount
   userEvent.click(
@@ -207,7 +207,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
   });
 
-  render(<MembershipWidget />);
+  render(<MembershipWidget hasChapterSelection />);
 
   // Select an amount
   userEvent.click(
