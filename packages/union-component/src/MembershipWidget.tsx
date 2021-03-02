@@ -35,9 +35,17 @@ export interface Props {
    * Optional set of classes
    */
   className?: string;
+  /**
+   * Wether or not shown the chapters selection
+   */
+  hasChapterSelection?: boolean;
 }
 
-const MembershipWidget: React.FC<Props> = ({ id, className }) => {
+const MembershipWidget: React.FC<Props> = ({
+  id,
+  className,
+  hasChapterSelection
+}) => {
   const [state, send] = useMachine(membershipMachine);
   const { context: machineContext } = state;
   const { addressInformation, personalInformation } = machineContext;
@@ -152,7 +160,7 @@ const MembershipWidget: React.FC<Props> = ({ id, className }) => {
             lastName: personalInformation.lastName,
             phoneNumber: personalInformation.phoneNumber
           }}
-          hasChapterSelection
+          hasChapterSelection={hasChapterSelection}
           onEditAmount={onEditAmount}
           onSubmit={onSubmitPersonalInfoForm}
           tokenData={getStripeTokenOptions(machineContext)}
