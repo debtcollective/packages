@@ -26,6 +26,18 @@ export interface Props {
    * Optional set of classes
    */
   className?: string;
+  /**
+   * API URL to send the donate request
+   */
+  apiUrl?: string;
+  /**
+   * Stripe API v3 public token
+   */
+  stripePublicToken?: string;
+  /**
+   * Recaptcha V3 Site key
+   */
+  recaptchaSiteKey?: string;
 }
 
 const DonationWidget: React.FC<Props> = ({ id, className }) => {
@@ -155,6 +167,25 @@ const DonationWidget: React.FC<Props> = ({ id, className }) => {
       <p className="px-4 mt-2 text-center text-white text-xss">
         After processing your donation an account will be created for you
         providing access to all Debt Collective Union Member benefits.
+      </p>
+      <p className="px-4 mt-2 text-center text-gray-300 text-xss">
+        This site is protected by reCAPTCHA and the Google{' '}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Privacy Policy
+        </a>{' '}
+        and{' '}
+        <a
+          href="https://policies.google.com/terms"
+          target="_blank"
+          rel="noreferrer"
+        >
+          Terms of Service
+        </a>{' '}
+        apply.
       </p>
     </div>
   );
