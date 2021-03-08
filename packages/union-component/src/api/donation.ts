@@ -1,9 +1,6 @@
 import { DEFAULT_ERROR } from '../constants/errors';
 import { DonationMachineContext } from '../machines/donationType';
 
-const DONATION_API_URL = (window as any).DC_DONATE_API_URL;
-const RECAPTCHA_V3_SITE_KEY = (window as any).DC_RECAPTCHA_V3_SITE_KEY;
-
 interface DonationResponse {
   status: 'failed' | 'succeeded';
   errors?: Array<string>;
@@ -20,9 +17,12 @@ export const sendDonation = async (context: DonationMachineContext) => {
   }
 
   try {
-    recaptchaToken = await grecaptcha.execute(RECAPTCHA_V3_SITE_KEY, {
-      action: 'donate'
-    });
+    recaptchaToken = await grecaptcha.execute(
+      (window as any).DC_RECAPTCHA_V3_SITE_KEY,
+      {
+        action: 'donate'
+      }
+    );
   } catch (error) {
     console.error(error);
     throw new Error(DEFAULT_ERROR);
@@ -54,15 +54,18 @@ export const sendDonation = async (context: DonationMachineContext) => {
     }
   };
 
-  const response: DonationResponse = await fetch(DONATION_API_URL, {
-    method: 'POST',
-    credentials: 'include',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(data)
-  }).then((res) => res.json());
+  const response: DonationResponse = await fetch(
+    (window as any).DC_DONATE_API_URL,
+    {
+      method: 'POST',
+      credentials: 'include',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    }
+  ).then((res) => res.json());
 
   if (response.status === 'failed') {
     console.error(response.errors);
