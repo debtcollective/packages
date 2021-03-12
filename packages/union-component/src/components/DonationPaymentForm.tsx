@@ -7,7 +7,6 @@ import { Elements } from '@stripe/react-stripe-js';
 import React, { useState } from 'react';
 import * as DonationWizard from './DonationWizard';
 import StripeCardInput, { DonationPaymentProvider } from './StripeCardInput';
-import { STRIPE_API_KEY } from '../utils/stripe';
 import DonationDropdown from './DonationDropdown';
 import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
@@ -88,6 +87,9 @@ const DonationPaymentForm: React.FC<Props> = ({
     setIsSubmitDisabled(!e.complete);
   };
 
+  const stripePublicToken =
+    typeof window !== 'undefined' && (window as any).DC_STRIPE_PUBLIC_TOKEN;
+
   return (
     <DonationWizard.Container>
       <DonationWizard.Title>
@@ -144,7 +146,7 @@ const DonationPaymentForm: React.FC<Props> = ({
           </DonationDropdown>
         )}
         {amount !== 0 ? (
-          <Elements stripe={loadStripe(STRIPE_API_KEY)}>
+          <Elements stripe={loadStripe(stripePublicToken)}>
             <StripeCardInput onChange={onChangeInputCardElement} />
           </Elements>
         ) : null}

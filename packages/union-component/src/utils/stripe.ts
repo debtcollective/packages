@@ -1,11 +1,6 @@
 import { DonationMachineContext } from '../machines/donationType';
 
 /**
- * Publishable key that is used in order to load Stripe
- */
-export const STRIPE_API_KEY = (window as any).DC_STRIPE_PUBLIC_TOKEN;
-
-/**
  * Add extra data to the create token process to take advantage
  * of Stripe built-in checks.
  * https://stripe.com/docs/js/tokens_sources/create_token?type=cardElement#stripe_create_token-data

@@ -4,18 +4,22 @@ import { Story, Meta } from '@storybook/react/types-6-0';
 import { DonationPaymentForm } from '../components';
 import { Props as DonationPaymentFormProps } from '../components/DonationPaymentForm';
 import { Elements } from '@stripe/react-stripe-js';
-import { STRIPE_API_KEY } from '../utils/stripe';
 import { loadStripe } from '@stripe/stripe-js';
 
 export default {
   title: 'Example/DonationWidget'
 } as Meta;
 
-const PaymentFormTemplate: Story<DonationPaymentFormProps> = (args) => (
-  <Elements stripe={loadStripe(STRIPE_API_KEY)}>
-    <DonationPaymentForm {...args} />
-  </Elements>
-);
+const PaymentFormTemplate: Story<DonationPaymentFormProps> = (args) => {
+  const stripePublicToken =
+    typeof window !== 'undefined' && (window as any).DC_STRIPE_PUBLIC_TOKEN;
+
+  return (
+    <Elements stripe={loadStripe(stripePublicToken)}>
+      <DonationPaymentForm {...args} />
+    </Elements>
+  );
+};
 
 export const PaymentForm = PaymentFormTemplate.bind({});
 
