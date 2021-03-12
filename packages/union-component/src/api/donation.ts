@@ -9,7 +9,8 @@ interface DonationResponse {
 
 export const sendDonation = async (context: DonationMachineContext) => {
   const { cardInformation, billingInformation, paymentServices } = context;
-  const grecaptcha = (window as any).grecaptcha;
+  const grecaptcha =
+    typeof window !== 'undefined' && (window as any).grecaptcha;
   let recaptchaToken;
 
   if (!grecaptcha || !paymentServices.stripeToken?.id) {
@@ -18,7 +19,7 @@ export const sendDonation = async (context: DonationMachineContext) => {
 
   try {
     recaptchaToken = await grecaptcha.execute(
-      (window as any).DC_RECAPTCHA_V3_SITE_KEY,
+      typeof window !== 'undefined' && (window as any).DC_RECAPTCHA_V3_SITE_KEY,
       {
         action: 'donate'
       }
