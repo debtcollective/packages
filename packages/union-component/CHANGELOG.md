@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.1](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.0...@debtcollective/union-component@1.4.1) (2021-03-12)
+
+
+### Bug Fixes
+
+* fix ssr issues related to window ([cff9c18](https://github.com/debtcollective/packages/commit/cff9c18))
+
+
+
+
+
 # [1.4.0](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.3.0...@debtcollective/union-component@1.4.0) (2021-03-08)
 
 
