@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.7.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.11...@debtcollective/dc-dropdown-component@1.7.0) (2021-03-15)
+
+
+### Features
+
+* **dropdown-component:** enable to navigate with keyboard arrows ([9aea172](https://github.com/debtcollective/packages/commit/9aea172))
+
+
+
+
+
 ## [1.6.11](https://github.com/debtcollective/packages/compare/@debtcollective/dc-dropdown-component@1.6.10...@debtcollective/dc-dropdown-component@1.6.11) (2021-03-02)
 
 **Note:** Version bump only for package @debtcollective/dc-dropdown-component
