@@ -1,3 +1,4 @@
+import { environmentSetup } from '@utils/config';
 import { DEFAULT_ERROR } from '../constants/errors';
 import { DonationMachineContext } from '../machines/donationType';
 
@@ -19,7 +20,7 @@ export const sendDonation = async (context: DonationMachineContext) => {
 
   try {
     recaptchaToken = await grecaptcha.execute(
-      typeof window !== 'undefined' && (window as any).DC_RECAPTCHA_V3_SITE_KEY,
+      environmentSetup.DC_RECAPTCHA_V3_SITE_KEY,
       {
         action: 'donate'
       }
@@ -56,7 +57,7 @@ export const sendDonation = async (context: DonationMachineContext) => {
   };
 
   const response: DonationResponse = await fetch(
-    (window as any).DC_DONATE_API_URL,
+    environmentSetup.DC_DONATE_API_URL,
     {
       method: 'POST',
       credentials: 'include',

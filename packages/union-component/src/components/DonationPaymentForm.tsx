@@ -11,6 +11,7 @@ import DonationDropdown from './DonationDropdown';
 import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
 import { DEFAULT_ERROR } from '../constants/errors';
+import { environmentSetup } from '@utils/config';
 
 export interface Props {
   amount: number;
@@ -87,8 +88,7 @@ const DonationPaymentForm: React.FC<Props> = ({
     setIsSubmitDisabled(!e.complete);
   };
 
-  const stripePublicToken =
-    typeof window !== 'undefined' && (window as any).DC_STRIPE_PUBLIC_TOKEN;
+  const stripePublicToken = environmentSetup.DC_STRIPE_PUBLIC_TOKEN;
 
   return (
     <DonationWizard.Container>
