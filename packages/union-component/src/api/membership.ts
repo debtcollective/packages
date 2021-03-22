@@ -1,3 +1,4 @@
+import { environmentSetup } from '@utils/config';
 import { DEFAULT_ERROR } from '../constants/errors';
 import { MembershipMachineContext } from '../machines/membershipMachine';
 
@@ -24,7 +25,7 @@ export const sendMembershipDonation = async (
 
   try {
     recaptchaToken = await grecaptcha.execute(
-      (window as any).DC_RECAPTCHA_V3_SITE_KEY,
+      environmentSetup.DC_RECAPTCHA_V3_SITE_KEY,
       {
         action: 'membership'
       }
@@ -52,7 +53,7 @@ export const sendMembershipDonation = async (
   };
 
   const response: DonationResponse = await fetch(
-    (window as any).DC_MEMBERSHIP_API_URL,
+    environmentSetup.DC_MEMBERSHIP_API_URL,
     {
       method: 'POST',
       credentials: 'include',
