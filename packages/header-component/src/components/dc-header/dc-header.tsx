@@ -30,6 +30,8 @@ type User = {
 };
 
 const HOME_PAGE_LINK = "https://debtcollective.org/";
+const ARROW_UP_KEY = 'ArrowUp';
+const ARROW_DOWN_KEY = 'ArrowDown';
 
 // dc-dropdown.items accepts strings
 const TAKE_ACTION_LINKS = JSON.stringify([
@@ -136,6 +138,14 @@ export class Header {
   @Listen("toggleMenu")
   toggleMenuHandler() {
     this.toggleMenu();
+  }
+
+  /**
+   *  Event to prevent scrolling the page with arrow keys
+   */
+  @Listen('keydown', { target: 'document' })
+  handleArrowKey(event) {
+    if ([ARROW_DOWN_KEY, ARROW_UP_KEY].includes(event.key)) event.preventDefault();
   }
 
   toggleMenu() {
