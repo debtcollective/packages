@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [2.4.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.3.7...@debtcollective/dc-header-component@2.4.0) (2021-03-23)
+
+
+### Features
+
+* **user-dropdown-component:** enable to navigate with keyboard arrows ([a23bd7b](https://github.com/debtcollective/packages/commit/a23bd7b))
+
+
+
+
+
 ## [2.3.7](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.3.6...@debtcollective/dc-header-component@2.3.7) (2021-03-15)
 
 **Note:** Version bump only for package @debtcollective/dc-header-component
