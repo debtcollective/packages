@@ -11,7 +11,10 @@ import DonationDropdown from './DonationDropdown';
 import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
 import { DEFAULT_ERROR } from '../constants/errors';
-import { environmentSetup } from '@utils/config';
+import { environmentSetup } from '../utils/config';
+
+export const PHONE_NUMBER_MIN_LENGTH = 10;
+export const PHONE_NUMBER_MAX_LENGTH = 13;
 
 export interface Props {
   amount: number;
@@ -44,13 +47,31 @@ const DonationPaymentForm: React.FC<Props> = ({
   const [paymentProvider, setPaymentProvider] = useState<
     DonationPaymentProvider | undefined
   >();
+  const [phoneNumberError, setPhoneNumberError] = useState('');
   const errorMessage: string | undefined = errors?.join(' ');
+
+  const isPhoneNumberValid = (phoneNumber: string) => {
+    const formattedNumber = phoneNumber.split(' ').join('');
+
+    return (
+      formattedNumber.length >= PHONE_NUMBER_MIN_LENGTH &&
+      formattedNumber.length <= PHONE_NUMBER_MAX_LENGTH
+    );
+  };
 
   const handleOnSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.persist();
     e.preventDefault();
+    setPhoneNumberError('');
 
     const formData = new FormData(e.currentTarget);
+    const phoneNumber: string = formData.get('phone-number') as string;
+
+    if (!isPhoneNumberValid(phoneNumber)) {
+      setPhoneNumberError('You need to enter a valid phone number');
+      return;
+    }
+
     let token;
 
     if (amount !== 0) {
@@ -153,6 +174,11 @@ const DonationPaymentForm: React.FC<Props> = ({
         {errors !== null ? (
           <DonationWizard.ErrorText role="alert">
             {errorMessage || DEFAULT_ERROR}
+          </DonationWizard.ErrorText>
+        ) : null}
+        {phoneNumberError ? (
+          <DonationWizard.ErrorText role="alert">
+            {phoneNumberError}
           </DonationWizard.ErrorText>
         ) : null}
         <DonationWizard.Button
