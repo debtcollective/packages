@@ -13,7 +13,7 @@ const personalInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
   email: faker.internet.email('bot', '', 'debtcollective.org'),
-  phoneNumber: faker.phone.phoneNumber()
+  phoneNumber: faker.phone.phoneNumber('+# ### ### ####')
 };
 const addressInformation = {
   street: faker.address.streetAddress(),

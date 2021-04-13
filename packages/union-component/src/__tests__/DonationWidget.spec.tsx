@@ -9,11 +9,13 @@ import * as Stripe from '@stripe/react-stripe-js';
 
 jest.mock('../components/StripeCardInput');
 
+const invalidPhoneNumber = '+1';
+
 const cardInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
   email: faker.internet.email('bot', '', 'debtcollective.org'),
-  phoneNumber: faker.phone.phoneNumber()
+  phoneNumber: faker.phone.phoneNumber('+# ### ### ####')
 };
 
 const billingInformation = {
@@ -27,6 +29,7 @@ const donationResponse = {
   status: 'succeeded',
   message: `Your ${donationAmount} donation has been successfully processed`
 };
+const phoneNumberError = 'You need to enter a valid phone number';
 const sendDonationSpy = jest.spyOn(HTTPService, 'sendDonation');
 
 beforeAll(() => {
@@ -124,6 +127,71 @@ test('send a donation request with all provided information', async () => {
   );
 
   expect(await screen.findByText(donationResponse.message)).toBeInTheDocument();
+});
+
+test('should display phone number error', async () => {
+  const widgetTitle = `Paying $${donationAmount}`;
+
+  render(<DonationWidget />);
+
+  // Give the amount to donate
+  expect(screen.getByText(/choose an amount/i)).toBeInTheDocument();
+  const amountInput = screen.getByRole('radio', {
+    name: `$${donationAmount} USD`
+  });
+  userEvent.click(amountInput);
+  userEvent.click(screen.getByRole('button', { name: /donate/i }));
+
+  // Give the billing address
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+
+  userEvent.type(
+    screen.getByRole('textbox', { name: /street/i }),
+    billingInformation.address
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /city/i }),
+    billingInformation.city
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /zip code/i }),
+    billingInformation.zipCode
+  );
+  userEvent.selectOptions(
+    screen.getByRole('combobox', { name: /country/i }),
+    billingInformation.country
+  );
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+  // Give the payment details
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.type(
+    screen.getByRole('textbox', { name: /first name/i }),
+    cardInformation.firstName
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /last name/i }),
+    cardInformation.lastName
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /email/i }),
+    cardInformation.email
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /phone/i }),
+    invalidPhoneNumber
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: 'stripe-mocked-input-element' }),
+    faker.finance.creditCardNumber()
+  );
+
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+
+  expect(submitBtn).not.toBeDisabled();
+  userEvent.click(submitBtn);
+
+  expect(await screen.findByText(phoneNumberError)).toBeInTheDocument();
 });
 
 test('avoid calling membersip api if the stripe token is missing', async () => {
