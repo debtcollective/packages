@@ -11,8 +11,19 @@ import DonationDropdown from './DonationDropdown';
 import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
 import { DEFAULT_ERROR } from '../constants/errors';
-import { environmentSetup } from '@utils/config';
+import { environmentSetup } from '../utils/config';
 
+const PHONE_NUMBER_MIN_LENGTH = 10;
+const E_164_PHONE_FORMAT = /^\+[1-9]\d{1,14}$/;
+
+const isPhoneNumberValid = (phoneNumber: string) => {
+  const formattedNumber = phoneNumber.replace(/\s/g, '');
+
+  return (
+    E_164_PHONE_FORMAT.test(formattedNumber) &&
+    formattedNumber.length >= PHONE_NUMBER_MIN_LENGTH
+  );
+};
 export interface Props {
   amount: number;
   errors?: string[] | null;
@@ -40,17 +51,26 @@ const DonationPaymentForm: React.FC<Props> = ({
   onSubmit,
   tokenData
 }) => {
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
   const [paymentProvider, setPaymentProvider] = useState<
     DonationPaymentProvider | undefined
   >();
+  const [phoneNumberError, setPhoneNumberError] = useState('');
   const errorMessage: string | undefined = errors?.join(' ');
 
   const handleOnSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.persist();
     e.preventDefault();
+    setPhoneNumberError('');
 
     const formData = new FormData(e.currentTarget);
+    const phoneNumber: string = formData.get('phone-number') as string;
+
+    if (!isPhoneNumberValid(phoneNumber)) {
+      setPhoneNumberError('You need to enter a valid phone number');
+      return;
+    }
+
     let token;
 
     if (amount !== 0) {
@@ -127,6 +147,11 @@ const DonationPaymentForm: React.FC<Props> = ({
           required
           title="Contact phone number"
         />
+        {phoneNumberError ? (
+          <DonationWizard.ErrorText role="alert">
+            {phoneNumberError}
+          </DonationWizard.ErrorText>
+        ) : null}
         {hasChapterSelection && (
           <DonationDropdown
             id="chapter-dropdown"

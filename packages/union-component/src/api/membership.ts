@@ -1,4 +1,4 @@
-import { environmentSetup } from '@utils/config';
+import { environmentSetup } from '../utils/config';
 import { DEFAULT_ERROR } from '../constants/errors';
 import { MembershipMachineContext } from '../machines/membershipMachine';
 
