@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.3](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.2...@debtcollective/union-component@1.4.3) (2021-04-14)
+
+**Note:** Version bump only for package @debtcollective/union-component
+
+
+
+
+
 ## [1.4.2](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.1...@debtcollective/union-component@1.4.2) (2021-03-22)
 
 **Note:** Version bump only for package @debtcollective/union-component
