@@ -28,7 +28,7 @@
     "js-cookie": "^2.2.1"
   },
   "devDependencies": {
-    "@stencil/core": "1.17.4",
+    "@stencil/core": "2.5.2",
     "@stencil/sass": "1.4.1",
     "@types/jest": "24.9.1",
     "@types/puppeteer": "5.4.3",
