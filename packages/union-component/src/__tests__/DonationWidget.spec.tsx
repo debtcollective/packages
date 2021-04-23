@@ -9,8 +9,6 @@ import * as Stripe from '@stripe/react-stripe-js';
 
 jest.mock('../components/StripeCardInput');
 
-const invalidPhoneNumber = '+1';
-
 const cardInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
@@ -29,7 +27,6 @@ const donationResponse = {
   status: 'succeeded',
   message: `Your ${donationAmount} donation has been successfully processed`
 };
-const phoneNumberError = 'You need to enter a valid phone number';
 const sendDonationSpy = jest.spyOn(HTTPService, 'sendDonation');
 
 beforeAll(() => {
@@ -131,6 +128,7 @@ test('send a donation request with all provided information', async () => {
 
 test('should display phone number error', async () => {
   const widgetTitle = `Paying $${donationAmount}`;
+  const invalidPhoneNumber = '+123';
 
   render(<DonationWidget />);
 
@@ -165,6 +163,7 @@ test('should display phone number error', async () => {
 
   // Give the payment details
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     cardInformation.firstName
@@ -186,12 +185,8 @@ test('should display phone number error', async () => {
     faker.finance.creditCardNumber()
   );
 
-  const submitBtn = screen.getByRole('button', { name: /next/i });
-
-  expect(submitBtn).not.toBeDisabled();
-  userEvent.click(submitBtn);
-
-  expect(await screen.findByText(phoneNumberError)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
+  expect(await screen.findByText(/invalid/i)).toBeInTheDocument();
 });
 
 test('avoid calling membersip api if the stripe token is missing', async () => {
@@ -304,7 +299,6 @@ test.skip('allows to switch between donation "once" and "monthly" to update dona
 });
 
 test('shows payment error when donation request fails', async () => {
-  // @ts-ignore
   global.fetch = jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue({
       status: 'failed',

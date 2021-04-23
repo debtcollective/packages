@@ -126,6 +126,7 @@ const DonationPaymentForm: React.FC<Props> = ({
         <DonationPhoneInput
           defaultValue={defaultValues.phoneNumber}
           errorComponent={DonationWizard.ErrorText}
+          onPhoneChange={(e, phone, isValid) => setIsSubmitDisabled(!isValid)}
           name="phone-number"
           required
           title="Contact phone number"

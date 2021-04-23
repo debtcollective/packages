@@ -10,6 +10,11 @@ const FormControl = styled.div`
     ${tw`w-full h-auto px-3 py-2 pl-12 text-base leading-6 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-200`}
   }
 
+  .phone-input-element.react-tel-input input.invalid-number,
+  .phone-input-element.react-tel-input .flag-dropdown.invalid-number {
+    ${tw`border border-pink`}
+  }
+
   .flag-dropdown {
     ${tw`border rounded-md rounded-r-none border-beige-500`}
   }
@@ -21,34 +26,41 @@ const PHONE_NUMBER_MIN_LENGTH = 10;
 const E_164_PHONE_FORMAT = /^\+[1-9]\d{1,14}$/;
 
 const isPhoneNumberValid = (phoneNumber: string) => {
-  const formattedNumber = phoneNumber.replace(/\s/g, '');
-
   return (
-    E_164_PHONE_FORMAT.test(formattedNumber) &&
-    formattedNumber.length >= PHONE_NUMBER_MIN_LENGTH
+    E_164_PHONE_FORMAT.test(`+${phoneNumber}`) &&
+    phoneNumber.length >= PHONE_NUMBER_MIN_LENGTH
   );
 };
 
 type Props = InputHTMLAttributes<HTMLInputElement> & {
-  errorComponent: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
+  errorComponent?: React.ComponentType<React.HTMLAttributes<HTMLElement>>;
+  onPhoneChange?: (
+    event: React.ChangeEvent<HTMLInputElement>,
+    phone: string,
+    isValid: boolean
+  ) => void;
 };
 
 const DonationPhoneInput: React.FC<Props> = ({
   defaultValue,
   errorComponent: ErrorMessage = ErrorNode,
+  onPhoneChange = () => null,
   ...rest
 }) => {
   const [value, setValue] = useState<string>(`${defaultValue}`);
-  const [error, setError] = useState('');
+  const [error, setError] = useState(false);
 
-  const handleOnChange = (phone: string) => {
-    if (!isPhoneNumberValid(phone)) {
-      setError('You need to enter a valid phone number');
-    } else {
-      setError('');
-    }
+  const handleOnChange = (
+    phone: string,
+    data: unknown,
+    event: React.ChangeEvent<HTMLInputElement>,
+    formattedValue: string
+  ) => {
+    const isValid = isPhoneNumberValid(phone);
 
-    setValue(phone);
+    setValue(formattedValue);
+    setError(!isValid);
+    onPhoneChange(event, phone, isValid);
   };
 
   return (
@@ -59,10 +71,16 @@ const DonationPhoneInput: React.FC<Props> = ({
           containerClass="phone-input-element"
           value={value}
           onChange={handleOnChange}
+          isValid={isPhoneNumberValid}
           inputProps={rest}
         />
       </FormControl>
-      {error && <ErrorMessage role="alert">{error}</ErrorMessage>}
+      {/* <PhoneInput /> supports defaultErrorMessage but the style is difficult to fit our needs */}
+      {error && (
+        <ErrorMessage role="alert">
+          Invalid phone number, please check.
+        </ErrorMessage>
+      )}
     </>
   );
 };
