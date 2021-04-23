@@ -11,6 +11,18 @@ We are using `window` to configure the widget. These are the variables that need
 - `window.DC_RECAPTCHA_V3_SITE_KEY`
 - `window.DC_STRIPE_PUBLIC_TOKEN`
 
-## How to use
+## Developer notes
 
-TBD
+Install dependencies by:
+
+```sh
+yarn install
+```
+
+Once they are install, you want to check your changes using storybook. First `cp env.sample .env` in order to inject some variables to your storybook so it behaves closer to the real world usage
+
+Take a look to the [Stripe website](https://stripe.com) to get your API key
+
+```sh
+yarn storybook
+```
