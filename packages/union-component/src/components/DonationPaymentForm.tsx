@@ -40,7 +40,7 @@ const DonationPaymentForm: React.FC<Props> = ({
   onSubmit,
   tokenData
 }) => {
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(false);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(true);
   const [
     paymentProvider,
     setPaymentProvider

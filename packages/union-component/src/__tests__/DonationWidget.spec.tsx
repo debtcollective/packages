@@ -77,6 +77,9 @@ test('send a donation request with all provided information', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+  expect(submitBtn).toBeDisabled();
+
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
@@ -98,8 +101,6 @@ test('send a donation request with all provided information', async () => {
     screen.getByRole('textbox', { name: 'stripe-mocked-input-element' }),
     faker.finance.creditCardNumber()
   );
-
-  const submitBtn = screen.getByRole('button', { name: /next/i });
 
   expect(submitBtn).not.toBeDisabled();
   userEvent.click(submitBtn);
