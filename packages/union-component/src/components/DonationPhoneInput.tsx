@@ -15,7 +15,7 @@ const FormControl = styled.div`
   }
 `;
 
-const ErrorNode = styled.div``;
+const ErrorNode = styled.p``;
 
 const PHONE_NUMBER_MIN_LENGTH = 10;
 const E_164_PHONE_FORMAT = /^\+[1-9]\d{1,14}$/;
@@ -35,7 +35,7 @@ type Props = InputHTMLAttributes<HTMLInputElement> & {
 
 const DonationPhoneInput: React.FC<Props> = ({
   defaultValue,
-  errorComponent: ErrorMessage,
+  errorComponent: ErrorMessage = ErrorNode,
   ...rest
 }) => {
   const [value, setValue] = useState<string>(`${defaultValue}`);
