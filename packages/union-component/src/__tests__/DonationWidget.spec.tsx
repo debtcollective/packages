@@ -105,7 +105,13 @@ test('send a donation request with all provided information', async () => {
   await waitFor(() =>
     expect(sendDonationSpy).toHaveBeenCalledWith({
       billingInformation,
-      cardInformation,
+      cardInformation: {
+        firstName: cardInformation.firstName,
+        lastName: cardInformation.lastName,
+        email: cardInformation.email,
+        // Due to library implications packages/union-component/src/__mocks__/react-phone-input-2.tsx
+        phoneNumber: cardInformation.phoneNumber.replace(/\D/g, '')
+      },
       donation: {
         message: '',
         status: '',
