@@ -62,7 +62,7 @@ const DonationPaymentForm: React.FC<Props> = ({
     e.persist();
     e.preventDefault();
 
-    const token = getStripeToken();
+    const token = await getStripeToken();
 
     const data = {
       ...formData,
