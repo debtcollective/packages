@@ -33,7 +33,6 @@ const phoneNumberError = 'You need to enter a valid phone number';
 const sendDonationSpy = jest.spyOn(HTTPService, 'sendDonation');
 
 beforeAll(() => {
-  // @ts-ignore
   global.fetch = jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue(donationResponse)
   });
@@ -201,6 +200,9 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
   });
 
+  const spyOnConsole = jest
+    .spyOn(console, 'error')
+    .mockImplementation(jest.fn());
   render(<DonationWidget />);
 
   // Give the amount to donate
@@ -263,6 +265,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   expect(
     await screen.findByText(/error processing your request. please try again/i)
   ).toBeInTheDocument();
+  expect(spyOnConsole).toHaveBeenCalledTimes(1);
 });
 
 test('allows to go back to edit amount', () => {
@@ -307,6 +310,11 @@ test('shows payment error when donation request fails', async () => {
       errors: { stripe: ['your card has been declined'] }
     })
   });
+
+  // Avoid to display all console errors generated when error
+  const spyOnConsole = jest
+    .spyOn(console, 'error')
+    .mockImplementation(jest.fn());
 
   render(<DonationWidget />);
 
@@ -362,11 +370,9 @@ test('shows payment error when donation request fails', async () => {
 
   userEvent.click(submitBtn);
 
-  // Avoid to display all console errors generated when error
-  jest.spyOn(console, 'error').mockImplementation(jest.fn());
-
   await waitFor(() => expect(sendDonationSpy).toHaveBeenCalled());
   expect(
     await screen.findByText(/error processing your request/i)
   ).toBeInTheDocument();
+  expect(spyOnConsole).toHaveBeenCalledTimes(1);
 });

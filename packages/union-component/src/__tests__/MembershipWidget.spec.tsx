@@ -28,7 +28,6 @@ const donationResponse = {
 const sendDonationSpy = jest.spyOn(HTTPService, 'sendMembershipDonation');
 
 beforeAll(() => {
-  // @ts-ignore
   global.fetch = jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue(donationResponse)
   });
@@ -207,6 +206,10 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
   });
 
+  const spyOnConsole = jest
+    .spyOn(console, 'error')
+    .mockImplementation(jest.fn());
+
   render(<MembershipWidget hasChapterSelection />);
 
   // Select an amount
@@ -270,4 +273,5 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   expect(
     await screen.findByText(/error processing your request. please try again/i)
   ).toBeInTheDocument();
+  expect(spyOnConsole).toHaveBeenCalledTimes(1);
 });
