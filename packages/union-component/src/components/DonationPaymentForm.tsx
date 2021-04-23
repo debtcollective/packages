@@ -4,7 +4,7 @@ import {
   StripeCardElementChangeEvent
 } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import * as DonationWizard from './DonationWizard';
 import StripeCardInput, { DonationPaymentProvider } from './StripeCardInput';
 import DonationDropdown from './DonationDropdown';
@@ -45,39 +45,61 @@ const DonationPaymentForm: React.FC<Props> = ({
     paymentProvider,
     setPaymentProvider
   ] = useState<DonationPaymentProvider>();
+  const [formData, setFormData] = useState({
+    ...defaultValues,
+    phoneNumber: ''
+  });
   const errorMessage = errors?.join(' ');
+
+  useEffect(() => {
+    const readyToSubmit = Boolean(
+      paymentProvider && Object.values(formData).every(Boolean)
+    );
+    setIsSubmitDisabled(!readyToSubmit);
+  }, [paymentProvider, formData]);
 
   const handleOnSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.persist();
     e.preventDefault();
 
-    const formData = new FormData(e.currentTarget);
-
-    let token;
-
-    if (amount !== 0) {
-      if (!paymentProvider || !paymentProvider.card) {
-        console.error('Error trying to submit payment form', paymentProvider);
-        return;
-      }
-      const { token: stripeToken } = await paymentProvider.stripe.createToken(
-        paymentProvider.card,
-        tokenData
-      );
-
-      token = stripeToken;
-    }
+    const token = getStripeToken();
 
     const data = {
-      firstName: formData.get('first-name'),
-      lastName: formData.get('last-name'),
-      email: formData.get('email'),
-      phoneNumber: formData.get('phone-number'),
-      chapter: formData.get('chapter'),
+      ...formData,
       stripeToken: token
     };
 
     onSubmit(data, paymentProvider);
+  };
+
+  const getStripeToken = async () => {
+    if (amount === 0) return;
+
+    if (!paymentProvider || !paymentProvider.card) {
+      console.error('Error trying to submit payment form', paymentProvider);
+      return;
+    }
+    const { token: stripeToken } = await paymentProvider.stripe.createToken(
+      paymentProvider.card,
+      tokenData
+    );
+
+    return stripeToken;
+  };
+
+  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((state) => ({ ...state, [e.target.name]: e.target.value }));
+  };
+
+  const onChangeInputPhone = (
+    e: React.ChangeEvent<HTMLInputElement>,
+    phone: string,
+    isValid: boolean
+  ) => {
+    // Make easier the validation on this component without knowing the format
+    const phoneNumber = isValid ? phone : '';
+
+    setFormData((state) => ({ ...state, phoneNumber }));
   };
 
   const onChangeInputCardElement = (
@@ -87,7 +109,6 @@ const DonationPaymentForm: React.FC<Props> = ({
     if (e.complete) {
       setPaymentProvider(pProvider);
     }
-    setIsSubmitDisabled(!e.complete);
   };
 
   const stripePublicToken = environmentSetup.DC_STRIPE_PUBLIC_TOKEN;
@@ -102,20 +123,23 @@ const DonationPaymentForm: React.FC<Props> = ({
       </DonationWizard.Title>
       <DonationWizard.Form onSubmit={handleOnSubmit}>
         <DonationWizard.Input
+          onChange={onChangeInput}
           defaultValue={defaultValues.firstName}
-          name="first-name"
+          name="firstName"
           placeholder="Jane"
           required
           title="Card owner first name"
         />
         <DonationWizard.Input
+          onChange={onChangeInput}
           defaultValue={defaultValues.lastName}
-          name="last-name"
+          name="lastName"
           placeholder="Doe"
           required
           title="Card owner last name"
         />
         <DonationWizard.Input
+          onChange={onChangeInput}
           defaultValue={defaultValues.email}
           name="email"
           type="email"
@@ -126,8 +150,8 @@ const DonationPaymentForm: React.FC<Props> = ({
         <DonationPhoneInput
           defaultValue={defaultValues.phoneNumber}
           errorComponent={DonationWizard.ErrorText}
-          onPhoneChange={(e, phone, isValid) => setIsSubmitDisabled(!isValid)}
-          name="phone-number"
+          onPhoneChange={onChangeInputPhone}
+          name="phoneNumber"
           required
           title="Contact phone number"
         />
