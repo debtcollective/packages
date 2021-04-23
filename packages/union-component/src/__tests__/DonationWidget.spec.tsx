@@ -191,7 +191,7 @@ test('should display phone number error', async () => {
     faker.finance.creditCardNumber()
   );
 
-  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
+  expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
   expect(await screen.findByText(/invalid/i)).toBeInTheDocument();
 });
 
