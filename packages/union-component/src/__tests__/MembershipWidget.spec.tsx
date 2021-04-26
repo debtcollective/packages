@@ -28,7 +28,6 @@ const donationResponse = {
 const sendDonationSpy = jest.spyOn(HTTPService, 'sendMembershipDonation');
 
 beforeAll(() => {
-  // @ts-ignore
   global.fetch = jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue(donationResponse)
   });
@@ -99,12 +98,16 @@ test('allows to skip the payment form and complete flow using zero donation sele
   expect(sendDonationSpy).toHaveBeenCalledWith({
     addressInformation,
     personalInformation: {
-      ...personalInformation,
-      chapter: 'massachusetts'
+      firstName: personalInformation.firstName,
+      lastName: personalInformation.lastName,
+      email: personalInformation.email,
+      // Due to library implications packages/union-component/src/__mocks__/react-phone-input-2.tsx
+      phoneNumber: personalInformation.phoneNumber.replace(/\D/g, ''),
+      // As we remove chapter selection
+      chapter: undefined
     },
     api: {
-      donation: undefined,
-      errors: undefined
+      donation: undefined
     },
     donationType: 'month',
     donationMonthlyAmount: donationAmount,
@@ -183,12 +186,16 @@ test('allows to complete flow using an amount donation selection', async () => {
   expect(sendDonationSpy).toHaveBeenCalledWith({
     addressInformation,
     personalInformation: {
-      ...personalInformation,
-      chapter: 'massachusetts'
+      firstName: personalInformation.firstName,
+      lastName: personalInformation.lastName,
+      email: personalInformation.email,
+      // Due to library implications packages/union-component/src/__mocks__/react-phone-input-2.tsx
+      phoneNumber: personalInformation.phoneNumber.replace(/\D/g, ''),
+      // As we remove chapter selection
+      chapter: undefined
     },
     api: {
-      donation: undefined,
-      errors: undefined
+      donation: undefined
     },
     donationType: 'month',
     donationMonthlyAmount: donationAmount,
@@ -206,6 +213,10 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   useStripeMock.mockReturnValue({
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
   });
+
+  const spyOnConsole = jest
+    .spyOn(console, 'error')
+    .mockImplementation(jest.fn());
 
   render(<MembershipWidget hasChapterSelection />);
 
@@ -270,4 +281,5 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   expect(
     await screen.findByText(/error processing your request. please try again/i)
   ).toBeInTheDocument();
+  expect(spyOnConsole).toHaveBeenCalledTimes(1);
 });

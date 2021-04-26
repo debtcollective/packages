@@ -19,7 +19,7 @@ export const Input = styled.input`
 `;
 
 export const ErrorText = styled.p`
-  ${tw`mt-1 text-xs text-primary-darker`}
+  ${tw`mt-1 mb-2 text-xs text-primary-darker`}
 `;
 
 export const ToggleSelector = styled.div`
