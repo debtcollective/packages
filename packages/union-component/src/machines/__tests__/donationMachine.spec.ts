@@ -127,7 +127,10 @@ test('goes into process donation after filling all information', () => {
 
   expect(machineState.context).toEqual({
     billingInformation,
-    cardInformation,
+    cardInformation: {
+      ...cardInformation,
+      phoneNumber: cardInformation.phoneNumber.replace(/ /g, '')
+    },
     donation: {
       message: '',
       status: '',

@@ -191,7 +191,8 @@ const donationWidgetMachine = Machine<
       updatePayeeInformation: assign({
         cardInformation: (context, event) => {
           const { firstName, lastName, email, phoneNumber } = event;
-          return { firstName, lastName, email, phoneNumber };
+          const phoneE164 = `+${phoneNumber.replace(/\D/g, '')}`;
+          return { firstName, lastName, email, phoneNumber: phoneE164 };
         }
       }),
       updatePaymentServices: assign({

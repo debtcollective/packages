@@ -109,8 +109,7 @@ test('send a donation request with all provided information', async () => {
         firstName: cardInformation.firstName,
         lastName: cardInformation.lastName,
         email: cardInformation.email,
-        // Due to library implications packages/union-component/src/__mocks__/react-phone-input-2.tsx
-        phoneNumber: cardInformation.phoneNumber.replace(/\D/g, '')
+        phoneNumber: cardInformation.phoneNumber.replace(/ /g, '')
       },
       donation: {
         message: '',

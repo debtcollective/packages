@@ -113,12 +113,14 @@ const actions = {
   updatePayeeInformation: assign<MembershipMachineContext, PersonalNextEvent>({
     personalInformation: (context, event) => {
       const { firstName, lastName, email, phoneNumber } = event.data;
+      const phoneE164 = `+${phoneNumber.replace(/\D/g, '')}`;
+
       return {
         ...context.personalInformation,
         firstName,
         lastName,
         email,
-        phoneNumber
+        phoneNumber: phoneE164
       };
     }
   }),
