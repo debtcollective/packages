@@ -101,8 +101,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
       email: personalInformation.email,
-      // Due to library implications packages/union-component/src/__mocks__/react-phone-input-2.tsx
-      phoneNumber: personalInformation.phoneNumber.replace(/\D/g, ''),
+      phoneNumber: personalInformation.phoneNumber.replace(/ /g, ''),
       // As we remove chapter selection
       chapter: undefined
     },
@@ -189,8 +188,7 @@ test('allows to complete flow using an amount donation selection', async () => {
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
       email: personalInformation.email,
-      // Due to library implications packages/union-component/src/__mocks__/react-phone-input-2.tsx
-      phoneNumber: personalInformation.phoneNumber.replace(/\D/g, ''),
+      phoneNumber: personalInformation.phoneNumber.replace(/ /g, ''),
       // As we remove chapter selection
       chapter: undefined
     },
