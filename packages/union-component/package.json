@@ -1,6 +1,6 @@
 {
   "name": "@debtcollective/union-component",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "",
   "publishConfig": {
     "access": "public"

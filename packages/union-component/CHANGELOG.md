@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.4](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.3...@debtcollective/union-component@1.4.4) (2021-04-26)
+
+
+### Bug Fixes
+
+* **union-component:** add missing await to get correct stripe token ([6ea1490](https://github.com/debtcollective/packages/commit/6ea1490))
+* **union-component:** make error text space more coherent ([f5edff5](https://github.com/debtcollective/packages/commit/f5edff5))
+* **union-component:** payment form to ensure showing error as expected ([bf02885](https://github.com/debtcollective/packages/commit/bf02885))
+* **union-component:** update machine to meet phone E164 ([1e86c83](https://github.com/debtcollective/packages/commit/1e86c83))
+* **union-widget:** disabled submit button until all fields filled ([13a5bfe](https://github.com/debtcollective/packages/commit/13a5bfe))
+
+
+
+
+
 ## [1.4.3](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.2...@debtcollective/union-component@1.4.3) (2021-04-14)
 
 **Note:** Version bump only for package @debtcollective/union-component
