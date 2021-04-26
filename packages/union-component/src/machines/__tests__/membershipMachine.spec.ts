@@ -55,7 +55,10 @@ test('goes into process membership state after filling all information', () => {
 
   expect(machineState.context).toEqual({
     addressInformation,
-    personalInformation,
+    personalInformation: {
+      ...personalInformation,
+      phoneNumber: personalInformation.phoneNumber.replace(/ /g, '')
+    },
     api: {
       donation: undefined,
       error: undefined

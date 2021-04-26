@@ -9,8 +9,6 @@ import * as Stripe from '@stripe/react-stripe-js';
 
 jest.mock('../components/StripeCardInput');
 
-const invalidPhoneNumber = '+1';
-
 const cardInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
@@ -29,11 +27,9 @@ const donationResponse = {
   status: 'succeeded',
   message: `Your ${donationAmount} donation has been successfully processed`
 };
-const phoneNumberError = 'You need to enter a valid phone number';
 const sendDonationSpy = jest.spyOn(HTTPService, 'sendDonation');
 
 beforeAll(() => {
-  // @ts-ignore
   global.fetch = jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue(donationResponse)
   });
@@ -78,6 +74,9 @@ test('send a donation request with all provided information', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+  expect(submitBtn).toBeDisabled();
+
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
@@ -100,15 +99,18 @@ test('send a donation request with all provided information', async () => {
     faker.finance.creditCardNumber()
   );
 
-  const submitBtn = screen.getByRole('button', { name: /next/i });
-
   expect(submitBtn).not.toBeDisabled();
   userEvent.click(submitBtn);
 
   await waitFor(() =>
     expect(sendDonationSpy).toHaveBeenCalledWith({
       billingInformation,
-      cardInformation,
+      cardInformation: {
+        firstName: cardInformation.firstName,
+        lastName: cardInformation.lastName,
+        email: cardInformation.email,
+        phoneNumber: cardInformation.phoneNumber.replace(/ /g, '')
+      },
       donation: {
         message: '',
         status: '',
@@ -131,6 +133,7 @@ test('send a donation request with all provided information', async () => {
 
 test('should display phone number error', async () => {
   const widgetTitle = `Paying $${donationAmount}`;
+  const invalidPhoneNumber = '+123';
 
   render(<DonationWidget />);
 
@@ -165,6 +168,7 @@ test('should display phone number error', async () => {
 
   // Give the payment details
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     cardInformation.firstName
@@ -186,12 +190,8 @@ test('should display phone number error', async () => {
     faker.finance.creditCardNumber()
   );
 
-  const submitBtn = screen.getByRole('button', { name: /next/i });
-
-  expect(submitBtn).not.toBeDisabled();
-  userEvent.click(submitBtn);
-
-  expect(await screen.findByText(phoneNumberError)).toBeInTheDocument();
+  expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
+  expect(await screen.findByText(/invalid/i)).toBeInTheDocument();
 });
 
 test('avoid calling membersip api if the stripe token is missing', async () => {
@@ -201,6 +201,9 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     createToken: jest.fn().mockResolvedValue({ token: { id: null } })
   });
 
+  const spyOnConsole = jest
+    .spyOn(console, 'error')
+    .mockImplementation(jest.fn());
   render(<DonationWidget />);
 
   // Give the amount to donate
@@ -263,6 +266,7 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   expect(
     await screen.findByText(/error processing your request. please try again/i)
   ).toBeInTheDocument();
+  expect(spyOnConsole).toHaveBeenCalledTimes(1);
 });
 
 test('allows to go back to edit amount', () => {
@@ -283,30 +287,18 @@ test('allows to go back to edit amount', () => {
   expect(screen.getByText(/choose an amount/i)).toBeInTheDocument();
 });
 
-test.skip('allows to switch between donation "once" and "monthly" to update donation type', () => {
-  render(<DonationWidget />);
-
-  expect(screen.getByText(/give once/i)).toBeInTheDocument();
-  expect(screen.getByText(/monthly/i)).toBeInTheDocument();
-
-  userEvent.click(screen.getByRole('radio', { name: /monthly/i }));
-
-  expect(screen.getByText(/give per month/i)).toBeInTheDocument();
-
-  userEvent.click(screen.getByRole('radio', { name: /once/i }));
-
-  expect(screen.queryByText(/give per month/i)).not.toBeInTheDocument();
-  expect(screen.queryByText(/donate/i)).toBeInTheDocument();
-});
-
 test('shows payment error when donation request fails', async () => {
-  // @ts-ignore
   global.fetch = jest.fn().mockResolvedValue({
     json: jest.fn().mockResolvedValue({
       status: 'failed',
       errors: { stripe: ['your card has been declined'] }
     })
   });
+
+  // Avoid to display all console errors generated when error
+  const spyOnConsole = jest
+    .spyOn(console, 'error')
+    .mockImplementation(jest.fn());
 
   render(<DonationWidget />);
 
@@ -362,11 +354,9 @@ test('shows payment error when donation request fails', async () => {
 
   userEvent.click(submitBtn);
 
-  // Avoid to display all console errors generated when error
-  jest.spyOn(console, 'error').mockImplementation(jest.fn());
-
   await waitFor(() => expect(sendDonationSpy).toHaveBeenCalled());
   expect(
     await screen.findByText(/error processing your request/i)
   ).toBeInTheDocument();
+  expect(spyOnConsole).toHaveBeenCalledTimes(1);
 });
