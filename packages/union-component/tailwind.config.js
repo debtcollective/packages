@@ -5,20 +5,7 @@ module.exports = {
   },
   purge: {
     content: ['./src/**/*.{js,ts,jsx,tsx}'],
-    options: {
-      // We whitelist the Colors enum classes to keep them after purge
-      // TODO: find a way to import the enum and build the classes array
-      whitelist: [
-        'bg-blue',
-        'bg-gray',
-        'bg-green',
-        'bg-pink',
-        'bg-primary',
-        'bg-purple',
-        'bg-white',
-        'bg-yellow'
-      ]
-    }
+    options: {}
   },
   theme: {
     colors: {
@@ -55,63 +42,15 @@ module.exports = {
       bold: 800
     },
     extend: {
-      borderWidth: {
-        1: '1px'
-      },
-      backgroundPosition: {
-        75: '75%'
-      },
-      lineHeight: {
-        12: '2.75rem',
-        13: '3rem',
-        14: '3.25rem',
-        15: '3.5rem',
-        20: '5rem',
-        40: '10rem'
-      },
-      screens: {
-        xxl: '1536px'
-      },
-      spacing: {
-        'x-screen-spacing': '2rem',
-        'y-screen-spacing': '4rem',
-        'desktop-screen-spacing': '6rem'
-      },
       fontFamily: {
         'more-gothic': ['More Gothic'],
         sans: ['Roboto', 'Helvetica', 'Arial', 'sans-serif']
       },
       fontSize: {
-        xss: '0.6rem',
-        '7xl': '6rem',
-        '9xl': '7.5rem'
-      },
-      minHeight: {
-        'fish-section': '27.5rem',
-        'screen-45': '45vh',
-        'screen-70': '70vh',
-        'screen-95': '95vh',
-        80: '80rem'
-      },
-      minWidth: {
-        auto: 'auto',
-        '3/4': '75%'
-      },
-      maxWidth: {
-        '5xl': '50rem',
-        '6xl': '60rem',
-        '8xl': '90rem'
+        xss: '0.6rem'
       },
       padding: {
         phoneInputLeft: '3.5rem'
-      },
-      width: {
-        '5xl': '50rem',
-        '6xl': '60rem',
-        '8xl': '90rem'
-      },
-      zIndex: {
-        'modal-screen': 9999
       }
     }
   },
