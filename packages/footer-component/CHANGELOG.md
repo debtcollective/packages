@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-footer-component@0.2.5...@debtcollective/dc-footer-component@0.3.0) (2021-04-28)
+
+
+### Features
+
+* **footer:** change contact us link ([be1a1f1](https://github.com/debtcollective/packages/commit/be1a1f1))
+
+
+
+
+
 ## [0.2.5](https://github.com/debtcollective/packages/compare/@debtcollective/dc-footer-component@0.2.4...@debtcollective/dc-footer-component@0.2.5) (2021-02-25)
 
 
