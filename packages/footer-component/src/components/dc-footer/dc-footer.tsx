@@ -63,7 +63,8 @@ export class DcFooter {
       links: [
         {
           label: 'Contact',
-          href: 'https://tools.debtcollective.org/contact',
+          href: 'https://debtcollective.org/contact-us/',
+          target: '_self',
         },
         {
           label: 'Donate',
@@ -89,7 +90,7 @@ export class DcFooter {
                   <ul>
                     {item.links?.map(link => (
                       <li class="footer__links__item">
-                        <a href={link.href} target="_blank" rel="noreferrer">
+                        <a href={link.href} target={link?.target || '_blank'} rel="noreferrer">
                           {link.label}
                         </a>
                       </li>

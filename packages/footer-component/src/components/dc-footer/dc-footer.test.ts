@@ -84,7 +84,7 @@ describe('dc-footer', () => {
                 </p>
                 <ul>
                   <li class="footer__links__item">
-                    <a href="https://tools.debtcollective.org/contact" rel="noreferrer" target="_blank">
+                    <a href="https://debtcollective.org/contact-us/" rel="noreferrer" target="_self">
                       Contact
                     </a>
                   </li>
