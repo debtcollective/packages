@@ -30,8 +30,8 @@ type User = {
 };
 
 const HOME_PAGE_LINK = "https://debtcollective.org/";
-const ARROW_UP_KEY = 'ArrowUp';
-const ARROW_DOWN_KEY = 'ArrowDown';
+const ARROW_UP_KEY = "ArrowUp";
+const ARROW_DOWN_KEY = "ArrowDown";
 
 // dc-dropdown.items accepts strings
 const TAKE_ACTION_LINKS = JSON.stringify([
@@ -49,6 +49,19 @@ const TAKE_ACTION_LINKS = JSON.stringify([
     text: "Dispute Your Debt",
     href: "https://tools.debtcollective.org/",
     target: "_blank",
+  },
+]);
+// dc-dropdown.items accepts strings
+const ABOUT_US_LINKS = JSON.stringify([
+  {
+    text: "About Us",
+    href: "http://debtcollective.org/about-us",
+    target: "_self",
+  },
+  {
+    text: "Our team",
+    href: "http://debtcollective.org/our-team",
+    target: "_self",
   },
 ]);
 
@@ -143,9 +156,10 @@ export class Header {
   /**
    *  Event to prevent scrolling the page with arrow keys
    */
-  @Listen('keydown', { target: 'document' })
+  @Listen("keydown", { target: "document" })
   handleArrowKey(event) {
-    if ([ARROW_DOWN_KEY, ARROW_UP_KEY].includes(event.key)) event.preventDefault();
+    if ([ARROW_DOWN_KEY, ARROW_UP_KEY].includes(event.key))
+      event.preventDefault();
   }
 
   toggleMenu() {
@@ -206,6 +220,11 @@ export class Header {
               class="d-md-flex"
               label="Take Action!"
               items={TAKE_ACTION_LINKS}
+            />
+            <dc-dropdown
+              class="d-md-flex"
+              label="About"
+              items={ABOUT_US_LINKS}
             />
           </nav>
           <div class="session-items">
