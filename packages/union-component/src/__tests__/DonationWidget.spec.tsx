@@ -74,8 +74,7 @@ test('send a donation request with all provided information', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
-  const submitBtn = screen.getByRole('button', { name: /next/i });
-  expect(submitBtn).toBeDisabled();
+  expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
 
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
@@ -99,8 +98,8 @@ test('send a donation request with all provided information', async () => {
     faker.finance.creditCardNumber()
   );
 
-  expect(submitBtn).not.toBeDisabled();
-  userEvent.click(submitBtn);
+  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   await waitFor(() =>
     expect(sendDonationSpy).toHaveBeenCalledWith({
@@ -258,10 +257,8 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     faker.finance.creditCardNumber()
   );
 
-  const submitBtn = screen.getByRole('button', { name: /next/i });
-
-  expect(submitBtn).not.toBeDisabled();
-  userEvent.click(submitBtn);
+  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   expect(
     await screen.findByText(/error processing your request. please try again/i)
@@ -350,9 +347,8 @@ test('shows payment error when donation request fails', async () => {
     faker.finance.creditCardNumber()
   );
 
-  const submitBtn = screen.getByRole('button', { name: /next/i });
-
-  userEvent.click(submitBtn);
+  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   await waitFor(() => expect(sendDonationSpy).toHaveBeenCalled());
   expect(

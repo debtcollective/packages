@@ -91,11 +91,7 @@ const DonationPaymentForm: React.FC<Props> = ({
     setFormData((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
-  const onChangeInputPhone = (
-    e: React.ChangeEvent<HTMLInputElement>,
-    phone: string,
-    isValid: boolean
-  ) => {
+  const onChangeInputPhone = (phone: string, isValid: boolean) => {
     // Make easier the validation on this component without knowing the format
     const phoneNumber = isValid ? phone : '';
 
