@@ -13,7 +13,7 @@ const personalInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
   email: faker.internet.email('bot', '', 'debtcollective.org'),
-  phoneNumber: faker.phone.phoneNumber('+# ### ### ####')
+  phoneNumber: '(543) 232-1234'
 };
 const addressInformation = {
   street: faker.address.streetAddress(),
@@ -101,7 +101,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
       email: personalInformation.email,
-      phoneNumber: personalInformation.phoneNumber.replace(/ /g, ''),
+      phoneNumber: `+1${personalInformation.phoneNumber.replace(/\D/g, '')}`,
       // As we remove chapter selection
       chapter: undefined
     },
@@ -188,7 +188,7 @@ test('allows to complete flow using an amount donation selection', async () => {
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
       email: personalInformation.email,
-      phoneNumber: personalInformation.phoneNumber.replace(/ /g, ''),
+      phoneNumber: `+1${personalInformation.phoneNumber.replace(/\D/g, '')}`,
       // As we remove chapter selection
       chapter: undefined
     },

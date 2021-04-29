@@ -13,7 +13,7 @@ const cardInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
   email: faker.internet.email('bot', '', 'debtcollective.org'),
-  phoneNumber: faker.phone.phoneNumber('+# ### ### ####')
+  phoneNumber: '202 555 0191'
 };
 
 const billingInformation = {
@@ -74,7 +74,8 @@ test('send a donation request with all provided information', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
-  expect(screen.getByRole('button', { name: /next/i })).toBeDisabled();
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+  expect(submitBtn).toBeDisabled();
 
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
@@ -98,8 +99,8 @@ test('send a donation request with all provided information', async () => {
     faker.finance.creditCardNumber()
   );
 
-  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
-  userEvent.click(screen.getByRole('button', { name: /next/i }));
+  expect(submitBtn).not.toBeDisabled();
+  userEvent.click(submitBtn);
 
   await waitFor(() =>
     expect(sendDonationSpy).toHaveBeenCalledWith({
@@ -108,7 +109,7 @@ test('send a donation request with all provided information', async () => {
         firstName: cardInformation.firstName,
         lastName: cardInformation.lastName,
         email: cardInformation.email,
-        phoneNumber: cardInformation.phoneNumber.replace(/ /g, '')
+        phoneNumber: `+1${cardInformation.phoneNumber.replace(/\D/g, '')}`
       },
       donation: {
         message: '',
@@ -235,7 +236,10 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+  expect(submitBtn).toBeDisabled();
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     cardInformation.firstName
@@ -257,8 +261,8 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     faker.finance.creditCardNumber()
   );
 
-  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
-  userEvent.click(screen.getByRole('button', { name: /next/i }));
+  expect(submitBtn).not.toBeDisabled();
+  userEvent.click(submitBtn);
 
   expect(
     await screen.findByText(/error processing your request. please try again/i)
@@ -326,6 +330,9 @@ test('shows payment error when donation request fails', async () => {
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give the payment details
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+  expect(submitBtn).toBeDisabled();
+
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
     cardInformation.firstName
@@ -347,7 +354,7 @@ test('shows payment error when donation request fails', async () => {
     faker.finance.creditCardNumber()
   );
 
-  expect(screen.getByRole('button', { name: /next/i })).not.toBeDisabled();
+  expect(submitBtn).not.toBeDisabled();
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   await waitFor(() => expect(sendDonationSpy).toHaveBeenCalled());
