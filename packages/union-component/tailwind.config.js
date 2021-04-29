@@ -62,12 +62,12 @@ module.exports = {
         75: '75%'
       },
       lineHeight: {
-        '12': '2.75rem',
-        '13': '3rem',
-        '14': '3.25rem',
-        '15': '3.5rem',
-        '20': '5rem',
-        '40': '10rem'
+        12: '2.75rem',
+        13: '3rem',
+        14: '3.25rem',
+        15: '3.5rem',
+        20: '5rem',
+        40: '10rem'
       },
       screens: {
         xxl: '1536px'
@@ -91,7 +91,7 @@ module.exports = {
         'screen-45': '45vh',
         'screen-70': '70vh',
         'screen-95': '95vh',
-        '80': '80rem'
+        80: '80rem'
       },
       minWidth: {
         auto: 'auto',
@@ -101,6 +101,9 @@ module.exports = {
         '5xl': '50rem',
         '6xl': '60rem',
         '8xl': '90rem'
+      },
+      padding: {
+        phoneInputLeft: '3.5rem'
       },
       width: {
         '5xl': '50rem',
