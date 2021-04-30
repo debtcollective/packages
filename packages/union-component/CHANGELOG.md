@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.4.6](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.5...@debtcollective/union-component@1.4.6) (2021-04-30)
+
+
+### Bug Fixes
+
+* **union-component:** allow to hook "complete" stripe event to submit disable effect ([18a395a](https://github.com/debtcollective/packages/commit/18a395a))
+* **union-component:** avoid to bypass machine initial value ([dbf5c98](https://github.com/debtcollective/packages/commit/dbf5c98))
+
+
+
+
+
 ## [1.4.5](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.4...@debtcollective/union-component@1.4.5) (2021-04-29)
 
 **Note:** Version bump only for package @debtcollective/union-component
