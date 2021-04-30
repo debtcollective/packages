@@ -47,8 +47,7 @@ const DonationPaymentForm: React.FC<Props> = ({
   ] = useState<DonationPaymentProvider>();
   const [cardCompleted, setCardCompleted] = useState(false);
   const [formData, setFormData] = useState({
-    ...defaultValues,
-    phoneNumber: ''
+    ...defaultValues
   });
   const errorMessage = errors?.join(' ');
 
