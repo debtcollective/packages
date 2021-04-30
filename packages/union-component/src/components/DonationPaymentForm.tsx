@@ -45,6 +45,7 @@ const DonationPaymentForm: React.FC<Props> = ({
     paymentProvider,
     setPaymentProvider
   ] = useState<DonationPaymentProvider>();
+  const [cardCompleted, setCardCompleted] = useState(false);
   const [formData, setFormData] = useState({
     ...defaultValues,
     phoneNumber: ''
@@ -53,10 +54,10 @@ const DonationPaymentForm: React.FC<Props> = ({
 
   useEffect(() => {
     const readyToSubmit = Boolean(
-      paymentProvider && Object.values(formData).every(Boolean)
+      paymentProvider && cardCompleted && Object.values(formData).every(Boolean)
     );
     setIsSubmitDisabled(!readyToSubmit);
-  }, [paymentProvider, formData]);
+  }, [paymentProvider, formData, cardCompleted]);
 
   const handleOnSubmit = async (e: React.ChangeEvent<HTMLFormElement>) => {
     e.persist();
@@ -105,6 +106,8 @@ const DonationPaymentForm: React.FC<Props> = ({
     if (e.complete) {
       setPaymentProvider(pProvider);
     }
+
+    setCardCompleted(e.complete);
   };
 
   const stripePublicToken = environmentSetup.DC_STRIPE_PUBLIC_TOKEN;
