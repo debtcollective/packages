@@ -1,0 +1,26 @@
+/* Margin utils */
+.ml-1 {
+  margin-left: 0.25rem;
+}
+
+/* Media queries utils */
+dc-header .d-md-flex {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  dc-header .d-md-flex {
+    display: flex;
+  }
+}
+
+dc-header .d-md-none {
+  display: flex;
+}
+
+@media (min-width: 1024px) {
+  dc-header .d-md-none {
+    display: none;
+    visibility: hidden;
+  }
+}

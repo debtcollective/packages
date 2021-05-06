@@ -1,0 +1,48 @@
+/* Container */
+dc-header .header {
+  -webkit-backface-visibility: hidden;
+  align-items: center;
+  backface-visibility: hidden;
+  background-color: var(--main-bg-color);
+  box-shadow: 0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  height: 5rem;
+  justify-content: flex-start;
+  left: 0;
+  padding: 0 var(--column-gap);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: var(--z-index);
+}
+
+/* Session items */
+dc-header .session-items {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+
+  .with-user {
+    display: flex;
+  }
+
+  .with-user .btn-donate {
+    margin-right: 2rem;
+  }
+
+  .material-icons {
+    font-size: 1.25rem;
+    padding: 0.2143rem;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .btn-donate {
+    display: none;
+
+    @media (min-width: 1024px) {
+      display: block;
+    }
+  }
+}

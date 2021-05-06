@@ -1,0 +1,14 @@
+dc-header {
+  .logo {
+    /* 2.667em is the size of logo within the community */
+    height: 2.667rem;
+    position: relative;
+    width: auto;
+  }
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    margin-right: 1rem;
+  }
+}

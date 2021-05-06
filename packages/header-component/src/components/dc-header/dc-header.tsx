@@ -1,24 +1,19 @@
+import "./dc-menu";
+import "./dc-user-items";
+import "./dc-collapser";
 import {
   Component,
   Prop,
   State,
   h,
-  Watch,
   getAssetPath,
   Host,
   Listen,
   Event,
   EventEmitter,
 } from "@stencil/core";
-import omit from "lodash.omit";
 import { syncCurrentUser } from "../../services/session";
-import "./dc-menu";
-import "./dc-user-items";
-import "./dc-collapser";
 import { loginURL } from "../../utils/community";
-
-// init dc-dropdown
-import "@debtcollective/dc-dropdown-component";
 
 type User = {
   id: number;
@@ -33,50 +28,12 @@ const HOME_PAGE_LINK = "https://debtcollective.org/";
 const ARROW_UP_KEY = "ArrowUp";
 const ARROW_DOWN_KEY = "ArrowDown";
 
-// dc-dropdown.items accepts strings
-const TAKE_ACTION_LINKS = JSON.stringify([
-  {
-    text: "Events",
-    href: "https://community.debtcollective.org/calendar",
-    target: "_blank",
-  },
-  {
-    text: "Student Debt Strike",
-    href: "https://strike.debtcollective.org",
-    target: "_blank",
-  },
-  {
-    text: "Dispute Your Debt",
-    href: "https://tools.debtcollective.org/",
-    target: "_blank",
-  },
-]);
-// dc-dropdown.items accepts strings
-const ABOUT_US_LINKS = JSON.stringify([
-  {
-    text: "About Us",
-    href: "http://debtcollective.org/about-us",
-    target: "_self",
-  },
-  {
-    text: "Our team",
-    href: "http://debtcollective.org/our-team",
-    target: "_self",
-  },
-]);
-
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
-  styleUrl: "dc-header.css",
+  styleUrl: "styles/main.scss",
 })
 export class Header {
-  /**
-   * The links you need to display within the header
-   * this string needs to be JSON (able to JSON.parse)
-   */
-  @Prop() links: string;
-
   /**
    * Link to follow in order to prompt user to donate
    */
@@ -93,16 +50,6 @@ export class Header {
    * without the latest "/"
    */
   @Prop() host: string;
-
-  /**
-   * Logo src to use a custom image for the header
-   */
-  @Prop() logo: string;
-
-  /**
-   * Logo small src to use a custom image for the header in mobile
-   */
-  @Prop() logosmall: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -133,21 +80,6 @@ export class Header {
   private _logo = "logo.png";
   private _logoSmall = "logo-small.png";
 
-  /**
-   * Host the value of "links" parsed to an actual Array
-   */
-  private _links: Array<{ text: string; href: string; target?: string }>;
-
-  @Watch("links")
-  linksDidChangeHandler(newValue) {
-    if (!newValue) {
-      this._links = [];
-      return;
-    }
-
-    this._links = JSON.parse(newValue);
-  }
-
   @Listen("toggleMenu")
   toggleMenuHandler() {
     this.toggleMenu();
@@ -174,20 +106,17 @@ export class Header {
   }
 
   componentWillLoad() {
-    this.linksDidChangeHandler(this.links);
     return this.syncCurrentUser();
   }
 
   render() {
-    const linksToRender = this._links;
-
     return (
       <Host>
         <header class="header">
           <a class="logo-link d-md-flex" href={HOME_PAGE_LINK}>
             <img
               class="logo"
-              src={this.logo || getAssetPath(`./assets/${this._logo}`)}
+              src={getAssetPath(`./assets/${this._logo}`)}
               alt="The Debtcollective"
             />
           </a>
@@ -197,48 +126,22 @@ export class Header {
           >
             <img
               class="logo"
-              src={
-                this.logosmall || getAssetPath(`./assets/${this._logoSmall}`)
-              }
+              src={getAssetPath(`./assets/${this._logoSmall}`)}
               alt="The Debtcollective"
             />
             <span class="material-icons ml-1">keyboard_arrow_right</span>
           </button>
           <nav class="nav">
-            <slot name="header">
-              <div class="nav">
-                {linksToRender.map((link) => (
-                  <div class="nav-item d-md-flex">
-                    <a class="nav-link" {...omit(link, ["text"])}>
-                      {link.text}
-                    </a>
-                  </div>
-                ))}
-              </div>
-            </slot>
-            <dc-dropdown
-              class="d-md-flex"
-              label="Take Action!"
-              items={TAKE_ACTION_LINKS}
-            />
-            <dc-dropdown
-              class="d-md-flex"
-              label="About"
-              items={ABOUT_US_LINKS}
-            />
+            <div class="nav-item d-md-flex">
+              <a class="nav-link">Member login</a>
+            </div>
+            <div class="nav-item d-md-flex">
+              <a class="nav-link">Join Union</a>
+            </div>
           </nav>
           <div class="session-items">
             {this.user ? (
-              <div class="with-user">
-                <slot name="donate-header">
-                  {this.donateurl && (
-                    <a href={this.donateurl} class="btn-donate">
-                      Donate
-                    </a>
-                  )}
-                </slot>
-                <dc-user-items user={this.user} community={this.community} />
-              </div>
+              <div class="with-user">Has user</div>
             ) : (
               <div class="session-links">
                 <a
@@ -248,39 +151,24 @@ export class Header {
                   })}
                   class="btn btn-outline"
                 >
-                  <span class="d-md-flex">Member</span>&nbsp;Login
+                  <span class="d-md-flex">Member Login 2</span>
                 </a>
-                <slot name="donate-header">
-                  {this.donateurl && (
-                    <a href={this.donateurl} class="btn-donate">
-                      Donate
-                    </a>
-                  )}
-                </slot>
               </div>
             )}
           </div>
         </header>
-        <dc-menu open={this.isMenuOpen} logo={this.logo}>
-          <slot name="menu">
-            {linksToRender.map((link) => (
-              <div class="nav-item">
-                <a class="nav-link" {...omit(link, ["text"])}>
-                  {link.text}
-                </a>
-              </div>
-            ))}
-          </slot>
-          <dc-collapser label="Take Action!" items={TAKE_ACTION_LINKS} />
-          <div class="menu-footer">
-            <slot name="donate-menu">
-              {this.donateurl && (
-                <a href={this.donateurl} class="btn-donate">
-                  Donate
-                </a>
-              )}
-            </slot>
-          </div>
+        <dc-menu open={this.isMenuOpen} logo={this._logo}>
+          <dc-collapser
+            label="Take Action!"
+            items={JSON.stringify([
+              {
+                text: "Events",
+                href: "https://community.debtcollective.org/calendar",
+                target: "_blank",
+              },
+            ])}
+          />
+          <div class="menu-footer">Footer</div>
         </dc-menu>
       </Host>
     );

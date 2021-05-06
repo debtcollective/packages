@@ -29,18 +29,6 @@ export namespace Components {
           * URL to the component host without the latest "/"
          */
         "host": string;
-        /**
-          * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
-         */
-        "links": string;
-        /**
-          * Logo src to use a custom image for the header
-         */
-        "logo": string;
-        /**
-          * Logo small src to use a custom image for the header in mobile
-         */
-        "logosmall": string;
     }
     interface DcMenu {
         /**
@@ -150,18 +138,6 @@ declare namespace LocalJSX {
           * URL to the component host without the latest "/"
          */
         "host"?: string;
-        /**
-          * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
-         */
-        "links"?: string;
-        /**
-          * Logo src to use a custom image for the header
-         */
-        "logo"?: string;
-        /**
-          * Logo small src to use a custom image for the header in mobile
-         */
-        "logosmall"?: string;
         /**
           * Emit event to exposed fetched user on host application TODO: Cannot find name User on EventEmitter<User>
          */
