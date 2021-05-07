@@ -1,6 +1,30 @@
 /* Margin utils */
-.ml-1 {
-  margin-left: 0.25rem;
+dc-header {
+  $steps: (
+    "0": 0rem,
+    "1": 0.5rem,
+    "2": 1rem,
+    "3": 1.5rem,
+    "4": 2rem,
+    "5": 2.5rem,
+    "6": 3rem,
+  );
+
+  @each $step, $value in $steps {
+    .m-#{$step} {
+      margin: $value;
+    }
+  }
+
+  $sides: (top, bottom, left, right);
+
+  @each $side in $sides {
+    @each $step, $value in $steps {
+      .m#{str-slice($side, 0, 1)}-#{$step} {
+        margin-#{$side}: $value;
+      }
+    }
+  }
 }
 
 /* Media queries utils */
