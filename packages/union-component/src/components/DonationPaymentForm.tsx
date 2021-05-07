@@ -4,7 +4,7 @@ import {
   StripeCardElementChangeEvent
 } from '@stripe/stripe-js';
 import { Elements } from '@stripe/react-stripe-js';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import * as DonationWizard from './DonationWizard';
 import StripeCardInput, { DonationPaymentProvider } from './StripeCardInput';
 import DonationDropdown from './DonationDropdown';
@@ -12,6 +12,7 @@ import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
 import { DEFAULT_ERROR } from '../constants/errors';
 import { environmentSetup } from '../utils/config';
+import DonationFundDropdown from './DonationFundDropdown';
 
 export interface Props {
   amount: number;
@@ -23,6 +24,7 @@ export interface Props {
     email: string;
   };
   hasChapterSelection?: boolean;
+  hasFundDropdown?: boolean;
   onEditAmount: () => void;
   onSubmit: (
     data: { [string: string]: unknown },
@@ -33,9 +35,10 @@ export interface Props {
 
 const DonationPaymentForm: React.FC<Props> = ({
   amount,
-  errors = null,
   defaultValues,
+  errors = null,
   hasChapterSelection,
+  hasFundDropdown,
   onEditAmount,
   onSubmit,
   tokenData
@@ -46,7 +49,13 @@ const DonationPaymentForm: React.FC<Props> = ({
     setPaymentProvider
   ] = useState<DonationPaymentProvider>();
   const [cardCompleted, setCardCompleted] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<{
+    email: string;
+    firstName: string;
+    fund?: number;
+    lastName: string;
+    phoneNumber: string;
+  }>({
     ...defaultValues
   });
   const errorMessage = errors?.join(' ');
@@ -87,7 +96,9 @@ const DonationPaymentForm: React.FC<Props> = ({
     return stripeToken;
   };
 
-  const onChangeInput = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     setFormData((state) => ({ ...state, [e.target.name]: e.target.value }));
   };
 
@@ -97,6 +108,11 @@ const DonationPaymentForm: React.FC<Props> = ({
 
     setFormData((state) => ({ ...state, phoneNumber }));
   };
+
+  const onFundsLoaded = useCallback(
+    (fund: number) => setFormData((state) => ({ ...state, fund })),
+    []
+  );
 
   const onChangeInputCardElement = (
     e: StripeCardElementChangeEvent,
@@ -120,6 +136,16 @@ const DonationPaymentForm: React.FC<Props> = ({
         </DonationWizard.Button>
       </DonationWizard.Title>
       <DonationWizard.Form onSubmit={handleOnSubmit}>
+        {hasFundDropdown ? (
+          <DonationFundDropdown
+            id="select-fund"
+            name="fund"
+            onChange={onChangeInput}
+            onFundsLoaded={onFundsLoaded}
+            value={formData.fund || ''}
+          />
+        ) : null}
+
         <DonationWizard.Input
           onChange={onChangeInput}
           defaultValue={defaultValues.firstName}
@@ -153,7 +179,7 @@ const DonationPaymentForm: React.FC<Props> = ({
           required
           title="Contact phone number"
         />
-        {hasChapterSelection && (
+        {hasChapterSelection ? (
           <DonationDropdown
             id="chapter-dropdown"
             name="chapter"
@@ -170,7 +196,7 @@ const DonationPaymentForm: React.FC<Props> = ({
               </option>
             ))}
           </DonationDropdown>
-        )}
+        ) : null}
         {amount !== 0 ? (
           <Elements stripe={loadStripe(stripePublicToken)}>
             <StripeCardInput onChange={onChangeInputCardElement} />
