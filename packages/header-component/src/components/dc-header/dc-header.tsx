@@ -1,5 +1,5 @@
 import "./dc-menu";
-import "./dc-user-items";
+import "./dc-user-dropdown";
 import "./dc-collapser";
 import {
   Component,
@@ -125,7 +125,9 @@ export class Header {
               alt="The Debtcollective"
             />
           </a>
-          <div class="session header-item" />
+          <div class="session header-item">
+            <dc-user-dropdown user={this.user} community={this.community} />
+          </div>
         </header>
         <dc-menu open={this.isMenuOpen} logo={this._logo}>
           <div class="menu-footer">Footer</div>
