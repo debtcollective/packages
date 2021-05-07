@@ -1,14 +1,15 @@
 dc-header {
   .logo {
-    /* 2.667em is the size of logo within the community */
-    height: 2.667rem;
-    position: relative;
-    width: auto;
-  }
-
-  .logo-link {
+    // allows to center vertically the logo img
     display: flex;
-    align-items: center;
-    margin-right: 1rem;
+    flex-direction: column;
+    justify-content: center;
+
+    > img {
+      /* 2.667em is the size of logo within the community */
+      height: 2.667rem;
+      position: relative;
+      width: auto;
+    }
   }
 }

@@ -8,27 +8,31 @@ dc-header .header {
   box-sizing: border-box;
   display: flex;
   height: 5rem;
-  justify-content: flex-start;
+  justify-content: space-between;
   left: 0;
   padding: 0 var(--column-gap);
   position: fixed;
   top: 0;
   width: 100%;
   z-index: var(--z-index);
+
+  &-item {
+    display: block;
+    min-width: 2rem;
+
+    .material-icons {
+      font-size: 2rem;
+    }
+  }
 }
 
 /* Session items */
 dc-header .session-items {
   display: flex;
   align-items: center;
-  margin-left: 1rem;
 
   .with-user {
     display: flex;
-  }
-
-  .with-user .btn-donate {
-    margin-right: 2rem;
   }
 
   .material-icons {

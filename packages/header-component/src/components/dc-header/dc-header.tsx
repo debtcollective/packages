@@ -113,61 +113,21 @@ export class Header {
     return (
       <Host>
         <header class="header">
-          <a class="logo-link d-md-flex" href={HOME_PAGE_LINK}>
-            <img
-              class="logo"
-              src={getAssetPath(`./assets/${this._logo}`)}
-              alt="The Debtcollective"
-            />
-          </a>
           <button
-            class="btn-transparent logo-link d-md-none"
+            class="btn-transparent header-item d-md-none"
             onClick={this.toggleMenuHandler.bind(this)}
           >
+            <span class="material-icons">menu</span>
+          </button>
+          <a class="header-item logo" href={HOME_PAGE_LINK}>
             <img
-              class="logo"
               src={getAssetPath(`./assets/${this._logoSmall}`)}
               alt="The Debtcollective"
             />
-            <span class="material-icons ml-1">keyboard_arrow_right</span>
-          </button>
-          <nav class="nav">
-            <div class="nav-item d-md-flex">
-              <a class="nav-link">Member login</a>
-            </div>
-            <div class="nav-item d-md-flex">
-              <a class="nav-link">Join Union</a>
-            </div>
-          </nav>
-          <div class="session-items">
-            {this.user ? (
-              <div class="with-user">Has user</div>
-            ) : (
-              <div class="session-links">
-                <a
-                  href={loginURL({
-                    community: this.community,
-                    host: this.host,
-                  })}
-                  class="btn btn-outline"
-                >
-                  <span class="d-md-flex">Member Login 2</span>
-                </a>
-              </div>
-            )}
-          </div>
+          </a>
+          <div class="session header-item" />
         </header>
         <dc-menu open={this.isMenuOpen} logo={this._logo}>
-          <dc-collapser
-            label="Take Action!"
-            items={JSON.stringify([
-              {
-                text: "Events",
-                href: "https://community.debtcollective.org/calendar",
-                target: "_blank",
-              },
-            ])}
-          />
           <div class="menu-footer">Footer</div>
         </dc-menu>
       </Host>
