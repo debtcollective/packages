@@ -32,10 +32,6 @@ export namespace Components {
     }
     interface DcMenu {
         /**
-          * Logo src to use a custom image for the header
-         */
-        "logo": string;
-        /**
           * Wether or not the mobile menu is displayed
          */
         "open": boolean;
@@ -120,10 +116,6 @@ declare namespace LocalJSX {
         "onUserSynced"?: (event: CustomEvent<any>) => void;
     }
     interface DcMenu {
-        /**
-          * Logo src to use a custom image for the header
-         */
-        "logo"?: string;
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
         /**
           * Wether or not the mobile menu is displayed

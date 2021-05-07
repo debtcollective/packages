@@ -1,13 +1,4 @@
-import {
-  Component,
-  h,
-  Event,
-  EventEmitter,
-  Prop,
-  getAssetPath,
-} from "@stencil/core";
-
-const HOME_PAGE_LINK = "https://debtcollective.org/";
+import { Component, h, Event, EventEmitter, Prop } from "@stencil/core";
 
 @Component({
   assetsDirs: ["assets"],
@@ -20,17 +11,7 @@ export class Menu {
    */
   @Prop() open: boolean;
 
-  /**
-   * Logo src to use a custom image for the header
-   */
-  @Prop() logo: string;
-
   @Event() toggleMenu: EventEmitter<void>;
-
-  /**
-   * Logo image
-   */
-  private _logo = "logo.png";
 
   toggleMenuHandler() {
     this.toggleMenu.emit();
@@ -41,14 +22,7 @@ export class Menu {
       <div class={`menu-container ${this.open ? "open " : "hidden"}`}>
         <div class="menu-cloak" onClick={this.toggleMenuHandler.bind(this)} />
         <div class="menu">
-          <div class="menu-header">
-            <a href={HOME_PAGE_LINK}>
-              <img
-                class="menu-logo"
-                src={this.logo || getAssetPath(`./assets/${this._logo}`)}
-                alt="The Debtcollective"
-              />
-            </a>
+          <div class="menu-section menu-header">
             <button
               class="btn-transparent menu-close material-icons"
               aria-label="close menu"
@@ -57,8 +31,18 @@ export class Menu {
               close
             </button>
           </div>
-          <nav class="menu-nav">Menu nav</nav>
-          <div>Menu footer</div>
+          <nav class="menu-section menu-nav">Menu nav</nav>
+          <div class="menu-section menu-footer">
+            <a class="icon" href="#">
+              tw
+            </a>
+            <a class="icon" href="#">
+              fb
+            </a>
+            <a class="icon" href="#">
+              ig
+            </a>
+          </div>
         </div>
       </div>
     );
