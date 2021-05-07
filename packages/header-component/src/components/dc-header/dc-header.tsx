@@ -112,7 +112,7 @@ export class Header {
   render() {
     return (
       <Host>
-        <header class="header">
+        <header class="header navbar">
           <button
             class="btn-transparent header-item d-md-none"
             onClick={this.toggleMenuHandler.bind(this)}
@@ -129,6 +129,10 @@ export class Header {
             <dc-user-dropdown user={this.user} community={this.community} />
           </div>
         </header>
+        <div class="header-bottom navbar">
+          <button class="btn-outline">Member login</button>
+          <button class="btn-primary ml-1">Join union</button>
+        </div>
         <dc-menu open={this.isMenuOpen} logo={this._logo}>
           <div class="menu-footer">Footer</div>
         </dc-menu>
