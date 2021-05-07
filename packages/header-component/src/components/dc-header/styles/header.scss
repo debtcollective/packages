@@ -18,6 +18,25 @@ dc-header .navbar {
 dc-header .header {
   &-top {
     padding-top: 0.625rem;
+
+    @include media-breakpoint-up(sm) {
+      padding-bottom: 0.625rem;
+    }
+
+    // Facilitate responsive distribution of logo and session items
+    .logo-container {
+      flex: 3;
+    }
+    .session {
+      flex: 2;
+    }
+
+    @include media-breakpoint-up(sm) {
+      .logo-container,
+      .session {
+        flex: 1;
+      }
+    }
   }
 
   &-bottom {
@@ -31,7 +50,7 @@ dc-header .header {
   }
 
   &-item {
-    display: block;
+    display: flex;
     min-width: 2rem;
 
     .material-icons {

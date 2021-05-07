@@ -8,6 +8,7 @@ dc-header {
     "4": 2rem,
     "5": 2.5rem,
     "6": 3rem,
+    "auto": auto,
   );
 
   @each $step, $value in $steps {
@@ -28,30 +29,31 @@ dc-header {
 }
 
 /* Media queries utils */
-dc-header {
-  $breakpoints: (
-    xs: 576px,
-    sm: 768px,
-    md: 992px,
-    lg: 1200px,
-  );
-  $displays: (block, flex, none);
+$breakpoints: (
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key($breakpoints, $breakpoint) {
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
 
-  @mixin media-breakpoint-up($breakpoint) {
-    @if map-has-key($breakpoints, $breakpoint) {
-      $breakpoint-value: map-get($breakpoints, $breakpoint);
-
-      @media (min-width: $breakpoint-value) {
-        @content;
-      }
-    } @else {
-      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    @media (min-width: $breakpoint-value) {
+      @content;
     }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
+}
+
+dc-header {
+  $displays: (block, flex, none);
 
   @each $display-mode in $displays {
     @each $breakpoint, $screen-size in $breakpoints {
-      .d-#{$breakpoint}-#{$display-mode} {
+      // Increase specificity so "d-none d-sm-block" works as intended
+      .d-#{$breakpoint}-#{$display-mode}.d-#{$breakpoint}-#{$display-mode} {
         @include media-breakpoint-up($breakpoint) {
           display: $display-mode !important;
         }

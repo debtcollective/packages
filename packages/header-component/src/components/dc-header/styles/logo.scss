@@ -10,5 +10,15 @@ dc-header {
       position: relative;
       width: auto;
     }
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include media-breakpoint-up(sm) {
+        justify-content: flex-start;
+      }
+    }
   }
 }

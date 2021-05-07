@@ -113,23 +113,38 @@ export class Header {
     return (
       <Host>
         <header class="header-top navbar">
-          <button
-            class="btn-transparent header-item d-md-none"
-            onClick={this.toggleMenuHandler.bind(this)}
-          >
-            <span class="material-icons">menu</span>
-          </button>
-          <a class="header-item logo" href={HOME_PAGE_LINK}>
-            <img
-              src={getAssetPath(`./assets/${this._logoSmall}`)}
-              alt="The Debtcollective"
-            />
-          </a>
+          <div class="logo-container header-item">
+            <button
+              class="btn-transparent"
+              onClick={this.toggleMenuHandler.bind(this)}
+            >
+              <span class="material-icons">menu</span>
+            </button>
+            <a class="logo" href={HOME_PAGE_LINK}>
+              <img
+                class="d-sm-none"
+                src={getAssetPath(`./assets/${this._logoSmall}`)}
+                alt="The Debtcollective"
+              />
+              <img
+                class="d-none d-sm-block ml-2"
+                src={getAssetPath(`./assets/${this._logo}`)}
+                alt="The Debtcollective"
+              />
+            </a>
+          </div>
           <div class="session header-item">
-            <dc-user-dropdown user={this.user} community={this.community} />
+            {this.user ? (
+              <dc-user-dropdown user={this.user} community={this.community} />
+            ) : (
+              <span class="d-none d-sm-flex ml-auto">
+                <button class="btn-outline">Member login</button>
+                <button class="btn-primary ml-1">Join union</button>
+              </span>
+            )}
           </div>
         </header>
-        <div class="header-bottom navbar">
+        <div class="header-bottom navbar d-sm-none">
           <button class="btn-outline">Member login</button>
           <button class="btn-primary ml-1">Join union</button>
         </div>
