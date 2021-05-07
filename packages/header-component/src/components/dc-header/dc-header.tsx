@@ -112,7 +112,7 @@ export class Header {
   render() {
     return (
       <Host>
-        <header class="header navbar">
+        <header class="header-top navbar">
           <button
             class="btn-transparent header-item d-md-none"
             onClick={this.toggleMenuHandler.bind(this)}
