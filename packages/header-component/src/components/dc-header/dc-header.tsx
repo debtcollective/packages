@@ -31,7 +31,7 @@ const ARROW_DOWN_KEY = "ArrowDown";
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
-  styleUrl: "styles/main.scss",
+  styleUrl: "header.scss",
 })
 export class Header {
   /**
@@ -148,9 +148,7 @@ export class Header {
           <button class="btn-outline">Member login</button>
           <button class="btn-primary ml-1">Join union</button>
         </div>
-        <dc-menu open={this.isMenuOpen} logo={this._logo}>
-          <div class="menu-footer">Footer</div>
-        </dc-menu>
+        <dc-menu open={this.isMenuOpen} />
       </Host>
     );
   }

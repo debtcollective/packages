@@ -4,7 +4,7 @@ import {
   Event,
   EventEmitter,
   Prop,
-  getAssetPath
+  getAssetPath,
 } from "@stencil/core";
 
 const HOME_PAGE_LINK = "https://debtcollective.org/";
@@ -12,7 +12,7 @@ const HOME_PAGE_LINK = "https://debtcollective.org/";
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-menu",
-  styleUrl: "dc-menu.css"
+  styleUrl: "menu.scss",
 })
 export class Menu {
   /**
@@ -41,7 +41,7 @@ export class Menu {
       <div class={`menu-container ${this.open ? "open " : "hidden"}`}>
         <div class="menu-cloak" onClick={this.toggleMenuHandler.bind(this)} />
         <div class="menu">
-          <div class="nav-header">
+          <div class="menu-header">
             <a href={HOME_PAGE_LINK}>
               <img
                 class="menu-logo"
@@ -57,9 +57,8 @@ export class Menu {
               close
             </button>
           </div>
-          <nav class="menu-nav">
-            <slot />
-          </nav>
+          <nav class="menu-nav">Menu nav</nav>
+          <div>Menu footer</div>
         </div>
       </div>
     );
