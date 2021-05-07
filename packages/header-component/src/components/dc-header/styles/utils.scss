@@ -28,23 +28,38 @@ dc-header {
 }
 
 /* Media queries utils */
-dc-header .d-md-flex {
-  display: none;
-}
+dc-header {
+  $breakpoints: (
+    xs: 576px,
+    sm: 768px,
+    md: 992px,
+    lg: 1200px,
+  );
+  $displays: (block, flex, none);
 
-@media (min-width: 1024px) {
-  dc-header .d-md-flex {
-    display: flex;
+  @mixin media-breakpoint-up($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+      $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+      @media (min-width: $breakpoint-value) {
+        @content;
+      }
+    } @else {
+      @warn 'Invalid breakpoint: #{$breakpoint}.';
+    }
   }
-}
 
-dc-header .d-md-none {
-  display: flex;
-}
+  @each $display-mode in $displays {
+    @each $breakpoint, $screen-size in $breakpoints {
+      .d-#{$breakpoint}-#{$display-mode} {
+        @include media-breakpoint-up($breakpoint) {
+          display: $display-mode !important;
+        }
+      }
+    }
 
-@media (min-width: 1024px) {
-  dc-header .d-md-none {
-    display: none;
-    visibility: hidden;
+    .d-#{$display-mode} {
+      display: $display-mode !important;
+    }
   }
 }
