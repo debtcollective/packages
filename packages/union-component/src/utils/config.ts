@@ -1,6 +1,7 @@
 const w = typeof window !== 'undefined' ? (window as any) : {};
 
 export const environmentSetup = {
+  DC_FUNDS_API_URL: w.DC_FUNDS_API_URL || process.env.DC_FUNDS_API_URL,
   DC_DONATE_API_URL:
     w.DC_DONATE_API_URL || process.env.STORYBOOK_DONATE_API_URL,
   DC_MEMBERSHIP_API_URL:
