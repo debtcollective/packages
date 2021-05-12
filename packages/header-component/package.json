@@ -32,7 +32,7 @@
   "devDependencies": {
     "@stencil/core": "2.1.0",
     "@types/jest": "25.2.3",
-    "@types/node": "13.13.36",
+    "@types/node": "13.13.52",
     "@types/puppeteer": "5.4.3",
     "puppeteer": "2.1.1"
   },
