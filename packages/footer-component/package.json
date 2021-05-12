@@ -25,7 +25,7 @@
     "generate": "stencil generate"
   },
   "dependencies": {
-    "@stencil/core": "^2.0.1"
+    "@stencil/core": "^2.3.0"
   },
   "license": "BSD-3-Clause"
 }
