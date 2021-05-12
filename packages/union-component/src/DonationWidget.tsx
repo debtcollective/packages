@@ -140,6 +140,7 @@ const DonationWidget: React.FC<Props> = ({ id, className }) => {
         <DonationPaymentForm
           errors={machineContext.donation.errors}
           amount={machineContext.donationOnceAmount}
+          hasFundDropdown
           defaultValues={{
             email: cardInformation.email,
             firstName: cardInformation.firstName,

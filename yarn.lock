@@ -7676,9 +7676,9 @@ cosmiconfig@^7.0.0:
     yaml "^1.10.0"
 
 country-flag-icons@^1.0.2:
-  version "1.2.9"
-  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.2.9.tgz#cee7d150b23d3532adcc1e22c2ebb59962e04633"
-  integrity sha512-qn1cKt9PJrghEb1IbyIIqHcvNLPJ8mul0lbz6lFSBmzbGqYC38PJ4wPSIT0gV/iB/DbPylHE04zJNedrj1BXvA==
+  version "1.2.10"
+  resolved "https://registry.yarnpkg.com/country-flag-icons/-/country-flag-icons-1.2.10.tgz#c60fdf25883abacd28fbbf3842b920890f944591"
+  integrity sha512-nG+kGe4wVU9M+EsLUhP4buSuNdBH0leTm0Fv6RToXxO9BbbxUKV9VUq+9AcztnW7nEnweK7WYdtJsfyNLmQugQ==
 
 cp-file@^7.0.0:
   version "7.0.0"
@@ -13722,10 +13722,10 @@ libnpx@^10.2.4:
     y18n "^4.0.0"
     yargs "^14.2.3"
 
-libphonenumber-js@^1.9.16:
-  version "1.9.16"
-  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.16.tgz#84fcadf834a1e4234dab3399b5798cf8ff809683"
-  integrity sha512-PaHT7nTtnejZ0HHekAaA0olv6BUTKZGtKM4SCQS0yE3XjFuVo/tjePMHUAr32FKwIZfyPky1ExMUuaiBAUmV6w==
+libphonenumber-js@^1.9.17:
+  version "1.9.17"
+  resolved "https://registry.yarnpkg.com/libphonenumber-js/-/libphonenumber-js-1.9.17.tgz#fef2e6fd7a981be69ba358c24495725ee8daf331"
+  integrity sha512-ElJki901OynMg1l+evooPH1VyHrECuLqpgc12z2BkK25dFU5lUKTuMHEYV2jXxvtns/PIuJax56cBeoSK7ANow==
 
 lines-and-columns@^1.1.6:
   version "1.1.6"
@@ -17730,14 +17730,14 @@ react-lifecycles-compat@^3.0.4:
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
 react-phone-number-input@^3.1.20:
-  version "3.1.20"
-  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.1.20.tgz#58ff4afbad6fe6831381d602931c0010f9199d7e"
-  integrity sha512-9AJ2JtgX7C+DwS9QRXC2fBozPYPjpI0kwWW1SETA0aMb4xlQKysvENzxiIuU1rkltgP3dUUB4ikrxVRDvt73Rg==
+  version "3.1.21"
+  resolved "https://registry.yarnpkg.com/react-phone-number-input/-/react-phone-number-input-3.1.21.tgz#7c6de442d9d2ebd6e757e93c6603698aa008e82b"
+  integrity sha512-Q1CS7RKFE+DyiZxEKrs00wf7geQ4qBJpOflCVNtTXnO0a2iXG42HFF7gtUpKQpro8THr7ejNy8H+zm2zD+EgvQ==
   dependencies:
     classnames "^2.2.5"
     country-flag-icons "^1.0.2"
     input-format "^0.3.6"
-    libphonenumber-js "^1.9.16"
+    libphonenumber-js "^1.9.17"
     prop-types "^15.7.2"
 
 react-popper-tooltip@^3.1.1:

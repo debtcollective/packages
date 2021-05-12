@@ -113,6 +113,7 @@ export type DonationMachineContext = {
     lastName: string;
     email: string;
     phoneNumber: string;
+    fund: string;
   };
   /**
    * Holds a set of services to perform payments
