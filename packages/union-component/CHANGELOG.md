@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.5.0](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.6...@debtcollective/union-component@1.5.0) (2021-05-12)
+
+
+### Features
+
+* **payment-form:** add fund dropdown to donation widget ([7c08aed](https://github.com/debtcollective/packages/commit/7c08aed))
+
+
+
+
+
 ## [1.4.6](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.5...@debtcollective/union-component@1.4.6) (2021-04-30)
 
 
