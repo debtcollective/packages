@@ -82,7 +82,12 @@ dc-menu .menu-footer {
 dc-menu .menu-nav {
   display: flex;
   flex-direction: column;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
   padding-top: 1rem;
+  // allow reserve space for footer
+  padding-bottom: 4rem;
 
   &.menu-section {
     padding-left: 0;
