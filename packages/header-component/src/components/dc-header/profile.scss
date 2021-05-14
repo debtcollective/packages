@@ -3,16 +3,10 @@
 */
 @import "styles/variables";
 @import "styles/utils";
-@import "styles/icons";
 @import "styles/typography";
-
-/*
-  Common components
-*/
-@import "styles/buttons";
-@import "styles/logo";
 
 /*
   Component related styles
 */
-@import "styles/header";
+@import "styles/profile-nav";
+@import "styles/avatar";

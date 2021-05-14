@@ -64,4 +64,8 @@ dc-header {
       display: $display-mode !important;
     }
   }
+
+  .hidden {
+    display: none !important;
+  }
 }

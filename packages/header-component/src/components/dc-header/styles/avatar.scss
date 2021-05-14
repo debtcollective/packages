@@ -1,27 +1,12 @@
 dc-header {
   .avatar {
     border-radius: 50%;
-    /* Match exactly community dimensions */
-    width: 2.1333rem;
-    height: 2.1333rem;
-    border: 0.125rem solid transparent;
+    height: 3rem;
+    width: 3rem;
+    border: 0.25rem solid transparent;
 
     &-open {
-      border: 0.125rem solid var(--light-green);
+      border-color: $color-yellow;
     }
-  }
-
-  #current-user {
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    /* Make the profile picture mirror community one */
-    width: 2.2857rem;
-    height: 2.2857rem;
-    padding: 0.2143rem;
-    padding-right: 0;
-    cursor: pointer;
-    outline: none;
   }
 }

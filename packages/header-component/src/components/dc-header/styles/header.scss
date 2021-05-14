@@ -28,6 +28,7 @@ dc-header .header {
       flex: 3;
     }
     .session {
+      justify-content: flex-end;
       flex: 2;
     }
 
@@ -52,34 +53,11 @@ dc-header .header {
   &-item {
     display: flex;
     min-width: 2rem;
-
-    .material-icons {
-      font-size: 2rem;
-    }
   }
 }
 
-/* Session items */
-dc-header .session-items {
+.session-items {
   display: flex;
   align-items: center;
-
-  .with-user {
-    display: flex;
-  }
-
-  .material-icons {
-    font-size: 1.25rem;
-    padding: 0.2143rem;
-    text-decoration: none;
-    cursor: pointer;
-  }
-
-  .btn-donate {
-    display: none;
-
-    @media (min-width: 1024px) {
-      display: block;
-    }
-  }
+  margin-left: auto;
 }
