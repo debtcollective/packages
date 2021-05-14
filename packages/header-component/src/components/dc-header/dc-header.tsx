@@ -1,6 +1,5 @@
 import "./dc-menu";
 import "./dc-user-dropdown";
-import "./dc-collapser";
 import {
   Component,
   Prop,
