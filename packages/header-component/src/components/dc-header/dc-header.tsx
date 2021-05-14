@@ -146,7 +146,7 @@ export class Header {
         </header>
         <div class="header-bottom navbar d-sm-none">
           <button class="btn-outline">Member login</button>
-          <button class="btn-primary ml-1">Join union</button>
+          <button class="btn-primary ml-1">Join the Union</button>
         </div>
         <dc-menu open={this.isMenuOpen} />
       </Host>
