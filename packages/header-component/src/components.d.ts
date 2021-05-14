@@ -26,7 +26,7 @@ export namespace Components {
          */
         "open": boolean;
     }
-    interface DcUserDropdown {
+    interface DcProfile {
         /**
           * URL to the community
          */
@@ -57,16 +57,16 @@ declare global {
         prototype: HTMLDcMenuElement;
         new (): HTMLDcMenuElement;
     };
-    interface HTMLDcUserDropdownElement extends Components.DcUserDropdown, HTMLStencilElement {
+    interface HTMLDcProfileElement extends Components.DcProfile, HTMLStencilElement {
     }
-    var HTMLDcUserDropdownElement: {
-        prototype: HTMLDcUserDropdownElement;
-        new (): HTMLDcUserDropdownElement;
+    var HTMLDcProfileElement: {
+        prototype: HTMLDcProfileElement;
+        new (): HTMLDcProfileElement;
     };
     interface HTMLElementTagNameMap {
         "dc-header": HTMLDcHeaderElement;
         "dc-menu": HTMLDcMenuElement;
-        "dc-user-dropdown": HTMLDcUserDropdownElement;
+        "dc-profile": HTMLDcProfileElement;
     }
 }
 declare namespace LocalJSX {
@@ -95,7 +95,7 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
-    interface DcUserDropdown {
+    interface DcProfile {
         /**
           * URL to the community
          */
@@ -115,7 +115,7 @@ declare namespace LocalJSX {
     interface IntrinsicElements {
         "dc-header": DcHeader;
         "dc-menu": DcMenu;
-        "dc-user-dropdown": DcUserDropdown;
+        "dc-profile": DcProfile;
     }
 }
 export { LocalJSX as JSX };
@@ -124,7 +124,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
-            "dc-user-dropdown": LocalJSX.DcUserDropdown & JSXBase.HTMLAttributes<HTMLDcUserDropdownElement>;
+            "dc-profile": LocalJSX.DcProfile & JSXBase.HTMLAttributes<HTMLDcProfileElement>;
         }
     }
 }

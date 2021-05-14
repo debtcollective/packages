@@ -1,5 +1,5 @@
 import "./dc-menu";
-import "./dc-user-dropdown";
+import "./dc-profile";
 import {
   Component,
   Prop,
@@ -138,7 +138,7 @@ export class Header {
           </div>
           <div class="session header-item">
             {this.user ? (
-              <dc-user-dropdown user={this.user} community={this.community} />
+              <dc-profile user={this.user} community={this.community} />
             ) : (
               <span class="d-none d-sm-flex ml-auto">
                 <button class="btn-outline">Member login</button>

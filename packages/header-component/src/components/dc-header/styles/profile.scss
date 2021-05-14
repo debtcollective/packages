@@ -5,7 +5,7 @@ dc-header {
     width: 3rem;
     border: 0.25rem solid transparent;
 
-    &-open {
+    .open & {
       border-color: $color-yellow;
     }
   }

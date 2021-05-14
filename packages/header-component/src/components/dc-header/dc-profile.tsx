@@ -4,7 +4,7 @@ import { logout } from "../../services/session";
 
 @Component({
   assetsDirs: ["assets"],
-  tag: "dc-user-dropdown",
+  tag: "dc-profile",
   styleUrl: "profile.scss",
 })
 export class UserPopup {
@@ -81,7 +81,7 @@ export class UserPopup {
 
   render() {
     return (
-      <div class={`user-dropdown-container`}>
+      <div class={`profile-dropdown-container`}>
         <button
           class="btn btn-transparent"
           onClick={this.togglePopup.bind(this)}
@@ -99,15 +99,15 @@ export class UserPopup {
           </span>
         </button>
         <div
-          class={`user-dropdown ${this.open ? "open " : "hidden"}`}
+          class={`profile-dropdown ${this.open ? "open " : "hidden"}`}
           onMouseLeave={this.closePopup.bind(this)}
           ref={(el) => (this.popupItems = el)}
         >
-          <div class="user-dropdown-section">
+          <div class="profile-dropdown-section">
             <p class="text-underlined">{this.user.username}</p>
           </div>
 
-          <div class="user-dropdown-footer">
+          <div class="profile-dropdown-footer">
             <button class="btn btn-transparent text-sm">
               <span class="material-icons mr-1">settings</span>
               Preferences
