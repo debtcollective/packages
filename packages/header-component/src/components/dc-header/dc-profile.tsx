@@ -104,7 +104,63 @@ export class UserPopup {
           ref={(el) => (this.popupItems = el)}
         >
           <div class="profile-dropdown-section">
-            <p class="text-underlined">{this.user.username}</p>
+            <p class="text-underlined m-0">{this.user.username}</p>
+            <div class="section-links">
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  face
+                </span>
+                Profile
+              </a>
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  account_circle
+                </span>
+                Membership
+              </a>
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  money_off
+                </span>
+                My Disputes
+              </a>
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  savings
+                </span>
+                Events
+              </a>
+            </div>
+          </div>
+
+          <div class="profile-dropdown-section mb-1">
+            <p class="text-underlined mb-0">Community</p>
+            <div class="section-links">
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  notifications
+                </span>
+                Notifications
+              </a>
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  event
+                </span>
+                Events
+              </a>
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  edit
+                </span>
+                Drafts
+              </a>
+              <a class="link-text-icon" href="#">
+                <span aria-hidden="true" class="material-icons mb-1">
+                  forum
+                </span>
+                Messages
+              </a>
+            </div>
           </div>
 
           <div class="profile-dropdown-footer">
