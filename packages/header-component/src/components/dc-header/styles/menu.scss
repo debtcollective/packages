@@ -35,6 +35,20 @@ dc-menu {
 }
 
 // Transition related styles
+dc-header .header-top {
+  // Same transition rules for menu to appear
+  transition: transform ease 0.216s;
+
+  &.menu-hidden {
+    transform: translate3d(0, 0, 0);
+  }
+
+  &.menu-open {
+    // Move right the max-width for menu nav
+    transform: translate3d(320px, 0, 0);
+  }
+}
+
 dc-menu {
   .menu-container.open .menu {
     transform: translate3d(0, 0, 0);

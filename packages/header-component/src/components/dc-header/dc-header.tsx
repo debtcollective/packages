@@ -112,7 +112,11 @@ export class Header {
   render() {
     return (
       <Host>
-        <header class="header-top navbar">
+        <header
+          class={`header-top navbar ${
+            this.isMenuOpen ? "menu-open" : "menu-hidden"
+          }`}
+        >
           <div class="logo-container header-item">
             <button
               class="btn-transparent"
