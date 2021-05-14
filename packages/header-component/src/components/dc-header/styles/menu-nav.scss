@@ -59,7 +59,6 @@ dc-menu .menu-header {
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1rem;
   padding-top: 1rem;
   padding-bottom: 1rem;
   width: 100%;
@@ -83,9 +82,11 @@ dc-menu .menu-footer {
 dc-menu .menu-nav {
   display: flex;
   flex-direction: column;
+  padding-top: 1rem;
 
   &.menu-section {
-    padding: 0;
+    padding-left: 0;
+    padding-right: 0;
   }
 
   &-item {
