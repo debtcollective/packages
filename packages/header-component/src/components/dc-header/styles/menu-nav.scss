@@ -66,12 +66,18 @@ dc-menu .menu-header {
 }
 
 dc-menu .menu-footer {
+  background: rgba(255, 255, 255, 0.92);
+  bottom: 0;
   box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.25);
   display: flex;
   justify-content: space-between;
-  padding-top: 1.5rem;
+  left: 0;
   padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
+  position: absolute;
+  right: 0;
   width: 100%;
+  z-index: 1;
 }
 
 dc-menu .menu-nav {
