@@ -101,6 +101,7 @@ dc-menu .menu-nav {
 
   &-item-collapsable {
     $border-width: 4px;
+    cursor: pointer;
     @extend .menu-nav-item;
     @extend %custom-details;
     border-left: $border-width solid transparent;

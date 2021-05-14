@@ -177,6 +177,7 @@ export class UserPopup {
             </button>
           </div>
         </div>
+        <div class="connector"></div>
       </div>
     );
   }

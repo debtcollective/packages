@@ -22,6 +22,18 @@ dc-header .profile-dropdown-container {
     text-decoration: none;
     cursor: pointer;
   }
+
+  .connector {
+    border-bottom: 0.625rem solid #fbfbfb;
+    border-left: 0.625rem solid transparent;
+    border-right: 0.625rem solid transparent;
+    display: none;
+    height: 0;
+    margin-left: 1.125rem;
+    position: absolute;
+    width: 0;
+    bottom: 0;
+  }
 }
 
 dc-header .profile-dropdown {
@@ -35,6 +47,10 @@ dc-header .profile-dropdown {
   overflow: hidden;
   padding: $column-gap 0 0;
   transform: translate3d(0, 100%, 0);
+
+  &.open + .connector {
+    display: block;
+  }
 
   &-section {
     padding: 0 $column-gap;
