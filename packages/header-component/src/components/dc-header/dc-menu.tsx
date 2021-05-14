@@ -32,14 +32,14 @@ export class Menu {
             </button>
           </div>
           <nav class="menu-section menu-nav">
-            <a href="/join-union" class="menu-nav-item menu-nav-text-lg">
+            <a href="/join-union" class="menu-nav-item text-lg">
               Join the Union
             </a>
-            <a href="/browse-events" class="menu-nav-item menu-nav-text-lg">
+            <a href="/browse-events" class="menu-nav-item text-lg">
               Browse Events
             </a>
             <details class="menu-nav-item-collapsable">
-              <summary class="menu-nav-text-lg">
+              <summary class="text-lg">
                 Cancel Student Debt
                 <div class="material-icons icon icon-more">
                   expand_more
@@ -47,16 +47,16 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Sign the petition
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Email your reps
                 </a>
               </div>
             </details>
             <details class="menu-nav-item-collapsable">
-              <summary class="menu-nav-text-lg">
+              <summary class="text-lg">
                 For Members
                 <div class="material-icons icon icon-more">
                   expand_more
@@ -64,37 +64,37 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Dispute your Debt
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Connect with other debtors
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Join a working group
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Join or start a local branch
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Join a Committee
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   View Past Trainings
                 </a>
               </div>
             </details>
             <details class="menu-nav-item-collapsable">
-              <summary class="menu-nav-text-lg">
+              <summary class="text-lg">
                 About{" "}
                 <div class="material-icons icon icon-more">expand_more</div>{" "}
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Our Union
                 </a>
-                <a href="/sign" class="menu-nav-text">
+                <a href="/sign" class="text">
                   Learn about debt
                 </a>
               </div>

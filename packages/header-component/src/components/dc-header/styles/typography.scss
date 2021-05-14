@@ -6,4 +6,29 @@ dc-header {
   a {
     text-decoration: none;
   }
+
+  .text,
+  .text-sm,
+  .text-lg {
+    color: var(--text-color);
+    text-decoration: none;
+  }
+
+  .text {
+    font-size: $font-size-base;
+    font-weight: 200;
+    line-height: 2.5;
+  }
+
+  .text-sm {
+    font-size: $font-size-sm;
+    font-weight: normal;
+    line-height: 1.25;
+  }
+
+  .text-lg {
+    font-size: $font-size-lg;
+    font-weight: 800;
+    line-height: 2.5;
+  }
 }
