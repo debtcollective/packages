@@ -16,9 +16,17 @@ export namespace Components {
          */
         "donateurl": string;
         /**
+          * URL to the homepage without the latest "/"
+         */
+        "homepage": string;
+        /**
           * URL to the component host without the latest "/"
          */
         "host": string;
+        /**
+          * URL to the homepage without the latest "/"
+         */
+        "union": string;
     }
     interface DcMenu {
         /**
@@ -80,6 +88,10 @@ declare namespace LocalJSX {
          */
         "donateurl"?: string;
         /**
+          * URL to the homepage without the latest "/"
+         */
+        "homepage"?: string;
+        /**
           * URL to the component host without the latest "/"
          */
         "host"?: string;
@@ -87,6 +99,10 @@ declare namespace LocalJSX {
           * Emit event to exposed fetched user on host application TODO: Cannot find name User on EventEmitter<User>
          */
         "onUserSynced"?: (event: CustomEvent<any>) => void;
+        /**
+          * URL to the homepage without the latest "/"
+         */
+        "union"?: string;
     }
     interface DcMenu {
         "onToggleMenu"?: (event: CustomEvent<void>) => void;

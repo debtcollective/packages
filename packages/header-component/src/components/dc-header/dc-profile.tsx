@@ -1,5 +1,5 @@
 import { Component, h, State, Prop, Listen } from "@stencil/core";
-import { getAvatarURL, preffixCommunityURL } from "../../utils/community";
+import { getAvatarURL } from "../../utils/community";
 import { logout } from "../../services/session";
 
 @Component({

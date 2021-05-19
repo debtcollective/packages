@@ -1,17 +1,17 @@
-const redirectParam = host => `return_url=${host}`;
+const redirectParam = (host) => `return_url=${host}`;
 
 /**
  * Fixed link for login to allow user navigate to the community and be redirected
  * back to the host app after complete flow
  */
-export const loginURL = ({ host, community }) =>
+export const getLoginURL = ({ host, community }) =>
   `${community}/session/sso_cookies?${redirectParam(host)}`;
 
 /**
  * Fixed link for signup to allow user navigate to the community and be redirected
  * back to the host app after complete flow
  */
-export const signupURL = ({ host, community }) =>
+export const getSignupURL = ({ host, community }) =>
   `${community}/session/sso_cookies/signup?${redirectParam(host)}`;
 
 /**

@@ -12,7 +12,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
-import { loginURL } from "../../utils/community";
+import { getLoginURL } from "../../utils/community";
 
 type User = {
   id: number;
@@ -22,11 +22,6 @@ type User = {
   unread_notifications: number;
   unread_high_priority_notifications: number;
 };
-
-const HOME_PAGE_LINK = "https://debtcollective.org/";
-const ARROW_UP_KEY = "ArrowUp";
-const ARROW_DOWN_KEY = "ArrowDown";
-
 @Component({
   assetsDirs: ["assets"],
   tag: "dc-header",
@@ -37,6 +32,18 @@ export class Header {
    * Link to follow in order to prompt user to donate
    */
   @Prop() donateurl: string = "https://membership.debtcollective.org";
+
+  /**
+   * URL to the homepage
+   * without the latest "/"
+   */
+  @Prop() homepage: string = "https://debtcollective.org";
+
+  /**
+   * URL to the homepage
+   * without the latest "/"
+   */
+  @Prop() union: string = "https://debtcollective.org/debt-union";
 
   /**
    * URL to the community
@@ -78,19 +85,11 @@ export class Header {
    */
   private _logo = "logo.png";
   private _logoSmall = "logo-small.png";
+  private _loginUrl = "";
 
   @Listen("toggleMenu")
   toggleMenuHandler() {
     this.toggleMenu();
-  }
-
-  /**
-   *  Event to prevent scrolling the page with arrow keys
-   */
-  @Listen("keydown", { target: "document" })
-  handleArrowKey(event) {
-    if ([ARROW_DOWN_KEY, ARROW_UP_KEY].includes(event.key))
-      event.preventDefault();
   }
 
   toggleMenu() {
@@ -104,7 +103,15 @@ export class Header {
     this.userSynced.emit(user);
   }
 
+  generateURLs() {
+    this._loginUrl = getLoginURL({
+      host: this.host,
+      community: this.community,
+    });
+  }
+
   componentWillLoad() {
+    this.generateURLs();
     return this.syncCurrentUser();
   }
 
@@ -123,7 +130,7 @@ export class Header {
             >
               <span class="material-icons">menu</span>
             </button>
-            <a class="logo" href={HOME_PAGE_LINK}>
+            <a class="logo" href={this.homepage}>
               <img
                 class="d-sm-none"
                 src={getAssetPath(`./assets/${this._logoSmall}`)}
@@ -141,15 +148,23 @@ export class Header {
               <dc-profile user={this.user} community={this.community} />
             ) : (
               <span class="d-none d-sm-flex ml-auto">
-                <button class="btn-outline">Member login</button>
-                <button class="btn-primary ml-1">Join union</button>
+                <a href={this._loginUrl} class="btn-outline">
+                  Member login
+                </a>
+                <a href={this.union} class="btn-primary ml-1">
+                  Join the Union
+                </a>
               </span>
             )}
           </div>
         </header>
         <div class="header-bottom navbar d-sm-none">
-          <button class="btn-outline">Member login</button>
-          <button class="btn-primary ml-1">Join the Union</button>
+          <a href={this._loginUrl} class="btn-outline">
+            Member login
+          </a>
+          <a href={this.union} class="btn-primary ml-1">
+            Join the Union
+          </a>
         </div>
         <dc-menu open={this.isMenuOpen} />
       </Host>
