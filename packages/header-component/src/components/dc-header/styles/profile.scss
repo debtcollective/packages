@@ -5,8 +5,12 @@ dc-header {
     width: 3rem;
     border: 0.25rem solid transparent;
 
-    .open & {
+    .profile-expanded & {
       border-color: $color-yellow;
     }
+  }
+
+  .profile-toggle .icon {
+    font-size: $font-size-sm;
   }
 }

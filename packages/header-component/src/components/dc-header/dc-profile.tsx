@@ -8,9 +8,11 @@ import { logout } from "../../services/session";
   styleUrl: "profile.scss",
 })
 export class UserPopup {
-  @State() open: boolean = false;
+  /**
+   * Wether or not the profile menu is displayed
+   */
+  @State() isExpanded: boolean = false;
 
-  @State() itemsRefs: HTMLElement[] = [];
   /**
    * URL to the community
    */
@@ -30,45 +32,19 @@ export class UserPopup {
   };
 
   /**
-   * Event to detect outside clicks from the popup
-   */
-  @Listen("click", { target: "document" })
-  handleClickOutside(event) {
-    const target = event.composedPath()[0];
-
-    if (
-      this?.popupTriggerElement?.contains(target) ||
-      this?.popupItems?.contains(target)
-    ) {
-      return;
-    }
-
-    this.closePopup();
-  }
-
-  /**
    *  Event to detect escape key press
    */
   @Listen("keydown", { target: "document" })
   handleEscapeKey(event) {
-    if (event.keyCode === 27) this.closePopup();
+    if (event.keyCode === 27) this.closeDropdown();
   }
 
-  popupTriggerElement!: Node;
-  popupItems!: Node;
-  logoutRef: HTMLElement;
-  usernameRef: HTMLElement;
-
-  togglePopup() {
-    this.open = !this.open;
+  toggleDropdown() {
+    this.isExpanded = !this.isExpanded;
   }
 
-  openPopup() {
-    this.open = true;
-  }
-
-  closePopup() {
-    this.open = false;
+  closeDropdown() {
+    this.isExpanded = false;
   }
 
   async handleLogout() {
@@ -83,8 +59,8 @@ export class UserPopup {
     return (
       <div class={`profile-dropdown-container`}>
         <button
-          class="btn btn-transparent"
-          onClick={this.togglePopup.bind(this)}
+          class="btn btn-transparent profile-toggle"
+          onClick={this.toggleDropdown.bind(this)}
         >
           <img
             alt="Profile picture"
@@ -92,16 +68,16 @@ export class UserPopup {
             height="48"
             src={getAvatarURL(this.user, this.community)}
             title={this.user.username}
-            class={`avatar ${this.open ? "avatar-open" : ""}`}
+            class={`avatar ${this.isExpanded ? "avatar-open" : ""}`}
           />
-          <span class="material-icons">
-            {this.open ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+          <span class="material-icons icon" aria-hidden="true">
+            {this.isExpanded ? "keyboard_arrow_up" : "keyboard_arrow_down"}
           </span>
         </button>
         <div
-          class={`profile-dropdown ${this.open ? "open " : "hidden"}`}
-          onMouseLeave={this.closePopup.bind(this)}
-          ref={(el) => (this.popupItems = el)}
+          class={`profile-dropdown ${
+            this.isExpanded ? "profile-expanded " : "profile-collapsed"
+          }`}
         >
           <div class="profile-dropdown-section">
             <p class="text-underlined m-0">{this.user.username}</p>
