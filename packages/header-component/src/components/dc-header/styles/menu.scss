@@ -35,7 +35,8 @@ dc-menu {
 }
 
 // Transition related styles
-dc-header .header-top {
+dc-header .header-top,
+dc-header .header-bottom {
   // Same transition rules for menu to appear
   transition: transform ease 0.216s;
 

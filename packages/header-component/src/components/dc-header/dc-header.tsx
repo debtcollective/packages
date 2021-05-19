@@ -158,7 +158,11 @@ export class Header {
             )}
           </div>
         </header>
-        <div class="header-bottom navbar d-sm-none">
+        <div
+          class={`header-bottom navbar d-sm-none ${
+            this.isMenuOpen ? "menu-open" : "menu-hidden"
+          }`}
+        >
           <a href={this._loginUrl} class="btn-outline">
             Member login
           </a>
