@@ -43,11 +43,15 @@ dc-header .profile-dropdown {
   display: none;
   position: absolute;
   width: 320px;
-  right: 0;
+  right: -($column-gap);
   border-radius: 0.25rem;
   overflow: hidden;
   padding: $column-gap 0 0;
   transform: translate3d(0, 100%, 0);
+
+  @include media-breakpoint-up(xxs) {
+    right: 0;
+  }
 
   &.profile-expanded,
   &.profile-expanded + .connector {
