@@ -5,8 +5,9 @@ dc-header {
     width: 3rem;
     border: 0.25rem solid transparent;
 
-    .profile-expanded & {
+    &.avatar-open {
       border-color: $color-yellow;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
     }
   }
 
