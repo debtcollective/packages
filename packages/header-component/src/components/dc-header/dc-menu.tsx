@@ -20,7 +20,6 @@ export class Menu {
   render() {
     return (
       <div class={`menu-container ${this.open ? "open " : "hidden"}`}>
-        <div class="menu-cloak" onClick={this.toggleMenuHandler.bind(this)} />
         <div class="menu">
           <div class="menu-section menu-header">
             <button

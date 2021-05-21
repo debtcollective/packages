@@ -61,3 +61,14 @@ dc-header .header {
   align-items: center;
   margin-left: auto;
 }
+
+.document-cloak {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: black;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}

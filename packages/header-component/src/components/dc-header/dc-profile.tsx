@@ -1,4 +1,4 @@
-import { Component, h, State, Prop, Listen } from "@stencil/core";
+import { Component, h, Prop, Listen, EventEmitter, Event } from "@stencil/core";
 import { getAvatarURL } from "../../utils/community";
 import { logout } from "../../services/session";
 
@@ -11,7 +11,9 @@ export class UserPopup {
   /**
    * Wether or not the profile menu is displayed
    */
-  @State() isExpanded: boolean = false;
+  @Prop() expanded: boolean = false;
+
+  @Event() toggleProfileMenu: EventEmitter<void>;
 
   /**
    * URL to the community
@@ -36,15 +38,11 @@ export class UserPopup {
    */
   @Listen("keydown", { target: "document" })
   handleEscapeKey(event) {
-    if (event.keyCode === 27) this.closeDropdown();
+    if (event.keyCode === 27 && this.expanded) this.toggleDropdown();
   }
 
   toggleDropdown() {
-    this.isExpanded = !this.isExpanded;
-  }
-
-  closeDropdown() {
-    this.isExpanded = false;
+    this.toggleProfileMenu.emit();
   }
 
   async handleLogout() {
@@ -68,15 +66,15 @@ export class UserPopup {
             height="48"
             src={getAvatarURL(this.user, this.community)}
             title={this.user.username}
-            class={`avatar ${this.isExpanded ? "avatar-open" : ""}`}
+            class={`avatar ${this.expanded ? "avatar-open" : ""}`}
           />
           <span class="material-icons icon" aria-hidden="true">
-            {this.isExpanded ? "keyboard_arrow_up" : "keyboard_arrow_down"}
+            {this.expanded ? "keyboard_arrow_up" : "keyboard_arrow_down"}
           </span>
         </button>
         <div
           class={`profile-dropdown ${
-            this.isExpanded ? "profile-expanded " : "profile-collapsed"
+            this.expanded ? "profile-expanded " : "profile-collapsed"
           }`}
         >
           <div class="profile-dropdown-section">

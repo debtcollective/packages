@@ -40,6 +40,10 @@ export namespace Components {
          */
         "community": string;
         /**
+          * Wether or not the profile menu is displayed
+         */
+        "expanded": boolean;
+        /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
         "user": {
@@ -116,6 +120,11 @@ declare namespace LocalJSX {
           * URL to the community
          */
         "community"?: string;
+        /**
+          * Wether or not the profile menu is displayed
+         */
+        "expanded"?: boolean;
+        "onToggleProfileMenu"?: (event: CustomEvent<void>) => void;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */

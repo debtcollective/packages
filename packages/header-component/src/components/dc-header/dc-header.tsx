@@ -69,6 +69,11 @@ export class Header {
   @State() isMenuOpen: boolean;
 
   /**
+   * Wether or not the profile menu is displayed
+   */
+  @State() isProfileMenuOpen: boolean;
+
+  /**
    * Emit event to exposed fetched user on host application
    * TODO: Cannot find name User on EventEmitter<User>
    */
@@ -92,8 +97,23 @@ export class Header {
     this.toggleMenu();
   }
 
+  @Listen("toggleProfileMenu")
+  toggleProfileMenuHandler() {
+    this.toggleProfileMenu();
+  }
+
+  @Listen("closeAll")
+  closeAll() {
+    this.isMenuOpen = false;
+    this.isProfileMenuOpen = false;
+  }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
+  }
+
+  toggleProfileMenu() {
+    this.isProfileMenuOpen = !this.isProfileMenuOpen;
   }
 
   async syncCurrentUser() {
@@ -145,7 +165,11 @@ export class Header {
           </div>
           <div class="session header-item">
             {this.user ? (
-              <dc-profile user={this.user} community={this.community} />
+              <dc-profile
+                user={this.user}
+                community={this.community}
+                expanded={this.isProfileMenuOpen}
+              />
             ) : (
               <span class="d-none d-sm-flex ml-auto">
                 <a href={this._loginUrl} class="btn-outline">
@@ -171,6 +195,12 @@ export class Header {
           </a>
         </div>
         <dc-menu open={this.isMenuOpen} />
+        <div
+          class={`document-cloak ${
+            this.isMenuOpen || this.isProfileMenuOpen ? "d-block" : "hidden"
+          }`}
+          onClick={this.closeAll.bind(this)}
+        />
       </Host>
     );
   }
