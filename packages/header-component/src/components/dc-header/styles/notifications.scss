@@ -9,3 +9,7 @@ dc-header .notification-badge {
   color: transparent;
   z-index: z-index(bring-front);
 }
+
+dc-header .notification-color {
+  color: $color-green;
+}

@@ -129,8 +129,15 @@ export class UserPopup {
             <p class="text-underlined mb-0">Community</p>
             <div class="section-links">
               <a class="link-text-icon" href="#">
-                <span aria-hidden="true" class="material-icons mb-1">
-                  notifications
+                <span
+                  aria-hidden="true"
+                  class={`material-icons mb-1 ${
+                    this._hasNotifications ? "notification-color" : ""
+                  }`}
+                >
+                  {this._hasNotifications
+                    ? "notifications_active"
+                    : "notifications"}
                 </span>
                 Notifications
               </a>
