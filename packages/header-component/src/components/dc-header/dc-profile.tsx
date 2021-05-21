@@ -82,7 +82,9 @@ export class UserPopup {
             height="48"
             src={getAvatarURL(this.user, this.community)}
             aria-hidden="true"
-            class={`avatar ${this.expanded ? "avatar-open" : ""}`}
+            class={`avatar ${this.expanded ? "avatar-open" : ""} ${
+              this._hasNotifications ? "has-notifications" : ""
+            }`}
           />
           <span class="material-icons icon" aria-hidden="true">
             {this.expanded ? "keyboard_arrow_up" : "keyboard_arrow_down"}
