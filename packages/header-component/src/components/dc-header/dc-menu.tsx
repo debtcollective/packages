@@ -1,3 +1,4 @@
+import "./dc-link";
 import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
 
 @Component({
@@ -39,12 +40,12 @@ export class Menu {
             </button>
           </div>
           <nav class="menu-section menu-nav">
-            <a href="/join-union" class="menu-nav-item text-lg">
+            <dc-link to="/join-union" class="menu-nav-item text-lg">
               Join the Union
-            </a>
-            <a href="/browse-events" class="menu-nav-item text-lg">
+            </dc-link>
+            <dc-link to="/browse-events" class="menu-nav-item text-lg">
               Browse Events
-            </a>
+            </dc-link>
             <details class="menu-nav-item-collapsable">
               <summary class="text-lg">
                 Cancel Student Debt
@@ -54,12 +55,12 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <a href="/sign" class="text">
+                <dc-link to="/sign" class="text">
                   Sign the petition
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   Email your reps
-                </a>
+                </dc-link>
               </div>
             </details>
             <details class="menu-nav-item-collapsable">
@@ -71,24 +72,24 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <a href="/sign" class="text">
+                <dc-link to="/sign" class="text">
                   Dispute your Debt
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   Connect with other debtors
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   Join a working group
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   Join or start a local branch
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   Join a Committee
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   View Past Trainings
-                </a>
+                </dc-link>
               </div>
             </details>
             <details class="menu-nav-item-collapsable">
@@ -98,17 +99,17 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <a href="/sign" class="text">
+                <dc-link to="/sign" class="text">
                   Our Union
-                </a>
-                <a href="/sign" class="text">
+                </dc-link>
+                <dc-link to="/sign" class="text">
                   Learn about debt
-                </a>
+                </dc-link>
               </div>
             </details>
           </nav>
           <div class="menu-section menu-footer mt-auto">
-            <a class="icon" href="https://twitter.com/StrikeDebt">
+            <dc-link class="icon" to="https://twitter.com/StrikeDebt">
               <span class="d-none">Go to Debtcollective's Twitter page</span>
               <svg
                 aria-hidden="true"
@@ -123,8 +124,8 @@ export class Menu {
                   fill="#434343"
                 />
               </svg>
-            </a>
-            <a class="icon" href="https://www.facebook.com/DebtCollective">
+            </dc-link>
+            <dc-link class="icon" to="https://www.facebook.com/DebtCollective">
               <span class="d-none">Go to Debtcollective's Facebook page</span>
               <svg
                 aria-hidden="true"
@@ -141,8 +142,11 @@ export class Menu {
                   fill="#343434"
                 />
               </svg>
-            </a>
-            <a class="icon" href="https://www.instagram.com/thedebtcollective/">
+            </dc-link>
+            <dc-link
+              class="icon"
+              to="https://www.instagram.com/thedebtcollective/"
+            >
               <span class="d-none">
                 Go to Debtcollective's Instagram profile
               </span>
@@ -159,7 +163,7 @@ export class Menu {
                   fill="#434343"
                 />
               </svg>
-            </a>
+            </dc-link>
           </div>
         </div>
       </div>

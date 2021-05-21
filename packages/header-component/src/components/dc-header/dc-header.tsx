@@ -150,7 +150,7 @@ export class Header {
             >
               <span class="material-icons">menu</span>
             </button>
-            <dc-link class="logo" to={this.homepage}>
+            <a class="logo" href={this.homepage}>
               <img
                 class="d-sm-none"
                 src={getAssetPath(`./assets/${this._logoSmall}`)}
@@ -161,7 +161,7 @@ export class Header {
                 src={getAssetPath(`./assets/${this._logo}`)}
                 alt="The Debtcollective"
               />
-            </dc-link>
+            </a>
           </div>
           <div class="session header-item">
             {this.user ? (

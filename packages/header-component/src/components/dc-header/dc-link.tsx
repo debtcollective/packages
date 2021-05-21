@@ -1,4 +1,12 @@
-import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
+import {
+  Component,
+  h,
+  Event,
+  EventEmitter,
+  Prop,
+  Listen,
+  Host,
+} from "@stencil/core";
 
 @Component({
   assetsDirs: ["assets"],
@@ -18,9 +26,9 @@ export class Link {
 
   render() {
     return (
-      <a href={this.to} class={this.class}>
+      <Host to={this.to} class={this.class}>
         <slot />
-      </a>
+      </Host>
     );
   }
 }
