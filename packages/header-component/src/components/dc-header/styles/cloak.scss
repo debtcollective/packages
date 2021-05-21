@@ -1,0 +1,10 @@
+.document-cloak {
+  height: 100vh;
+  width: 100vw;
+  position: fixed;
+  background-color: transparent;
+  opacity: 0.5;
+  top: 0;
+  left: 0;
+  z-index: z-index(cloak);
+}

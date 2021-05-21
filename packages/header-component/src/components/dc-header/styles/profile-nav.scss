@@ -48,6 +48,7 @@ dc-header .profile-dropdown {
   overflow: hidden;
   padding: $column-gap 0 0;
   transform: translate3d(0, 100%, 0);
+  z-index: z-index(profile-menu);
 
   @include media-breakpoint-up(xxs) {
     right: 0;

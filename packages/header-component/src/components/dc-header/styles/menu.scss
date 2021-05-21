@@ -53,6 +53,7 @@ dc-header .header-bottom {
 dc-menu {
   .menu-container {
     position: relative;
+    z-index: z-index(site-menu);
   }
 
   .menu-container.open .menu {
