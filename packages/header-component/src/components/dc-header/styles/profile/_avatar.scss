@@ -1,3 +1,5 @@
+@use '../base/variables' as vars;
+
 dc-header {
   .avatar {
     border-radius: 50%;
@@ -7,12 +9,12 @@ dc-header {
     position: relative;
 
     &.avatar-open {
-      border-color: $color-yellow;
+      border-color: vars.$color-yellow;
       box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
     }
   }
 
   .profile-toggle .icon {
-    font-size: $font-size-sm;
+    font-size: vars.$font-size-sm;
   }
 }

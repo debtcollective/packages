@@ -1,3 +1,6 @@
+@use 'variables' as vars;
+@use 'mixins' as mixins;
+
 %btn {
   align-items: center;
   border-radius: 0.5rem;
@@ -9,7 +12,7 @@
   transition: background 0.216s ease, color 0.216s ease;
   font-weight: bold;
 
-  @include media-breakpoint-up(sm) {
+  @include mixins.media-breakpoint-up(sm) {
     padding-left: 1rem;
     padding-right: 1rem;
   }

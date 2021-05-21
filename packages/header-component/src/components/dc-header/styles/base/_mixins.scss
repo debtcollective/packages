@@ -1,0 +1,14 @@
+@use 'variables' as vars;
+
+/* Media queries utils */
+@mixin media-breakpoint-up($breakpoint) {
+  @if map-has-key(vars.$breakpoints, $breakpoint) {
+    $breakpoint-value: map-get(vars.$breakpoints, $breakpoint);
+
+    @media (min-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}

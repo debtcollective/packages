@@ -1,3 +1,6 @@
+@use '../base/mixins' as mixins;
+@use '../base/functions' as fn;
+
 dc-header .navbar {
   -webkit-backface-visibility: hidden;
   align-items: center;
@@ -12,14 +15,14 @@ dc-header .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  z-index: z-index(header);
+  z-index: fn.z-index(header);
 }
 
 dc-header .header {
   &-top {
     padding-top: 0.625rem;
 
-    @include media-breakpoint-up(sm) {
+    @include mixins.media-breakpoint-up(sm) {
       padding-bottom: 0.625rem;
     }
 
@@ -32,7 +35,7 @@ dc-header .header {
       flex: 2;
     }
 
-    @include media-breakpoint-up(sm) {
+    @include mixins.media-breakpoint-up(sm) {
       .logo-container,
       .session {
         flex: 1;

@@ -1,12 +1,1 @@
-/*
-  Accessory styles to help the development
-*/
-@import "styles/variables";
-@import "styles/utils";
-@import "styles/icons";
-@import "styles/typography";
-
-/*
-  Component related styles
-*/
-@import "styles/link";
+@use "styles/link";

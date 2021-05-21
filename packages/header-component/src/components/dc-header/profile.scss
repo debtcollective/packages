@@ -1,13 +1,1 @@
-/*
-  Accessory styles to help the development
-*/
-@import "styles/variables";
-@import "styles/utils";
-@import "styles/typography";
-
-/*
-  Component related styles
-*/
-@import "styles/notifications";
-@import "styles/profile";
-@import "styles/profile-nav";
+@use 'styles/profile';

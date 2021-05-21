@@ -1,3 +1,6 @@
+@use 'variables' as vars;
+@use 'mixins' as mixins;
+
 /* Margin utils */
 dc-header {
   $steps: (
@@ -28,34 +31,14 @@ dc-header {
   }
 }
 
-/* Media queries utils */
-$breakpoints: (
-  xxs: 359px,
-  xs: 576px,
-  sm: 768px,
-  md: 992px,
-  lg: 1200px,
-);
-@mixin media-breakpoint-up($breakpoint) {
-  @if map-has-key($breakpoints, $breakpoint) {
-    $breakpoint-value: map-get($breakpoints, $breakpoint);
-
-    @media (min-width: $breakpoint-value) {
-      @content;
-    }
-  } @else {
-    @warn 'Invalid breakpoint: #{$breakpoint}.';
-  }
-}
-
 dc-header {
   $displays: (block, flex, none);
 
   @each $display-mode in $displays {
-    @each $breakpoint, $screen-size in $breakpoints {
+    @each $breakpoint, $screen-size in vars.$breakpoints {
       // Increase specificity so "d-none d-sm-block" works as intended
       .d-#{$breakpoint}-#{$display-mode}.d-#{$breakpoint}-#{$display-mode} {
-        @include media-breakpoint-up($breakpoint) {
+        @include mixins.media-breakpoint-up($breakpoint) {
           display: $display-mode !important;
         }
       }
@@ -69,19 +52,4 @@ dc-header {
   .hidden {
     display: none !important;
   }
-}
-
-// Organize z-index
-$z-index: (
-  bring-front: 1,
-  // ideally header should be below the cloak but current implementation
-  // will make the profile to get the header z-index
-  header: 1020,
-  cloak: 1010,
-  site-menu: 1020,
-  profile-menu: 1020,
-);
-
-@function z-index($key) {
-  @return map-get($z-index, $key);
 }

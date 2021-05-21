@@ -1,3 +1,5 @@
+@use '../base/mixins' as mixins;
+
 dc-header {
   .logo {
     // allows to center vertically the logo img
@@ -16,7 +18,7 @@ dc-header {
       flex-direction: row;
       justify-content: space-between;
 
-      @include media-breakpoint-up(sm) {
+      @include mixins.media-breakpoint-up(sm) {
         justify-content: flex-start;
       }
     }

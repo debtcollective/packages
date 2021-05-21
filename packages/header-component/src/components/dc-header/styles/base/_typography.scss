@@ -1,3 +1,5 @@
+@use 'variables' as vars;
+
 dc-header {
   * {
     font-family: var(--main-font);
@@ -15,19 +17,19 @@ dc-header {
   }
 
   .text {
-    font-size: $font-size-base;
+    font-size: vars.$font-size-base;
     font-weight: 200;
     line-height: 2.5;
   }
 
   .text-sm {
-    font-size: $font-size-sm;
+    font-size: vars.$font-size-sm;
     font-weight: 200;
     line-height: 1.25;
   }
 
   .text-lg {
-    font-size: $font-size-lg;
+    font-size: vars.$font-size-lg;
     font-weight: 800;
     line-height: 2.5;
   }
