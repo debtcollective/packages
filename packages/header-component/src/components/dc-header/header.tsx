@@ -179,18 +179,20 @@ export class Header {
             )}
           </div>
         </header>
-        <div
-          class={`header-bottom navbar d-sm-none ${
-            this.isMenuOpen ? "menu-open" : "menu-hidden"
-          }`}
-        >
-          <a href={this._loginUrl} class="btn-outline">
-            Member login
-          </a>
-          <a href={this.union} class="btn-primary ml-1">
-            Join the Union
-          </a>
-        </div>
+        {this.user ? null : (
+          <div
+            class={`header-bottom navbar d-sm-none ${
+              this.isMenuOpen ? "menu-open" : "menu-hidden"
+            }`}
+          >
+            <a href={this._loginUrl} class="btn-outline">
+              Member login
+            </a>
+            <a href={this.union} class="btn-primary ml-1">
+              Join the Union
+            </a>
+          </div>
+        )}
         <dc-menu open={this.isMenuOpen} />
         <div
           class={`document-cloak ${
