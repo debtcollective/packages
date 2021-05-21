@@ -5,12 +5,10 @@
     display: flex;
     justify-content: space-between;
     list-style: none;
-    margin-right: var(--column-gap);
     position: relative;
 
     .icon {
       margin-left: auto;
-      margin-right: var(--column-gap);
     }
   }
 
@@ -100,6 +98,7 @@ dc-menu .menu-nav {
   }
 
   &-item {
+    box-sizing: border-box;
     padding: 0 var(--column-gap);
     width: 100%;
   }
