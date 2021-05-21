@@ -8,6 +8,8 @@ import { logout } from "../../services/session";
   styleUrl: "profile.scss",
 })
 export class UserPopup {
+  private _hasNotifications = false;
+
   /**
    * Wether or not the profile menu is displayed
    */
@@ -53,19 +55,33 @@ export class UserPopup {
     }
   }
 
+  componentWillRender() {
+    this._hasNotifications =
+      this.user.unread_high_priority_notifications > 0 ||
+      this.user.unread_notifications > 0;
+  }
+
   render() {
     return (
       <div class={`profile-dropdown-container`}>
         <button
+          aria-label={`toggle user menu ${
+            this._hasNotifications ? "(You have notifications)" : ""
+          }`}
           class="btn btn-transparent profile-toggle"
           onClick={this.toggleDropdown.bind(this)}
         >
+          <span
+            class={`notification-badge ${
+              this._hasNotifications ? "d-block" : "d-none"
+            }`}
+          ></span>
           <img
             alt="Profile picture"
             width="48"
             height="48"
             src={getAvatarURL(this.user, this.community)}
-            title={this.user.username}
+            aria-hidden="true"
             class={`avatar ${this.expanded ? "avatar-open" : ""}`}
           />
           <span class="material-icons icon" aria-hidden="true">

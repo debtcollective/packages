@@ -4,6 +4,15 @@ dc-header {
     height: 3rem;
     width: 3rem;
     border: 0.25rem solid transparent;
+    position: relative;
+
+    &.has-notifications {
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+
+    &.has-notifications:not(.avatar-open) {
+      border-width: 0;
+    }
 
     &.avatar-open {
       border-color: $color-yellow;

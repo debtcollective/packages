@@ -1,0 +1,11 @@
+dc-header .notification-badge {
+  background-color: $color-green;
+  border-radius: 100%;
+  bottom: 0.25rem;
+  height: 0.5rem;
+  left: 0.125rem;
+  position: absolute;
+  width: 0.5rem;
+  color: transparent;
+  z-index: z-index(bring-front);
+}

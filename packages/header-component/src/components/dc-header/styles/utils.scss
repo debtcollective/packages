@@ -73,12 +73,13 @@ dc-header {
 
 // Organize z-index
 $z-index: (
+  bring-front: 1,
   // ideally header should be below the cloak but current implementation
   // will make the profile to get the header z-index
   header: 1020,
   cloak: 1010,
   site-menu: 1020,
-  profile-menu: 1020
+  profile-menu: 1020,
 );
 
 @function z-index($key) {
