@@ -1,4 +1,4 @@
-import { Component, h, Event, EventEmitter, Prop } from "@stencil/core";
+import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
 
 @Component({
   assetsDirs: ["assets"],
@@ -15,6 +15,14 @@ export class Menu {
 
   toggleMenuHandler() {
     this.toggleMenu.emit();
+  }
+
+  /**
+   *  Event to detect escape key press
+   */
+  @Listen("keydown", { target: "document" })
+  handleEscapeKey(event) {
+    if (event.keyCode === 27 && this.open) this.toggleMenuHandler();
   }
 
   render() {
