@@ -1,6 +1,6 @@
-import "./dc-menu";
-import "./dc-profile";
-import "./dc-link";
+import "./menu";
+import "./profile";
+import "./link";
 import {
   Component,
   Prop,

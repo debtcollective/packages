@@ -1,4 +1,4 @@
-import "./dc-link";
+import "./link";
 import { Component, h, Prop, Listen, EventEmitter, Event } from "@stencil/core";
 import { getAvatarURL } from "../../utils/community";
 import { logout } from "../../services/session";

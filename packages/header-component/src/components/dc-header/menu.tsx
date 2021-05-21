@@ -1,4 +1,4 @@
-import "./dc-link";
+import "./link";
 import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
 
 @Component({
