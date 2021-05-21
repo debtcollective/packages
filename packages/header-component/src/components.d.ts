@@ -33,19 +33,10 @@ export namespace Components {
         "to": string;
     }
     interface DcMenu {
-        /**
-          * Wether or not the mobile menu is displayed
-         */
         "open": boolean;
     }
     interface DcProfile {
-        /**
-          * URL to the community
-         */
         "community": string;
-        /**
-          * Wether or not the profile menu is displayed
-         */
         "expanded": boolean;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
@@ -126,19 +117,10 @@ declare namespace LocalJSX {
     }
     interface DcMenu {
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
-        /**
-          * Wether or not the mobile menu is displayed
-         */
         "open"?: boolean;
     }
     interface DcProfile {
-        /**
-          * URL to the community
-         */
         "community"?: string;
-        /**
-          * Wether or not the profile menu is displayed
-         */
         "expanded"?: boolean;
         "onToggleProfileMenu"?: (event: CustomEvent<void>) => void;
         /**

@@ -8,19 +8,10 @@ import { logout } from "../../services/session";
   tag: "dc-profile",
   styleUrl: "profile.scss",
 })
-export class UserPopup {
+export class Profile {
   private _hasNotifications = false;
 
-  /**
-   * Wether or not the profile menu is displayed
-   */
   @Prop() expanded: boolean = false;
-
-  @Event() toggleProfileMenu: EventEmitter<void>;
-
-  /**
-   * URL to the community
-   */
   @Prop() community: string;
 
   /**
@@ -36,16 +27,17 @@ export class UserPopup {
     unread_high_priority_notifications: number;
   };
 
-  /**
-   *  Event to detect escape key press
-   */
+  @Event() toggleProfileMenu: EventEmitter<void>;
+
+  componentWillRender() {
+    this._hasNotifications =
+      this.user.unread_high_priority_notifications > 0 ||
+      this.user.unread_notifications > 0;
+  }
+
   @Listen("keydown", { target: "document" })
   handleEscapeKey(event) {
     if (event.keyCode === 27 && this.expanded) this.toggleDropdown();
-  }
-
-  toggleDropdown() {
-    this.toggleProfileMenu.emit();
   }
 
   async handleLogout() {
@@ -56,10 +48,8 @@ export class UserPopup {
     }
   }
 
-  componentWillRender() {
-    this._hasNotifications =
-      this.user.unread_high_priority_notifications > 0 ||
-      this.user.unread_notifications > 0;
+  toggleDropdown() {
+    this.toggleProfileMenu.emit();
   }
 
   render() {

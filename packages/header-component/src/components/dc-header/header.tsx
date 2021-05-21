@@ -29,6 +29,26 @@ type User = {
   styleUrl: "header.scss",
 })
 export class Header {
+  private _logo = "logo.png";
+  private _logoSmall = "logo-small.png";
+  private _loginUrl = "";
+
+  /**
+   * An object with the user data. Follows Discourse structure as
+   * https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+   */
+  @State() user?: User;
+
+  /**
+   * Wether or not the menu is displayed
+   */
+  @State() isMenuOpen: boolean;
+
+  /**
+   * Wether or not the profile menu is displayed
+   */
+  @State() isProfileMenuOpen: boolean;
+
   /**
    * Link to follow in order to prompt user to donate
    */
@@ -59,22 +79,6 @@ export class Header {
   @Prop() host: string;
 
   /**
-   * An object with the user data. Follows Discourse structure as
-   * https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
-   */
-  @State() user?: User;
-
-  /**
-   * Wether or not the menu is displayed
-   */
-  @State() isMenuOpen: boolean;
-
-  /**
-   * Wether or not the profile menu is displayed
-   */
-  @State() isProfileMenuOpen: boolean;
-
-  /**
    * Emit event to exposed fetched user on host application
    */
   @Event({
@@ -85,12 +89,10 @@ export class Header {
   })
   userSynced: EventEmitter<User>;
 
-  /**
-   * Logo image
-   */
-  private _logo = "logo.png";
-  private _logoSmall = "logo-small.png";
-  private _loginUrl = "";
+  componentWillLoad() {
+    this.generateURLs();
+    return this.syncCurrentUser();
+  }
 
   @Listen("toggleMenu")
   toggleMenuHandler() {
@@ -108,6 +110,13 @@ export class Header {
     this.isProfileMenuOpen = false;
   }
 
+  async syncCurrentUser() {
+    const user = await syncCurrentUser(this.community);
+
+    this.user = user;
+    this.userSynced.emit(user);
+  }
+
   toggleMenu() {
     this.isMenuOpen = !this.isMenuOpen;
   }
@@ -116,23 +125,11 @@ export class Header {
     this.isProfileMenuOpen = !this.isProfileMenuOpen;
   }
 
-  async syncCurrentUser() {
-    const user = await syncCurrentUser(this.community);
-
-    this.user = user;
-    this.userSynced.emit(user);
-  }
-
   generateURLs() {
     this._loginUrl = getLoginURL({
       host: this.host,
       community: this.community,
     });
-  }
-
-  componentWillLoad() {
-    this.generateURLs();
-    return this.syncCurrentUser();
   }
 
   render() {

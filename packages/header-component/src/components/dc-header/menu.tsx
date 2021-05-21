@@ -7,23 +7,17 @@ import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
   styleUrl: "menu.scss",
 })
 export class Menu {
-  /**
-   * Wether or not the mobile menu is displayed
-   */
   @Prop() open: boolean;
 
   @Event() toggleMenu: EventEmitter<void>;
 
-  toggleMenuHandler() {
-    this.toggleMenu.emit();
-  }
-
-  /**
-   *  Event to detect escape key press
-   */
   @Listen("keydown", { target: "document" })
   handleEscapeKey(event) {
     if (event.keyCode === 27 && this.open) this.toggleMenuHandler();
+  }
+
+  toggleMenuHandler() {
+    this.toggleMenu.emit();
   }
 
   render() {
