@@ -45,6 +45,11 @@
       header.addEventListener("userSynced", (event) => {
         console.log("userSynced", event.detail);
       });
+
+      header.addEventListener("linkClicked", ({ detail }) => {
+        console.log("linkClicked", detail);
+        detail.event.preventDefault();
+      });
     </script>
   </body>
 </html>

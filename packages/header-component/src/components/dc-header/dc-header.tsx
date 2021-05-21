@@ -1,5 +1,6 @@
 import "./dc-menu";
 import "./dc-profile";
+import "./dc-link";
 import {
   Component,
   Prop,
@@ -75,7 +76,6 @@ export class Header {
 
   /**
    * Emit event to exposed fetched user on host application
-   * TODO: Cannot find name User on EventEmitter<User>
    */
   @Event({
     eventName: "userSynced",
@@ -83,7 +83,7 @@ export class Header {
     cancelable: true,
     bubbles: true,
   })
-  userSynced: EventEmitter;
+  userSynced: EventEmitter<User>;
 
   /**
    * Logo image
@@ -150,7 +150,7 @@ export class Header {
             >
               <span class="material-icons">menu</span>
             </button>
-            <a class="logo" href={this.homepage}>
+            <dc-link class="logo" to={this.homepage}>
               <img
                 class="d-sm-none"
                 src={getAssetPath(`./assets/${this._logoSmall}`)}
@@ -161,7 +161,7 @@ export class Header {
                 src={getAssetPath(`./assets/${this._logo}`)}
                 alt="The Debtcollective"
               />
-            </a>
+            </dc-link>
           </div>
           <div class="session header-item">
             {this.user ? (

@@ -28,6 +28,10 @@ export namespace Components {
          */
         "union": string;
     }
+    interface DcLink {
+        "class": string;
+        "to": string;
+    }
     interface DcMenu {
         /**
           * Wether or not the mobile menu is displayed
@@ -63,6 +67,12 @@ declare global {
         prototype: HTMLDcHeaderElement;
         new (): HTMLDcHeaderElement;
     };
+    interface HTMLDcLinkElement extends Components.DcLink, HTMLStencilElement {
+    }
+    var HTMLDcLinkElement: {
+        prototype: HTMLDcLinkElement;
+        new (): HTMLDcLinkElement;
+    };
     interface HTMLDcMenuElement extends Components.DcMenu, HTMLStencilElement {
     }
     var HTMLDcMenuElement: {
@@ -77,6 +87,7 @@ declare global {
     };
     interface HTMLElementTagNameMap {
         "dc-header": HTMLDcHeaderElement;
+        "dc-link": HTMLDcLinkElement;
         "dc-menu": HTMLDcMenuElement;
         "dc-profile": HTMLDcProfileElement;
     }
@@ -100,13 +111,18 @@ declare namespace LocalJSX {
          */
         "host"?: string;
         /**
-          * Emit event to exposed fetched user on host application TODO: Cannot find name User on EventEmitter<User>
+          * Emit event to exposed fetched user on host application
          */
-        "onUserSynced"?: (event: CustomEvent<any>) => void;
+        "onUserSynced"?: (event: CustomEvent<User>) => void;
         /**
           * URL to the homepage without the latest "/"
          */
         "union"?: string;
+    }
+    interface DcLink {
+        "class"?: string;
+        "onLinkClicked"?: (event: CustomEvent<{ event: object; to: string }>) => void;
+        "to"?: string;
     }
     interface DcMenu {
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
@@ -139,6 +155,7 @@ declare namespace LocalJSX {
     }
     interface IntrinsicElements {
         "dc-header": DcHeader;
+        "dc-link": DcLink;
         "dc-menu": DcMenu;
         "dc-profile": DcProfile;
     }
@@ -148,6 +165,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
+            "dc-link": LocalJSX.DcLink & JSXBase.HTMLAttributes<HTMLDcLinkElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
             "dc-profile": LocalJSX.DcProfile & JSXBase.HTMLAttributes<HTMLDcProfileElement>;
         }
