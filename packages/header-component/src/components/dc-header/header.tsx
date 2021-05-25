@@ -40,12 +40,12 @@ export class Header {
   @State() user?: User;
 
   /**
-   * Wether or not the menu is displayed
+   * Whether or not the menu is displayed
    */
   @State() isMenuOpen: boolean;
 
   /**
-   * Wether or not the profile menu is displayed
+   * Whether or not the profile menu is displayed
    */
   @State() isProfileMenuOpen: boolean;
 
