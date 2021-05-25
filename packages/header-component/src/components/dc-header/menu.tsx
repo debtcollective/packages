@@ -60,6 +60,7 @@ export class Menu {
                 <dc-link
                   class="text"
                   namespace="menu"
+                  target="_blank"
                   to="https://actionnetwork.org/petitions/bidenjubilee100"
                 >
                   Sign the petition
@@ -67,6 +68,7 @@ export class Menu {
                 <dc-link
                   class="text"
                   namespace="menu"
+                  target="_blank"
                   to="https://actionnetwork.org/letters/cancel-all-student-debt-today"
                 >
                   Email your reps
@@ -143,6 +145,7 @@ export class Menu {
                 <dc-link
                   class="text"
                   namespace="menu"
+                  target="_blank"
                   to="https://www.youtube.com/playlist?list=PLnQCwElJCNf9NHOqHicDrb03RX04nNl-h"
                 >
                   Learn about debt
@@ -157,6 +160,7 @@ export class Menu {
                 <dc-link
                   class="text"
                   namespace="menu"
+                  target="_blank"
                   to="https://www.haymarketbooks.org/books/1520-can-t-pay-won-t-pay"
                 >
                   Our Book
