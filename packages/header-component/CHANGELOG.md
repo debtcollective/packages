@@ -3,6 +3,64 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.0.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.5.0...@debtcollective/dc-header-component@3.0.0) (2021-05-25)
+
+
+### Bug Fixes
+
+* **header:** allow custom link to work properly out of the box ([41d6edc](https://github.com/debtcollective/packages/commit/41d6edc))
+* **header:** improve boxing model for nav items ([dff413b](https://github.com/debtcollective/packages/commit/dff413b))
+* **header:** properly align close/open buttons ([a16267c](https://github.com/debtcollective/packages/commit/a16267c))
+* **header:** round up the space needed for footer not hide nav items ([0357ca6](https://github.com/debtcollective/packages/commit/0357ca6))
+* **header:** update custom link to work properly with text-icon ([245775a](https://github.com/debtcollective/packages/commit/245775a))
+* **header:** user dropdown to render properly on 320px resolutions ([23758a0](https://github.com/debtcollective/packages/commit/23758a0))
+
+
+### Features
+
+* **header:** add accessible social icon links ([f70adce](https://github.com/debtcollective/packages/commit/f70adce))
+* **header:** add base to render mobile menu nav ([71ce167](https://github.com/debtcollective/packages/commit/71ce167))
+* **header:** add more weights to the showcase of the menu ([ebd20c9](https://github.com/debtcollective/packages/commit/ebd20c9))
+* **header:** add notification icon color when available ([f83f581](https://github.com/debtcollective/packages/commit/f83f581))
+* **header:** add proper links to login/union anchors ([ea15365](https://github.com/debtcollective/packages/commit/ea15365))
+* **header:** add section links to profile menu ([d5b856c](https://github.com/debtcollective/packages/commit/d5b856c))
+* **header:** add styles for menu footer and clean menu component ([01caa32](https://github.com/debtcollective/packages/commit/01caa32))
+* **header:** add support for mobile bottom header ([03189dc](https://github.com/debtcollective/packages/commit/03189dc))
+* **header:** add target blank to all links outside debtcollective space ([ff9eaa1](https://github.com/debtcollective/packages/commit/ff9eaa1))
+* **header:** add transition effects for "pushing" header ([181b1b0](https://github.com/debtcollective/packages/commit/181b1b0))
+* **header:** allow header bottom to move with menu header appear ([f865b3b](https://github.com/debtcollective/packages/commit/f865b3b))
+* **header:** allow header mobile render properly ([da02c6b](https://github.com/debtcollective/packages/commit/da02c6b))
+* **header:** allow height to be defined by the tallest children ([d76ddf1](https://github.com/debtcollective/packages/commit/d76ddf1))
+* **header:** allow menu to be closed with ESC ([05f91ad](https://github.com/debtcollective/packages/commit/05f91ad))
+* **header:** allow mnav to be scrollable whenever expand items ([c646ae1](https://github.com/debtcollective/packages/commit/c646ae1))
+* **header:** allow to properly toggle profile dropdown ([4f8e514](https://github.com/debtcollective/packages/commit/4f8e514))
+* **header:** complete remake for header component ([ae9c1ec](https://github.com/debtcollective/packages/commit/ae9c1ec))
+* **header:** complete responsive support for guest users ([ec63fdd](https://github.com/debtcollective/packages/commit/ec63fdd))
+* **header:** create connector to profile dropdown ([fea5dde](https://github.com/debtcollective/packages/commit/fea5dde))
+* **header:** create link component to capture link clicks ([fb73b67](https://github.com/debtcollective/packages/commit/fb73b67))
+* **header:** deprecate old user-dropdown to create up-to-date base ([73b38c7](https://github.com/debtcollective/packages/commit/73b38c7))
+* **header:** header ([eb78b4e](https://github.com/debtcollective/packages/commit/eb78b4e))
+* **header:** integrate user notifications styles ([666bbbe](https://github.com/debtcollective/packages/commit/666bbbe))
+* **header:** map menu links to actual URLs ([852162c](https://github.com/debtcollective/packages/commit/852162c))
+* **header:** map some profile links to actual sources ([f8a2386](https://github.com/debtcollective/packages/commit/f8a2386))
+* **header:** menu footer to be on top of nav ([7326b7c](https://github.com/debtcollective/packages/commit/7326b7c))
+* **header:** remove bottom header when user is present ([31be850](https://github.com/debtcollective/packages/commit/31be850))
+
+
+### Reverts
+
+* **header:** remove active styles that resize profile size ([0f51a88](https://github.com/debtcollective/packages/commit/0f51a88))
+
+
+### BREAKING CHANGES
+
+* **header:** this new version of the header drops all previous usage and
+instead aims for being self contained
+
+
+
+
+
 # [2.5.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.4.0...@debtcollective/dc-header-component@2.5.0) (2021-04-28)
 
 
