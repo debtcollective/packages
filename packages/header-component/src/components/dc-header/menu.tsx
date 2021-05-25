@@ -34,10 +34,16 @@ export class Menu {
             </button>
           </div>
           <nav class="menu-section menu-nav">
-            <dc-link class="menu-nav-item text-lg" to="/join-union">
+            <dc-link
+              class="menu-nav-item text-lg"
+              to="https://debtcollective.org/debt-union"
+            >
               Join the Union
             </dc-link>
-            <dc-link class="menu-nav-item text-lg" to="/browse-events">
+            <dc-link
+              class="menu-nav-item text-lg"
+              to="https://community.debtcollective.org/upcoming-events"
+            >
               Browse Events
             </dc-link>
             <details class="menu-nav-item-collapsable">
@@ -49,10 +55,16 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://actionnetwork.org/petitions/bidenjubilee100"
+                >
                   Sign the petition
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://actionnetwork.org/letters/cancel-all-student-debt-today"
+                >
                   Email your reps
                 </dc-link>
               </div>
@@ -66,22 +78,37 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <dc-link class="text" to="/sign">
+                <dc-link class="text" to="https://tools.debtcollective.org/">
                   Dispute your Debt
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://community.debtcollective.org/"
+                >
                   Connect with other debtors
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://community.debtcollective.org/t/join-a-working-group/4957/2"
+                >
                   Join a working group
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://community.debtcollective.org/c/working-groups/local-organizing/20"
+                >
                   Join or start a local branch
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://community.debtcollective.org/t/debt-collective-higher-education-committee/4958"
+                >
                   Join a Committee
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://community.debtcollective.org/t/training-educational-videos/4959"
+                >
                   View Past Trainings
                 </dc-link>
               </div>
@@ -93,11 +120,53 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <dc-link class="text" to="/sign">
+                <dc-link class="text" to="https://debtcollective.org/about-us/">
                   Our Union
                 </dc-link>
-                <dc-link class="text" to="/sign">
+                <dc-link
+                  class="text"
+                  to="https://www.youtube.com/playlist?list=PLnQCwElJCNf9NHOqHicDrb03RX04nNl-h"
+                >
                   Learn about debt
+                </dc-link>
+                <dc-link class="text" to="https://debtcollective.org/our-team/">
+                  Our Team
+                </dc-link>
+                <dc-link
+                  class="text"
+                  to="https://www.haymarketbooks.org/books/1520-can-t-pay-won-t-pay"
+                >
+                  Our Book
+                </dc-link>
+                <dc-link
+                  class="text"
+                  to="https://debtcollective.org/contact-us/"
+                >
+                  Contact
+                </dc-link>
+              </div>
+            </details>
+            <details class="menu-nav-item-collapsable">
+              <summary class="text-lg">
+                Support Us{" "}
+                <div class="material-icons icon icon-more">expand_more</div>{" "}
+                <div class="material-icons icon icon-less">expand_less</div>
+              </summary>
+              <div class="menu-nav-item-nested">
+                <dc-link
+                  class="text"
+                  to="https://volunteer.debtcollective.org/"
+                >
+                  Volunteer
+                </dc-link>
+                <dc-link
+                  class="text"
+                  to="https://debt-collective.creator-spring.com/"
+                >
+                  Shop
+                </dc-link>
+                <dc-link class="text" to="https://debtcollective.org/donate/">
+                  Donate
                 </dc-link>
               </div>
             </details>
