@@ -112,7 +112,11 @@ export class Profile {
                 </span>
                 Membership
               </dc-link>
-              <dc-link class="link-text-icon" namespace="profile" to="#">
+              <dc-link
+                class="link-text-icon"
+                namespace="profile"
+                to={`https://tools.debtcollective.org/disputes/my`}
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   money_off
                 </span>
