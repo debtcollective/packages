@@ -1,6 +1,6 @@
 import "./link";
 import { Component, h, Prop, Listen, EventEmitter, Event } from "@stencil/core";
-import { getAvatarURL } from "../../utils/community";
+import { getAvatarURL, preffixCommunityURL } from "../../utils/community";
 import { logout } from "../../services/session";
 
 @Component({
@@ -89,7 +89,13 @@ export class Profile {
           <div class="profile-dropdown-section">
             <p class="text-underlined m-0">{this.user.username}</p>
             <div class="section-links">
-              <dc-link class="link-text-icon" to="#">
+              <dc-link
+                class="link-text-icon"
+                to={preffixCommunityURL(
+                  this.community,
+                  `u/${this.user.username}`
+                )}
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   face
                 </span>
@@ -111,7 +117,7 @@ export class Profile {
                 <span aria-hidden="true" class="material-icons mb-1">
                   savings
                 </span>
-                Events
+                My Debt
               </dc-link>
             </div>
           </div>
@@ -119,7 +125,13 @@ export class Profile {
           <div class="profile-dropdown-section mb-1">
             <p class="text-underlined mb-0">Community</p>
             <div class="section-links">
-              <dc-link class="link-text-icon" to="#">
+              <dc-link
+                class="link-text-icon"
+                to={preffixCommunityURL(
+                  this.community,
+                  `u/${this.user.username}/notifications`
+                )}
+              >
                 <span
                   aria-hidden="true"
                   class={`material-icons mb-1 ${
@@ -132,19 +144,28 @@ export class Profile {
                 </span>
                 Notifications
               </dc-link>
-              <dc-link class="link-text-icon" to="#">
+              <dc-link
+                class="link-text-icon"
+                to={preffixCommunityURL(this.community, `upcoming-events`)}
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   event
                 </span>
                 Events
               </dc-link>
-              <dc-link class="link-text-icon" to="#">
+              <dc-link
+                class="link-text-icon"
+                to={preffixCommunityURL(this.community, `new-topic`)}
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   edit
                 </span>
-                Drafts
+                New Topic
               </dc-link>
-              <dc-link class="link-text-icon" to="#">
+              <dc-link
+                class="link-text-icon"
+                to={preffixCommunityURL(this.community, ``)}
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   forum
                 </span>
@@ -154,10 +175,16 @@ export class Profile {
           </div>
 
           <div class="profile-dropdown-footer">
-            <button class="btn btn-transparent text-sm">
+            <dc-link
+              class="btn btn-transparent text-sm"
+              to={preffixCommunityURL(
+                this.community,
+                `u/${this.user.username}/preferences`
+              )}
+            >
               <span class="material-icons mr-1">settings</span>
               Preferences
-            </button>
+            </dc-link>
             <button
               class="btn btn-transparent text-sm"
               onClick={this.handleLogout.bind(this)}
