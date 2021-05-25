@@ -8,18 +8,6 @@ dc-header .section-links {
   justify-content: space-between;
 }
 
-dc-header .link-text-icon {
-  @extend .text-sm;
-  @extend .text-color-light;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  .material-icons {
-    font-size: 2rem;
-  }
-}
-
 dc-header .profile-dropdown-container {
   position: relative;
 
