@@ -6,16 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface DcCollapser {
-        /**
-          * Items to be displayed in the collapser
-         */
-        "items": string;
-        /**
-          * label for the collapser nav item
-         */
-        "label": string;
-    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -26,54 +16,29 @@ export namespace Components {
          */
         "donateurl": string;
         /**
+          * URL to the homepage without the latest "/"
+         */
+        "homepage": string;
+        /**
           * URL to the component host without the latest "/"
          */
         "host": string;
         /**
-          * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
+          * URL to the homepage without the latest "/"
          */
-        "links": string;
-        /**
-          * Logo src to use a custom image for the header
-         */
-        "logo": string;
-        /**
-          * Logo small src to use a custom image for the header in mobile
-         */
-        "logosmall": string;
+        "union": string;
+    }
+    interface DcLink {
+        "namespace": string;
+        "target": "_blank" | "_self";
+        "to": string;
     }
     interface DcMenu {
-        /**
-          * Logo src to use a custom image for the header
-         */
-        "logo": string;
-        /**
-          * Wether or not the mobile menu is displayed
-         */
         "open": boolean;
     }
-    interface DcUserDropdown {
-        /**
-          * URL to the community
-         */
+    interface DcProfile {
         "community": string;
-        /**
-          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
-         */
-        "user": {
-    id: number;
-    admin: boolean;
-    avatar_template: string;
-    username: string;
-    unread_notifications: number;
-    unread_high_priority_notifications: number;
-  };
-    }
-    interface DcUserItems {
-        /**
-          * URL to the community
-         */
-        "community": string;
+        "expanded": boolean;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
@@ -88,17 +53,17 @@ export namespace Components {
     }
 }
 declare global {
-    interface HTMLDcCollapserElement extends Components.DcCollapser, HTMLStencilElement {
-    }
-    var HTMLDcCollapserElement: {
-        prototype: HTMLDcCollapserElement;
-        new (): HTMLDcCollapserElement;
-    };
     interface HTMLDcHeaderElement extends Components.DcHeader, HTMLStencilElement {
     }
     var HTMLDcHeaderElement: {
         prototype: HTMLDcHeaderElement;
         new (): HTMLDcHeaderElement;
+    };
+    interface HTMLDcLinkElement extends Components.DcLink, HTMLStencilElement {
+    }
+    var HTMLDcLinkElement: {
+        prototype: HTMLDcLinkElement;
+        new (): HTMLDcLinkElement;
     };
     interface HTMLDcMenuElement extends Components.DcMenu, HTMLStencilElement {
     }
@@ -106,37 +71,20 @@ declare global {
         prototype: HTMLDcMenuElement;
         new (): HTMLDcMenuElement;
     };
-    interface HTMLDcUserDropdownElement extends Components.DcUserDropdown, HTMLStencilElement {
+    interface HTMLDcProfileElement extends Components.DcProfile, HTMLStencilElement {
     }
-    var HTMLDcUserDropdownElement: {
-        prototype: HTMLDcUserDropdownElement;
-        new (): HTMLDcUserDropdownElement;
-    };
-    interface HTMLDcUserItemsElement extends Components.DcUserItems, HTMLStencilElement {
-    }
-    var HTMLDcUserItemsElement: {
-        prototype: HTMLDcUserItemsElement;
-        new (): HTMLDcUserItemsElement;
+    var HTMLDcProfileElement: {
+        prototype: HTMLDcProfileElement;
+        new (): HTMLDcProfileElement;
     };
     interface HTMLElementTagNameMap {
-        "dc-collapser": HTMLDcCollapserElement;
         "dc-header": HTMLDcHeaderElement;
+        "dc-link": HTMLDcLinkElement;
         "dc-menu": HTMLDcMenuElement;
-        "dc-user-dropdown": HTMLDcUserDropdownElement;
-        "dc-user-items": HTMLDcUserItemsElement;
+        "dc-profile": HTMLDcProfileElement;
     }
 }
 declare namespace LocalJSX {
-    interface DcCollapser {
-        /**
-          * Items to be displayed in the collapser
-         */
-        "items"?: string;
-        /**
-          * label for the collapser nav item
-         */
-        "label"?: string;
-    }
     interface DcHeader {
         /**
           * URL to the community without the latest "/"
@@ -147,59 +95,40 @@ declare namespace LocalJSX {
          */
         "donateurl"?: string;
         /**
+          * URL to the homepage without the latest "/"
+         */
+        "homepage"?: string;
+        /**
           * URL to the component host without the latest "/"
          */
         "host"?: string;
         /**
-          * The links you need to display within the header this string needs to be JSON (able to JSON.parse)
+          * Emit event to exposed fetched user on host application
          */
-        "links"?: string;
+        "onUserSynced"?: (event: CustomEvent<User>) => void;
         /**
-          * Logo src to use a custom image for the header
+          * URL to the homepage without the latest "/"
          */
-        "logo"?: string;
-        /**
-          * Logo small src to use a custom image for the header in mobile
-         */
-        "logosmall"?: string;
-        /**
-          * Emit event to exposed fetched user on host application TODO: Cannot find name User on EventEmitter<User>
-         */
-        "onUserSynced"?: (event: CustomEvent<any>) => void;
+        "union"?: string;
+    }
+    interface DcLink {
+        "namespace"?: string;
+        "onLinkClicked"?: (event: CustomEvent<{
+    event: object;
+    to: string;
+    namespace: string;
+  }>) => void;
+        "target"?: "_blank" | "_self";
+        "to"?: string;
     }
     interface DcMenu {
-        /**
-          * Logo src to use a custom image for the header
-         */
-        "logo"?: string;
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
-        /**
-          * Wether or not the mobile menu is displayed
-         */
         "open"?: boolean;
     }
-    interface DcUserDropdown {
-        /**
-          * URL to the community
-         */
+    interface DcProfile {
         "community"?: string;
-        /**
-          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
-         */
-        "user"?: {
-    id: number;
-    admin: boolean;
-    avatar_template: string;
-    username: string;
-    unread_notifications: number;
-    unread_high_priority_notifications: number;
-  };
-    }
-    interface DcUserItems {
-        /**
-          * URL to the community
-         */
-        "community"?: string;
+        "expanded"?: boolean;
+        "onToggleProfileMenu"?: (event: CustomEvent<void>) => void;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
@@ -213,22 +142,20 @@ declare namespace LocalJSX {
   };
     }
     interface IntrinsicElements {
-        "dc-collapser": DcCollapser;
         "dc-header": DcHeader;
+        "dc-link": DcLink;
         "dc-menu": DcMenu;
-        "dc-user-dropdown": DcUserDropdown;
-        "dc-user-items": DcUserItems;
+        "dc-profile": DcProfile;
     }
 }
 export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "dc-collapser": LocalJSX.DcCollapser & JSXBase.HTMLAttributes<HTMLDcCollapserElement>;
             "dc-header": LocalJSX.DcHeader & JSXBase.HTMLAttributes<HTMLDcHeaderElement>;
+            "dc-link": LocalJSX.DcLink & JSXBase.HTMLAttributes<HTMLDcLinkElement>;
             "dc-menu": LocalJSX.DcMenu & JSXBase.HTMLAttributes<HTMLDcMenuElement>;
-            "dc-user-dropdown": LocalJSX.DcUserDropdown & JSXBase.HTMLAttributes<HTMLDcUserDropdownElement>;
-            "dc-user-items": LocalJSX.DcUserItems & JSXBase.HTMLAttributes<HTMLDcUserItemsElement>;
+            "dc-profile": LocalJSX.DcProfile & JSXBase.HTMLAttributes<HTMLDcProfileElement>;
         }
     }
 }

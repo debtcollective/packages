@@ -1,0 +1,51 @@
+%custom-details {
+  summary {
+    align-items: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    position: relative;
+
+    .icon {
+      margin-left: auto;
+    }
+  }
+
+  .icon.icon-more {
+    display: block;
+  }
+  .icon.icon-less {
+    display: none;
+  }
+
+  &[open] {
+    .icon.icon-more {
+      display: none;
+    }
+    .icon.icon-less {
+      display: block;
+    }
+  }
+
+  // pseudo elements are defined separately check https://bit.ly/2U0pJKb
+  summary::marker {
+    display: none;
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  /*
+    IE doesn't support details as other modern browsers so we remove the boder
+    in order to let the text being shown without bad applied customizations
+  */
+  @media all and (-ms-high-contrast: none), (-ms-high-contrast: active) {
+    border-top: none;
+  }
+
+  @supports (-ms-ime-align: auto) {
+    border-top: none;
+  }
+}

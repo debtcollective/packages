@@ -1,0 +1,34 @@
+$breakpoints: (
+  xxs: 359px,
+  xs: 576px,
+  sm: 768px,
+  md: 992px,
+  lg: 1200px,
+);
+
+$font-size-base: 1rem;
+$font-size-sm: $font-size-base * 0.75;
+$font-size-lg: $font-size-base * 1.25;
+
+$color-primary: #fbfbfb;
+$color-secondary: #ff4630;
+
+$color-beige: #f9f8f5;
+$color-yellow: #ffed9c;
+$color-green: #24ba9d;
+
+$column-gap: 15px;
+
+dc-header {
+  --brand-color: #ff4630;
+  --button-color: #ff4630;
+  --button-hover-color: #ee2812;
+  --outline-button-hover-color: #fffbea;
+  --text-color: #434343;
+  --text-color-light: #74736f;
+  --disabled-text-color: #52575c;
+  --font-size: 1rem;
+  --column-gap: 15px;
+  --main-bg-color: #fbfbfb;
+  --main-font: "Libre Franklin", sans-serif;
+}
