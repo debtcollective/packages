@@ -15,7 +15,6 @@ import {
 })
 export class Link {
   @Prop() to: string;
-  @Prop() class: string;
 
   @Event() linkClicked: EventEmitter<{ event: object; to: string }>;
 
@@ -26,8 +25,10 @@ export class Link {
 
   render() {
     return (
-      <Host to={this.to} class={this.class}>
-        <slot />
+      <Host>
+        <a href={this.to}>
+          <slot />
+        </a>
       </Host>
     );
   }

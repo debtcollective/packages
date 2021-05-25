@@ -1,3 +1,12 @@
 dc-link {
   cursor: pointer;
+
+  a:any-link,
+  a:-webkit-any-link {
+    color: inherit;
+  }
+
+  > a {
+    display: inline-block;
+  }
 }

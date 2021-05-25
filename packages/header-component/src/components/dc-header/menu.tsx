@@ -34,10 +34,10 @@ export class Menu {
             </button>
           </div>
           <nav class="menu-section menu-nav">
-            <dc-link to="/join-union" class="menu-nav-item text-lg">
+            <dc-link class="menu-nav-item text-lg" to="/join-union">
               Join the Union
             </dc-link>
-            <dc-link to="/browse-events" class="menu-nav-item text-lg">
+            <dc-link class="menu-nav-item text-lg" to="/browse-events">
               Browse Events
             </dc-link>
             <details class="menu-nav-item-collapsable">
@@ -49,10 +49,10 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Sign the petition
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Email your reps
                 </dc-link>
               </div>
@@ -66,22 +66,22 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Dispute your Debt
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Connect with other debtors
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Join a working group
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Join or start a local branch
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Join a Committee
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   View Past Trainings
                 </dc-link>
               </div>
@@ -93,10 +93,10 @@ export class Menu {
                 <div class="material-icons icon icon-less">expand_less</div>
               </summary>
               <div class="menu-nav-item-nested">
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Our Union
                 </dc-link>
-                <dc-link to="/sign" class="text">
+                <dc-link class="text" to="/sign">
                   Learn about debt
                 </dc-link>
               </div>
