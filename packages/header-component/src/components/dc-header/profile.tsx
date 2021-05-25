@@ -169,7 +169,10 @@ export class Profile {
               <dc-link
                 class="link-text-icon"
                 namespace="profile"
-                to={preffixCommunityURL(this.community, ``)}
+                to={preffixCommunityURL(
+                  this.community,
+                  `u/${this.user.username}/messages`
+                )}
               >
                 <span aria-hidden="true" class="material-icons mb-1">
                   forum
