@@ -1,0 +1,18 @@
+@use '../base/variables' as vars;
+@use '../base/functions' as fn;
+
+dc-header .notification-badge {
+  background-color: vars.$color-green;
+  border-radius: 100%;
+  bottom: 0.25rem;
+  height: 0.5rem;
+  left: 0.125rem;
+  position: absolute;
+  width: 0.5rem;
+  color: transparent;
+  z-index: fn.z-index(bring-front);
+}
+
+dc-header .notification-color {
+  color: vars.$color-green;
+}

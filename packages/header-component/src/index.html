@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="en" style="height: 100%;">
+<html dir="ltr" lang="en">
   <head>
     <meta charset="utf-8" />
     <meta
@@ -15,29 +15,43 @@
       rel="stylesheet"
     />
     <link
-      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@200;400;600;800&display=swap"
       rel="stylesheet"
     />
   </head>
-  <body
-    style="background: linear-gradient(180deg, #dbf8ff 0%, #fcfbf7 88.74%); height: 100%;"
-  >
+  <body>
     <dc-header
       id="dc-header"
+      homepage="/"
+      union="/debt-union"
       host="http://lvh.me:3333"
       community="http://lvh.me:3000"
-      links='[{"href":"http://debtcollective.org/","text":"About us", "target": "_blank"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'
     ></dc-header>
 
-    <p style="margin-top: 20rem;">
-      <i>Check console to see output of props functions</i>
-    </p>
+    <div style="margin-top: 10rem">
+      <p>To check header with user:</p>
+      <ul>
+        <li>
+          Make sure to have the community running on
+          <a href="http://lvh.me:3000" target="_blank">lvh.me:3000</a>
+        </li>
+      </ul>
+      <small>Check console to see output of header events</small>
+    </div>
 
     <!-- You can choose to render custom navigation, check the README.md file and restart the stencil server after change index.html -->
     <script>
       const header = document.querySelector("#dc-header");
-      header.addEventListener("userSynced", event => {
+      header.addEventListener("userSynced", (event) => {
         console.log("userSynced", event.detail);
+      });
+
+      header.addEventListener("linkClicked", ({ detail }) => {
+        console.log("linkClicked", detail);
+
+        if (detail.namespace === "menu") {
+          detail.event.preventDefault();
+        }
       });
     </script>
   </body>

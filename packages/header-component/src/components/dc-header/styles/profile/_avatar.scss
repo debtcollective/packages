@@ -1,0 +1,20 @@
+@use '../base/variables' as vars;
+
+dc-header {
+  .avatar {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    border: 0.25rem solid transparent;
+    position: relative;
+
+    &.avatar-open {
+      border-color: vars.$color-yellow;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.4);
+    }
+  }
+
+  .profile-toggle .icon {
+    font-size: vars.$font-size-sm;
+  }
+}

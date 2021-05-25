@@ -1,0 +1,26 @@
+@use '../base/mixins' as mixins;
+
+dc-header {
+  .logo {
+    // allows to center vertically the logo img
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    > img {
+      height: 3.375rem;
+      position: relative;
+      width: auto;
+    }
+
+    &-container {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+
+      @include mixins.media-breakpoint-up(sm) {
+        justify-content: flex-start;
+      }
+    }
+  }
+}

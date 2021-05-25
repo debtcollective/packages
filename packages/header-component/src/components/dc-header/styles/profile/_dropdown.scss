@@ -1,0 +1,66 @@
+@use '../base/variables' as vars;
+@use '../base/mixins' as mixins;
+@use '../base/typography' as typography;
+@use '../base/functions' as fn;
+
+dc-header .section-links {
+  display: flex;
+  justify-content: space-between;
+}
+
+dc-header .profile-dropdown-container {
+  position: relative;
+
+  .material-icons {
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .connector {
+    border-bottom: 0.625rem solid #fbfbfb;
+    border-left: 0.625rem solid transparent;
+    border-right: 0.625rem solid transparent;
+    display: none;
+    height: 0;
+    margin-left: 1.125rem;
+    position: absolute;
+    width: 0;
+    bottom: 0;
+  }
+}
+
+dc-header .profile-dropdown {
+  background-color: vars.$color-primary;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.4);
+  bottom: 0;
+  display: none;
+  position: absolute;
+  width: 320px;
+  right: -(vars.$column-gap);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  padding: vars.$column-gap 0 0;
+  transform: translate3d(0, 100%, 0);
+  z-index: fn.z-index(profile-menu);
+
+  @include mixins.media-breakpoint-up(xxs) {
+    right: 0;
+  }
+
+  &.profile-expanded,
+  &.profile-expanded + .connector {
+    display: block;
+  }
+
+  &-section {
+    padding: 0 vars.$column-gap;
+  }
+
+  &-footer {
+    background: #fff;
+    border-top: 0.0625rem solid #e8e8e8;
+    padding: 1.5rem 0;
+    display: flex;
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,40 @@
+@use 'base/typography' as typography;
+
+dc-link {
+  cursor: pointer;
+
+  a:any-link,
+  a:-webkit-any-link {
+    color: inherit;
+  }
+
+  > a {
+    align-items: center;
+    display: flex;
+  }
+}
+
+dc-link.link-text-icon {
+  @extend .text-sm;
+  @extend .text-color-light;
+
+  a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .material-icons {
+    font-size: 2rem;
+  }
+}
+
+dc-link.link-upcoming {
+  opacity: 0.35;
+
+  &,
+  > a,
+  > a .material-icons {
+    cursor: not-allowed;
+  }
+}

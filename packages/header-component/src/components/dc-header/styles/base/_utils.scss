@@ -1,0 +1,55 @@
+@use 'variables' as vars;
+@use 'mixins' as mixins;
+
+/* Margin utils */
+dc-header {
+  $steps: (
+    "0": 0rem,
+    "1": 0.5rem,
+    "2": 1rem,
+    "3": 1.5rem,
+    "4": 2rem,
+    "5": 2.5rem,
+    "6": 3rem,
+    "auto": auto,
+  );
+
+  @each $step, $value in $steps {
+    .m-#{$step} {
+      margin: $value;
+    }
+  }
+
+  $sides: (top, bottom, left, right);
+
+  @each $side in $sides {
+    @each $step, $value in $steps {
+      .m#{str-slice($side, 0, 1)}-#{$step} {
+        margin-#{$side}: $value;
+      }
+    }
+  }
+}
+
+dc-header {
+  $displays: (block, flex, none);
+
+  @each $display-mode in $displays {
+    @each $breakpoint, $screen-size in vars.$breakpoints {
+      // Increase specificity so "d-none d-sm-block" works as intended
+      .d-#{$breakpoint}-#{$display-mode}.d-#{$breakpoint}-#{$display-mode} {
+        @include mixins.media-breakpoint-up($breakpoint) {
+          display: $display-mode !important;
+        }
+      }
+    }
+
+    .d-#{$display-mode} {
+      display: $display-mode !important;
+    }
+  }
+
+  .hidden {
+    display: none !important;
+  }
+}

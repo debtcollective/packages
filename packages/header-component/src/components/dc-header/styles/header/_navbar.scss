@@ -1,0 +1,66 @@
+@use '../base/mixins' as mixins;
+@use '../base/functions' as fn;
+
+dc-header .navbar {
+  -webkit-backface-visibility: hidden;
+  align-items: center;
+  backface-visibility: hidden;
+  background-color: var(--main-bg-color);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  padding: 1rem var(--column-gap);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: fn.z-index(header);
+}
+
+dc-header .header {
+  &-top {
+    padding-top: 0.625rem;
+
+    @include mixins.media-breakpoint-up(sm) {
+      padding-bottom: 0.625rem;
+    }
+
+    // Facilitate responsive distribution of logo and session items
+    .logo-container {
+      flex: 3;
+    }
+    .session {
+      justify-content: flex-end;
+      flex: 2;
+    }
+
+    @include mixins.media-breakpoint-up(sm) {
+      .logo-container,
+      .session {
+        flex: 1;
+      }
+    }
+  }
+
+  &-bottom {
+    box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+    top: auto;
+    bottom: 0;
+
+    > [class*="btn"] {
+      flex: 1;
+    }
+  }
+
+  &-item {
+    display: flex;
+    min-width: 2rem;
+  }
+}
+
+.session-items {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
