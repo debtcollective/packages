@@ -29,6 +29,8 @@ export namespace Components {
         "union": string;
     }
     interface DcLink {
+        "namespace": string;
+        "target": "_blank" | "_self";
         "to": string;
     }
     interface DcMenu {
@@ -110,7 +112,13 @@ declare namespace LocalJSX {
         "union"?: string;
     }
     interface DcLink {
-        "onLinkClicked"?: (event: CustomEvent<{ event: object; to: string }>) => void;
+        "namespace"?: string;
+        "onLinkClicked"?: (event: CustomEvent<{
+    event: object;
+    to: string;
+    namespace: string;
+  }>) => void;
+        "target"?: "_blank" | "_self";
         "to"?: string;
     }
     interface DcMenu {

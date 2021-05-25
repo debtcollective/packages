@@ -48,7 +48,10 @@
 
       header.addEventListener("linkClicked", ({ detail }) => {
         console.log("linkClicked", detail);
-        detail.event.preventDefault();
+
+        if (detail.namespace === "menu") {
+          detail.event.preventDefault();
+        }
       });
     </script>
   </body>

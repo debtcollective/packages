@@ -91,6 +91,7 @@ export class Profile {
             <div class="section-links">
               <dc-link
                 class="link-text-icon"
+                namespace="profile"
                 to={preffixCommunityURL(
                   this.community,
                   `u/${this.user.username}`
@@ -101,19 +102,19 @@ export class Profile {
                 </span>
                 Profile
               </dc-link>
-              <dc-link class="link-text-icon" to="#">
+              <dc-link class="link-text-icon" namespace="profile" to="#">
                 <span aria-hidden="true" class="material-icons mb-1">
                   account_circle
                 </span>
                 Membership
               </dc-link>
-              <dc-link class="link-text-icon" to="#">
+              <dc-link class="link-text-icon" namespace="profile" to="#">
                 <span aria-hidden="true" class="material-icons mb-1">
                   money_off
                 </span>
                 My Disputes
               </dc-link>
-              <dc-link class="link-text-icon" to="#">
+              <dc-link class="link-text-icon" namespace="profile" to="#">
                 <span aria-hidden="true" class="material-icons mb-1">
                   savings
                 </span>
@@ -127,6 +128,7 @@ export class Profile {
             <div class="section-links">
               <dc-link
                 class="link-text-icon"
+                namespace="profile"
                 to={preffixCommunityURL(
                   this.community,
                   `u/${this.user.username}/notifications`
@@ -146,6 +148,7 @@ export class Profile {
               </dc-link>
               <dc-link
                 class="link-text-icon"
+                namespace="profile"
                 to={preffixCommunityURL(this.community, `upcoming-events`)}
               >
                 <span aria-hidden="true" class="material-icons mb-1">
@@ -155,6 +158,7 @@ export class Profile {
               </dc-link>
               <dc-link
                 class="link-text-icon"
+                namespace="profile"
                 to={preffixCommunityURL(this.community, `new-topic`)}
               >
                 <span aria-hidden="true" class="material-icons mb-1">
@@ -164,6 +168,7 @@ export class Profile {
               </dc-link>
               <dc-link
                 class="link-text-icon"
+                namespace="profile"
                 to={preffixCommunityURL(this.community, ``)}
               >
                 <span aria-hidden="true" class="material-icons mb-1">
