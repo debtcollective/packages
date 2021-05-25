@@ -28,3 +28,13 @@ dc-link.link-text-icon {
     font-size: 2rem;
   }
 }
+
+dc-link.link-upcoming {
+  opacity: 0.35;
+
+  &,
+  > a,
+  > a .material-icons {
+    cursor: not-allowed;
+  }
+}

@@ -122,7 +122,11 @@ export class Profile {
                 </span>
                 My Disputes
               </dc-link>
-              <dc-link class="link-text-icon" namespace="profile" to="#">
+              <dc-link
+                class="link-text-icon link-upcoming"
+                namespace="profile"
+                to="#"
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   savings
                 </span>
