@@ -102,7 +102,11 @@ export class Profile {
                 </span>
                 Profile
               </dc-link>
-              <dc-link class="link-text-icon" namespace="profile" to="#">
+              <dc-link
+                class="link-text-icon"
+                namespace="profile"
+                to={`https://debtcollective.org/hub`}
+              >
                 <span aria-hidden="true" class="material-icons mb-1">
                   account_circle
                 </span>
