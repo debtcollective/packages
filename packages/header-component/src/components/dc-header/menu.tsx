@@ -22,8 +22,8 @@ export class Menu {
 
   render() {
     return (
-      <div class={`menu-container ${this.open ? "open " : "hidden"}`}>
-        <div class="menu">
+      <div class="menu-container">
+        <div class={`menu ${this.open ? "is-open" : ""}`}>
           <div class="menu-section menu-header">
             <button
               class="btn-transparent menu-close material-icons"

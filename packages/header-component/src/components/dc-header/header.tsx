@@ -40,6 +40,16 @@ export class Header {
   @State() user?: User;
 
   /**
+   * Whether or not the header is shrink
+   */
+  @State() isShrink: boolean;
+
+  /**
+   * Current scroll position to allow to infer scroll direction
+   */
+  @State() scrollTop: number;
+
+  /**
    * Whether or not the menu is displayed
    */
   @State() isMenuOpen: boolean;
@@ -94,6 +104,14 @@ export class Header {
     return this.syncCurrentUser();
   }
 
+  @Listen("scroll", { target: "window" })
+  handleScroll(e) {
+    const scrollTop = e.target?.scrollingElement?.scrollTop;
+    // set shrink to true whenever the scroll direction is down
+    this.isShrink = scrollTop > this.scrollTop;
+    this.scrollTop = scrollTop;
+  }
+
   @Listen("toggleMenu")
   toggleMenuHandler() {
     this.toggleMenu();
@@ -136,31 +154,34 @@ export class Header {
     return (
       <Host>
         <header
-          class={`header-top navbar ${
-            this.isMenuOpen ? "menu-open" : "menu-hidden"
-          }`}
+          class={`navbar-top navbar l-header ${
+            this.isMenuOpen ? "is-moved" : ""
+          } ${this.isShrink ? "is-shrink" : ""}`}
         >
-          <div class="logo-container header-item">
+          <div class="logo-container navbar-item">
             <button
               class="btn-transparent"
               onClick={this.toggleMenuHandler.bind(this)}
             >
               <span class="material-icons">menu</span>
             </button>
-            <a class="logo" href={this.homepage}>
+            <a
+              class={`logo ${this.isShrink ? "logo-shrink" : ""}`}
+              href={this.homepage}
+            >
               <img
                 class="d-sm-none"
                 src={getAssetPath(`./assets/${this._logoSmall}`)}
                 alt="The Debtcollective"
               />
               <img
-                class="d-none d-sm-block ml-2"
+                class="d-none d-sm-block ml-2 fixed-size"
                 src={getAssetPath(`./assets/${this._logo}`)}
                 alt="The Debtcollective"
               />
             </a>
           </div>
-          <div class="session header-item">
+          <div class="session-container navbar-item">
             {this.user ? (
               <dc-profile
                 user={this.user}
@@ -181,9 +202,9 @@ export class Header {
         </header>
         {this.user ? null : (
           <div
-            class={`header-bottom navbar d-sm-none ${
-              this.isMenuOpen ? "menu-open" : "menu-hidden"
-            }`}
+            class={`navbar-bottom navbar d-sm-none ${
+              this.isMenuOpen ? "is-moved" : ""
+            } ${this.isShrink ? "is-shrink" : ""}`}
           >
             <a href={this._loginUrl} class="btn-outline">
               Member login
