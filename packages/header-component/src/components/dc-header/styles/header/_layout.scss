@@ -1,0 +1,18 @@
+@use '../base/mixins' as mixins;
+
+dc-header header.l-header {
+  .logo-container {
+    flex: 3;
+  }
+  .session-container {
+    justify-content: flex-end;
+    flex: 2;
+  }
+
+  @include mixins.media-breakpoint-up(sm) {
+    .logo-container,
+    .session-container {
+      flex: 1;
+    }
+  }
+}

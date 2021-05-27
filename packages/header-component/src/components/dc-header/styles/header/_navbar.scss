@@ -16,30 +16,21 @@ dc-header .navbar {
   top: 0;
   width: 100%;
   z-index: fn.z-index(header);
-}
 
-dc-header .header {
+  &-top,
+  &-bottom {
+    transition: transform ease 0.216s;
+
+    &.is-moved {
+      transform: translate3d(320px, 0, 0);
+    }
+  }
+
   &-top {
     padding-top: 0.625rem;
 
     @include mixins.media-breakpoint-up(sm) {
       padding-bottom: 0.625rem;
-    }
-
-    // Facilitate responsive distribution of logo and session items
-    .logo-container {
-      flex: 3;
-    }
-    .session {
-      justify-content: flex-end;
-      flex: 2;
-    }
-
-    @include mixins.media-breakpoint-up(sm) {
-      .logo-container,
-      .session {
-        flex: 1;
-      }
     }
   }
 
@@ -47,6 +38,14 @@ dc-header .header {
     box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
     top: auto;
     bottom: 0;
+
+    &.is-shrink {
+      transform: translate3d(0, 150%, 0);
+    }
+
+    &.is-shrink.is-moved {
+      transform: translate3d(320px, 150%, 0);
+    }
 
     > [class*="btn"] {
       flex: 1;
@@ -57,10 +56,4 @@ dc-header .header {
     display: flex;
     min-width: 2rem;
   }
-}
-
-.session-items {
-  display: flex;
-  align-items: center;
-  margin-left: auto;
 }
