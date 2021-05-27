@@ -11,6 +11,7 @@ dc-header {
       height: 3.375rem;
       position: relative;
       width: auto;
+      transition: all ease 0.216s;
     }
 
     &-container {
@@ -22,5 +23,9 @@ dc-header {
         justify-content: flex-start;
       }
     }
+  }
+
+  .logo.logo-shrink > img:not(.fixed-size) {
+    height: 2rem;
   }
 }
