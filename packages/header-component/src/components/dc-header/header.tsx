@@ -156,7 +156,7 @@ export class Header {
         <header
           class={`navbar-top navbar l-header ${
             this.isMenuOpen ? "is-moved" : ""
-          }`}
+          } ${this.isShrink ? "is-shrink" : ""}`}
         >
           <div class="logo-container navbar-item">
             <button

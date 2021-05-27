@@ -27,7 +27,13 @@ dc-header .navbar {
   }
 
   &-top {
-    padding-top: 0.625rem;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+
+    &.is-shrink {
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+    }
 
     @include mixins.media-breakpoint-up(sm) {
       padding-bottom: 0.625rem;
