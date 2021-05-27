@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.1.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.0.0...@debtcollective/dc-header-component@3.1.0) (2021-05-27)
+
+
+### Features
+
+* **header:** Header scroll animation ([#155](https://github.com/debtcollective/packages/issues/155)) ([b04728f](https://github.com/debtcollective/packages/commit/b04728f))
+
+
+
+
+
 # [3.0.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@2.5.0...@debtcollective/dc-header-component@3.0.0) (2021-05-25)
 
 
