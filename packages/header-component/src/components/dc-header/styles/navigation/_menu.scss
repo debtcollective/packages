@@ -100,6 +100,7 @@ dc-menu .menu-nav {
 
   &-item {
     box-sizing: border-box;
+    color: vars.$color-text;
     padding: 0 var(--column-gap);
     width: 100%;
   }
