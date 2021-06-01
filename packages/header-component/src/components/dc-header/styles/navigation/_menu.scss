@@ -8,7 +8,7 @@ dc-menu {
     -webkit-backface-visibility: hidden;
     align-items: flex-start;
     backface-visibility: hidden;
-    background-color: var(--main-bg-color);
+    background-color: vars.$color-white;
     box-shadow: 0 0.125rem 0.25rem -0.0625rem rgba(0, 0, 0, 0.25);
     box-sizing: border-box;
     display: flex;
@@ -46,7 +46,7 @@ dc-menu {
 
   .menu-section {
     box-sizing: border-box;
-    padding: 0 var(--column-gap);
+    padding: 0 vars.$column-gap;
     width: 100%;
   }
 }
@@ -84,6 +84,8 @@ dc-menu .menu-footer {
 }
 
 dc-menu .menu-nav {
+  $menu-nav-item-border-width: 4px;
+
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -100,17 +102,22 @@ dc-menu .menu-nav {
 
   &-item {
     box-sizing: border-box;
-    padding: 0 var(--column-gap);
+    border-left: $menu-nav-item-border-width solid transparent;
+    color: vars.$color-text;
+    padding: 0 vars.$column-gap;
     width: 100%;
+
+    &:hover {
+      border-left-color: vars.$color-grey;
+      background-color: vars.$color-beige;
+    }
   }
 
   &-item-collapsable {
-    $border-width: 4px;
     cursor: pointer;
     @extend .menu-nav-item;
     @extend %custom-details;
-    border-left: $border-width solid transparent;
-    padding: 0 calc(var(--column-gap) - #{$border-width});
+    padding: 0 calc(#{vars.$column-gap} - #{$menu-nav-item-border-width});
 
     &[open] {
       background-color: vars.$color-beige;
@@ -125,6 +132,10 @@ dc-menu .menu-nav {
   &-item-nested {
     display: flex;
     flex-direction: column;
-    padding: 0 var(--column-gap);
+    padding: 0 vars.$column-gap;
+
+    a:hover {
+      color: vars.$color-green-dark;
+    }
   }
 }
