@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.0...@debtcollective/dc-header-component@3.1.1) (2021-06-01)
+
+
+### Bug Fixes
+
+* **header:** Header colours update ([#156](https://github.com/debtcollective/packages/issues/156)) ([3447b88](https://github.com/debtcollective/packages/commit/3447b88))
+
+
+
+
+
 # [3.1.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.0.0...@debtcollective/dc-header-component@3.1.0) (2021-05-27)
 
 
