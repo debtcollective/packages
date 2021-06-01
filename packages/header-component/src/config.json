@@ -3,14 +3,12 @@
     {
       "type": "MENU_ITEM_LINK",
       "text": "Join the Union",
-      "url": "https://debtcollective.org/debt-union",
-      "attrs": { "target": "_blank" }
+      "url": "https://debtcollective.org/debt-union"
     },
     {
       "type": "MENU_ITEM_LINK",
       "text": "Browse Events",
-      "url": "https://debtcollective.org/debt-union",
-      "attrs": { "target": "_blank" }
+      "url": "https://debtcollective.org/debt-union"
     },
     {
       "type": "MENU_ITEM_EXPANDABLE",
@@ -37,38 +35,32 @@
         {
           "type": "LINK",
           "text": "Dispute your Debt",
-          "url": "https://tools.debtcollective.org/",
-          "attrs": { "target": "_blank" }
+          "url": "https://tools.debtcollective.org/"
         },
         {
           "type": "LINK",
           "text": "Connect with other debtors",
-          "url": "https://community.debtcollective.org/",
-          "attrs": { "target": "_blank" }
+          "url": "https://community.debtcollective.org/"
         },
         {
           "type": "LINK",
           "text": "Join a working group",
-          "url": "https://community.debtcollective.org/t/join-a-working-group/4957/2",
-          "attrs": { "target": "_blank" }
+          "url": "https://community.debtcollective.org/t/join-a-working-group/4957/2"
         },
         {
           "type": "LINK",
           "text": "Join or start a local branch",
-          "url": "https://community.debtcollective.org/c/working-groups/local-organizing/20",
-          "attrs": { "target": "_blank" }
+          "url": "https://community.debtcollective.org/c/working-groups/local-organizing/20"
         },
         {
           "type": "LINK",
           "text": "Join a Commitee",
-          "url": "https://community.debtcollective.org/t/debt-collective-higher-education-committee/4958",
-          "attrs": { "target": "_blank" }
+          "url": "https://community.debtcollective.org/t/debt-collective-higher-education-committee/4958"
         },
         {
           "type": "LINK",
           "text": "View Past Trainings",
-          "url": "https://community.debtcollective.org/t/training-educational-videos/4959",
-          "attrs": { "target": "_blank" }
+          "url": "https://community.debtcollective.org/t/training-educational-videos/4959"
         }
       ]
     },
@@ -79,8 +71,7 @@
         {
           "type": "LINK",
           "text": "Our Union",
-          "url": "https://debtcollective.org/about-us/",
-          "attrs": { "target": "_blank" }
+          "url": "https://debtcollective.org/about-us/"
         },
         {
           "type": "LINK",
@@ -91,8 +82,7 @@
         {
           "type": "LINK",
           "text": "Our Team",
-          "url": "https://debtcollective.org/our-team/",
-          "attrs": { "target": "_blank" }
+          "url": "https://debtcollective.org/our-team/"
         },
         {
           "type": "LINK",
@@ -103,8 +93,7 @@
         {
           "type": "LINK",
           "text": "Contact",
-          "url": "https://debtcollective.org/contact-us/",
-          "attrs": { "target": "_blank" }
+          "url": "https://debtcollective.org/contact-us/"
         }
       ]
     },
@@ -115,8 +104,7 @@
         {
           "type": "LINK",
           "text": "Volunteer",
-          "url": "https://volunteer.debtcollective.org/",
-          "attrs": { "target": "_blank" }
+          "url": "https://volunteer.debtcollective.org/"
         },
         {
           "type": "LINK",
@@ -127,8 +115,7 @@
         {
           "type": "LINK",
           "text": "Donate",
-          "url": "https://debtcollective.org/donate/",
-          "attrs": { "target": "_blank" }
+          "url": "https://debtcollective.org/donate/"
         }
       ]
     }
@@ -141,22 +128,19 @@
           "type": "LINK_FONT_ICON",
           "text": "Profile",
           "figure": "face",
-          "url": "http://lvh.me:3000/u/alexis",
-          "attrs": { "target": "_blank" }
+          "url": "http://lvh.me:3000/u/alexis"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "Membership",
           "figure": "account_circle",
-          "url": "https://debtcollective.org/hub",
-          "attrs": { "target": "_blank" }
+          "url": "https://debtcollective.org/hub"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "My Disputes",
           "figure": "money_off",
-          "url": "https://tools.debtcollective.org/disputes/my",
-          "attrs": { "target": "_blank" }
+          "url": "https://tools.debtcollective.org/disputes/my"
         }
       ]
     },
@@ -167,29 +151,25 @@
           "type": "LINK_FONT_ICON",
           "text": "Notifications",
           "figure": "notifications",
-          "url": "http://lvh.me:3000/u/alexis/notifications",
-          "attrs": { "target": "_blank" }
+          "url": "http://lvh.me:3000/u/alexis/notifications"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "Events",
           "figure": "event",
-          "url": "http://lvh.me:3000/upcoming-events",
-          "attrs": { "target": "_blank" }
+          "url": "http://lvh.me:3000/upcoming-events"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "New Topic",
           "figure": "edit",
-          "url": "http://lvh.me:3000/new-topic",
-          "attrs": { "target": "_blank" }
+          "url": "http://lvh.me:3000/new-topic"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "Messages",
           "figure": "forum",
-          "url": "http://lvh.me:3000/u/alexis/messages",
-          "attrs": { "target": "_blank" }
+          "url": "http://lvh.me:3000/u/alexis/messages"
         }
       ]
     },
@@ -200,8 +180,7 @@
           "type": "LINK_FONT_ICON_INLINE",
           "text": "Preferences",
           "figure": "settings",
-          "url": "http://lvh.me:3000/u/alexis/preferences",
-          "attrs": { "target": "_blank" }
+          "url": "http://lvh.me:3000/u/alexis/preferences"
         },
         {
           "type": "BUTTON_TRANSPARENT",
