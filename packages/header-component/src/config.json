@@ -1,0 +1,246 @@
+{
+  "siteMenu": [
+    {
+      "type": "MENU_ITEM_LINK",
+      "text": "Join the Union",
+      "url": "https://debtcollective.org/debt-union",
+      "attrs": { "target": "_blank" }
+    },
+    {
+      "type": "MENU_ITEM_LINK",
+      "text": "Browse Events",
+      "url": "https://debtcollective.org/debt-union",
+      "attrs": { "target": "_blank" }
+    },
+    {
+      "type": "MENU_ITEM_EXPANDABLE",
+      "text": "Cancel Student Debt",
+      "items": [
+        {
+          "type": "LINK",
+          "text": "Sign the petition",
+          "url": "https://actionnetwork.org/petitions/bidenjubilee100",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Email your reps",
+          "url": "https://actionnetwork.org/letters/cancel-all-student-debt-today",
+          "attrs": { "target": "_blank" }
+        }
+      ]
+    },
+    {
+      "type": "MENU_ITEM_EXPANDABLE",
+      "text": "For Members",
+      "items": [
+        {
+          "type": "LINK",
+          "text": "Dispute your Debt",
+          "url": "https://tools.debtcollective.org/",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Connect with other debtors",
+          "url": "https://community.debtcollective.org/",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Join a working group",
+          "url": "https://community.debtcollective.org/t/join-a-working-group/4957/2",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Join or start a local branch",
+          "url": "https://community.debtcollective.org/c/working-groups/local-organizing/20",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Join a Commitee",
+          "url": "https://community.debtcollective.org/t/debt-collective-higher-education-committee/4958",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "View Past Trainings",
+          "url": "https://community.debtcollective.org/t/training-educational-videos/4959",
+          "attrs": { "target": "_blank" }
+        }
+      ]
+    },
+    {
+      "type": "MENU_ITEM_EXPANDABLE",
+      "text": "About",
+      "items": [
+        {
+          "type": "LINK",
+          "text": "Our Union",
+          "url": "https://debtcollective.org/about-us/",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Learn about debt",
+          "url": "https://www.youtube.com/playlist?list=PLnQCwElJCNf9NHOqHicDrb03RX04nNl-h",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Our Team",
+          "url": "https://debtcollective.org/our-team/",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Our Book",
+          "url": "https://www.haymarketbooks.org/books/1520-can-t-pay-won-t-pay",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Contact",
+          "url": "https://debtcollective.org/contact-us/",
+          "attrs": { "target": "_blank" }
+        }
+      ]
+    },
+    {
+      "type": "MENU_ITEM_EXPANDABLE",
+      "text": "Support Us",
+      "items": [
+        {
+          "type": "LINK",
+          "text": "Volunteer",
+          "url": "https://volunteer.debtcollective.org/",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Shop",
+          "url": "https://debt-collective.creator-spring.com/",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK",
+          "text": "Donate",
+          "url": "https://debtcollective.org/donate/",
+          "attrs": { "target": "_blank" }
+        }
+      ]
+    }
+  ],
+  "userMenu": [
+    {
+      "type": "USER_MENU_PROFILE_SECTION",
+      "items": [
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "Profile",
+          "figure": "face",
+          "url": "http://lvh.me:3000/u/alexis",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "Membership",
+          "figure": "account_circle",
+          "url": "https://debtcollective.org/hub",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "My Disputes",
+          "figure": "money_off",
+          "url": "https://tools.debtcollective.org/disputes/my",
+          "attrs": { "target": "_blank" }
+        }
+      ]
+    },
+    {
+      "type": "USER_MENU_COMMUNITY_SECTION",
+      "items": [
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "Notifications",
+          "figure": "notifications",
+          "url": "http://lvh.me:3000/u/alexis/notifications",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "Events",
+          "figure": "event",
+          "url": "http://lvh.me:3000/upcoming-events",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "New Topic",
+          "figure": "edit",
+          "url": "http://lvh.me:3000/new-topic",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "Messages",
+          "figure": "forum",
+          "url": "http://lvh.me:3000/u/alexis/messages",
+          "attrs": { "target": "_blank" }
+        }
+      ]
+    },
+    {
+      "type": "USER_MENU_FOOTER",
+      "items": [
+        {
+          "type": "LINK_FONT_ICON_INLINE",
+          "text": "Preferences",
+          "figure": "settings",
+          "url": "http://lvh.me:3000/u/alexis/preferences",
+          "attrs": { "target": "_blank" }
+        },
+        {
+          "type": "BUTTON_TRANSPARENT",
+          "text": "Logout",
+          "figure": "exit_to_app"
+        }
+      ]
+    }
+  ],
+  "socialLinks": [
+    {
+      "type": "LINK_SVG_ICON",
+      "url": "https://twitter.com/StrikeDebt",
+      "figure": "twitter",
+      "attrs": { "target": "_blank" }
+    },
+    {
+      "type": "LINK_SVG_ICON",
+      "url": "https://www.facebook.com/DebtCollective",
+      "figure": "facebook",
+      "attrs": { "target": "_blank" }
+    },
+    {
+      "type": "LINK_SVG_ICON",
+      "url": "https://www.instagram.com/thedebtcollective/",
+      "figure": "instagram",
+      "attrs": { "target": "_blank" }
+    }
+  ],
+  "guestActions": [
+    {
+      "type": "LINK_BUTTON_OUTLINE",
+      "text": "Member login",
+      "url": "http://lvh.me:3000/session/sso_cookies?return_url=http://lvh.me:3333"
+    },
+    {
+      "type": "LINK_BUTTON_PRIMARY",
+      "text": "Join the Union",
+      "url": "http://debtcollective.lvh.me:3333/debt-union"
+    }
+  ]
+}
