@@ -1,16 +1,21 @@
+@use 'base/variables' as vars;
 @use 'base/typography' as typography;
 
 dc-link {
   cursor: pointer;
 
+  a:active,
+  a:visited,
   a:any-link,
   a:-webkit-any-link {
     color: inherit;
   }
 
   > a {
+    color: inherit;
     align-items: center;
     display: flex;
+    transition: color ease 0.216s;
   }
 }
 
