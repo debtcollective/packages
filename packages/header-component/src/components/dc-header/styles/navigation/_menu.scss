@@ -127,5 +127,9 @@ dc-menu .menu-nav {
     display: flex;
     flex-direction: column;
     padding: 0 var(--column-gap);
+
+    a:hover {
+      color: vars.$color-green-dark;
+    }
   }
 }
