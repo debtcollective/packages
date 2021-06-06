@@ -34,6 +34,12 @@ dc-header .navbar {
     &.is-shrink {
       padding-top: 0.5rem;
       padding-bottom: 0.5rem;
+
+      @include mixins.media-breakpoint-up(sm) {
+        // keep padding un affected when screen > sm
+        padding-top: 0.75rem;
+        padding-bottom: 0.625rem;
+      }
     }
 
     @include mixins.media-breakpoint-up(sm) {
