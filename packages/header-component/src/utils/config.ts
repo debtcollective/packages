@@ -1,14 +1,13 @@
 import config from "../config.json";
 
-const interpolateURL = (url, { user, community, homepage }) => {
-  return (
-    url
-      .replace(/{community}/g, community)
-      .replace(/{username}/g, user.username)
-      .replace(/{homepage}/g, homepage)
-      // avoid cases where homepage is replaced by '/' this '//page'
-      .replace("//", "/")
-  );
+const interpolateURL = (
+  url,
+  { user = { username: "" }, community, homepage }
+): string => {
+  return url
+    .replace(/{community}/g, community)
+    .replace(/{username}/g, user.username)
+    .replace(/{homepage}/g, homepage);
 };
 
 const interpolateItemsURL = (_items, { user, community, homepage }) => {
@@ -78,4 +77,20 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
 export const getSocialLinks = () => {
   const { socialLinks } = config;
   return socialLinks;
+};
+
+export const getGuestActions = ({ community, homepage }) => {
+  const { guestActions } = config;
+  const data = { community, homepage };
+
+  return {
+    login: {
+      ...guestActions[0],
+      url: interpolateURL(guestActions[0].url, data),
+    },
+    join: {
+      ...guestActions[1],
+      url: interpolateURL(guestActions[1].url, data),
+    },
+  };
 };

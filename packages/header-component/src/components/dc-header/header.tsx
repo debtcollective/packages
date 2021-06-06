@@ -13,7 +13,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
-import { getLoginURL } from "../../utils/community";
+import { getGuestActions } from "../../utils/config";
 
 type User = {
   id: number;
@@ -31,7 +31,7 @@ type User = {
 export class Header {
   private _logo = "logo.png";
   private _logoSmall = "logo-small.png";
-  private _loginUrl = "";
+  private config: ReturnType<typeof getGuestActions>;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -93,8 +93,14 @@ export class Header {
   })
   userSynced: EventEmitter<User>;
 
+  componentWillRender() {
+    this.config = getGuestActions({
+      community: this.community,
+      homepage: this.homepage,
+    });
+  }
+
   componentWillLoad() {
-    this.generateURLs();
     return this.syncCurrentUser();
   }
 
@@ -135,13 +141,6 @@ export class Header {
 
   toggleProfileMenu() {
     this.isProfileMenuOpen = !this.isProfileMenuOpen;
-  }
-
-  generateURLs() {
-    this._loginUrl = getLoginURL({
-      host: this.host,
-      community: this.community,
-    });
   }
 
   render() {
@@ -185,14 +184,11 @@ export class Header {
               />
             ) : (
               <span class="d-none d-sm-flex ml-auto">
-                <a href={this._loginUrl} class="btn-outline">
-                  Member login
+                <a href={this.config.login.url} class="btn-outline">
+                  {this.config.login.text}
                 </a>
-                <a
-                  href={`${this.homepage}/debt-union`}
-                  class="btn-primary ml-1"
-                >
-                  Join the Union
+                <a href={this.config.join.url} class="btn-primary ml-1">
+                  {this.config.join.text}
                 </a>
               </span>
             )}
@@ -204,11 +200,11 @@ export class Header {
               this.isMenuOpen ? "is-moved" : ""
             } ${this.isShrink ? "is-shrink" : ""}`}
           >
-            <a href={this._loginUrl} class="btn-outline">
-              Member login
+            <a href={this.config.login.url} class="btn-outline">
+              {this.config.login.text}
             </a>
-            <a href={`${this.homepage}/debt-union`} class="btn-primary ml-1">
-              Join the Union
+            <a href={this.config.join.url} class="btn-primary ml-1">
+              {this.config.join.text}
             </a>
           </div>
         )}
