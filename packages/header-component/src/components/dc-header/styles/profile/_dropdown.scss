@@ -25,7 +25,9 @@ dc-header .profile-dropdown-container {
     margin-left: 1.125rem;
     position: absolute;
     width: 0;
-    bottom: 0;
+    // Allow to merge connector with menu with -1px bottom
+    bottom: -1px;
+    z-index: fn.z-index(profile-menu);
   }
 }
 

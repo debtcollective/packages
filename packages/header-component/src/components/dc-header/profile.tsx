@@ -69,8 +69,6 @@ export class Profile {
           ></span>
           <img
             alt="Profile picture"
-            width="48"
-            height="48"
             src={getAvatarURL(this.user, this.community)}
             aria-hidden="true"
             class={`avatar ${this.expanded ? "avatar-open" : ""} ${
