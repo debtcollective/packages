@@ -21,6 +21,19 @@ dc-header {
     }
   }
 
+  dc-profile.is-shrink .profile-toggle,
+  dc-profile.is-shrink .avatar {
+    height: 2rem;
+  }
+
+  dc-profile.is-shrink .profile-toggle {
+    width: 3.5rem;
+  }
+
+  dc-profile.is-shrink .avatar {
+    width: 2rem;
+  }
+
   .profile-toggle {
     border-radius: 50%;
     outline: none;
