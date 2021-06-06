@@ -3,12 +3,12 @@
     {
       "type": "MENU_ITEM_LINK",
       "text": "Join the Union",
-      "url": "https://debtcollective.org/debt-union"
+      "url": "{homepage}/debt-union"
     },
     {
       "type": "MENU_ITEM_LINK",
       "text": "Browse Events",
-      "url": "https://debtcollective.org/debt-union"
+      "url": "{community}/upcoming-events"
     },
     {
       "type": "MENU_ITEM_EXPANDABLE",
@@ -40,27 +40,27 @@
         {
           "type": "LINK",
           "text": "Connect with other debtors",
-          "url": "https://community.debtcollective.org/"
+          "url": "{community}/"
         },
         {
           "type": "LINK",
           "text": "Join a working group",
-          "url": "https://community.debtcollective.org/t/join-a-working-group/4957/2"
+          "url": "{community}/t/join-a-working-group/4957/2"
         },
         {
           "type": "LINK",
           "text": "Join or start a local branch",
-          "url": "https://community.debtcollective.org/c/working-groups/local-organizing/20"
+          "url": "{community}/c/working-groups/local-organizing/20"
         },
         {
           "type": "LINK",
           "text": "Join a Commitee",
-          "url": "https://community.debtcollective.org/t/debt-collective-higher-education-committee/4958"
+          "url": "{community}/t/debt-collective-higher-education-committee/4958"
         },
         {
           "type": "LINK",
           "text": "View Past Trainings",
-          "url": "https://community.debtcollective.org/t/training-educational-videos/4959"
+          "url": "{community}/t/training-educational-videos/4959"
         }
       ]
     },
@@ -71,7 +71,7 @@
         {
           "type": "LINK",
           "text": "Our Union",
-          "url": "https://debtcollective.org/about-us/"
+          "url": "{homepage}/about-us/"
         },
         {
           "type": "LINK",
@@ -82,7 +82,7 @@
         {
           "type": "LINK",
           "text": "Our Team",
-          "url": "https://debtcollective.org/our-team/"
+          "url": "{homepage}/our-team/"
         },
         {
           "type": "LINK",
@@ -93,7 +93,7 @@
         {
           "type": "LINK",
           "text": "Contact",
-          "url": "https://debtcollective.org/contact-us/"
+          "url": "{homepage}/contact-us/"
         }
       ]
     },
@@ -115,7 +115,7 @@
         {
           "type": "LINK",
           "text": "Donate",
-          "url": "https://debtcollective.org/donate/"
+          "url": "{homepage}/donate/"
         }
       ]
     }
@@ -128,13 +128,13 @@
           "type": "LINK_FONT_ICON",
           "text": "Profile",
           "figure": "face",
-          "url": "http://lvh.me:3000/u/alexis"
+          "url": "{community}/u/{username}"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "Membership",
           "figure": "account_circle",
-          "url": "https://debtcollective.org/hub"
+          "url": "{homepage}/hub"
         },
         {
           "type": "LINK_FONT_ICON",
@@ -149,27 +149,21 @@
       "items": [
         {
           "type": "LINK_FONT_ICON",
-          "text": "Notifications",
-          "figure": "notifications",
-          "url": "http://lvh.me:3000/u/alexis/notifications"
-        },
-        {
-          "type": "LINK_FONT_ICON",
           "text": "Events",
           "figure": "event",
-          "url": "http://lvh.me:3000/upcoming-events"
+          "url": "{community}/upcoming-events"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "New Topic",
           "figure": "edit",
-          "url": "http://lvh.me:3000/new-topic"
+          "url": "{community}/new-topic"
         },
         {
           "type": "LINK_FONT_ICON",
           "text": "Messages",
           "figure": "forum",
-          "url": "http://lvh.me:3000/u/alexis/messages"
+          "url": "{community}/u/{username}/messages"
         }
       ]
     },
@@ -180,12 +174,7 @@
           "type": "LINK_FONT_ICON_INLINE",
           "text": "Preferences",
           "figure": "settings",
-          "url": "http://lvh.me:3000/u/alexis/preferences"
-        },
-        {
-          "type": "BUTTON_TRANSPARENT",
-          "text": "Logout",
-          "figure": "exit_to_app"
+          "url": "{community}/u/{username}/preferences"
         }
       ]
     }
@@ -214,12 +203,12 @@
     {
       "type": "LINK_BUTTON_OUTLINE",
       "text": "Member login",
-      "url": "http://lvh.me:3000/session/sso_cookies?return_url=http://lvh.me:3333"
+      "url": "{community}/session/sso_cookies?return_url={homepage}"
     },
     {
       "type": "LINK_BUTTON_PRIMARY",
       "text": "Join the Union",
-      "url": "http://debtcollective.lvh.me:3333/debt-union"
+      "url": "{homepage}/debt-union"
     }
   ]
 }

@@ -71,12 +71,6 @@ export class Header {
   @Prop() homepage: string = "https://debtcollective.org";
 
   /**
-   * URL to the homepage
-   * without the latest "/"
-   */
-  @Prop() union: string = "https://debtcollective.org/debt-union";
-
-  /**
    * URL to the community
    * without the latest "/"
    */
@@ -185,6 +179,7 @@ export class Header {
             {this.user ? (
               <dc-profile
                 user={this.user}
+                homepage={this.homepage}
                 community={this.community}
                 expanded={this.isProfileMenuOpen}
               />
@@ -193,7 +188,10 @@ export class Header {
                 <a href={this._loginUrl} class="btn-outline">
                   Member login
                 </a>
-                <a href={this.union} class="btn-primary ml-1">
+                <a
+                  href={`${this.homepage}/debt-union`}
+                  class="btn-primary ml-1"
+                >
                   Join the Union
                 </a>
               </span>
@@ -209,12 +207,17 @@ export class Header {
             <a href={this._loginUrl} class="btn-outline">
               Member login
             </a>
-            <a href={this.union} class="btn-primary ml-1">
+            <a href={`${this.homepage}/debt-union`} class="btn-primary ml-1">
               Join the Union
             </a>
           </div>
         )}
-        <dc-menu open={this.isMenuOpen} />
+        <dc-menu
+          open={this.isMenuOpen}
+          user={this.user}
+          homepage={this.homepage}
+          community={this.community}
+        />
         <div
           class={`document-cloak ${
             this.isMenuOpen || this.isProfileMenuOpen ? "d-block" : "hidden"
