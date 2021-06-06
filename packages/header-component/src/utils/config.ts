@@ -74,3 +74,8 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
     rootLinks,
   };
 };
+
+export const getSocialLinks = () => {
+  const { socialLinks } = config;
+  return socialLinks;
+};

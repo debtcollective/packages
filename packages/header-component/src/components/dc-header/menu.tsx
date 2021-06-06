@@ -1,6 +1,6 @@
 import "./link";
 import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
-import { getSiteMenuConfig } from "../../utils/config";
+import { getSiteMenuConfig, getSocialLinks } from "../../utils/config";
 
 @Component({
   assetsDirs: ["assets"],
@@ -9,6 +9,7 @@ import { getSiteMenuConfig } from "../../utils/config";
 })
 export class Menu {
   private config: ReturnType<typeof getSiteMenuConfig>;
+  private socialLinks: ReturnType<typeof getSocialLinks>;
 
   @Prop() open: boolean;
   @Prop() community: string;
@@ -30,6 +31,7 @@ export class Menu {
   @Event() toggleMenu: EventEmitter<void>;
 
   componentWillRender() {
+    this.socialLinks = getSocialLinks();
     this.config = getSiteMenuConfig({
       community: this.community,
       user: this.user,
@@ -94,7 +96,7 @@ export class Menu {
             ))}
           </nav>
           <div class="menu-section menu-footer mt-auto">
-            <dc-link class="icon" to="https://twitter.com/StrikeDebt">
+            <dc-link class="icon" to={this.socialLinks.twitter}>
               <span class="d-none">Go to Debtcollective's Twitter page</span>
               <svg
                 aria-hidden="true"
@@ -110,7 +112,7 @@ export class Menu {
                 />
               </svg>
             </dc-link>
-            <dc-link class="icon" to="https://www.facebook.com/DebtCollective">
+            <dc-link class="icon" to={this.socialLinks.facebook}>
               <span class="d-none">Go to Debtcollective's Facebook page</span>
               <svg
                 aria-hidden="true"
@@ -128,10 +130,7 @@ export class Menu {
                 />
               </svg>
             </dc-link>
-            <dc-link
-              class="icon"
-              to="https://www.instagram.com/thedebtcollective/"
-            >
+            <dc-link class="icon" to={this.socialLinks.instagram}>
               <span class="d-none">
                 Go to Debtcollective's Instagram profile
               </span>

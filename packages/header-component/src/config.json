@@ -179,26 +179,11 @@
       ]
     }
   ],
-  "socialLinks": [
-    {
-      "type": "LINK_SVG_ICON",
-      "url": "https://twitter.com/StrikeDebt",
-      "figure": "twitter",
-      "attrs": { "target": "_blank" }
-    },
-    {
-      "type": "LINK_SVG_ICON",
-      "url": "https://www.facebook.com/DebtCollective",
-      "figure": "facebook",
-      "attrs": { "target": "_blank" }
-    },
-    {
-      "type": "LINK_SVG_ICON",
-      "url": "https://www.instagram.com/thedebtcollective/",
-      "figure": "instagram",
-      "attrs": { "target": "_blank" }
-    }
-  ],
+  "socialLinks": {
+    "twitter": "https://twitter.com/StrikeDebt",
+    "facebook": "https://www.facebook.com/DebtCollective",
+    "instagram": "https://www.instagram.com/thedebtcollective/"
+  },
   "guestActions": [
     {
       "type": "LINK_BUTTON_OUTLINE",
