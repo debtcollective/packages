@@ -151,13 +151,15 @@ export class Header {
             this.isMenuOpen ? "is-moved" : ""
           } ${this.isShrink ? "is-shrink" : ""}`}
         >
-          <div class="logo-container navbar-item">
+          <div class="l-header-item btn-container navbar-item">
             <button
               class="btn-transparent"
               onClick={this.toggleMenuHandler.bind(this)}
             >
               <span class="material-icons">menu</span>
             </button>
+          </div>
+          <div class="l-header-item logo-container navbar-item">
             <a
               class={`logo ${this.isShrink ? "logo-shrink" : ""}`}
               href={this.homepage}
@@ -174,7 +176,7 @@ export class Header {
               />
             </a>
           </div>
-          <div class="session-container navbar-item">
+          <div class="l-header-item session-container navbar-item">
             {this.user ? (
               <dc-profile
                 class={this.isShrink ? `is-shrink` : ""}

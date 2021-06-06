@@ -14,6 +14,7 @@ dc-header {
     top: 50%;
     left: 0;
     transform: translate3d(0, -50%, 0);
+    transition: all ease 0.216s;
 
     &.avatar-open {
       border: 0.25rem solid vars.$color-yellow;

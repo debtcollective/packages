@@ -1,18 +1,30 @@
 @use '../base/mixins' as mixins;
 
 dc-header header.l-header {
-  .logo-container {
-    flex: 3;
-  }
-  .session-container {
-    justify-content: flex-end;
-    flex: 2;
+  .l-header-item {
+    display: flex;
+    // Allow to make the side items equal width to center logo
+    width: 4.5rem;
+
+    &:first-child {
+      justify-content: flex-start;
+    }
+
+    &:last-child {
+      justify-content: flex-end;
+    }
+
+    @include mixins.media-breakpoint-up(sm) {
+      width: auto;
+    }
   }
 
-  @include mixins.media-breakpoint-up(sm) {
-    .logo-container,
-    .session-container {
-      flex: 1;
+  .logo-container {
+    justify-content: center;
+
+    @include mixins.media-breakpoint-up(sm) {
+      justify-content: flex-start;
+      margin-right: auto;
     }
   }
 }
