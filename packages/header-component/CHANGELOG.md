@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.2...@debtcollective/dc-header-component@3.1.3) (2021-06-07)
+
+
+### Bug Fixes
+
+* **header:** remove unused code ([eca37f4](https://github.com/debtcollective/packages/commit/eca37f4))
+
+
+
+
+
 ## [3.1.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.1...@debtcollective/dc-header-component@3.1.2) (2021-06-07)
 
 
