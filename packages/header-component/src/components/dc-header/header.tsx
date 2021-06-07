@@ -13,7 +13,7 @@ import {
   EventEmitter,
 } from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
-import { getLoginURL } from "../../utils/community";
+import { getGuestActions } from "../../utils/config";
 
 type User = {
   id: number;
@@ -31,7 +31,7 @@ type User = {
 export class Header {
   private _logo = "logo.png";
   private _logoSmall = "logo-small.png";
-  private _loginUrl = "";
+  private config: ReturnType<typeof getGuestActions>;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -71,12 +71,6 @@ export class Header {
   @Prop() homepage: string = "https://debtcollective.org";
 
   /**
-   * URL to the homepage
-   * without the latest "/"
-   */
-  @Prop() union: string = "https://debtcollective.org/debt-union";
-
-  /**
    * URL to the community
    * without the latest "/"
    */
@@ -99,8 +93,14 @@ export class Header {
   })
   userSynced: EventEmitter<User>;
 
+  componentWillRender() {
+    this.config = getGuestActions({
+      community: this.community,
+      homepage: this.homepage,
+    });
+  }
+
   componentWillLoad() {
-    this.generateURLs();
     return this.syncCurrentUser();
   }
 
@@ -143,13 +143,6 @@ export class Header {
     this.isProfileMenuOpen = !this.isProfileMenuOpen;
   }
 
-  generateURLs() {
-    this._loginUrl = getLoginURL({
-      host: this.host,
-      community: this.community,
-    });
-  }
-
   render() {
     return (
       <Host>
@@ -158,13 +151,15 @@ export class Header {
             this.isMenuOpen ? "is-moved" : ""
           } ${this.isShrink ? "is-shrink" : ""}`}
         >
-          <div class="logo-container navbar-item">
+          <div class="l-header-item btn-container navbar-item">
             <button
               class="btn-transparent"
               onClick={this.toggleMenuHandler.bind(this)}
             >
               <span class="material-icons">menu</span>
             </button>
+          </div>
+          <div class="l-header-item logo-container navbar-item">
             <a
               class={`logo ${this.isShrink ? "logo-shrink" : ""}`}
               href={this.homepage}
@@ -181,20 +176,22 @@ export class Header {
               />
             </a>
           </div>
-          <div class="session-container navbar-item">
+          <div class="l-header-item session-container navbar-item">
             {this.user ? (
               <dc-profile
+                class={this.isShrink ? `is-shrink` : ""}
                 user={this.user}
+                homepage={this.homepage}
                 community={this.community}
                 expanded={this.isProfileMenuOpen}
               />
             ) : (
               <span class="d-none d-sm-flex ml-auto">
-                <a href={this._loginUrl} class="btn-outline">
-                  Member login
+                <a href={this.config.login.url} class="btn-outline">
+                  {this.config.login.text}
                 </a>
-                <a href={this.union} class="btn-primary ml-1">
-                  Join the Union
+                <a href={this.config.join.url} class="btn-primary ml-1">
+                  {this.config.join.text}
                 </a>
               </span>
             )}
@@ -206,15 +203,20 @@ export class Header {
               this.isMenuOpen ? "is-moved" : ""
             } ${this.isShrink ? "is-shrink" : ""}`}
           >
-            <a href={this._loginUrl} class="btn-outline">
-              Member login
+            <a href={this.config.login.url} class="btn-outline">
+              {this.config.login.text}
             </a>
-            <a href={this.union} class="btn-primary ml-1">
-              Join the Union
+            <a href={this.config.join.url} class="btn-primary ml-1">
+              {this.config.join.text}
             </a>
           </div>
         )}
-        <dc-menu open={this.isMenuOpen} />
+        <dc-menu
+          open={this.isMenuOpen}
+          user={this.user}
+          homepage={this.homepage}
+          community={this.community}
+        />
         <div
           class={`document-cloak ${
             this.isMenuOpen || this.isProfileMenuOpen ? "d-block" : "hidden"

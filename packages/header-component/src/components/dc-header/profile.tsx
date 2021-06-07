@@ -1,7 +1,8 @@
-import "./link";
 import { Component, h, Prop, Listen, EventEmitter, Event } from "@stencil/core";
+import "./link";
 import { getAvatarURL, preffixCommunityURL } from "../../utils/community";
 import { logout } from "../../services/session";
+import { getUserMenuConfig } from "../../utils/config";
 
 @Component({
   assetsDirs: ["assets"],
@@ -10,9 +11,11 @@ import { logout } from "../../services/session";
 })
 export class Profile {
   private _hasNotifications = false;
+  private config: ReturnType<typeof getUserMenuConfig>;
 
   @Prop() expanded: boolean = false;
   @Prop() community: string;
+  @Prop() homepage: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -30,6 +33,11 @@ export class Profile {
   @Event() toggleProfileMenu: EventEmitter<void>;
 
   componentWillRender() {
+    this.config = getUserMenuConfig({
+      community: this.community,
+      user: this.user,
+      homepage: this.homepage,
+    });
     this._hasNotifications =
       this.user.unread_high_priority_notifications > 0 ||
       this.user.unread_notifications > 0;
@@ -69,8 +77,6 @@ export class Profile {
           ></span>
           <img
             alt="Profile picture"
-            width="48"
-            height="48"
             src={getAvatarURL(this.user, this.community)}
             aria-hidden="true"
             class={`avatar ${this.expanded ? "avatar-open" : ""} ${
@@ -89,49 +95,18 @@ export class Profile {
           <div class="profile-dropdown-section">
             <p class="text-underlined m-0">{this.user.username}</p>
             <div class="section-links">
-              <dc-link
-                class="link-text-icon"
-                namespace="profile"
-                to={preffixCommunityURL(
-                  this.community,
-                  `u/${this.user.username}`
-                )}
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  face
-                </span>
-                Profile
-              </dc-link>
-              <dc-link
-                class="link-text-icon"
-                namespace="profile"
-                to={`https://debtcollective.org/hub`}
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  account_circle
-                </span>
-                Membership
-              </dc-link>
-              <dc-link
-                class="link-text-icon"
-                namespace="profile"
-                to={`https://tools.debtcollective.org/disputes/my`}
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  money_off
-                </span>
-                My Disputes
-              </dc-link>
-              <dc-link
-                class="link-text-icon link-upcoming"
-                namespace="profile"
-                to="#"
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  savings
-                </span>
-                My Debt
-              </dc-link>
+              {this.config.profile.items.map((item) => (
+                <dc-link
+                  class="link-text-icon"
+                  namespace="profile"
+                  to={item.url}
+                >
+                  <span aria-hidden="true" class="material-icons mb-1">
+                    {item.figure}
+                  </span>
+                  {item.text}
+                </dc-link>
+              ))}
             </div>
           </div>
 
@@ -158,53 +133,28 @@ export class Profile {
                 </span>
                 Notifications
               </dc-link>
-              <dc-link
-                class="link-text-icon"
-                namespace="profile"
-                to={preffixCommunityURL(this.community, `upcoming-events`)}
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  event
-                </span>
-                Events
-              </dc-link>
-              <dc-link
-                class="link-text-icon"
-                namespace="profile"
-                to={preffixCommunityURL(this.community, `new-topic`)}
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  edit
-                </span>
-                New Topic
-              </dc-link>
-              <dc-link
-                class="link-text-icon"
-                namespace="profile"
-                to={preffixCommunityURL(
-                  this.community,
-                  `u/${this.user.username}/messages`
-                )}
-              >
-                <span aria-hidden="true" class="material-icons mb-1">
-                  forum
-                </span>
-                Messages
-              </dc-link>
+              {this.config.community.items.map((item) => (
+                <dc-link
+                  class="link-text-icon"
+                  namespace="profile"
+                  to={item.url}
+                >
+                  <span aria-hidden="true" class="material-icons mb-1">
+                    {item.figure}
+                  </span>
+                  {item.text}
+                </dc-link>
+              ))}
             </div>
           </div>
 
           <div class="profile-dropdown-footer">
-            <dc-link
-              class="btn btn-transparent text-sm"
-              to={preffixCommunityURL(
-                this.community,
-                `u/${this.user.username}/preferences`
-              )}
-            >
-              <span class="material-icons mr-1">settings</span>
-              Preferences
-            </dc-link>
+            {this.config.footer.items.map((item) => (
+              <dc-link class="btn btn-transparent text-sm" to={item.url}>
+                <span class="material-icons mr-1">{item.figure}</span>
+                {item.text}
+              </dc-link>
+            ))}
             <button
               class="btn btn-transparent text-sm"
               onClick={this.handleLogout.bind(this)}

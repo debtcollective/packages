@@ -104,7 +104,7 @@ dc-menu .menu-nav {
     box-sizing: border-box;
     border-left: $menu-nav-item-border-width solid transparent;
     color: vars.$color-text;
-    padding: 0 vars.$column-gap;
+    padding: 0 calc(#{vars.$column-gap} - #{$menu-nav-item-border-width});
     width: 100%;
 
     &:hover {

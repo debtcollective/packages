@@ -12,3 +12,15 @@
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
+
+@mixin media-breakpoint-down($breakpoint) {
+  @if map-has-key(vars.$breakpoints, $breakpoint) {
+    $breakpoint-value: map-get(vars.$breakpoints, $breakpoint);
+
+    @media (max-width: $breakpoint-value) {
+      @content;
+    }
+  } @else {
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
