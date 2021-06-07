@@ -23,10 +23,6 @@ export namespace Components {
           * URL to the component host without the latest "/"
          */
         "host": string;
-        /**
-          * URL to the homepage without the latest "/"
-         */
-        "union": string;
     }
     interface DcLink {
         "namespace": string;
@@ -34,11 +30,25 @@ export namespace Components {
         "to": string;
     }
     interface DcMenu {
+        "community": string;
+        "homepage": string;
         "open": boolean;
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user": {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
     }
     interface DcProfile {
         "community": string;
         "expanded": boolean;
+        "homepage": string;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
@@ -106,10 +116,6 @@ declare namespace LocalJSX {
           * Emit event to exposed fetched user on host application
          */
         "onUserSynced"?: (event: CustomEvent<User>) => void;
-        /**
-          * URL to the homepage without the latest "/"
-         */
-        "union"?: string;
     }
     interface DcLink {
         "namespace"?: string;
@@ -122,12 +128,26 @@ declare namespace LocalJSX {
         "to"?: string;
     }
     interface DcMenu {
+        "community"?: string;
+        "homepage"?: string;
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
         "open"?: boolean;
+        /**
+          * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+         */
+        "user"?: {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
     }
     interface DcProfile {
         "community"?: string;
         "expanded"?: boolean;
+        "homepage"?: string;
         "onToggleProfileMenu"?: (event: CustomEvent<void>) => void;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get

@@ -1,5 +1,6 @@
 import "./link";
 import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
+import { getSiteMenuConfig, getSocialLinks } from "../../utils/config";
 
 @Component({
   assetsDirs: ["assets"],
@@ -7,9 +8,36 @@ import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
   styleUrl: "menu.scss",
 })
 export class Menu {
+  private config: ReturnType<typeof getSiteMenuConfig>;
+  private socialLinks: ReturnType<typeof getSocialLinks>;
+
   @Prop() open: boolean;
+  @Prop() community: string;
+  @Prop() homepage: string;
+
+  /**
+   * An object with the user data. Follows Discourse structure as
+   * https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
+   */
+  @Prop() user: {
+    id: number;
+    admin: boolean;
+    avatar_template: string;
+    username: string;
+    unread_notifications: number;
+    unread_high_priority_notifications: number;
+  };
 
   @Event() toggleMenu: EventEmitter<void>;
+
+  componentWillRender() {
+    this.socialLinks = getSocialLinks();
+    this.config = getSiteMenuConfig({
+      community: this.community,
+      user: this.user,
+      homepage: this.homepage,
+    });
+  }
 
   @Listen("keydown", { target: "document" })
   handleEscapeKey(event) {
@@ -34,179 +62,41 @@ export class Menu {
             </button>
           </div>
           <nav class="menu-section menu-nav">
-            <dc-link
-              class="menu-nav-item text-lg"
-              namespace="menu"
-              to="https://debtcollective.org/debt-union"
-            >
-              Join the Union
-            </dc-link>
-            <dc-link
-              class="menu-nav-item text-lg"
-              namespace="menu"
-              to="https://community.debtcollective.org/upcoming-events"
-            >
-              Browse Events
-            </dc-link>
-            <details class="menu-nav-item-collapsable">
-              <summary class="text-lg">
-                Cancel Student Debt
-                <div class="material-icons icon icon-more">
-                  expand_more
-                </div>{" "}
-                <div class="material-icons icon icon-less">expand_less</div>
-              </summary>
-              <div class="menu-nav-item-nested">
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  target="_blank"
-                  to="https://actionnetwork.org/petitions/bidenjubilee100"
-                >
-                  Sign the petition
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  target="_blank"
-                  to="https://actionnetwork.org/letters/cancel-all-student-debt-today"
-                >
-                  Email your reps
-                </dc-link>
-              </div>
-            </details>
-            <details class="menu-nav-item-collapsable">
-              <summary class="text-lg">
-                For Members
-                <div class="material-icons icon icon-more">
-                  expand_more
-                </div>{" "}
-                <div class="material-icons icon icon-less">expand_less</div>
-              </summary>
-              <div class="menu-nav-item-nested">
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://tools.debtcollective.org/"
-                >
-                  Dispute your Debt
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://community.debtcollective.org/"
-                >
-                  Connect with other debtors
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://community.debtcollective.org/t/join-a-working-group/4957/2"
-                >
-                  Join a working group
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://community.debtcollective.org/c/working-groups/local-organizing/20"
-                >
-                  Join or start a local branch
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://community.debtcollective.org/t/debt-collective-higher-education-committee/4958"
-                >
-                  Join a Committee
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://community.debtcollective.org/t/training-educational-videos/4959"
-                >
-                  View Past Trainings
-                </dc-link>
-              </div>
-            </details>
-            <details class="menu-nav-item-collapsable">
-              <summary class="text-lg">
-                About{" "}
-                <div class="material-icons icon icon-more">expand_more</div>{" "}
-                <div class="material-icons icon icon-less">expand_less</div>
-              </summary>
-              <div class="menu-nav-item-nested">
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://debtcollective.org/about-us/"
-                >
-                  Our Union
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  target="_blank"
-                  to="https://www.youtube.com/playlist?list=PLnQCwElJCNf9NHOqHicDrb03RX04nNl-h"
-                >
-                  Learn about debt
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://debtcollective.org/our-team/"
-                >
-                  Our Team
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  target="_blank"
-                  to="https://www.haymarketbooks.org/books/1520-can-t-pay-won-t-pay"
-                >
-                  Our Book
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://debtcollective.org/contact-us/"
-                >
-                  Contact
-                </dc-link>
-              </div>
-            </details>
-            <details class="menu-nav-item-collapsable">
-              <summary class="text-lg">
-                Support Us{" "}
-                <div class="material-icons icon icon-more">expand_more</div>{" "}
-                <div class="material-icons icon icon-less">expand_less</div>
-              </summary>
-              <div class="menu-nav-item-nested">
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://volunteer.debtcollective.org/"
-                >
-                  Volunteer
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://debt-collective.creator-spring.com/"
-                >
-                  Shop
-                </dc-link>
-                <dc-link
-                  class="text"
-                  namespace="menu"
-                  to="https://debtcollective.org/donate/"
-                >
-                  Donate
-                </dc-link>
-              </div>
-            </details>
+            {this.config.rootLinks.map((link) => (
+              <dc-link
+                class="menu-nav-item text-lg"
+                namespace="menu"
+                to={link.url}
+              >
+                {link.text}
+              </dc-link>
+            ))}
+            {this.config.expandables.map((item) => (
+              <details class="menu-nav-item-collapsable">
+                <summary class="text-lg">
+                  {item.text}
+                  <div class="material-icons icon icon-more">
+                    expand_more
+                  </div>{" "}
+                  <div class="material-icons icon icon-less">expand_less</div>
+                </summary>
+                <div class="menu-nav-item-nested">
+                  {item.items.map((link) => (
+                    <dc-link
+                      class="text"
+                      namespace="menu"
+                      to={link.url}
+                      {...link.attrs}
+                    >
+                      {link.text}
+                    </dc-link>
+                  ))}
+                </div>
+              </details>
+            ))}
           </nav>
           <div class="menu-section menu-footer mt-auto">
-            <dc-link class="icon" to="https://twitter.com/StrikeDebt">
+            <dc-link class="icon" to={this.socialLinks.twitter}>
               <span class="d-none">Go to Debtcollective's Twitter page</span>
               <svg
                 aria-hidden="true"
@@ -222,7 +112,7 @@ export class Menu {
                 />
               </svg>
             </dc-link>
-            <dc-link class="icon" to="https://www.facebook.com/DebtCollective">
+            <dc-link class="icon" to={this.socialLinks.facebook}>
               <span class="d-none">Go to Debtcollective's Facebook page</span>
               <svg
                 aria-hidden="true"
@@ -240,10 +130,7 @@ export class Menu {
                 />
               </svg>
             </dc-link>
-            <dc-link
-              class="icon"
-              to="https://www.instagram.com/thedebtcollective/"
-            >
+            <dc-link class="icon" to={this.socialLinks.instagram}>
               <span class="d-none">
                 Go to Debtcollective's Instagram profile
               </span>
