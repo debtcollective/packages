@@ -101,7 +101,8 @@ export class Header {
   }
 
   componentWillLoad() {
-    return this.syncCurrentUser();
+    // A return promise here will force to wait before first render
+    this.syncCurrentUser();
   }
 
   @Listen("scroll", { target: "window" })
