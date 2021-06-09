@@ -26,12 +26,12 @@
     "test:watch": "stencil test --spec --e2e --watchAll"
   },
   "devDependencies": {
-    "@stencil/core": "^2.5.2",
+    "@stencil/core": "^2.6.0",
     "@stencil/postcss": "^2.0.0",
-    "@types/jest": "25.2.3",
-    "@types/node": "13.13.36",
-    "@types/puppeteer": "5.4.3",
-    "puppeteer": "2.1.1"
+    "@types/jest": "^26.0.23",
+    "@types/node": "^15.12.1",
+    "@types/puppeteer": "^5.4.3",
+    "puppeteer": "^10.0.0"
   },
   "@comments": {
     "scripts": {

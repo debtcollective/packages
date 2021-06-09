@@ -50,7 +50,7 @@ export class Menu {
 
   render() {
     return (
-      <div class="menu-container">
+      <div class="menu-container" hidden={!this.open}>
         <div class={`menu ${this.open ? "is-open" : ""}`}>
           <div class="menu-section menu-header">
             <button
@@ -61,28 +61,42 @@ export class Menu {
               close
             </button>
           </div>
-          <nav class="menu-section menu-nav">
+          <menu class="menu-section menu-nav">
             {this.config.rootLinks.map((link) => (
               <dc-link
                 class="menu-nav-item text-lg"
                 namespace="menu"
+                role="menuitem"
                 to={link.url}
               >
                 {link.text}
               </dc-link>
             ))}
-            {this.config.expandables.map((item) => (
-              <details class="menu-nav-item-collapsable">
-                <summary class="text-lg">
+            {this.config.expandables.map((item, key) => (
+              <details
+                class="menu-nav-item-collapsable"
+                role="menuitem"
+                aria-labelledby={`expandable-menuitem-${key}`}
+              >
+                <summary class="text-lg" id={`expandable-menuitem-${key}`}>
                   {item.text}
-                  <div class="material-icons icon icon-more">
+                  <div
+                    class="material-icons icon icon-more"
+                    role="presentation"
+                  >
                     expand_more
                   </div>{" "}
-                  <div class="material-icons icon icon-less">expand_less</div>
+                  <div
+                    class="material-icons icon icon-less"
+                    role="presentation"
+                  >
+                    expand_less
+                  </div>
                 </summary>
-                <div class="menu-nav-item-nested">
+                <div class="menu-nav-item-nested" role="menu">
                   {item.items.map((link) => (
                     <dc-link
+                      role="menuitem"
                       class="text"
                       namespace="menu"
                       to={link.url}
@@ -94,7 +108,7 @@ export class Menu {
                 </div>
               </details>
             ))}
-          </nav>
+          </menu>
           <div class="menu-section menu-footer mt-auto">
             <dc-link class="icon" to={this.socialLinks.twitter}>
               <span class="d-none">Go to Debtcollective's Twitter page</span>

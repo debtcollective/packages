@@ -14,19 +14,12 @@ Stencil components are just Web Components, so they work in any major framework 
 
 ## Getting Started
 
-Currently, due to an issue with lerna and the local dependencies, in order to run this component locally you will need to do the following:
-
-```bash
-yarn remove @debtcollective/dc-dropdown-component
-yarn add @debtcollective/dc-dropdown-component
-```
-
 ```bash
 yarn install
 yarn start
 ```
 
-> In order to have a sense over the community session, you need to have the application running and make sure `community` prop variable match the application, like `http://lvh.me:3000`. Ultimately, you will need to allow CORS on the community app in that sense: Admin > Settings > CORS > add `http://lvh.me:3333` which suppose to be your `host` prop. Check example below.
+> In order to have a sense over the community session, you need to have the application running and make sure `community` prop variable match the application, like `http://lvh.me:3000`. Ultimately, you will need to allow CORS on the community app in that sense: Admin > Settings > CORS > add `http://lvh.me:3333` which suppose to be your `host` prop
 
 To build the component for production, run:
 
@@ -42,6 +35,12 @@ yarn test
 
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
 
+## For Firefox users
+
+Unlike Chrome, Firefox doesn't provide out of the box support to use `lvh.me` to map localhost. Therefore, you need to make sure to fix your browser in order for this to work properly: [check this](https://stackoverflow.com/a/56049681/1422380) and add `lvh.me` as supported `network.dns.localDomains`
+
+In order to being able to navigate using tabs throughtout the links there is also a known issue [check out this](https://stackoverflow.com/questions/11704828/how-to-allow-keyboard-focus-of-links-in-firefox/11713537#comment114177405_11713537)
+
 ## Naming Components
 
 When creating new component tags, we recommend _not_ using `stencil` in the component name (ex: `<stencil-datepicker>`). This is because the generated component has little to nothing to do with Stencil; it's just a web component!
@@ -50,44 +49,17 @@ Instead, use a prefix that fits your company or any name for a group of related 
 
 ## Using this component
 
-You can render the default styles with links you pass as props like:
-
 ```html
-<dc-header host="http://lvh.me:3333" community="http://lvh.me:3000" links='[{"href":"http://debtcollective.org/","text":"About us"}, {"href":"https://community.debtcollective.org/","text":"Community"}, {"href":"https://teespring.com/stores/debt-collective","text":"Store"}]'></dc-header>
-```
-
-Alternatively, you can choose to inject your own structure by doing something like:
-
-```html
-<dc-header host="http://lvh.me:3333" community="http://lvh.me:3000">
-  <div slot="header">
-    <div class="nav-item d-md-flex">
-      <a class="nav-link" href='http://debtcollective.org/'>
-        About us
-      </a>
-    </div>
-  </div>
-  <div slot="menu">
-    <div class="nav-item">
-      <a class="nav-link" href='http://debtcollective.org/'>
-        About us (Just menu)
-      </a>
-    </div>
-  </div>
-</dc-header>
+<dc-header
+  id="dc-header"
+  homepage="http://lvh.me:3333"
+  union="/debt-union"
+  host="http://lvh.me:3333"
+  community="http://lvh.me:3000"
+></dc-header>
 ```
 
 > NOTE: be aware of not adding the latest "/" on the url props such as host and community
-
-if you need to use router link within the donate button you should set `donateurl` to falsy value so the custom donate button will render alone
-
-```jsx
-<dc-header donateurl="">
-  <div slot="donate">
-    <Link class="btn-donate">Donate</Link>
-  </div>
-</dc-header>
-```
 
 ### Script tag
 
@@ -97,12 +69,12 @@ if you need to use router link within the donate button you should set `donateur
 
 ### Node Modules
 
-- Run `npm install dc-dropdown --save`
-- Put a script tag similar to this `<script src='node_modules/dc-dropdown/dist/dropdown.js'></script>` in the head of your index.html
+- Run `npm install @debtcollective/dc-header-component --save`
+- Put a script tag similar to this `<script src='node_modules/dc-header-component/dist/dropdown.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
 
-- Run `npm install dc-dropdown --save`
-- Add an import to the npm packages `import dc-dropdown;`
+- Run `npm install @debtcollective/dc-header-component --save`
+- Add an import to the npm packages `import dc-header-component;`
 - Then you can use the element anywhere in your template, JSX, html etc
