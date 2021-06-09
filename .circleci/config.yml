@@ -57,7 +57,7 @@ jobs:
           command: "yarn build"
       - run:
           name: publish packages
-          command: "yarn lerna publish --yes"
+          command: "yarn lerna publish from-package --yes --loglevel=verbose"
 
 workflows:
   version: 2
