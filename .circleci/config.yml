@@ -56,6 +56,9 @@ jobs:
           name: build packages
           command: "yarn build"
       - run:
+          name: verify npm user
+          command: "npm whoami"
+      - run:
           name: publish packages
           command: "yarn lerna publish from-package --yes --loglevel=verbose"
 
