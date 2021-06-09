@@ -223,6 +223,7 @@ export class Header {
             this.isMenuOpen || this.isProfileMenuOpen ? "d-block" : "hidden"
           }`}
           onClick={this.closeAll.bind(this)}
+          hidden={!this.isMenuOpen}
         />
       </Host>
     );
