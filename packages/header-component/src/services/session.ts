@@ -31,7 +31,7 @@ const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
   if (!response.ok) {
     return;
   }
-  
+
   const json = await response.json();
   const { current_user: currentUser } = json;
 
@@ -45,13 +45,13 @@ export const syncCurrentUser = async (discourseEndpoint) => {
     const csrfToken = await getCSRFToken(discourseEndpoint);
     currentUser = await getCurrentUser(discourseEndpoint, { csrfToken });
   } catch (error) {
-    console.error(error);
+    console.warn("Unable to get user session", error);
   }
 
   return currentUser;
 };
 
-export const logout = async(discourseEndpoint, username) => {
+export const logout = async (discourseEndpoint, username) => {
   const url = `${discourseEndpoint}/session/${username}`;
   const csrfToken = await getCSRFToken(discourseEndpoint);
 
@@ -65,6 +65,6 @@ export const logout = async(discourseEndpoint, username) => {
       },
     });
   } catch (error) {
-    console.error(error);
+    console.error("Unable to logout successfully", error);
   }
-}
+};

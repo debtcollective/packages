@@ -10,6 +10,9 @@ dc-header {
     box-sizing: content-box;
     height: $avatar-diameter;
     position: absolute;
+    // Avoid alt text to flash when the piucture is being loaded
+    color: transparent;
+    text-indent: -9999px;
     width: $avatar-diameter;
     // Allow to anchor the image to the center of the relative container
     top: 50%;
