@@ -60,7 +60,7 @@ jobs:
           command: "npm whoami"
       - run:
           name: publish packages
-          command: "yarn lerna publish from-package --yes --loglevel=verbose"
+          command: "yarn lerna publish from-package --no-verify-access --yes --loglevel=verbose"
 
 workflows:
   version: 2
