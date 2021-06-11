@@ -18,36 +18,34 @@
   }
 }
 
-dc-header {
-  .btn-transparent {
-    @extend %btn;
-    background: none;
-    border: none;
-    display: flex;
-    font-size: var(--font-size);
-    padding: 0;
+.btn-transparent {
+  @extend %btn;
+  background: none;
+  border: none;
+  display: flex;
+  font-size: var(--font-size);
+  padding: 0;
+}
+
+.btn-outline {
+  @extend %btn;
+  background: transparent;
+  border: 0.0625rem solid var(--text-color);
+  color: var(--text-color);
+
+  &:hover {
+    background: var(--outline-button-hover-color);
   }
+}
 
-  .btn-outline {
-    @extend %btn;
-    background: transparent;
-    border: 0.0625rem solid var(--text-color);
-    color: var(--text-color);
+.btn-primary {
+  @extend %btn;
+  background: var(--button-color);
+  border: 0.0625rem solid var(--button-color);
+  color: vars.$color-white;
 
-    &:hover {
-      background: var(--outline-button-hover-color);
-    }
-  }
-
-  .btn-primary {
-    @extend %btn;
-    background: var(--button-color);
-    border: 0.0625rem solid var(--button-color);
-    color: #fff;
-
-    &:hover {
-      border: 0.0625rem solid var(--button-hover-color);
-      background: var(--button-hover-color);
-    }
+  &:hover {
+    border: 0.0625rem solid var(--button-hover-color);
+    background: var(--button-hover-color);
   }
 }

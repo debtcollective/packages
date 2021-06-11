@@ -1,7 +1,7 @@
 @use '../base/variables' as vars;
 @use '../base/mixins' as mixins;
 
-dc-header {
+:host {
   $avatar-diameter: 3rem;
 
   .avatar {
@@ -26,16 +26,16 @@ dc-header {
   }
 
   @include mixins.media-breakpoint-down(sm) {
-    dc-profile.is-shrink .profile-toggle,
-    dc-profile.is-shrink .avatar {
+    :host.is-shrink .profile-toggle,
+    :host.is-shrink .avatar {
       height: 2rem;
     }
 
-    dc-profile.is-shrink .profile-toggle {
+    :host.is-shrink .profile-toggle {
       width: 3.5rem;
     }
 
-    dc-profile.is-shrink .avatar {
+    :host.is-shrink .avatar {
       width: 2rem;
     }
   }

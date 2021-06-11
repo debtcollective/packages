@@ -27,6 +27,7 @@ type User = {
   assetsDirs: ["assets"],
   tag: "dc-header",
   styleUrl: "header.scss",
+  shadow: true,
 })
 export class Header {
   private _logo = "logo.png";

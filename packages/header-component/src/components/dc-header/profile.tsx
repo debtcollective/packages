@@ -8,6 +8,7 @@ import { getUserMenuConfig } from "../../utils/config";
   assetsDirs: ["assets"],
   tag: "dc-profile",
   styleUrl: "profile.scss",
+  shadow: true,
 })
 export class Profile {
   private _hasNotifications = false;

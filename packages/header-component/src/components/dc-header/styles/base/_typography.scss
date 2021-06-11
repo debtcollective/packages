@@ -1,46 +1,46 @@
 @use 'variables' as vars;
 
-dc-header {
-  * {
-    font-family: var(--main-font);
-  }
+:host {
+  font-family: var(--main-font);
+}
 
-  a {
-    text-decoration: none;
-  }
+a,
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
 
-  .text,
-  .text-sm,
-  .text-lg {
-    color: var(--text-color);
-    text-decoration: none;
-  }
+.text,
+.text-sm,
+.text-lg {
+  color: var(--text-color);
+  text-decoration: none;
+}
 
-  .text {
-    font-size: vars.$font-size-base;
-    font-weight: 200;
-    line-height: 2.5;
-  }
+.text {
+  font-size: vars.$font-size-base;
+  font-weight: 200;
+  line-height: 2.5;
+}
 
-  .text-sm {
-    font-size: vars.$font-size-sm;
-    font-weight: 200;
-    line-height: 1.25;
-  }
+.text-sm {
+  font-size: vars.$font-size-sm;
+  font-weight: 200;
+  line-height: 1.25;
+}
 
-  .text-lg {
-    font-size: vars.$font-size-lg;
-    font-weight: 800;
-    line-height: 2.5;
-  }
+.text-lg {
+  font-size: vars.$font-size-lg;
+  font-weight: 800;
+  line-height: 2.5;
+}
 
-  .text-underlined {
-    @extend .text;
-    font-weight: bold;
-    text-decoration: underline;
-  }
+.text-underlined {
+  @extend .text;
+  font-weight: bold;
+  text-decoration: underline;
+}
 
-  .text-color-light {
-    color: var(--text-color-light);
-  }
+.text-color-light {
+  color: var(--text-color-light);
 }

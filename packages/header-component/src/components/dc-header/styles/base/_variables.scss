@@ -26,7 +26,7 @@ $color-text-disabled: #52575c;
 
 $column-gap: 15px;
 
-dc-header {
+:host {
   --brand-color: #ff4630;
   --button-color: #ff4630;
   --button-hover-color: #ee2812;

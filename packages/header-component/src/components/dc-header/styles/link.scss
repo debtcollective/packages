@@ -1,7 +1,7 @@
 @use 'base/variables' as vars;
 @use 'base/typography' as typography;
 
-dc-link {
+:host {
   cursor: pointer;
 
   a:active,
@@ -19,7 +19,7 @@ dc-link {
   }
 }
 
-dc-link.link-text-icon {
+:host.link-text-icon {
   @extend .text-sm;
   @extend .text-color-light;
 
@@ -34,7 +34,7 @@ dc-link.link-text-icon {
   }
 }
 
-dc-link.link-upcoming {
+:host.link-upcoming {
   opacity: 0.35;
 
   &,

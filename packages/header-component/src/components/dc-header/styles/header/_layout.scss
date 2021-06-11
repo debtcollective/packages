@@ -1,6 +1,6 @@
 @use '../base/mixins' as mixins;
 
-dc-header header.l-header {
+:host header.l-header {
   .l-header-item {
     display: flex;
     // Allow to make the side items equal width to center logo

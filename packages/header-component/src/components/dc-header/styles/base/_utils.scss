@@ -1,8 +1,23 @@
 @use 'variables' as vars;
 @use 'mixins' as mixins;
 
+/* Effect utils */
+:host {
+  $colors: (
+    "green": vars.$color-green-dark,
+    "yellow": vars.$color-yellow,
+    "red": vars.$color-secondary,
+  );
+
+  @each $class, $value in $colors {
+    .hover-#{$class}:hover {
+      color: $value;
+    }
+  }
+}
+
 /* Margin utils */
-dc-header {
+:host {
   $steps: (
     "0": 0rem,
     "1": 0.5rem,
@@ -31,7 +46,7 @@ dc-header {
   }
 }
 
-dc-header {
+:host {
   $displays: (block, flex, none);
 
   @each $display-mode in $displays {
