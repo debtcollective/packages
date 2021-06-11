@@ -49,6 +49,7 @@ export namespace Components {
         "community": string;
         "expanded": boolean;
         "homepage": string;
+        "shrank": boolean;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */
@@ -149,6 +150,7 @@ declare namespace LocalJSX {
         "expanded"?: boolean;
         "homepage"?: string;
         "onToggleProfileMenu"?: (event: CustomEvent<void>) => void;
+        "shrank"?: boolean;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
          */

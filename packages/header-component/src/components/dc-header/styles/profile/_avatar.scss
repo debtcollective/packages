@@ -26,16 +26,16 @@
   }
 
   @include mixins.media-breakpoint-down(sm) {
-    :host.is-shrink .profile-toggle,
-    :host.is-shrink .avatar {
+    .profile-toggle.is-shrink,
+    .profile-toggle.is-shrink .avatar {
       height: 2rem;
     }
 
-    :host.is-shrink .profile-toggle {
+    .profile-toggle.is-shrink {
       width: 3.5rem;
     }
 
-    :host.is-shrink .avatar {
+    .profile-toggle.is-shrink .avatar {
       width: 2rem;
     }
   }

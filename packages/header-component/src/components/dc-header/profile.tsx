@@ -14,6 +14,7 @@ export class Profile {
   private _hasNotifications = false;
   private config: ReturnType<typeof getUserMenuConfig>;
 
+  @Prop() shrank: boolean = false;
   @Prop() expanded: boolean = false;
   @Prop() community: string;
   @Prop() homepage: string;
@@ -68,7 +69,10 @@ export class Profile {
           aria-label={`toggle user menu ${
             this._hasNotifications ? "(You have notifications)" : ""
           }`}
-          class="btn btn-transparent profile-toggle"
+          class={{
+            "btn btn-transparent profile-toggle": true,
+            "is-shrink": this.shrank,
+          }}
           onClick={this.toggleDropdown.bind(this)}
         >
           <span

@@ -181,7 +181,7 @@ export class Header {
           <div class="l-header-item session-container navbar-item">
             {this.user ? (
               <dc-profile
-                class={this.isShrink ? `is-shrink` : ""}
+                shrank={this.isShrink}
                 user={this.user}
                 homepage={this.homepage}
                 community={this.community}
