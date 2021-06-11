@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.5...@debtcollective/dc-header-component@3.2.0) (2021-06-11)
+
+
+### Features
+
+* **header:** allow login link to return to host url ([6084ca8](https://github.com/debtcollective/packages/commit/6084ca8))
+
+
+
+
+
 ## [3.1.5](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.4...@debtcollective/dc-header-component@3.1.5) (2021-06-11)
 
 
