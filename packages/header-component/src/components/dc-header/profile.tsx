@@ -18,6 +18,7 @@ export class Profile {
   @Prop() expanded: boolean = false;
   @Prop() community: string;
   @Prop() homepage: string;
+  @Prop() host: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -39,6 +40,7 @@ export class Profile {
       community: this.community,
       user: this.user,
       homepage: this.homepage,
+      host: this.host,
     });
     this._hasNotifications =
       this.user.unread_high_priority_notifications > 0 ||

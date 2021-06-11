@@ -2,19 +2,20 @@ import config from "../config.json";
 
 const interpolateURL = (
   url,
-  { user = { username: "" }, community, homepage }
+  { user = { username: "" }, community, homepage, host }
 ): string => {
   return url
+    .replace(/{host}/g, host)
     .replace(/{community}/g, community)
     .replace(/{username}/g, user.username)
     .replace(/{homepage}/g, homepage);
 };
 
-const interpolateItemsURL = (_items, { user, community, homepage }) => {
+const interpolateItemsURL = (_items, { user, community, homepage, host }) => {
   const items = _items.map((item) => {
     return {
       ...item,
-      url: interpolateURL(item.url, { user, community, homepage }),
+      url: interpolateURL(item.url, { user, community, homepage, host }),
     };
   });
 
@@ -26,9 +27,9 @@ const interpolateItemsURL = (_items, { user, community, homepage }) => {
  * the component of profile. This method will make the assumptions
  * to allow the component to just consume the adapted object
  */
-export const getUserMenuConfig = ({ community, user, homepage }) => {
+export const getUserMenuConfig = ({ community, user, homepage, host }) => {
   const { userMenu } = config;
-  const data = { user, community, homepage };
+  const data = { user, community, homepage, host };
 
   return {
     profile: {
@@ -51,9 +52,9 @@ export const getUserMenuConfig = ({ community, user, homepage }) => {
  * the component of menu. This method will make the assumptions
  * to allow the component to just consume the adapted object
  */
-export const getSiteMenuConfig = ({ community, user, homepage }) => {
+export const getSiteMenuConfig = ({ community, user, homepage, host }) => {
   const { siteMenu } = config;
-  const data = { user, community, homepage };
+  const data = { user, community, homepage, host };
 
   const expandables = siteMenu
     .filter(({ type }) => type === "MENU_ITEM_EXPANDABLE")
@@ -79,9 +80,9 @@ export const getSocialLinks = () => {
   return socialLinks;
 };
 
-export const getGuestActions = ({ community, homepage }) => {
+export const getGuestActions = ({ community, homepage, host }) => {
   const { guestActions } = config;
-  const data = { community, homepage };
+  const data = { community, homepage, host };
 
   return {
     login: {
