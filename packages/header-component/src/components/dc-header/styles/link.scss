@@ -19,7 +19,14 @@
   }
 }
 
-:host.link-text-icon {
+.link-text-icon-horizontal {
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.link-text-icon {
   @extend .text-sm;
   @extend .text-color-light;
 
@@ -34,7 +41,7 @@
   }
 }
 
-:host.link-upcoming {
+.link-upcoming {
   opacity: 0.35;
 
   &,

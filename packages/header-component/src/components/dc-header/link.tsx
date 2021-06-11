@@ -12,7 +12,6 @@ import {
   assetsDirs: ["assets"],
   tag: "dc-link",
   styleUrl: "link.scss",
-  shadow: true,
 })
 export class Link {
   @Prop() to: string;
