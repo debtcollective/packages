@@ -95,9 +95,11 @@ export class Profile {
           </span>
         </button>
         <div
-          class={`profile-dropdown ${
-            this.expanded ? "profile-expanded " : "profile-collapsed"
-          }`}
+          class={{
+            "profile-dropdown": true,
+            "profile-expanded": this.expanded,
+            "profile-collapsed": !this.expanded,
+          }}
         >
           <div class="profile-dropdown-section">
             <p class="text-underlined m-0">{this.user.username}</p>
