@@ -60,7 +60,7 @@ jobs:
           command: "npm whoami"
       - run:
           name: bumb version and publish
-          command: "yarn lerna publish --yes"
+          command: "yarn lerna publish --yes --no-verify-access"
       - run:
           name: publish where the latest version is not present in the registry
           command: "yarn lerna publish from-package --no-verify-access --yes --loglevel=verbose"
