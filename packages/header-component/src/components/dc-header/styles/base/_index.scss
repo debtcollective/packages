@@ -1,3 +1,4 @@
-@use 'buttons';
-@use 'icons';
-@use 'utils';
+@forward 'buttons';
+@forward 'icons';
+@forward 'utils';
+@forward 'typography';

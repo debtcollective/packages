@@ -1,6 +1,6 @@
 @use '../base/mixins' as mixins;
 
-dc-header {
+:host {
   .logo {
     // allows to center vertically the logo img
     display: flex;

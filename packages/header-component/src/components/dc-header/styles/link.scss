@@ -1,17 +1,17 @@
 @use 'base/variables' as vars;
 @use 'base/typography' as typography;
 
-dc-link {
+:host {
   cursor: pointer;
 
   a:active,
   a:visited,
   a:any-link,
   a:-webkit-any-link {
-    color: inherit;
+    text-decoration: none;
   }
 
-  > a {
+  a {
     color: inherit;
     align-items: center;
     display: flex;
@@ -19,7 +19,14 @@ dc-link {
   }
 }
 
-dc-link.link-text-icon {
+.link-text-icon-horizontal {
+  a {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.link-text-icon {
   @extend .text-sm;
   @extend .text-color-light;
 
@@ -34,7 +41,7 @@ dc-link.link-text-icon {
   }
 }
 
-dc-link.link-upcoming {
+.link-upcoming {
   opacity: 0.35;
 
   &,
