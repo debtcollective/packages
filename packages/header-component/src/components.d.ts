@@ -20,7 +20,7 @@ export namespace Components {
          */
         "homepage": string;
         /**
-          * URL to the component host without the latest "/"
+          * URL to the component host without the latest "/" and avoid plain "/"
          */
         "host": string;
     }
@@ -32,6 +32,7 @@ export namespace Components {
     interface DcMenu {
         "community": string;
         "homepage": string;
+        "host": string;
         "open": boolean;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
@@ -49,6 +50,7 @@ export namespace Components {
         "community": string;
         "expanded": boolean;
         "homepage": string;
+        "host": string;
         "shrank": boolean;
         /**
           * An object with the user data. Follows Discourse structure as https://docs.discourse.org/#tag/Users/paths/~1users~1{username}.json/get
@@ -110,7 +112,7 @@ declare namespace LocalJSX {
          */
         "homepage"?: string;
         /**
-          * URL to the component host without the latest "/"
+          * URL to the component host without the latest "/" and avoid plain "/"
          */
         "host"?: string;
         /**
@@ -131,6 +133,7 @@ declare namespace LocalJSX {
     interface DcMenu {
         "community"?: string;
         "homepage"?: string;
+        "host"?: string;
         "onToggleMenu"?: (event: CustomEvent<void>) => void;
         "open"?: boolean;
         /**
@@ -149,6 +152,7 @@ declare namespace LocalJSX {
         "community"?: string;
         "expanded"?: boolean;
         "homepage"?: string;
+        "host"?: string;
         "onToggleProfileMenu"?: (event: CustomEvent<void>) => void;
         "shrank"?: boolean;
         /**

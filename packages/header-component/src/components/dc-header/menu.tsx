@@ -15,6 +15,7 @@ export class Menu {
   @Prop() open: boolean;
   @Prop() community: string;
   @Prop() homepage: string;
+  @Prop() host: string;
 
   /**
    * An object with the user data. Follows Discourse structure as
@@ -37,6 +38,7 @@ export class Menu {
       community: this.community,
       user: this.user,
       homepage: this.homepage,
+      host: this.host,
     });
   }
 
