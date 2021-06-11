@@ -8,10 +8,10 @@
   a:visited,
   a:any-link,
   a:-webkit-any-link {
-    color: inherit;
+    text-decoration: none;
   }
 
-  > a {
+  a {
     color: inherit;
     align-items: center;
     display: flex;
