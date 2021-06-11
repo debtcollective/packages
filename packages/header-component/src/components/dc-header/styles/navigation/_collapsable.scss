@@ -28,6 +28,32 @@
     }
   }
 
+  /*
+    Special considerations for Safari to render properly the markers
+  */
+  @media not all and (min-resolution: 0.001dpcm) {
+    @supports (-webkit-appearance: none) and (stroke-color: transparent) {
+      &[open] {
+        .icon.icon-less {
+          display: inline-block;
+        }
+      }
+
+      summary {
+        display: block;
+      }
+
+      .icon {
+        margin-left: 0.5rem;
+        vertical-align: middle;
+      }
+
+      .icon.icon-more {
+        display: inline-block;
+      }
+    }
+  }
+
   // pseudo elements are defined separately check https://bit.ly/2U0pJKb
   summary::marker {
     display: none;

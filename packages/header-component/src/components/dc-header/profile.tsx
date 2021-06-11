@@ -8,11 +8,13 @@ import { getUserMenuConfig } from "../../utils/config";
   assetsDirs: ["assets"],
   tag: "dc-profile",
   styleUrl: "profile.scss",
+  shadow: true,
 })
 export class Profile {
   private _hasNotifications = false;
   private config: ReturnType<typeof getUserMenuConfig>;
 
+  @Prop() shrank: boolean = false;
   @Prop() expanded: boolean = false;
   @Prop() community: string;
   @Prop() homepage: string;
@@ -67,7 +69,10 @@ export class Profile {
           aria-label={`toggle user menu ${
             this._hasNotifications ? "(You have notifications)" : ""
           }`}
-          class="btn btn-transparent profile-toggle"
+          class={{
+            "btn btn-transparent profile-toggle": true,
+            "is-shrink": this.shrank,
+          }}
           onClick={this.toggleDropdown.bind(this)}
         >
           <span
@@ -150,13 +155,16 @@ export class Profile {
 
           <div class="profile-dropdown-footer">
             {this.config.footer.items.map((item) => (
-              <dc-link class="btn btn-transparent text-sm" to={item.url}>
+              <dc-link
+                class="btn btn-transparent text-sm link-text-icon-horizontal"
+                to={item.url}
+              >
                 <span class="material-icons mr-1">{item.figure}</span>
                 {item.text}
               </dc-link>
             ))}
             <button
-              class="btn btn-transparent text-sm"
+              class="btn btn-transparent text-sm link-text-icon-horizontal"
               onClick={this.handleLogout.bind(this)}
             >
               <span class="material-icons mr-1">exit_to_app</span>

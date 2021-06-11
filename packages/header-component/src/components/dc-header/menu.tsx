@@ -6,6 +6,7 @@ import { getSiteMenuConfig, getSocialLinks } from "../../utils/config";
   assetsDirs: ["assets"],
   tag: "dc-menu",
   styleUrl: "menu.scss",
+  shadow: true,
 })
 export class Menu {
   private config: ReturnType<typeof getSiteMenuConfig>;
@@ -97,7 +98,7 @@ export class Menu {
                   {item.items.map((link) => (
                     <dc-link
                       role="menuitem"
-                      class="text"
+                      class="text hover-green"
                       namespace="menu"
                       to={link.url}
                       {...link.attrs}

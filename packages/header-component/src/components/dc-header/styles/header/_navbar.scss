@@ -2,7 +2,7 @@
 @use '../base/mixins' as mixins;
 @use '../base/functions' as fn;
 
-dc-header .navbar {
+:host .navbar {
   -webkit-backface-visibility: hidden;
   align-items: center;
   backface-visibility: hidden;
