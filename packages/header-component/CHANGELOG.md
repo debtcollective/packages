@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.5](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.4...@debtcollective/dc-header-component@3.1.5) (2021-06-11)
+
+
+### Bug Fixes
+
+* **header:** avoid clash styles using shadow DOM ([#161](https://github.com/debtcollective/packages/issues/161)) ([ca3831b](https://github.com/debtcollective/packages/commit/ca3831b))
+
+
+
+
+
 ## [3.1.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.1.3...@debtcollective/dc-header-component@3.1.4) (2021-06-09)
 
 
