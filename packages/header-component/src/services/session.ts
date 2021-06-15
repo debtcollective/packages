@@ -40,7 +40,7 @@ const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
 
 const sanitiseSSOUrl = (ssoUrl: string) => {
   if (ssoUrl === "/") {
-    return window.location.host;
+    return window.location.origin;
   }
 
   if (ssoUrl.charAt(ssoUrl.length - 1) === "/") {
