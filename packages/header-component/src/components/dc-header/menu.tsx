@@ -38,7 +38,6 @@ export class Menu {
       community: this.community,
       user: this.user,
       homepage: this.homepage,
-      host: this.host,
     });
   }
 

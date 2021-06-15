@@ -8,21 +8,17 @@ import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
     interface DcHeader {
         /**
-          * URL to the community without the latest "/"
+          * URL to the community with the latest "/"
          */
         "community": string;
         /**
-          * Link to follow in order to prompt user to donate
-         */
-        "donateurl": string;
-        /**
-          * URL to the homepage without the latest "/"
+          * URL to the homepage with the latest "/"
          */
         "homepage": string;
         /**
-          * URL to the component host without the latest "/" and avoid plain "/"
+          * URL to use after login processed typically full URL from host with the latest "/"
          */
-        "host": string;
+        "returnurl": string;
     }
     interface DcLink {
         "namespace": string;
@@ -100,25 +96,21 @@ declare global {
 declare namespace LocalJSX {
     interface DcHeader {
         /**
-          * URL to the community without the latest "/"
+          * URL to the community with the latest "/"
          */
         "community"?: string;
         /**
-          * Link to follow in order to prompt user to donate
-         */
-        "donateurl"?: string;
-        /**
-          * URL to the homepage without the latest "/"
+          * URL to the homepage with the latest "/"
          */
         "homepage"?: string;
-        /**
-          * URL to the component host without the latest "/" and avoid plain "/"
-         */
-        "host"?: string;
         /**
           * Emit event to exposed fetched user on host application
          */
         "onUserSynced"?: (event: CustomEvent<User>) => void;
+        /**
+          * URL to use after login processed typically full URL from host with the latest "/"
+         */
+        "returnurl"?: string;
     }
     interface DcLink {
         "namespace"?: string;

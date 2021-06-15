@@ -61,27 +61,22 @@ export class Header {
   @State() isProfileMenuOpen: boolean;
 
   /**
-   * Link to follow in order to prompt user to donate
-   */
-  @Prop() donateurl: string = "https://membership.debtcollective.org";
-
-  /**
    * URL to the homepage
-   * without the latest "/"
+   * with the latest "/"
    */
-  @Prop() homepage: string = "https://debtcollective.org";
+  @Prop() homepage: string = "https://debtcollective.org/";
 
   /**
    * URL to the community
-   * without the latest "/"
+   * with the latest "/"
    */
-  @Prop() community: string = "https://community.debtcollective.org";
+  @Prop() community: string = "https://community.debtcollective.org/";
 
   /**
-   * URL to the component host
-   * without the latest "/" and avoid plain "/"
+   * URL to use after login processed typically full URL from host
+   * with the latest "/"
    */
-  @Prop() host: string;
+  @Prop() returnurl: string;
 
   /**
    * Emit event to exposed fetched user on host application
@@ -98,7 +93,7 @@ export class Header {
     this.config = getGuestActions({
       community: this.community,
       homepage: this.homepage,
-      host: this.host,
+      returnUrl: this.returnurl,
     });
   }
 
@@ -187,7 +182,6 @@ export class Header {
                 homepage={this.homepage}
                 community={this.community}
                 expanded={this.isProfileMenuOpen}
-                host={this.host}
               />
             ) : (
               <span class="d-none d-sm-flex ml-auto">
@@ -220,7 +214,6 @@ export class Header {
           user={this.user}
           homepage={this.homepage}
           community={this.community}
-          host={this.host}
         />
         <div
           class={`document-cloak ${
