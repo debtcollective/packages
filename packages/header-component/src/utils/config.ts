@@ -2,20 +2,26 @@ import config from "../config.json";
 
 const interpolateURL = (
   url,
-  { user = { username: "" }, community, homepage, host }
+  { user = { username: "" }, community, homepage, returnUrl = "" }
 ): string => {
-  return url
-    .replace(/{host}/g, host)
-    .replace(/{community}/g, community)
-    .replace(/{username}/g, user.username)
-    .replace(/{homepage}/g, homepage);
+  return (
+    url
+      // replace all occurrences of {variable}/ so we can use urls starting with "/"
+      .replace(/{community}\//g, community)
+      .replace(/{homepage}\//g, homepage)
+      // replace all occurrences of {variable}
+      .replace(/{community}/g, community)
+      .replace(/{username}/g, user.username)
+      .replace(/{homepage}/g, homepage)
+      .replace(/{return_url}/g, returnUrl)
+  );
 };
 
-const interpolateItemsURL = (_items, { user, community, homepage, host }) => {
+const interpolateItemsURL = (_items, { user, community, homepage }) => {
   const items = _items.map((item) => {
     return {
       ...item,
-      url: interpolateURL(item.url, { user, community, homepage, host }),
+      url: interpolateURL(item.url, { user, community, homepage }),
     };
   });
 
@@ -27,9 +33,9 @@ const interpolateItemsURL = (_items, { user, community, homepage, host }) => {
  * the component of profile. This method will make the assumptions
  * to allow the component to just consume the adapted object
  */
-export const getUserMenuConfig = ({ community, user, homepage, host }) => {
+export const getUserMenuConfig = ({ community, user, homepage }) => {
   const { userMenu } = config;
-  const data = { user, community, homepage, host };
+  const data = { user, community, homepage };
 
   return {
     profile: {
@@ -52,9 +58,9 @@ export const getUserMenuConfig = ({ community, user, homepage, host }) => {
  * the component of menu. This method will make the assumptions
  * to allow the component to just consume the adapted object
  */
-export const getSiteMenuConfig = ({ community, user, homepage, host }) => {
+export const getSiteMenuConfig = ({ community, user, homepage }) => {
   const { siteMenu } = config;
-  const data = { user, community, homepage, host };
+  const data = { user, community, homepage };
 
   const expandables = siteMenu
     .filter(({ type }) => type === "MENU_ITEM_EXPANDABLE")
@@ -80,9 +86,9 @@ export const getSocialLinks = () => {
   return socialLinks;
 };
 
-export const getGuestActions = ({ community, homepage, host }) => {
+export const getGuestActions = ({ community, homepage, returnUrl }) => {
   const { guestActions } = config;
-  const data = { community, homepage, host };
+  const data = { community, homepage, returnUrl };
 
   return {
     login: {

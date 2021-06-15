@@ -40,7 +40,6 @@ export class Profile {
       community: this.community,
       user: this.user,
       homepage: this.homepage,
-      host: this.host,
     });
     this._hasNotifications =
       this.user.unread_high_priority_notifications > 0 ||

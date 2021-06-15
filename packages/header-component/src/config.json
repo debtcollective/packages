@@ -188,7 +188,7 @@
     {
       "type": "LINK_BUTTON_OUTLINE",
       "text": "Member login",
-      "url": "{community}/session/sso_cookies?return_url={host}"
+      "url": "{community}/session/sso_cookies?return_url={return_url}"
     },
     {
       "type": "LINK_BUTTON_PRIMARY",
