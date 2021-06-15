@@ -35,6 +35,13 @@ yarn test
 
 Need help? Check out our docs [here](https://stenciljs.com/docs/my-first-component).
 
+## Contributing
+
+- Take a branch out from `development`
+- Create a PR pointing to `development`
+- Once the PR is merged, **manually merge to master to trigger a new release**
+- The new version will be calculated atomatically by lerna
+
 ## For Firefox users
 
 Unlike Chrome, Firefox doesn't provide out of the box support to use `lvh.me` to map localhost. Therefore, you need to make sure to fix your browser in order for this to work properly: [check this](https://stackoverflow.com/a/56049681/1422380) and add `lvh.me` as supported `network.dns.localDomains`
@@ -49,17 +56,7 @@ Instead, use a prefix that fits your company or any name for a group of related 
 
 ## Using this component
 
-```html
-<dc-header
-  id="dc-header"
-  homepage="http://lvh.me:3333"
-  union="/debt-union"
-  host="http://lvh.me:3333"
-  community="http://lvh.me:3000"
-></dc-header>
-```
-
-> NOTE: be aware of not adding the latest "/" on the url props such as host and community
+Check the `index.html` file to see the up-to-date way to work with the component
 
 ### Script tag
 
@@ -70,7 +67,7 @@ Instead, use a prefix that fits your company or any name for a group of related 
 ### Node Modules
 
 - Run `npm install @debtcollective/dc-header-component --save`
-- Put a script tag similar to this `<script src='node_modules/dc-header-component/dist/dropdown.js'></script>` in the head of your index.html
+- Put a script tag similar to this `<script src='node_modules/dc-header-component/dist/header/header.esm.js'></script>` in the head of your index.html
 - Then you can use the element anywhere in your template, JSX, html etc
 
 ### In a stencil-starter app
