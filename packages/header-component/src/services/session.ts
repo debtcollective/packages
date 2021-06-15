@@ -54,7 +54,8 @@ export const syncCurrentUser = async (community) => {
   return currentUser;
 };
 
-export const logout = async (discourseEndpoint, username) => {
+export const logout = async (community, username) => {
+  let discourseEndpoint = sanitiseSSOUrl(community);
   const url = `${discourseEndpoint}/session/${username}`;
   const csrfToken = await getCSRFToken(discourseEndpoint);
 
