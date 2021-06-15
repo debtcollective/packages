@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.3.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.3.1...@debtcollective/dc-header-component@3.3.2) (2021-06-15)
+
+
+### Bug Fixes
+
+* **header:** include protocol for SSO url ([da69a08](https://github.com/debtcollective/packages/commit/da69a08))
+
+
+
+
+
 ## [3.3.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.3.0...@debtcollective/dc-header-component@3.3.1) (2021-06-15)
 
 
