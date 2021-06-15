@@ -38,8 +38,21 @@ const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
   return currentUser;
 };
 
-export const syncCurrentUser = async (discourseEndpoint) => {
+const sanitiseSSOUrl = (ssoUrl: string) => {
+  if (ssoUrl === "/") {
+    return window.location.host;
+  }
+
+  if (ssoUrl.charAt(ssoUrl.length - 1) === "/") {
+    return ssoUrl.slice(0, -1);
+  }
+
+  return ssoUrl;
+};
+
+export const syncCurrentUser = async (community) => {
   let currentUser;
+  let discourseEndpoint = sanitiseSSOUrl(community);
 
   try {
     const csrfToken = await getCSRFToken(discourseEndpoint);
