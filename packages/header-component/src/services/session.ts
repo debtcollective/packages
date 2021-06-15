@@ -1,3 +1,5 @@
+import { sanitiseSSOUrl } from "../utils/sanitise";
+
 // https://stackoverflow.com/a/33829607/1422380
 const getCSRFToken = async (discourseEndpoint) => {
   const url = `${discourseEndpoint}/session/csrf.json`;
@@ -36,18 +38,6 @@ const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
   const { current_user: currentUser } = json;
 
   return currentUser;
-};
-
-const sanitiseSSOUrl = (ssoUrl: string) => {
-  if (ssoUrl === "/") {
-    return window.location.origin;
-  }
-
-  if (ssoUrl.charAt(ssoUrl.length - 1) === "/") {
-    return ssoUrl.slice(0, -1);
-  }
-
-  return ssoUrl;
 };
 
 export const syncCurrentUser = async (community) => {

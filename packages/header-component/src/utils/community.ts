@@ -1,9 +1,12 @@
+import { sanitiseSSOUrl } from "./sanitise";
+
 /**
  * preffix a given string with the base community URL.
  *
  * @param str typically a url that needs to be preffixed with community base url
  */
-export const preffixCommunityURL = (community, str) => `${community}/${str}`;
+export const preffixCommunityURL = (community, str) =>
+  `${sanitiseSSOUrl(community)}/${str}`;
 
 /**
  * Takes an object with avatar_template (typically user) and return a full
@@ -15,6 +18,8 @@ export const preffixCommunityURL = (community, str) => `${community}/${str}`;
 export const getAvatarURL = ({ avatar_template }, community, size = 64) => {
   return preffixCommunityURL(
     community,
-    avatar_template.replace(`{size}`, size)
+    avatar_template
+      .replace(`{size}`, size)
+      .replace("/user_avatar", "user_avatar")
   );
 };
