@@ -30,8 +30,10 @@ type User = {
   shadow: true,
 })
 export class Header {
-  private _logo = "logo.png";
-  private _logoSmall = "logo-small.png";
+  private _logo;
+  private _logoSmall;
+  private _defaultLogo = getAssetPath("./assets/logo.png");
+  private _defaultLogoSmall = getAssetPath("./assets/logo-small.png");
   private config: ReturnType<typeof getGuestActions>;
 
   /**
@@ -79,6 +81,14 @@ export class Header {
   @Prop() returnurl: string;
 
   /**
+   * Due to the complexity to make assets available for now we will allow
+   * host application to indicate where the logo asset can be found
+   * https://stenciljs.com/docs/custom-elements#making-assets-available
+   */
+  @Prop() logo;
+  @Prop() logosmall;
+
+  /**
    * Emit event to exposed fetched user on host application
    */
   @Event({
@@ -97,8 +107,10 @@ export class Header {
     });
   }
 
+  // A return promise here will force to wait before first render
   componentWillLoad() {
-    // A return promise here will force to wait before first render
+    this._logo = this.logo || this._defaultLogo;
+    this._logoSmall = this.logosmall || this._defaultLogoSmall;
     this.syncCurrentUser();
   }
 
@@ -164,12 +176,12 @@ export class Header {
             >
               <img
                 class="d-sm-none"
-                src={getAssetPath(`./assets/${this._logoSmall}`)}
+                src={this._logoSmall}
                 alt="The Debtcollective"
               />
               <img
                 class="d-none d-sm-block ml-2 fixed-size"
-                src={getAssetPath(`./assets/${this._logo}`)}
+                src={this._logo}
                 alt="The Debtcollective"
               />
             </a>
