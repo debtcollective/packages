@@ -14,6 +14,7 @@ import {
 } from "@stencil/core";
 import { syncCurrentUser } from "../../services/session";
 import { getGuestActions } from "../../utils/config";
+import { addSlash } from "../../utils/normalise";
 
 type User = {
   id: number;
@@ -109,8 +110,13 @@ export class Header {
 
   // A return promise here will force to wait before first render
   componentWillLoad() {
+    // Make sure to get the logo from prop or use default
     this._logo = this.logo || this._defaultLogo;
     this._logoSmall = this.logosmall || this._defaultLogoSmall;
+    // normalise the links to make sure they match the expected format
+    this.homepage = addSlash(this.homepage);
+    this.community = addSlash(this.community);
+    // Allow to fetch users session
     this.syncCurrentUser();
   }
 
