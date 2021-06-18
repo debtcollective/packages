@@ -1,4 +1,4 @@
-import { sanitiseSSOUrl } from "./sanitise";
+import { trimSlash } from "./normalise";
 
 /**
  * preffix a given string with the base community URL.
@@ -6,7 +6,7 @@ import { sanitiseSSOUrl } from "./sanitise";
  * @param str typically a url that needs to be preffixed with community base url
  */
 export const preffixCommunityURL = (community, str) =>
-  `${sanitiseSSOUrl(community)}/${str}`;
+  `${trimSlash(community)}/${str}`;
 
 /**
  * Takes an object with avatar_template (typically user) and return a full
