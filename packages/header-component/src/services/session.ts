@@ -1,4 +1,4 @@
-import { sanitiseSSOUrl } from "../utils/sanitise";
+import { trimSlash } from "../utils/normalise";
 
 // https://stackoverflow.com/a/33829607/1422380
 const getCSRFToken = async (discourseEndpoint) => {
@@ -42,7 +42,7 @@ const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
 
 export const syncCurrentUser = async (community) => {
   let currentUser;
-  let discourseEndpoint = sanitiseSSOUrl(community);
+  let discourseEndpoint = trimSlash(community);
 
   try {
     const csrfToken = await getCSRFToken(discourseEndpoint);
@@ -55,7 +55,7 @@ export const syncCurrentUser = async (community) => {
 };
 
 export const logout = async (community, username) => {
-  let discourseEndpoint = sanitiseSSOUrl(community);
+  let discourseEndpoint = trimSlash(community);
   const url = `${discourseEndpoint}/session/${username}`;
   const csrfToken = await getCSRFToken(discourseEndpoint);
 
