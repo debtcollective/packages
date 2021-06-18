@@ -16,6 +16,11 @@ export namespace Components {
          */
         "homepage": string;
         /**
+          * Due to the complexity to make assets available for now we will allow host application to indicate where the logo asset can be found https://stenciljs.com/docs/custom-elements#making-assets-available
+         */
+        "logo": any;
+        "logosmall": any;
+        /**
           * URL to use after login processed typically full URL from host with the latest "/"
          */
         "returnurl": string;
@@ -103,6 +108,11 @@ declare namespace LocalJSX {
           * URL to the homepage with the latest "/"
          */
         "homepage"?: string;
+        /**
+          * Due to the complexity to make assets available for now we will allow host application to indicate where the logo asset can be found https://stenciljs.com/docs/custom-elements#making-assets-available
+         */
+        "logo"?: any;
+        "logosmall"?: any;
         /**
           * Emit event to exposed fetched user on host application
          */
