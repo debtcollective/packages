@@ -47,6 +47,8 @@ export const sendMembershipDonation = async (
       phone_number: personalInformation.phoneNumber,
       email: personalInformation.email,
       name: `${personalInformation.firstName} ${personalInformation.lastName}`,
+      first_name: personalInformation.firstName,
+      last_name: personalInformation.lastName,
       stripe_token: paymentServices.stripeToken?.id,
       stripe_card_id: paymentServices.stripeToken?.card?.id
     }
