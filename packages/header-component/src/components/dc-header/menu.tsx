@@ -112,7 +112,7 @@ export class Menu {
             ))}
           </menu>
           <div class="menu-section menu-footer mt-auto">
-            <dc-link class="icon" to={this.socialLinks.twitter}>
+            <dc-link class="icon" to={this.socialLinks.twitter} target="_blank">
               <span class="d-none">Go to Debtcollective's Twitter page</span>
               <svg
                 aria-hidden="true"
@@ -128,7 +128,11 @@ export class Menu {
                 />
               </svg>
             </dc-link>
-            <dc-link class="icon" to={this.socialLinks.facebook}>
+            <dc-link
+              class="icon"
+              to={this.socialLinks.facebook}
+              target="_blank"
+            >
               <span class="d-none">Go to Debtcollective's Facebook page</span>
               <svg
                 aria-hidden="true"
@@ -146,7 +150,11 @@ export class Menu {
                 />
               </svg>
             </dc-link>
-            <dc-link class="icon" to={this.socialLinks.instagram}>
+            <dc-link
+              class="icon"
+              to={this.socialLinks.instagram}
+              target="_blank"
+            >
               <span class="d-none">
                 Go to Debtcollective's Instagram profile
               </span>
