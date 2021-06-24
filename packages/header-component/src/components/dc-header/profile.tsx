@@ -123,6 +123,7 @@ export class Profile {
             <p class="text-underlined mb-0">Community</p>
             <div class="section-links">
               <dc-link
+                onClick={() => this.toggleDropdown()}
                 class="link-text-icon"
                 namespace="profile"
                 to={preffixCommunityURL(
@@ -144,6 +145,7 @@ export class Profile {
               </dc-link>
               {this.config.community.items.map((item) => (
                 <dc-link
+                  onClick={() => this.toggleDropdown()}
                   class="link-text-icon"
                   namespace="profile"
                   to={item.url}
