@@ -162,6 +162,7 @@ export class Profile {
           <div class="profile-dropdown-footer">
             {this.config.footer.items.map((item) => (
               <dc-link
+                onClick={() => this.toggleDropdown()}
                 class="btn btn-transparent text-sm link-text-icon-horizontal"
                 to={item.url}
               >
