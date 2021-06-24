@@ -105,6 +105,7 @@ export class Profile {
             <div class="section-links">
               {this.config.profile.items.map((item) => (
                 <dc-link
+                  onClick={() => this.toggleDropdown()}
                   class="link-text-icon"
                   namespace="profile"
                   to={item.url}

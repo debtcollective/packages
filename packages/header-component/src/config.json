@@ -2,17 +2,48 @@
   "siteMenu": [
     {
       "type": "MENU_ITEM_LINK",
-      "text": "Join the Union",
+      "text": "Join the union",
       "url": "{homepage}/debt-union"
     },
     {
       "type": "MENU_ITEM_LINK",
-      "text": "Browse Events",
+      "text": "Browse events",
       "url": "{community}/upcoming-events"
     },
     {
       "type": "MENU_ITEM_EXPANDABLE",
-      "text": "Cancel Student Debt",
+      "text": "For members",
+      "items": [
+        {
+          "type": "LINK",
+          "text": "Connect with other debtors",
+          "url": "{community}/"
+        },
+        {
+          "type": "LINK",
+          "text": "Join a working group",
+          "url": "{community}/t/join-a-working-group/4957/2"
+        },
+        {
+          "type": "LINK",
+          "text": "Join a local branch",
+          "url": "{community}/c/working-groups/local-organizing/20"
+        },
+        {
+          "type": "LINK",
+          "text": "Join a commitee",
+          "url": "{community}/t/debt-collective-higher-education-committee/4958"
+        },
+        {
+          "type": "LINK",
+          "text": "View past trainings",
+          "url": "{community}/t/training-educational-videos/4959"
+        }
+      ]
+    },
+    {
+      "type": "MENU_ITEM_EXPANDABLE",
+      "text": "Cancel student debt",
       "items": [
         {
           "type": "LINK",
@@ -29,40 +60,9 @@
       ]
     },
     {
-      "type": "MENU_ITEM_EXPANDABLE",
-      "text": "For Members",
-      "items": [
-        {
-          "type": "LINK",
-          "text": "Dispute your Debt",
-          "url": "https://tools.debtcollective.org/"
-        },
-        {
-          "type": "LINK",
-          "text": "Connect with other debtors",
-          "url": "{community}/"
-        },
-        {
-          "type": "LINK",
-          "text": "Join a working group",
-          "url": "{community}/t/join-a-working-group/4957/2"
-        },
-        {
-          "type": "LINK",
-          "text": "Join or start a local branch",
-          "url": "{community}/c/working-groups/local-organizing/20"
-        },
-        {
-          "type": "LINK",
-          "text": "Join a Commitee",
-          "url": "{community}/t/debt-collective-higher-education-committee/4958"
-        },
-        {
-          "type": "LINK",
-          "text": "View Past Trainings",
-          "url": "{community}/t/training-educational-videos/4959"
-        }
-      ]
+      "type": "MENU_ITEM_LINK",
+      "text": "Dispute your debt",
+      "url": "https://tools.debtcollective.org/"
     },
     {
       "type": "MENU_ITEM_EXPANDABLE",
@@ -70,7 +70,7 @@
       "items": [
         {
           "type": "LINK",
-          "text": "Our Union",
+          "text": "Our union",
           "url": "{homepage}/about-us/"
         },
         {
@@ -81,12 +81,12 @@
         },
         {
           "type": "LINK",
-          "text": "Our Team",
+          "text": "Our team",
           "url": "{homepage}/our-team/"
         },
         {
           "type": "LINK",
-          "text": "Our Book",
+          "text": "Our book",
           "url": "https://www.haymarketbooks.org/books/1520-can-t-pay-won-t-pay",
           "attrs": { "target": "_blank" }
         },
@@ -99,7 +99,7 @@
     },
     {
       "type": "MENU_ITEM_EXPANDABLE",
-      "text": "Support Us",
+      "text": "Support us",
       "items": [
         {
           "type": "LINK",
@@ -124,6 +124,13 @@
     {
       "type": "USER_MENU_PROFILE_SECTION",
       "items": [
+        {
+          "type": "LINK_FONT_ICON",
+          "text": "Membership",
+          "figure": "settings",
+          "url": "https://membership.debtcollective.org/membership"
+        },
+
         {
           "type": "LINK_FONT_ICON",
           "text": "Profile",
