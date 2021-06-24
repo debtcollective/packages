@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.2...@debtcollective/dc-header-component@3.5.3) (2021-06-24)
+
+
+### Bug Fixes
+
+* **header:** missing links to able to toggle on click ([f6476ef](https://github.com/debtcollective/packages/commit/f6476ef))
+
+
+
+
+
 ## [3.5.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.1...@debtcollective/dc-header-component@3.5.2) (2021-06-24)
 
 
