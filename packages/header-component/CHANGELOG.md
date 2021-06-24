@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.3...@debtcollective/dc-header-component@3.5.4) (2021-06-24)
+
+
+### Bug Fixes
+
+* **header:** include toggle event on footer items ([fdc6db9](https://github.com/debtcollective/packages/commit/fdc6db9))
+
+
+
+
+
 ## [3.5.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.2...@debtcollective/dc-header-component@3.5.3) (2021-06-24)
 
 
