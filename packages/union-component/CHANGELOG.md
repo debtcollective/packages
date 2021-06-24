@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.1](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.5.0...@debtcollective/union-component@1.5.1) (2021-06-24)
+
+
+### Bug Fixes
+
+* separate first and last name in api parameters ([244a72b](https://github.com/debtcollective/packages/commit/244a72b))
+
+
+
+
+
 # [1.5.0](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.4.6...@debtcollective/union-component@1.5.0) (2021-05-12)
 
 

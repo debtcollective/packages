@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.0...@debtcollective/dc-header-component@3.5.1) (2021-06-24)
+
+
+### Bug Fixes
+
+* **header:** allow to close profile menu after link click ([27681fe](https://github.com/debtcollective/packages/commit/27681fe))
+
+
+
+
+
 # [3.5.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.4.0...@debtcollective/dc-header-component@3.5.0) (2021-06-18)
 
 
