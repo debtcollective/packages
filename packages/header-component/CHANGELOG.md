@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.5.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.1...@debtcollective/dc-header-component@3.5.2) (2021-06-24)
+
+
+### Bug Fixes
+
+* **header:** social ([67c73ba](https://github.com/debtcollective/packages/commit/67c73ba))
+
+
+
+
+
 ## [3.5.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.0...@debtcollective/dc-header-component@3.5.1) (2021-06-24)
 
 
