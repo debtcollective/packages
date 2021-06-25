@@ -64,6 +64,27 @@ export class Menu {
             </button>
           </div>
           <menu class="menu-section menu-nav">
+            {this.user
+              ? this.config.authenticatedLinks.map((link) => (
+                  <dc-link
+                    class="menu-nav-item text-lg"
+                    namespace="menu"
+                    role="menuitem"
+                    to={link.url}
+                  >
+                    {link.text}
+                  </dc-link>
+                ))
+              : this.config.guestLinks.map((link) => (
+                  <dc-link
+                    class="menu-nav-item text-lg"
+                    namespace="menu"
+                    role="menuitem"
+                    to={link.url}
+                  >
+                    {link.text}
+                  </dc-link>
+                ))}
             {this.config.rootLinks.map((link) => (
               <dc-link
                 class="menu-nav-item text-lg"
