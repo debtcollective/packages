@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.6.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.4...@debtcollective/dc-header-component@3.6.0) (2021-06-25)
+
+
+### Features
+
+* **header:** allow to have authenticated links on menu ([e12173c](https://github.com/debtcollective/packages/commit/e12173c))
+
+
+
+
+
 ## [3.5.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.5.3...@debtcollective/dc-header-component@3.5.4) (2021-06-24)
 
 
