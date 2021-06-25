@@ -3,7 +3,14 @@
     {
       "type": "MENU_ITEM_LINK",
       "text": "Join the union",
-      "url": "{homepage}/debt-union"
+      "url": "{homepage}/debt-union",
+      "authenticated": false
+    },
+    {
+      "type": "MENU_ITEM_LINK",
+      "text": "Members Hub",
+      "url": "{homepage}/hub",
+      "authenticated": true
     },
     {
       "type": "MENU_ITEM_LINK",

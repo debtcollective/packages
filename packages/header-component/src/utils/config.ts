@@ -69,14 +69,33 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
       ...rest,
     }));
 
-  const rootLinks = siteMenu
+  const rootLinks = [];
+  const authenticatedLinks = [];
+  const guestLinks = [];
+
+  siteMenu
     .filter(({ type }) => type === "MENU_ITEM_LINK")
-    .map((item) => {
-      return { ...item, url: interpolateURL(item.url, data) };
+    .forEach((item) => {
+      const itemData = { ...item, url: interpolateURL(item.url, data) };
+
+      // Items without the property set will be always displayed
+      if (!itemData.hasOwnProperty("authenticated")) {
+        rootLinks.push(itemData);
+        return true;
+      }
+
+      if (item.authenticated) {
+        authenticatedLinks.push(itemData);
+        return true;
+      }
+
+      guestLinks.push(itemData);
     });
 
   return {
     expandables,
+    authenticatedLinks,
+    guestLinks,
     rootLinks,
   };
 };
