@@ -134,7 +134,7 @@
         {
           "type": "LINK_FONT_ICON",
           "text": "Membership",
-          "figure": "settings",
+          "figure": "account_circle",
           "url": "https://membership.debtcollective.org/membership"
         },
 
@@ -143,12 +143,6 @@
           "text": "Profile",
           "figure": "face",
           "url": "{community}/u/{username}"
-        },
-        {
-          "type": "LINK_FONT_ICON",
-          "text": "Membership",
-          "figure": "account_circle",
-          "url": "{homepage}/hub"
         },
         {
           "type": "LINK_FONT_ICON",
@@ -178,17 +172,6 @@
           "text": "Messages",
           "figure": "forum",
           "url": "{community}/u/{username}/messages"
-        }
-      ]
-    },
-    {
-      "type": "USER_MENU_FOOTER",
-      "items": [
-        {
-          "type": "LINK_FONT_ICON_INLINE",
-          "text": "Preferences",
-          "figure": "settings",
-          "url": "{community}/u/{username}/preferences"
         }
       ]
     }
