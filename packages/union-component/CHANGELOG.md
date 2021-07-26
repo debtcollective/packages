@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.5.2](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.5.1...@debtcollective/union-component@1.5.2) (2021-07-26)
+
+
+### Bug Fixes
+
+* update membership hub nav link ([4ac5931](https://github.com/debtcollective/packages/commit/4ac5931))
+
+
+
+
+
 ## [1.5.1](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.5.0...@debtcollective/union-component@1.5.1) (2021-06-24)
 
 

@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.6.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.6.2...@debtcollective/dc-header-component@3.6.3) (2021-07-26)
+
+
+### Bug Fixes
+
+* update membership hub nav link ([d870b16](https://github.com/debtcollective/packages/commit/d870b16))
+
+
+
+
+
 ## [3.6.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.6.1...@debtcollective/dc-header-component@3.6.2) (2021-07-20)
 
 
