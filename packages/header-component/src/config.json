@@ -9,7 +9,7 @@
     {
       "type": "MENU_ITEM_LINK",
       "text": "Members Hub",
-      "url": "{homepage}/hub",
+      "url": "https://membership.debtcollective.org/",
       "authenticated": true
     },
     {
