@@ -21,7 +21,7 @@ ThankYou.args = {
     <>
       <p className="text-center mt-4 mb-0 text-sm px-6">
         Your $215.00 donation has been successfully processed. Go to{' '}
-        <a className="text-primary underline" href="https://debtcollective.org/hub">
+        <a className="text-primary underline" href="https://membership.debtcollective.org/">
           your member hub
         </a>{' '}
         to continue the process
