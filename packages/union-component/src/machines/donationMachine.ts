@@ -39,7 +39,6 @@ const donationWidgetMachine = Machine<
         lastName: '',
         email: '',
         phoneNumber: '',
-        fund: ''
       },
       paymentServices: {
         stripe: null,
@@ -191,9 +190,9 @@ const donationWidgetMachine = Machine<
       }),
       updatePayeeInformation: assign({
         cardInformation: (context, event) => {
-          const { firstName, lastName, email, phoneNumber, fund } = event;
+          const { firstName, lastName, email, phoneNumber } = event;
           const phoneE164 = `+${phoneNumber.replace(/\D/g, '')}`;
-          return { firstName, lastName, email, phoneNumber: phoneE164, fund };
+          return { firstName, lastName, email, phoneNumber: phoneE164 };
         }
       }),
       updatePaymentServices: assign({

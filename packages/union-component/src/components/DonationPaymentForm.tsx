@@ -12,7 +12,6 @@ import DonationPhoneInput from './DonationPhoneInput';
 import chapters from '../constants/chapters';
 import { DEFAULT_ERROR } from '../constants/errors';
 import { environmentSetup } from '../utils/config';
-import DonationFundDropdown from './DonationFundDropdown';
 
 export interface Props {
   amount: number;
@@ -24,7 +23,6 @@ export interface Props {
     email: string;
   };
   hasChapterSelection?: boolean;
-  hasFundDropdown?: boolean;
   onEditAmount: () => void;
   onSubmit: (
     data: { [string: string]: unknown },
@@ -38,7 +36,6 @@ const DonationPaymentForm: React.FC<Props> = ({
   defaultValues,
   errors = null,
   hasChapterSelection,
-  hasFundDropdown,
   onEditAmount,
   onSubmit,
   tokenData
@@ -52,7 +49,6 @@ const DonationPaymentForm: React.FC<Props> = ({
   const [formData, setFormData] = useState<{
     email: string;
     firstName: string;
-    fund?: number;
     lastName: string;
     phoneNumber: string;
   }>({
@@ -109,10 +105,6 @@ const DonationPaymentForm: React.FC<Props> = ({
     setFormData((state) => ({ ...state, phoneNumber }));
   };
 
-  const onFundsLoaded = useCallback(
-    (fund: number) => setFormData((state) => ({ ...state, fund })),
-    []
-  );
 
   const onChangeInputCardElement = (
     e: StripeCardElementChangeEvent,
@@ -136,15 +128,6 @@ const DonationPaymentForm: React.FC<Props> = ({
         </DonationWizard.Button>
       </DonationWizard.Title>
       <DonationWizard.Form onSubmit={handleOnSubmit}>
-        {hasFundDropdown ? (
-          <DonationFundDropdown
-            id="select-fund"
-            name="fund"
-            onChange={onChangeInput}
-            onFundsLoaded={onFundsLoaded}
-            value={formData.fund || ''}
-          />
-        ) : null}
 
         <DonationWizard.Input
           onChange={onChangeInput}
