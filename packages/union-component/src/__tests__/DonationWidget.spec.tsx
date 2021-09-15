@@ -8,35 +8,12 @@ import { MINIMAL_DONATION } from '../machines/donationMachine';
 import * as Stripe from '@stripe/react-stripe-js';
 
 jest.mock('../components/StripeCardInput');
-jest.mock('../utils/funds', () => {
-  const funds = [
-    {
-      id: 1,
-      name: 'General Debt Collective Fund',
-      slug: 'debt-collective',
-      created_at: '2021-05-06T22:07:10.933Z',
-      updated_at: '2021-05-06T22:07:10.933Z'
-    },
-    {
-      id: 2,
-      name: 'Anti-Eviction Fund',
-      slug: 'anti-eviction',
-      created_at: '2021-05-06T22:07:10.938Z',
-      updated_at: '2021-05-06T22:07:10.938Z'
-    }
-  ];
-
-  return {
-    getDonationFunds: jest.fn(() => Promise.resolve(funds))
-  };
-});
 
 const cardInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
   email: faker.internet.email('bot', '', 'debtcollective.org'),
-  phoneNumber: '202 555 0191',
-  fund: '1'
+  phoneNumber: '202 555 0191'
 };
 
 const billingInformation = {
@@ -101,16 +78,6 @@ test('send a donation request with all provided information', async () => {
   expect(submitBtn).toBeDisabled();
 
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
-  await waitFor(() =>
-    screen.getByRole('combobox', {
-      name: /specific fund?/gi
-    })
-  );
-
-  userEvent.selectOptions(
-    screen.getByRole('combobox', { name: /specific fund/i }),
-    '2'
-  );
 
   userEvent.type(
     screen.getByRole('textbox', { name: /first name/i }),
@@ -143,8 +110,7 @@ test('send a donation request with all provided information', async () => {
         firstName: cardInformation.firstName,
         lastName: cardInformation.lastName,
         email: cardInformation.email,
-        phoneNumber: `+1${cardInformation.phoneNumber.replace(/\D/g, '')}`,
-        fund: '2'
+        phoneNumber: `+1${cardInformation.phoneNumber.replace(/\D/g, '')}`
       },
       donation: {
         message: '',

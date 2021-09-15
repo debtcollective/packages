@@ -80,7 +80,6 @@ describe('when toggling donation type', () => {
 
 test('goes into process donation after filling all information', () => {
   const cardInformation = {
-    fund: 1,
     firstName: faker.name.findName(),
     lastName: faker.name.lastName(),
     email: faker.internet.email('bot', '', 'debtcollective.org'),
