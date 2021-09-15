@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.6.0](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.5.2...@debtcollective/union-component@1.6.0) (2021-09-15)
+
+
+### Features
+
+* remove funds dropdown ([b27ac3f](https://github.com/debtcollective/packages/commit/b27ac3f))
+
+
+
+
+
 ## [1.5.2](https://github.com/debtcollective/packages/compare/@debtcollective/union-component@1.5.1...@debtcollective/union-component@1.5.2) (2021-07-26)
 
 
