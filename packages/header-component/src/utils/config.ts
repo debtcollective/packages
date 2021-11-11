@@ -1,5 +1,10 @@
 import config from "../config.json";
+import { getWordpressNav } from "../services/session";
 
+// pull siteMenu from wordpress site
+
+const { wordpress } = config;
+const wordpressNav = await getWordpressNav(wordpress);
 const interpolateURL = (
   url,
   { user = { username: "" }, community, homepage, returnUrl = "" }
@@ -27,6 +32,36 @@ const interpolateItemsURL = (_items, { user, community, homepage }) => {
 
   return items;
 };
+
+const interpolateWordpressNav = () => {
+  var wordpressNavConfig = [];
+
+  wordpressNav.items.forEach(item => {
+    let row = {}
+    if (item.child_items) {
+      row["type"] = "MENU_ITEM_EXPANDABLE";
+      row["text"] = item.title;
+      row["items"] = [];
+      item.child_items.forEach(child => {
+        var childItem = {
+          "type": "LINK",
+          "text": child.title,
+          "url": child.url
+        };
+        row["items"].push(childItem);
+      });
+      wordpressNavConfig.push(row)
+    }
+    else {
+      row["type"] = "MENU_ITEM_LINK";
+      row["text"] = item.title;
+      row["url"] = item.url;
+      wordpressNavConfig.push(row)
+    }
+  });
+  return wordpressNavConfig;
+};
+
 
 /**
  * Method to digest the config.json and avoid a mapping within
@@ -59,7 +94,8 @@ export const getUserMenuConfig = ({ community, user, homepage }) => {
  * to allow the component to just consume the adapted object
  */
 export const getSiteMenuConfig = ({ community, user, homepage }) => {
-  const { siteMenu } = config;
+
+  const siteMenu = interpolateWordpressNav();
   const data = { user, community, homepage };
 
   const expandables = siteMenu
