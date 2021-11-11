@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.0.0...@debtcollective/dc-header-component@4.1.0) (2021-11-11)
+
+
+### Features
+
+* add check for authenticated links ([5ca4311](https://github.com/debtcollective/packages/commit/5ca4311))
+
+
+
+
+
 # [4.0.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.6.3...@debtcollective/dc-header-component@4.0.0) (2021-11-11)
 
 
