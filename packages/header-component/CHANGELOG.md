@@ -3,6 +3,27 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.6.3...@debtcollective/dc-header-component@4.0.0) (2021-11-11)
+
+
+### Bug Fixes
+
+* remove top-level await for cjs module ([0a19fcd](https://github.com/debtcollective/packages/commit/0a19fcd))
+
+
+### Features
+
+* pull sitemenu from wordpress ([2b90541](https://github.com/debtcollective/packages/commit/2b90541))
+
+
+### BREAKING CHANGES
+
+* Pulls sitemenu from wordpress and removes old sitemenu in config.json
+
+
+
+
+
 ## [3.6.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@3.6.2...@debtcollective/dc-header-component@3.6.3) (2021-07-26)
 
 
