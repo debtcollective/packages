@@ -40,6 +40,24 @@ const getCurrentUser = async (discourseEndpoint, { csrfToken }) => {
   return currentUser;
 };
 
+export const getWordpressNav = async (wordpress) => {
+  const url = `${wordpress}`;
+  const response = await fetch(url, {
+    credentials: "include",
+    headers: {
+      Accept: "application/json",
+    },
+  });
+
+  if (!response.ok) {
+    throw "Error trying Wordpress JSON Nav";
+  }
+
+  const json = await response.json();
+
+  return json;
+};
+
 export const syncCurrentUser = async (community) => {
   let currentUser;
   let discourseEndpoint = trimSlash(community);
