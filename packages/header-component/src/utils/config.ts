@@ -2,9 +2,6 @@ import config from "../config.json";
 import { getWordpressNav } from "../services/session";
 
 // pull siteMenu from wordpress site
-
-const { wordpress } = config;
-const wordpressNav = await getWordpressNav(wordpress);
 const interpolateURL = (
   url,
   { user = { username: "" }, community, homepage, returnUrl = "" }
@@ -33,7 +30,8 @@ const interpolateItemsURL = (_items, { user, community, homepage }) => {
   return items;
 };
 
-const interpolateWordpressNav = () => {
+export const interpolateWordpressNav = async (wordpress) => {
+  const wordpressNav = await getWordpressNav(wordpress);
   var wordpressNavConfig = [];
 
   wordpressNav.items.forEach(item => {
@@ -59,7 +57,7 @@ const interpolateWordpressNav = () => {
       wordpressNavConfig.push(row)
     }
   });
-  return wordpressNavConfig;
+  config["siteMenu"] = wordpressNavConfig;
 };
 
 
@@ -95,7 +93,8 @@ export const getUserMenuConfig = ({ community, user, homepage }) => {
  */
 export const getSiteMenuConfig = ({ community, user, homepage }) => {
 
-  const siteMenu = interpolateWordpressNav();
+  const { siteMenu } = config
+    
   const data = { user, community, homepage };
 
   const expandables = siteMenu

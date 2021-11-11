@@ -76,6 +76,12 @@ export class Header {
   @Prop() community: string = "https://community.debtcollective.org/";
 
   /**
+   * URL to the wordpress menu
+   * with the latest "/"
+   */
+  @Prop() wordpress: string = "https://wordpress-test.debtcollective.org/wp-json/menus/v1/menus/2";
+
+  /**
    * URL to use after login processed typically full URL from host
    * with the latest "/"
    */
@@ -232,6 +238,7 @@ export class Header {
           user={this.user}
           homepage={this.homepage}
           community={this.community}
+          wordpress={this.wordpress}
         />
         <div
           class={`document-cloak ${
