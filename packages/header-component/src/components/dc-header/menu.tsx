@@ -1,6 +1,6 @@
 import "./link";
 import { Component, h, Event, EventEmitter, Prop, Listen } from "@stencil/core";
-import { getSiteMenuConfig, getSocialLinks } from "../../utils/config";
+import { getSiteMenuConfig, getSocialLinks, interpolateWordpressNav } from "../../utils/config";
 
 @Component({
   assetsDirs: ["assets"],
@@ -15,6 +15,7 @@ export class Menu {
   @Prop() open: boolean;
   @Prop() community: string;
   @Prop() homepage: string;
+  @Prop() wordpress: string;
   @Prop() host: string;
 
   /**
@@ -33,6 +34,7 @@ export class Menu {
   @Event() toggleMenu: EventEmitter<void>;
 
   componentWillRender() {
+    interpolateWordpressNav(this.wordpress);
     this.socialLinks = getSocialLinks();
     this.config = getSiteMenuConfig({
       community: this.community,

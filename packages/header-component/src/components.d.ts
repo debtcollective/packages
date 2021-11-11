@@ -24,6 +24,10 @@ export namespace Components {
           * URL to use after login processed typically full URL from host with the latest "/"
          */
         "returnurl": string;
+        /**
+          * URL to the wordpress menu with the latest "/"
+         */
+        "wordpress": string;
     }
     interface DcLink {
         "namespace": string;
@@ -46,6 +50,7 @@ export namespace Components {
     unread_notifications: number;
     unread_high_priority_notifications: number;
   };
+        "wordpress": string;
     }
     interface DcProfile {
         "community": string;
@@ -121,6 +126,10 @@ declare namespace LocalJSX {
           * URL to use after login processed typically full URL from host with the latest "/"
          */
         "returnurl"?: string;
+        /**
+          * URL to the wordpress menu with the latest "/"
+         */
+        "wordpress"?: string;
     }
     interface DcLink {
         "namespace"?: string;
@@ -149,6 +158,7 @@ declare namespace LocalJSX {
     unread_notifications: number;
     unread_high_priority_notifications: number;
   };
+        "wordpress"?: string;
     }
     interface DcProfile {
         "community"?: string;

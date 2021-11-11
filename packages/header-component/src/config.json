@@ -1,6 +1,6 @@
-{
-  "wordpress": "https://wordpress-test.debtcollective.org/wp-json/menus/v1/menus/2",
-  
+{ 
+  "siteMenu": [
+  ],
   "userMenu": [
     {
       "type": "USER_MENU_PROFILE_SECTION",
