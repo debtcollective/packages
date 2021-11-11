@@ -41,19 +41,35 @@ export const interpolateWordpressNav = async (wordpress) => {
       row["text"] = item.title;
       row["items"] = [];
       item.child_items.forEach(child => {
+        let authenticated;
+        if (child.acf.visibility == "authenticated") {
+          authenticated = true
+        }
+        else if (child.acf.visibility == "unauthenticated") {
+          authenticated = false
+        }
         var childItem = {
           "type": "LINK",
           "text": child.title,
-          "url": child.url
+          "url": child.url,
+          "authenticated": authenticated
         };
         row["items"].push(childItem);
       });
       wordpressNavConfig.push(row)
     }
     else {
+      let authenticated;
+      if (item.acf.visibility == "authenticated") {
+        authenticated = true
+      }
+      else if (item.acf.visibility == "unauthenticated") {
+        authenticated = false
+      }
       row["type"] = "MENU_ITEM_LINK";
       row["text"] = item.title;
       row["url"] = item.url;
+      row["authenticated"] = authenticated;
       wordpressNavConfig.push(row)
     }
   });
