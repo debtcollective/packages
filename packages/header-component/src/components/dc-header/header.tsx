@@ -79,7 +79,7 @@ export class Header {
    * URL to the wordpress menu
    * with the latest "/"
    */
-  @Prop() wordpress: string = "https://wordpress-test.debtcollective.org/wp-json/menus/v1/menus/2";
+  @Prop() wordpress: string = "https://wordpress.debtcollective.org/wp-json/menus/v1/menus/2";
 
   /**
    * URL to use after login processed typically full URL from host
