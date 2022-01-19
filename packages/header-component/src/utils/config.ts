@@ -120,17 +120,6 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
       if (item.type === "MENU_ITEM_LINK") {
         const itemData = { ...item, url: interpolateURL(item.url, data) };
 
-        // Items without the property set will be always displayed
-        if (!itemData.hasOwnProperty("authenticated")) {
-          rootLinks.push(itemData);
-          return true;
-        }
-
-        if (item.authenticated) {
-          authenticatedLinks.push(itemData);
-          return true;
-        }
-
         guestLinks.push(itemData);
       }
       else {
@@ -140,9 +129,7 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
   })
 
   return {
-    authenticatedLinks,
     guestLinks,
-    rootLinks,
   };
 };
 
