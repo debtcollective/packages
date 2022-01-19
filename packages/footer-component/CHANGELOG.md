@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [0.3.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-footer-component@0.3.0...@debtcollective/dc-footer-component@0.3.1) (2022-01-19)
+
+
+### Bug Fixes
+
+* remove failing test case from unused component ([790e661](https://github.com/debtcollective/packages/commit/790e661))
+* remove footer unit test ([cd20d86](https://github.com/debtcollective/packages/commit/cd20d86))
+
+
+
+
+
 # [0.3.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-footer-component@0.2.5...@debtcollective/dc-footer-component@0.3.0) (2021-04-28)
 
 

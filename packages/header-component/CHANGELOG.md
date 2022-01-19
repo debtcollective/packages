@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.0...@debtcollective/dc-header-component@4.1.1) (2022-01-19)
+
+
+### Bug Fixes
+
+* issue with expanded menus always appearing below menulinks; add authenticated feature to expanded links ([18fb67d](https://github.com/debtcollective/packages/commit/18fb67d))
+* remove failing test case from unused component ([790e661](https://github.com/debtcollective/packages/commit/790e661))
+* update default wordpress api link ([a9521be](https://github.com/debtcollective/packages/commit/a9521be))
+
+
+
+
+
 # [4.1.0](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.0.0...@debtcollective/dc-header-component@4.1.0) (2021-11-11)
 
 
