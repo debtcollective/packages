@@ -2,7 +2,7 @@
 // import { DcFooter } from './dc-footer';
 
 describe('dc-footer', () => {
-  // it.only('renders', async () => {
+  it.only('renders', async () => {
   //   const { root } = await newSpecPage({
   //     components: [DcFooter],
   //     html: '<dc-footer></dc-footer>',
@@ -108,5 +108,5 @@ describe('dc-footer', () => {
     //     </footer>
     //   </dc-footer>
     // `);
-  // });
+  });
 });
