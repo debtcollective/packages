@@ -66,27 +66,40 @@ export class Menu {
             </button>
           </div>
           <menu class="menu-section menu-nav">
-            {this.user
-              ? this.config.authenticatedLinks.map((link) => (
-                  <dc-link
-                    class="menu-nav-item text-lg"
-                    namespace="menu"
-                    role="menuitem"
-                    to={link.url}
-                  >
-                    {link.text}
-                  </dc-link>
-                ))
-              : this.config.guestLinks.map((link, key) => {
+            {this.config.guestLinks.map((link, key) => {
                   if (link.type === "MENU_ITEM_LINK") {
-                    return <dc-link
-                      class="menu-nav-item text-lg"
-                      namespace="menu"
-                      role="menuitem"
-                      to={link.url}
-                    >
-                      {link.text}
-                    </dc-link>
+                    if (typeof link.authenticated !== 'undefined') {
+                      if (link.authenticated && this.user) {
+                        return <dc-link
+                          class="menu-nav-item text-lg"
+                          namespace="menu"
+                          role="menuitem"
+                          to={link.url}
+                        >
+                          {link.text}
+                        </dc-link>
+                      }
+                      else if (!link.authenticated && !this.user) {
+                        return <dc-link
+                          class="menu-nav-item text-lg"
+                          namespace="menu"
+                          role="menuitem"
+                          to={link.url}
+                        >
+                          {link.text}
+                        </dc-link>
+                      }
+                    }
+                    else {
+                      return <dc-link
+                          class="menu-nav-item text-lg"
+                          namespace="menu"
+                          role="menuitem"
+                          to={link.url}
+                        >
+                          {link.text}
+                        </dc-link>
+                    }
                   }
                   else {
                     return <details
@@ -111,7 +124,6 @@ export class Menu {
                       </summary>
                       <div class="menu-nav-item-nested" role="menu">
                         {link.items.map((childLink) => {
-                          console.log(childLink)
                           if (typeof childLink.authenticated !== 'undefined') {
                             if (childLink.authenticated && this.user) {
                               return <dc-link
@@ -152,52 +164,6 @@ export class Menu {
                     </details>
                   }
                 })}
-            {this.config.rootLinks.map((link) => (
-              <dc-link
-                class="menu-nav-item text-lg"
-                namespace="menu"
-                role="menuitem"
-                to={link.url}
-              >
-                {link.text}
-              </dc-link>
-            ))}
-            {/*{this.config.expandables.map((item, key) => (
-              <details
-                class="menu-nav-item-collapsable"
-                role="menuitem"
-                aria-labelledby={`expandable-menuitem-${key}`}
-              >
-                <summary class="text-lg" id={`expandable-menuitem-${key}`}>
-                  {item.text}
-                  <div
-                    class="material-icons icon icon-more"
-                    role="presentation"
-                  >
-                    expand_more
-                  </div>{" "}
-                  <div
-                    class="material-icons icon icon-less"
-                    role="presentation"
-                  >
-                    expand_less
-                  </div>
-                </summary>
-                <div class="menu-nav-item-nested" role="menu">
-                  {item.items.map((link) => (
-                    <dc-link
-                      role="menuitem"
-                      class="text hover-green"
-                      namespace="menu"
-                      to={link.url}
-                      {...link.attrs}
-                    >
-                      {link.text}
-                    </dc-link>
-                  ))}
-                </div>
-              </details>
-            ))}*/}
           </menu>
           <div class="menu-section menu-footer mt-auto">
             <dc-link class="icon" to={this.socialLinks.twitter} target="_blank">
