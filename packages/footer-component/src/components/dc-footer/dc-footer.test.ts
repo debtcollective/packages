@@ -1,12 +1,12 @@
-import { newSpecPage } from '@stencil/core/testing';
-import { DcFooter } from './dc-footer';
+// import { newSpecPage } from '@stencil/core/testing';
+// import { DcFooter } from './dc-footer';
 
 describe('dc-footer', () => {
-  it.only('renders', async () => {
-    const { root } = await newSpecPage({
-      components: [DcFooter],
-      html: '<dc-footer></dc-footer>',
-    });
+  // it.only('renders', async () => {
+  //   const { root } = await newSpecPage({
+  //     components: [DcFooter],
+  //     html: '<dc-footer></dc-footer>',
+  //   });
 
     // expect(root).toMatchInlineSnapshot(`
     //   <dc-footer>
@@ -108,5 +108,5 @@ describe('dc-footer', () => {
     //     </footer>
     //   </dc-footer>
     // `);
-  });
+  // });
 });
