@@ -56,7 +56,6 @@ export const interpolateWordpressNav = async (wordpress) => {
         };
         row["items"].push(childItem);
       });
-      wordpressNavConfig.push(row)
     }
     else {
       let authenticated;
@@ -70,8 +69,8 @@ export const interpolateWordpressNav = async (wordpress) => {
       row["text"] = item.title;
       row["url"] = item.url;
       row["authenticated"] = authenticated;
-      wordpressNavConfig.push(row)
     }
+    wordpressNavConfig.push(row)
   });
   config["siteMenu"] = wordpressNavConfig;
 };
@@ -112,39 +111,35 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
   const { siteMenu } = config
     
   const data = { user, community, homepage };
-
-  const expandables = siteMenu
-    .filter(({ type }) => type === "MENU_ITEM_EXPANDABLE")
-    .map(({ items, ...rest }) => ({
-      items: interpolateItemsURL(items, data),
-      ...rest,
-    }));
-
   const rootLinks = [];
   const authenticatedLinks = [];
   const guestLinks = [];
 
   siteMenu
-    .filter(({ type }) => type === "MENU_ITEM_LINK")
     .forEach((item) => {
-      const itemData = { ...item, url: interpolateURL(item.url, data) };
+      if (item.type === "MENU_ITEM_LINK") {
+        const itemData = { ...item, url: interpolateURL(item.url, data) };
 
-      // Items without the property set will be always displayed
-      if (!itemData.hasOwnProperty("authenticated")) {
-        rootLinks.push(itemData);
-        return true;
+        // Items without the property set will be always displayed
+        if (!itemData.hasOwnProperty("authenticated")) {
+          rootLinks.push(itemData);
+          return true;
+        }
+
+        if (item.authenticated) {
+          authenticatedLinks.push(itemData);
+          return true;
+        }
+
+        guestLinks.push(itemData);
       }
-
-      if (item.authenticated) {
-        authenticatedLinks.push(itemData);
-        return true;
-      }
-
-      guestLinks.push(itemData);
-    });
+      else {
+        // push expandable menu link
+        guestLinks.push(item);
+    };
+  })
 
   return {
-    expandables,
     authenticatedLinks,
     guestLinks,
     rootLinks,
