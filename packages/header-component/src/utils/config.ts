@@ -111,8 +111,6 @@ export const getSiteMenuConfig = ({ community, user, homepage }) => {
   const { siteMenu } = config
     
   const data = { user, community, homepage };
-  const rootLinks = [];
-  const authenticatedLinks = [];
   const guestLinks = [];
 
   siteMenu
