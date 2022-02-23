@@ -124,6 +124,7 @@ export class Menu {
                       role="menuitem"
                       class="text hover-green"
                       namespace="menu"
+                      label={link.text}
                       to={link.url}
                       {...link.attrs}
                     >
