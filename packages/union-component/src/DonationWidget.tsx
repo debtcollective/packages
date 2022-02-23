@@ -127,6 +127,9 @@ const DonationWidget: React.FC<Props> = ({ id, className }) => {
       )}
       {machineState.amountForm === 'donateMonthly' && (
         <DonationWizard.Container>
+          <DonationWizard.Headline>
+            Your contribution helps grow the union of debtors to fight back against creditors and create the just economic system we deserve.
+          </DonationWizard.Headline>
           <DonationWizard.Title>
             Choose an amount to pay per month
           </DonationWizard.Title>
