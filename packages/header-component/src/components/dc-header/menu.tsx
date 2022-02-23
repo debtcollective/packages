@@ -66,74 +66,109 @@ export class Menu {
             </button>
           </div>
           <menu class="menu-section menu-nav">
-            {this.user
-              ? this.config.authenticatedLinks.map((link) => (
-                  <dc-link
-                    class="menu-nav-item text-lg"
-                    namespace="menu"
-                    role="menuitem"
-                    to={link.url}
-                  >
-                    {link.text}
-                  </dc-link>
-                ))
-              : this.config.guestLinks.map((link) => (
-                  <dc-link
-                    class="menu-nav-item text-lg"
-                    namespace="menu"
-                    role="menuitem"
-                    to={link.url}
-                  >
-                    {link.text}
-                  </dc-link>
-                ))}
-            {this.config.rootLinks.map((link) => (
-              <dc-link
-                class="menu-nav-item text-lg"
-                namespace="menu"
-                role="menuitem"
-                to={link.url}
-              >
-                {link.text}
-              </dc-link>
-            ))}
-            {this.config.expandables.map((item, key) => (
-              <details
-                class="menu-nav-item-collapsable"
-                role="menuitem"
-                aria-labelledby={`expandable-menuitem-${key}`}
-              >
-                <summary class="text-lg" id={`expandable-menuitem-${key}`}>
-                  {item.text}
-                  <div
-                    class="material-icons icon icon-more"
-                    role="presentation"
-                  >
-                    expand_more
-                  </div>{" "}
-                  <div
-                    class="material-icons icon icon-less"
-                    role="presentation"
-                  >
-                    expand_less
-                  </div>
-                </summary>
-                <div class="menu-nav-item-nested" role="menu">
-                  {item.items.map((link) => (
-                    <dc-link
+            {this.config.guestLinks.map((link, key) => {
+                  if (link.type === "MENU_ITEM_LINK") {
+                    if (typeof link.authenticated !== 'undefined') {
+                      if (link.authenticated && this.user) {
+                        return <dc-link
+                          class="menu-nav-item text-lg"
+                          namespace="menu"
+                          role="menuitem"
+                          to={link.url}
+                        >
+                          {link.text}
+                        </dc-link>
+                      }
+                      else if (!link.authenticated && !this.user) {
+                        return <dc-link
+                          class="menu-nav-item text-lg"
+                          namespace="menu"
+                          role="menuitem"
+                          to={link.url}
+                        >
+                          {link.text}
+                        </dc-link>
+                      }
+                    }
+                    else {
+                      return <dc-link
+                          class="menu-nav-item text-lg"
+                          namespace="menu"
+                          role="menuitem"
+                          to={link.url}
+                        >
+                          {link.text}
+                        </dc-link>
+                    }
+                  }
+                  else {
+                    return <details
+                      class="menu-nav-item-collapsable"
                       role="menuitem"
                       class="text hover-green"
                       namespace="menu"
                       label={link.text}
                       to={link.url}
                       {...link.attrs}
+                      aria-labelledby={`expandable-menuitem-${key}`}
                     >
-                      {link.text}
-                    </dc-link>
-                  ))}
-                </div>
-              </details>
-            ))}
+                      <summary class="text-lg" id={`expandable-menuitem-${key}`}>
+                        {link.text}
+                        <div
+                          class="material-icons icon icon-more"
+                          role="presentation"
+                        >
+                          expand_more
+                        </div>{" "}
+                        <div
+                          class="material-icons icon icon-less"
+                          role="presentation"
+                        >
+                          expand_less
+                        </div>
+                      </summary>
+                      <div class="menu-nav-item-nested" role="menu">
+                        {link.items.map((childLink) => {
+                          if (typeof childLink.authenticated !== 'undefined') {
+                            if (childLink.authenticated && this.user) {
+                              return <dc-link
+                                role="menuitem"
+                                class="text hover-green"
+                                namespace="menu"
+                                to={childLink.url}
+                                {...childLink.attrs}
+                              >
+                                {childLink.text}
+                              </dc-link>
+                            }
+                            else if (!childLink.authenticated && !this.user) {
+                              return <dc-link
+                                role="menuitem"
+                                class="text hover-green"
+                                namespace="menu"
+                                to={childLink.url}
+                                {...childLink.attrs}
+                              >
+                                {childLink.text}
+                              </dc-link>
+                            }
+                          }
+                          else {
+                            return <dc-link
+                              role="menuitem"
+                              class="text hover-green"
+                              namespace="menu"
+                              to={childLink.url}
+                              {...childLink.attrs}
+                            >
+                              {childLink.text}
+                            </dc-link>
+                          }
+                        })}
+                      </div>
+                    </details>
+                  }
+                })}
           </menu>
           <div class="menu-section menu-footer mt-auto">
             <dc-link class="icon" to={this.socialLinks.twitter} target="_blank">
