@@ -103,9 +103,8 @@ export class Menu {
                   }
                   else {
                     return <details
-                      class="menu-nav-item-collapsable"
+                      class="menu-nav-item-collapsable text hover-green"
                       role="menuitem"
-                      class="text hover-green"
                       namespace="menu"
                       label={link.text}
                       to={link.url}
