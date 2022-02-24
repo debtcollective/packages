@@ -90,6 +90,10 @@ export const Form = styled.form`
   }
 `;
 
+export const Headline = styled.h3`
+  ${tw``}
+`;
+
 export const Title = styled.div`
   ${tw`px-4 py-3 text-sm text-lg font-bold text-center uppercase border-0 border-b bg-white-100 border-beige-500`}
 `;
