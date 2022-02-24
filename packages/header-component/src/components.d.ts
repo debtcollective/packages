@@ -30,7 +30,6 @@ export namespace Components {
         "wordpress": string;
     }
     interface DcLink {
-        "label": string;
         "namespace": string;
         "target": "_blank" | "_self";
         "to": string;
@@ -133,12 +132,10 @@ declare namespace LocalJSX {
         "wordpress"?: string;
     }
     interface DcLink {
-        "label"?: string;
         "namespace"?: string;
         "onLinkClicked"?: (event: CustomEvent<{
     event: object;
     to: string;
-    label: string;
     namespace: string;
   }>) => void;
         "target"?: "_blank" | "_self";

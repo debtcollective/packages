@@ -106,7 +106,6 @@ export class Menu {
                       class="menu-nav-item-collapsable text hover-green"
                       role="menuitem"
                       namespace="menu"
-                      label={link.text}
                       to={link.url}
                       {...link.attrs}
                       aria-labelledby={`expandable-menuitem-${key}`}
