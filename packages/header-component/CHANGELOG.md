@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.2...@debtcollective/dc-header-component@4.1.3) (2022-02-24)
+
+
+### Bug Fixes
+
+* multiple class attributes defined in Menu ([e5f0bff](https://github.com/debtcollective/packages/commit/e5f0bff))
+* open non debtcollective links in new tab ([915ceab](https://github.com/debtcollective/packages/commit/915ceab))
+
+
+
+
+
 ## [4.1.2](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.1...@debtcollective/dc-header-component@4.1.2) (2022-01-20)
 
 
