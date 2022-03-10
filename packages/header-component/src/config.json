@@ -33,7 +33,7 @@
           "type": "LINK_FONT_ICON",
           "text": "Events",
           "figure": "event",
-          "url": "{community}/upcoming-events"
+          "url": "{homepage}/events"
         },
         {
           "type": "LINK_FONT_ICON",
@@ -75,7 +75,7 @@
     {
       "type": "LINK_BUTTON_PRIMARY",
       "text": "Join the Union",
-      "url": "{homepage}/debt-union"
+      "url": "{homepage}/join-our-union"
     }
   ]
 }
