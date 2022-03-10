@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.5](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.4...@debtcollective/dc-header-component@4.1.5) (2022-03-10)
+
+
+### Bug Fixes
+
+* update profile header links ([9c62a28](https://github.com/debtcollective/packages/commit/9c62a28))
+
+
+
+
+
 ## [4.1.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.3...@debtcollective/dc-header-component@4.1.4) (2022-03-10)
 
 
