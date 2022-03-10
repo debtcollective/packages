@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.4](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.3...@debtcollective/dc-header-component@4.1.4) (2022-03-10)
+
+
+### Bug Fixes
+
+* switch default menu link to new wordpress site link ([5fb7d75](https://github.com/debtcollective/packages/commit/5fb7d75))
+
+
+
+
+
 ## [4.1.3](https://github.com/debtcollective/packages/compare/@debtcollective/dc-header-component@4.1.2...@debtcollective/dc-header-component@4.1.3) (2022-02-24)
 
 
