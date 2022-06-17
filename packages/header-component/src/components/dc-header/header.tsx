@@ -178,7 +178,7 @@ export class Header {
               class="btn-transparent"
               onClick={this.toggleMenuHandler.bind(this)}
             >
-              <span class="material-icons">menu</span>
+              <span class="material-icons notranslate">menu</span>
             </button>
           </div>
           <div class="l-header-item logo-container navbar-item">
