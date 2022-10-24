@@ -24,6 +24,16 @@ export const membershipMachineContext = {
     phoneNumber: '',
     chapter: ''
   },
+  debtInformation: {
+    student: false,
+    medical: false,
+    housing: false,
+    carceral: false,
+    utility: false,
+    credit: false,
+    other: '',
+    none: false
+  },
   paymentServices: {
     stripe: undefined,
     stripeToken: undefined
@@ -65,12 +75,24 @@ export type PersonalData = {
     | '';
 };
 
+export type DebtData = {
+  student: boolean;
+  medical: boolean;
+  housing: boolean;
+  carceral: boolean;
+  utility: boolean;
+  credit: boolean;
+  other: string;
+  none: boolean;
+};
+
 export type PaymentServices = {
   stripe?: Stripe;
   stripeToken?: Token;
 };
 
 export type AddressNextEvent = { type: 'NEXT'; data: AddressData };
+export type DebtNextEvent = { type: 'NEXT'; data: DebtData };
 export type AmountNextEvent = { type: 'NEXT'; data: { value: number } };
 export type PersonalNextEvent = {
   type: 'NEXT';
@@ -108,6 +130,12 @@ const actions = {
     addressInformation: (context, event) => {
       const { street, city, zipCode, country } = event.data;
       return { street, city, zipCode, country };
+    }
+  }),
+  updateDebtInformation: assign<MembershipMachineContext, DebtNextEvent>({
+    debtInformation: (context, event) => {
+      const { student, medical, housing, carceral, utility, credit, other, none } = event.data;
+      return { student, medical, housing, carceral, utility, credit, other, none };
     }
   }),
   updatePayeeInformation: assign<MembershipMachineContext, PersonalNextEvent>({
@@ -179,6 +207,24 @@ const guards = {
     }
 
     return isValid;
+  },
+  isDebtFormCompleted: (
+    context: MembershipMachineContext,
+    event: DebtNextEvent
+  ) => {
+    const { student, medical, housing, carceral, utility, credit, other, none } = event.data;
+
+    const isValid = [student, medical, housing, carceral, utility, credit, other, none].some(Boolean)
+
+    if (!isValid) {
+      console.error(
+        'invalid information on guard:',
+        'isDebtFormCompleted',
+        event
+      );
+    }
+
+    return isValid;
   }
 };
 
@@ -217,21 +263,34 @@ const membershipMachine = Machine<
           addressInformationForm: {
             on: {
               'EDIT.AMOUNT': '#donation.amountForm.donateMonthly',
-              'NEXT.ZERO': [
-                {
-                  target: 'zeroPersonalInformationForm',
-                  cond: 'isAddressFormCompleted',
-                  actions: ['updateAddressInformation']
-                }
-              ],
               NEXT: [
                 {
-                  target: 'personalInformationForm',
+                  target: 'debtInformationForm',
                   cond: 'isAddressFormCompleted',
                   actions: ['updateAddressInformation']
                 }
               ],
               PREV: '#donation.amountForm'
+            }
+          },
+          debtInformationForm: {
+            on: {
+              'EDIT.AMOUNT': '#donation.amountForm.donateMonthly',
+              'NEXT.ZERO': [
+                {
+                  target: 'zeroPersonalInformationForm',
+                  cond: 'isDebtFormCompleted',
+                  actions: ['updateDebtInformation']
+                }
+              ],
+              NEXT: [
+                {
+                  target: 'personalInformationForm',
+                  cond: 'isDebtFormCompleted',
+                  actions: ['updateDebtInformation']
+                }
+              ],
+              PREV: 'addressInformationForm'
             }
           },
           personalInformationForm: {
@@ -248,7 +307,7 @@ const membershipMachine = Machine<
                   ]
                 }
               ],
-              PREV: 'addressInformationForm'
+              PREV: 'debtInformationForm'
             }
           },
           zeroPersonalInformationForm: {
@@ -264,7 +323,7 @@ const membershipMachine = Machine<
                   ]
                 }
               ],
-              PREV: 'addressInformationForm'
+              PREV: 'debtInformationForm'
             }
           },
           hist: {

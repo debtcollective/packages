@@ -21,6 +21,10 @@ const addressInformation = {
   zipCode: faker.address.zipCode(),
   country: 'VE'
 };
+const debtInformation = {
+  student: true, medical: true, housing: false, carceral: false,
+  utility: false, credit: false, other: '', none: false
+};
 const donationResponse = {
   status: 'succeeded',
   message: 'Your donation has been successfully processed'
@@ -66,6 +70,12 @@ test('allows to skip the payment form and complete flow using zero donation sele
   );
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
   // Give personal information
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
@@ -97,6 +107,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
 
   expect(sendDonationSpy).toHaveBeenCalledWith({
     addressInformation,
+    debtInformation,
     personalInformation: {
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
@@ -149,6 +160,12 @@ test('allows to complete flow using an amount donation selection', async () => {
   );
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
   // Give personal information
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
@@ -184,6 +201,7 @@ test('allows to complete flow using an amount donation selection', async () => {
 
   expect(sendDonationSpy).toHaveBeenCalledWith({
     addressInformation,
+    debtInformation,
     personalInformation: {
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
@@ -243,6 +261,12 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     screen.getByRole('combobox', { name: /country/i }),
     addressInformation.country
   );
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give personal information

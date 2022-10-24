@@ -11,7 +11,7 @@ interface DonationResponse {
 export const sendMembershipDonation = async (
   context: MembershipMachineContext
 ) => {
-  const { personalInformation, addressInformation, paymentServices } = context;
+  const { personalInformation, addressInformation, debtInformation, paymentServices } = context;
   const amount = context.donationMonthlyAmount;
   const grecaptcha = (window as any).grecaptcha;
   const isZeroDollarDonation = amount === 0;
@@ -43,6 +43,7 @@ export const sendMembershipDonation = async (
       address_line1: addressInformation.street,
       address_zip: addressInformation.zipCode,
       amount,
+      debtInformation,
       chapter: personalInformation.chapter,
       phone_number: personalInformation.phoneNumber,
       email: personalInformation.email,
