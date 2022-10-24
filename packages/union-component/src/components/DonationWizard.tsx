@@ -15,7 +15,7 @@ export const Box = styled.div`
 `;
 
 export const Input = styled.input`
-  ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-200`}
+  ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-100`}
 `;
 
 export const ErrorText = styled.p`
@@ -75,7 +75,7 @@ export const Form = styled.form`
   ${tw`p-2 py-3 sm:p-4`}
 
   #stripe-card-element {
-    ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-200`}
+    ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-100`}
   }
 
   button[type='submit'] {
