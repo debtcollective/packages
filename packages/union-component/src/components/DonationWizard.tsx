@@ -62,7 +62,7 @@ export const Button = styled.button<ButtonProps>`
       case 'text':
         return tw`font-normal underline`;
       default:
-        return tw`w-full px-4 py-3 font-bold text-center text-white uppercase transition-colors duration-300 rounded bg-primary hover:bg-primary-darker`;
+        return tw`w-full px-4 py-3 font-bold text-center text-white uppercase transition-colors duration-300 rounded bg-jade hover:bg-jade-darker focus:bg-jade-darker`;
     }
   }}
 
