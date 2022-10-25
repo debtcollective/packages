@@ -232,7 +232,7 @@ const guards = {
  * A state machine to describe the transitions within a
  * membership donation workflow
  *
- * https://xstate.js.org/viz/?gist=184c760f3d2176086487396038edd346
+ * https://xstate.js.org/viz/?gist=fb828605830fa2e311d2a1be5acbb581
  */
 const membershipMachine = Machine<
   MembershipMachineContext,
