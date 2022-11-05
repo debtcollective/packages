@@ -155,7 +155,7 @@ export default DebtInformationForm;
 const DebtOption = styled.div`
   ${tw`relative`}
   label {
-    ${tw`block w-full h-full px-3 py-3 text-center text-sm border rounded-md cursor-pointer bg-white-100 border-beige-500`}
+    ${tw`block relative w-full h-full px-3 py-3 text-center text-sm border rounded-md cursor-pointer bg-white-100 border-beige-500`}
   }
 `;
 
@@ -166,7 +166,7 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })`
   bottom: 7.5%;
   height: 85%;
   opacity: 0;
-  z-index: 1;
+  z-index: 2;
   cursor: pointer;
   + label::before { // checkbox
     content: "";
@@ -188,8 +188,8 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })`
       content: "";
       position: absolute;
       display: block;
-      top: 0.75em;
-      left: 1.45em;
+      top: 0.67em;
+      left: 1.35em;
       width: 0.5em;
       height: 1.33em;
       border-right: 0.25em solid #000 !important;
@@ -200,5 +200,6 @@ const Checkbox = styled.input.attrs({ type: "checkbox" })`
   &:focus + label {
     outline: 5px auto Highlight;
     outline: 5px auto -webkit-focus-ring-color;
+    z-index: 1;
   }
 `;
