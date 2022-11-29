@@ -105,8 +105,8 @@ const DebtInformationForm: React.FC<Props> = ({
       <p className="p-2 pb-0 sm:px-6 text-center font-bold">What debt types do you have and/or what are you interested in? (check all that apply)</p>
       <form onSubmit={handleOnSubmit} className='grid grid-cols-2 p-2 pb-3 sm:px-6 relative'>
         {debtTypes.map(({label, value}, i)  => (
-          <DebtOption key={i}>
-            <Checkbox 
+          <DonationWizard.CheckboxWrapper key={i}>
+            <DonationWizard.Checkbox
               name={value} id={value}
               checked={checkboxValues[value]}
               onChange={
@@ -116,9 +116,9 @@ const DebtInformationForm: React.FC<Props> = ({
               }
             />
             <label>{label}</label>
-          </DebtOption>
+          </DonationWizard.CheckboxWrapper>
         ))}
-        <DebtOption
+        <div
           className={`col-span-2 transition-all ease-in-out duration-200 ${
             formData.other ? 'visible opacity-100 py-2': 'invisible opacity-0 py-0'
           }`}
@@ -131,7 +131,7 @@ const DebtInformationForm: React.FC<Props> = ({
             required={Boolean(formData.other)}
             type="text"
           />
-        </DebtOption>
+        </div>
         <DonationWizard.ErrorText
           role="alert"
           className={`text-center col-span-2 absolute w-full ${
@@ -151,55 +151,3 @@ const DebtInformationForm: React.FC<Props> = ({
 };
 
 export default DebtInformationForm;
-
-const DebtOption = styled.div`
-  ${tw`relative`}
-  label {
-    ${tw`block relative w-full h-full px-3 py-3 text-center text-sm border rounded-md cursor-pointer bg-white-100 border-beige-500`}
-  }
-`;
-
-const Checkbox = styled.input.attrs({ type: "checkbox" })`
-  position: absolute;
-  left: 2.5%;
-  width: 95%;
-  bottom: 7.5%;
-  height: 85%;
-  opacity: 0;
-  z-index: 2;
-  cursor: pointer;
-  + label::before { // checkbox
-    content: "";
-    border: 3px solid #434343 !important;
-    border-radius: 0.25em;
-    background-color: transparent;
-    display: block;
-    box-sizing: border-box;
-    float: left;
-    width: 1.125em;
-    height: 1.125em;
-    position: relative;
-    top: .2em;
-    margin-right: 0.25em;
-  }
-  &:checked + label {
-    ${tw`bg-blue-200`}
-    &::after { // checkmark
-      content: "";
-      position: absolute;
-      display: block;
-      top: 0.67em;
-      left: 1.35em;
-      width: 0.5em;
-      height: 1.33em;
-      border-right: 0.25em solid #000 !important;
-      border-bottom: 0.25em solid #000 !important;
-      transform: rotate(45deg);
-    }
-  }
-  &:focus + label {
-    outline: 5px auto Highlight;
-    outline: 5px auto -webkit-focus-ring-color;
-    z-index: 1;
-  }
-`;
