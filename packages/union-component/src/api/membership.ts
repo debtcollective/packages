@@ -45,6 +45,7 @@ export const sendMembershipDonation = async (
       amount,
       chapter: personalInformation.chapter,
       phone_number: personalInformation.phoneNumber,
+      mobileConsent: personalInformation.mobileConsent,
       email: personalInformation.email,
       name: `${personalInformation.firstName} ${personalInformation.lastName}`,
       first_name: personalInformation.firstName,

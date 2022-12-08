@@ -90,6 +90,58 @@ export const Form = styled.form`
   }
 `;
 
+export const Checkbox = styled.input.attrs({ type: "checkbox" })`
+  position: absolute;
+  left: 2.5%;
+  width: 95%;
+  bottom: 7.5%;
+  height: 85%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  + label::before { // checkbox
+    content: "";
+    border: 3px solid #434343 !important;
+    border-radius: 0.25em;
+    background-color: transparent;
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    width: 1.125em;
+    height: 1.125em;
+    position: relative;
+    top: .2em;
+    margin-right: 0.25em;
+  }
+  &:checked + label {
+    ${tw`bg-blue-200`}
+    &::after { // checkmark
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0.67em;
+      left: 1.35em;
+      width: 0.5em;
+      height: 1.33em;
+      border-right: 0.25em solid #000 !important;
+      border-bottom: 0.25em solid #000 !important;
+      transform: rotate(45deg);
+    }
+  }
+  &:focus + label {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+    z-index: 1;
+  }
+`;
+
+export const CheckboxWrapper = styled.div`
+  ${tw`relative`}
+  label {
+    ${tw`block relative w-full h-full px-3 py-3 text-center text-sm border rounded-md cursor-pointer bg-white-100 border-beige-500`}
+  }
+`;
+
 export const Headline = styled.h3`
   ${tw``}
 `;
