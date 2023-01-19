@@ -21,6 +21,10 @@ const addressInformation = {
   zipCode: faker.address.zipCode(),
   country: 'VE'
 };
+const debtInformation = {
+  student: true, medical: true, housing: false, carceral: false,
+  utility: false, credit: false, other: '', none: false
+};
 const donationResponse = {
   status: 'succeeded',
   message: 'Your donation has been successfully processed'
@@ -66,6 +70,12 @@ test('allows to skip the payment form and complete flow using zero donation sele
   );
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
   // Give personal information
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
@@ -97,6 +107,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
 
   expect(sendDonationSpy).toHaveBeenCalledWith({
     addressInformation,
+    debtInformation,
     personalInformation: {
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
@@ -149,6 +160,12 @@ test('allows to complete flow using an amount donation selection', async () => {
   );
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
   // Give personal information
   expect(screen.getByText(widgetTitle)).toBeInTheDocument();
   userEvent.type(
@@ -184,6 +201,7 @@ test('allows to complete flow using an amount donation selection', async () => {
 
   expect(sendDonationSpy).toHaveBeenCalledWith({
     addressInformation,
+    debtInformation,
     personalInformation: {
       firstName: personalInformation.firstName,
       lastName: personalInformation.lastName,
@@ -203,6 +221,71 @@ test('allows to complete flow using an amount donation selection', async () => {
     }
   });
 });
+
+test('validates debt information form', async () => {
+  const donationAmount = 5;
+  const widgetTitle = `Paying $${donationAmount}`;
+  render(<MembershipWidget hasChapterSelection />);
+
+  // Select an amount and give address
+  userEvent.click(
+    screen.getByRole('radio', { name: `$${donationAmount} USD/mo` })
+  );
+  userEvent.click(screen.getByRole('button', { name: /pay/i }));
+
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.type(
+    screen.getByRole('textbox', { name: /street/i }),
+    addressInformation.street
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /city/i }),
+    addressInformation.city
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /zip code/i }),
+    addressInformation.zipCode
+  );
+  userEvent.selectOptions(
+    screen.getByRole('combobox', { name: /country/i }),
+    addressInformation.country
+  );
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+  // debt information form
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+
+  // show error message if submitted with no input
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+  expect(
+    await screen.findByText(/select at least one option to continue/i)
+  ).toBeInTheDocument();
+
+  const checkboxes = screen.getAllByRole('checkbox');
+
+  // require text input if 'Other' is checked
+  const otherTextInput = screen.getByRole('textbox');
+  userEvent.click(checkboxes[6]); // check 'Other' option
+  expect(otherTextInput).toBeInvalid();
+  userEvent.type(otherTextInput, 'some text');
+  expect(otherTextInput).toBeValid();
+
+  // uncheck all if 'None' is selected
+  userEvent.click(checkboxes[0]);
+  userEvent.click(checkboxes[1]);
+  expect(checkboxes[0]).toBeChecked();
+  expect(checkboxes[1]).toBeChecked();
+  expect(checkboxes[6]).toBeChecked();
+  userEvent.click(checkboxes[7]); // check 'None' option
+  expect(checkboxes[0]).not.toBeChecked();
+  expect(checkboxes[1]).not.toBeChecked();
+  expect(checkboxes[6]).not.toBeChecked();
+  expect(checkboxes[7]).toBeChecked();
+
+  // continue to next page
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+  expect(screen.getByRole('textbox', { name: 'stripe-mocked-input-element' })).toBeInTheDocument();
+})
 
 test('avoid calling membersip api if the stripe token is missing', async () => {
   const donationAmount = 5;
@@ -243,6 +326,12 @@ test('avoid calling membersip api if the stripe token is missing', async () => {
     screen.getByRole('combobox', { name: /country/i }),
     addressInformation.country
   );
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
   userEvent.click(screen.getByRole('button', { name: /next/i }));
 
   // Give personal information

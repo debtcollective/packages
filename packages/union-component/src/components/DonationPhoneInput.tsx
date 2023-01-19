@@ -15,10 +15,12 @@ const FormControl = styled.div`
 
   .PhoneInputCountry {
     ${tw`absolute top-0 left-0 h-full pl-3`}
+    --PhoneInputCountryFlag-borderColor--focus: #03a9f4; // blue-100
+    --PhoneInputCountrySelectArrow-color--focus: #03a9f4;
   }
 
   .PhoneInputInput {
-    ${tw`w-full h-auto p-3 text-base leading-6 bg-white border rounded-md pl-phoneInputLeft border-beige-500 focus:outline-none focus:border-blue-200`}
+    ${tw`w-full h-auto p-3 text-base leading-6 bg-white border rounded-md pl-phoneInputLeft border-beige-500 focus:outline-none focus:border-blue-100`}
   }
 
   .input-error .PhoneInputInput {

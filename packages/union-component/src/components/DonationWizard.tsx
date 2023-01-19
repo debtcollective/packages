@@ -15,7 +15,7 @@ export const Box = styled.div`
 `;
 
 export const Input = styled.input`
-  ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-200`}
+  ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-100`}
 `;
 
 export const ErrorText = styled.p`
@@ -62,7 +62,7 @@ export const Button = styled.button<ButtonProps>`
       case 'text':
         return tw`font-normal underline`;
       default:
-        return tw`w-full px-4 py-3 font-bold text-center text-white uppercase transition-colors duration-300 rounded bg-primary hover:bg-primary-darker`;
+        return tw`w-full px-4 py-3 font-bold text-center text-white uppercase transition-colors duration-300 rounded bg-jade hover:bg-jade-darker focus:bg-jade-darker`;
     }
   }}
 
@@ -75,7 +75,7 @@ export const Form = styled.form`
   ${tw`p-2 py-3 sm:p-4`}
 
   #stripe-card-element {
-    ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-200`}
+    ${tw`w-full px-3 py-3 bg-white border rounded-md border-beige-500 focus:outline-none focus:border-blue-100`}
   }
 
   button[type='submit'] {
@@ -87,6 +87,58 @@ export const Form = styled.form`
   .form-control + .form-control,
   input + input {
     ${tw`mt-4`}
+  }
+`;
+
+export const Checkbox = styled.input.attrs({ type: "checkbox" })`
+  position: absolute;
+  left: 2.5%;
+  width: 95%;
+  bottom: 7.5%;
+  height: 85%;
+  opacity: 0;
+  z-index: 2;
+  cursor: pointer;
+  + label::before { // checkbox
+    content: "";
+    border: 3px solid #434343 !important;
+    border-radius: 0.25em;
+    background-color: transparent;
+    display: block;
+    box-sizing: border-box;
+    float: left;
+    width: 1.125em;
+    height: 1.125em;
+    position: relative;
+    top: .2em;
+    margin-right: 0.25em;
+  }
+  &:checked + label {
+    ${tw`bg-blue-200`}
+    &::after { // checkmark
+      content: "";
+      position: absolute;
+      display: block;
+      top: 0.67em;
+      left: 1.35em;
+      width: 0.5em;
+      height: 1.33em;
+      border-right: 0.25em solid #000 !important;
+      border-bottom: 0.25em solid #000 !important;
+      transform: rotate(45deg);
+    }
+  }
+  &:focus + label {
+    outline: 5px auto Highlight;
+    outline: 5px auto -webkit-focus-ring-color;
+    z-index: 1;
+  }
+`;
+
+export const CheckboxWrapper = styled.div`
+  ${tw`relative`}
+  label {
+    ${tw`block relative w-full h-full px-3 py-3 text-center text-sm border rounded-md cursor-pointer bg-white-100 border-beige-500`}
   }
 `;
 

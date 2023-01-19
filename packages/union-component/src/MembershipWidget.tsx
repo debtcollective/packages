@@ -8,7 +8,8 @@ import {
   DonationAddressForm,
   DonationThankYou,
   DonationLoading,
-  DonationWizard
+  DonationWizard,
+  DebtInformationForm
 } from './components';
 import { DonationPaymentProvider } from './components/StripeCardInput';
 
@@ -48,7 +49,7 @@ const MembershipWidget: React.FC<Props> = ({
 }) => {
   const [state, send] = useMachine(membershipMachine);
   const { context: machineContext } = state;
-  const { addressInformation, personalInformation } = machineContext;
+  const { addressInformation, personalInformation, debtInformation } = machineContext;
   const machineState: DonationMachineStateValueMap = state.value;
 
   useEffect(() => {
@@ -98,6 +99,21 @@ const MembershipWidget: React.FC<Props> = ({
         data: {
           ...personalInformation,
           ...paymentProvider
+        }
+      }
+    ]);
+  };
+
+  const onSubmitDebtForm = (
+    debtInformation: {
+      [string: string]: unknown;
+    },
+  ) => {
+    send([
+      {
+        type: 'NEXT',
+        data: {
+          ...debtInformation,
         }
       }
     ]);
@@ -164,6 +180,23 @@ const MembershipWidget: React.FC<Props> = ({
           onEditAmount={onEditAmount}
           onSubmit={onSubmitPersonalInfoForm}
           tokenData={getStripeTokenOptions(machineContext)}
+        />
+      )}
+      {machineState.generalInformationForm === 'debtInformationForm' && (
+        <DebtInformationForm
+          amount={machineContext.donationMonthlyAmount}
+          defaultValues={{
+            student: debtInformation.student,
+            medical: debtInformation.medical,
+            housing: debtInformation.housing,
+            carceral: debtInformation.carceral,
+            utility: debtInformation.utility,
+            credit: debtInformation.credit,
+            other: debtInformation.other,
+            none: debtInformation.none
+          }}
+          onEditAmount={onEditAmount}
+          onSubmit={onSubmitDebtForm}
         />
       )}
       {machineState.generalInformationForm === 'addressInformationForm' && (

@@ -4,7 +4,8 @@ import membershipMachine, {
   AddressData,
   MINIMAL_DONATION,
   PaymentServices,
-  PersonalData
+  PersonalData,
+  DebtData
 } from '../membershipMachine';
 
 // Convenient alias for better suite reading
@@ -26,6 +27,11 @@ test('goes into process membership state after filling all information', () => {
     country: faker.address.country()
   };
 
+  const debtInformation: DebtData = {
+    student: true, medical: true, housing: false, carceral: false,
+    utility: false, credit: false, other: '', none: false
+  };
+
   const paymentServices: PaymentServices = {
     // @ts-ignore No need to create real stripe instance
     stripe: { id: 'fake-stripe' },
@@ -44,6 +50,11 @@ test('goes into process membership state after filling all information', () => {
   action = { type: 'NEXT', data: addressInformation };
   machineState = machine.transition(machineState, action);
 
+  // Enter to debt information form
+  // @ts-ignore TODO: solve issue with TS event definition
+  action = { type: 'NEXT', data: debtInformation };
+  machineState = machine.transition(machineState, action);
+
   // Enter to personal information form
   // @ts-ignore TODO: solve issue with TS event definition
   action = {
@@ -55,6 +66,7 @@ test('goes into process membership state after filling all information', () => {
 
   expect(machineState.context).toEqual({
     addressInformation,
+    debtInformation,
     personalInformation: {
       ...personalInformation,
       phoneNumber: personalInformation.phoneNumber.replace(/ /g, '')

@@ -129,7 +129,7 @@ const QuickOption = styled.div`
   ${tw`relative flex items-center w-1/3 ml-1 last:flex-1 sm:ml-2`}
 
   label {
-    ${tw`block w-full px-3 py-3 text-center border rounded-md cursor-pointer bg-white-100 border-beige-500 focus:border-blue-200 focus:outline-none`}
+    ${tw`block w-full px-3 py-3 text-center border rounded-md cursor-pointer bg-white-100 border-beige-500 focus:border-blue-100 focus:outline-none`}
   }
 
   .label-other {

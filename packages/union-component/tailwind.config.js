@@ -11,6 +11,7 @@ module.exports = {
       whitelist: [
         'bg-blue',
         'bg-gray',
+        'bg-jade',
         'bg-green',
         'bg-pink',
         'bg-primary',
@@ -39,6 +40,8 @@ module.exports = {
       blue: '#DBF8FF',
       'blue-100': '#03a9f4',
       'blue-200': '#DBF8FF',
+      jade: '#187c68',
+      'jade-darker': '#146656',
       turquoise: '#7DCCBC',
       green: '#D6FFB8',
       pink: '#FFADA4',
