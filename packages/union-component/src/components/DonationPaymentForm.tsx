@@ -20,6 +20,7 @@ export interface Props {
     firstName: string;
     lastName: string;
     phoneNumber: string;
+    mobileConsent?: boolean;
     email: string;
   };
   hasChapterSelection?: boolean;
@@ -51,14 +52,18 @@ const DonationPaymentForm: React.FC<Props> = ({
     firstName: string;
     lastName: string;
     phoneNumber: string;
+    mobileConsent?: boolean;
   }>({
     ...defaultValues
   });
   const errorMessage = errors?.join(' ');
 
   useEffect(() => {
+    const { email, firstName, lastName, phoneNumber } = formData;
     const readyToSubmit = Boolean(
-      paymentProvider && cardCompleted && Object.values(formData).every(Boolean)
+      paymentProvider && cardCompleted && Object.values(
+        { email, firstName, lastName, phoneNumber }
+      ).every(Boolean)
     );
     setIsSubmitDisabled(!readyToSubmit);
   }, [paymentProvider, formData, cardCompleted]);
@@ -96,6 +101,12 @@ const DonationPaymentForm: React.FC<Props> = ({
     e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
   ) => {
     setFormData((state) => ({ ...state, [e.target.name]: e.target.value }));
+  };
+
+  const onChangeInputCheckbox = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    setFormData(state => ({ ...state, [e.target.name]: e.target.checked }));
   };
 
   const onChangeInputPhone = (phone: string, isValid: boolean) => {
@@ -162,6 +173,15 @@ const DonationPaymentForm: React.FC<Props> = ({
           required
           title="Contact phone number"
         />
+        {defaultValues.mobileConsent !== undefined && (
+          <DonationWizard.CheckboxWrapper className="form-control">
+            <DonationWizard.Checkbox 
+              name="mobileConsent"
+              onChange={onChangeInputCheckbox}
+            />
+            <label>By entering your phone number and checking this box you are subscribing to receive mobile alerts from The Debt Collective about this and future actions.</label>
+          </DonationWizard.CheckboxWrapper>
+        )}
         {hasChapterSelection ? (
           <DonationDropdown
             id="chapter-dropdown"

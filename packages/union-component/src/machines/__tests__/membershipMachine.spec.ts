@@ -17,6 +17,7 @@ test('goes into process membership state after filling all information', () => {
     lastName: faker.name.lastName(),
     email: faker.internet.email('bot', '', 'debtcollective.org'),
     phoneNumber: faker.phone.phoneNumber('+# ### ### ####'),
+    mobileConsent: false,
     chapter: 'massachusetts'
   };
 
