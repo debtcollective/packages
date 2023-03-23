@@ -22,6 +22,7 @@ export const membershipMachineContext = {
     lastName: '',
     email: '',
     phoneNumber: '',
+    mobileConsent: false,
     chapter: ''
   },
   debtInformation: {
@@ -66,6 +67,7 @@ export type PersonalData = {
   lastName: string;
   email: string;
   phoneNumber: string;
+  mobileConsent: boolean;
   chapter:
     | 'pennsylvania'
     | 'massachusetts'
@@ -140,7 +142,7 @@ const actions = {
   }),
   updatePayeeInformation: assign<MembershipMachineContext, PersonalNextEvent>({
     personalInformation: (context, event) => {
-      const { firstName, lastName, email, phoneNumber } = event.data;
+      const { firstName, lastName, email, phoneNumber, mobileConsent } = event.data;
       const phoneE164 = `+${phoneNumber.replace(/\D/g, '')}`;
 
       return {
@@ -148,7 +150,8 @@ const actions = {
         firstName,
         lastName,
         email,
-        phoneNumber: phoneE164
+        phoneNumber: phoneE164,
+        mobileConsent
       };
     }
   }),

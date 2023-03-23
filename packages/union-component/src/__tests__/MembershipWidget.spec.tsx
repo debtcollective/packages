@@ -13,7 +13,8 @@ const personalInformation = {
   firstName: faker.name.findName(),
   lastName: faker.name.lastName(),
   email: faker.internet.email('bot', '', 'debtcollective.org'),
-  phoneNumber: '(543) 232-1234'
+  phoneNumber: '(543) 232-1234',
+  mobileConsent: false
 };
 const addressInformation = {
   street: faker.address.streetAddress(),
@@ -113,6 +114,7 @@ test('allows to skip the payment form and complete flow using zero donation sele
       lastName: personalInformation.lastName,
       email: personalInformation.email,
       phoneNumber: `+1${personalInformation.phoneNumber.replace(/\D/g, '')}`,
+      mobileConsent: personalInformation.mobileConsent,
       // As we remove chapter selection
       chapter: undefined
     },
@@ -207,6 +209,7 @@ test('allows to complete flow using an amount donation selection', async () => {
       lastName: personalInformation.lastName,
       email: personalInformation.email,
       phoneNumber: `+1${personalInformation.phoneNumber.replace(/\D/g, '')}`,
+      mobileConsent: personalInformation.mobileConsent,
       // As we remove chapter selection
       chapter: undefined
     },
@@ -285,6 +288,104 @@ test('validates debt information form', async () => {
   // continue to next page
   userEvent.click(screen.getByRole('button', { name: /next/i }));
   expect(screen.getByRole('textbox', { name: 'stripe-mocked-input-element' })).toBeInTheDocument();
+})
+
+test('completes flow when opting in to receive texts', async () => {
+  const donationAmount = 10;
+  const widgetTitle = `Paying $${donationAmount}`;
+  render(<MembershipWidget hasChapterSelection />);
+
+  // Select an amount and give address
+  userEvent.click(
+    screen.getByRole('radio', { name: `$${donationAmount} USD/mo` })
+  );
+  userEvent.click(screen.getByRole('button', { name: /pay/i }));
+
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.type(
+    screen.getByRole('textbox', { name: /street/i }),
+    addressInformation.street
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /city/i }),
+    addressInformation.city
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /zip code/i }),
+    addressInformation.zipCode
+  );
+  userEvent.selectOptions(
+    screen.getByRole('combobox', { name: /country/i }),
+    addressInformation.country
+  );
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+  // Give debt information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.click(screen.getAllByRole('checkbox')[0]);
+  userEvent.click(screen.getAllByRole('checkbox')[1]);
+  userEvent.click(screen.getByRole('button', { name: /next/i }));
+
+  // Give personal information
+  expect(screen.getByText(widgetTitle)).toBeInTheDocument();
+  userEvent.type(
+    screen.getByRole('textbox', { name: /first name/i }),
+    personalInformation.firstName
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /last name/i }),
+    personalInformation.lastName
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /email/i }),
+    personalInformation.email
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: /phone/i }),
+    personalInformation.phoneNumber
+  );
+
+  const checkbox = screen.getByRole('checkbox');
+  userEvent.click(checkbox)
+  expect(checkbox).toBeChecked();
+
+  userEvent.selectOptions(
+    screen.getByRole('combobox', { name: /chapter/i }),
+    'massachusetts'
+  );
+  userEvent.type(
+    screen.getByRole('textbox', { name: 'stripe-mocked-input-element' }),
+    faker.finance.creditCardNumber()
+  );
+
+  const submitBtn = screen.getByRole('button', { name: /next/i });
+  expect(submitBtn).not.toBeDisabled();
+  userEvent.click(submitBtn);
+
+  expect(await screen.findByText(/gotten your help/i)).toBeInTheDocument();
+
+  expect(sendDonationSpy).toHaveBeenCalledWith({
+    addressInformation,
+    debtInformation,
+    personalInformation: {
+      firstName: personalInformation.firstName,
+      lastName: personalInformation.lastName,
+      email: personalInformation.email,
+      phoneNumber: `+1${personalInformation.phoneNumber.replace(/\D/g, '')}`,
+      mobileConsent: true,
+      // As we remove chapter selection
+      chapter: undefined
+    },
+    api: {
+      donation: undefined
+    },
+    donationType: 'month',
+    donationMonthlyAmount: donationAmount,
+    paymentServices: {
+      stripe: expect.any(Object),
+      stripeToken: expect.any(Object)
+    }
+  });
 })
 
 test('avoid calling membersip api if the stripe token is missing', async () => {

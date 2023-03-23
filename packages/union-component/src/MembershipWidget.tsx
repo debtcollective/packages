@@ -174,7 +174,8 @@ const MembershipWidget: React.FC<Props> = ({
             email: personalInformation.email,
             firstName: personalInformation.firstName,
             lastName: personalInformation.lastName,
-            phoneNumber: personalInformation.phoneNumber
+            phoneNumber: personalInformation.phoneNumber,
+            mobileConsent: personalInformation.mobileConsent
           }}
           hasChapterSelection={hasChapterSelection}
           onEditAmount={onEditAmount}
