@@ -9,7 +9,7 @@
           "type": "LINK_FONT_ICON",
           "text": "Membership",
           "figure": "account_circle",
-          "url": "https://membership.debtcollective.org/membership"
+          "url": "https://debtcollective.org/for-members/"
         },
 
         {
@@ -22,7 +22,7 @@
           "type": "LINK_FONT_ICON",
           "text": "My Disputes",
           "figure": "money_off",
-          "url": "https://tools.debtcollective.org/disputes/my"
+          "url": "https://debtcollective.org/what-we-do/campaigns/"
         }
       ]
     },
@@ -69,7 +69,7 @@
   "guestActions": [
     {
       "type": "LINK_BUTTON_OUTLINE",
-      "text": "Member login",
+      "text": "Community login",
       "url": "{community}/session/sso_cookies?return_url={return_url}"
     },
     {
